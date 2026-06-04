@@ -678,14 +678,21 @@ body {
 }
 
 /* ── 文章页（posts） ── */
-body:has(.post-article) .quarto-title-banner {
+body:has(.post-article) .quarto-title-banner,
+body:has(.post-article) #title-block-header {
   display: none !important;
+}
+
+body:has(.post-article) #quarto-content main.content {
+  padding-left: max(var(--pad), 5vw);
+  padding-right: max(var(--pad), 5vw);
+  box-sizing: border-box;
 }
 
 .post-article {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 2.5rem var(--pad) 4rem;
+  padding: 2.5rem 0 4rem;
 }
 
 .post-article .post-kicker {
@@ -1012,6 +1019,19 @@ body:has(.post-article) .quarto-title-banner {
 @media (max-width: 720px) {
   :root {
     --pad: 1.25rem;
+  }
+
+  body:has(.post-article) {
+    --pad: 1.5rem;
+  }
+
+  body:has(.post-article) #quarto-content main.content {
+    padding-left: max(1.5rem, 6vw);
+    padding-right: max(1.5rem, 6vw);
+  }
+
+  body:has(.post-article) .post-article {
+    padding-top: 1.75rem;
   }
 
   .masthead-inner {
