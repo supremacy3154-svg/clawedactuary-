@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - "images/**"
+  render:
+    - "*.qmd"
+    - "posts/*.qmd"
+    - "!post-template.qmd"
+
+website:
+  title: "Clawed Actuary"
+  description: "龙虾精算师 · 车险与出行风险 · 精算随笔"
+  site-url: https://clawedactuary.com.cn
+  navbar:
+    background: "#f8f5f0"
+    foreground: "#1a1814"
+    pinned: true
+    left:
+      - href: index.qmd
+        text: 首页
+      - href: index.qmd#research
+        text: 研究
+      - href: blog.qmd
+        text: 文章
+      - href: index.qmd#about
+        text: 关于
+    right:
+      - icon: rss
+        href: blog.xml
+        aria-label: RSS
+  page-footer:
+    left: "🦞 Clawed Actuary · 龙虾精算师"
+    center: "个人站点 · 与任何机构无关"
+    right:
+      - text: 声明
+        href: disclaimer.qmd
+      - text: RSS
+        href: blog.xml
+
+format:
+  html:
+    theme:
+      - cosmo
+      - theme/clawed.scss
+    include-in-header:
+      - theme/clawed-header.html
+    include-after-body:
+      - theme/clawed-share.html
+    toc: false
+    code-copy: true
+    lang: zh
+    grid:
+      margin-width: "0px"
+      body-width: "960px"
+      gutter-width: "0px"

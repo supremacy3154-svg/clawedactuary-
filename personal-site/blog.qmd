@@ -1,0 +1,36 @@
+---
+pagetitle: "文章"
+title: ""
+format:
+  html:
+    toc: false
+listing:
+  id: blog-listing
+  type: default
+  contents: posts
+  sort: "date desc"
+  categories: true
+  feed: true
+  fields: [date, title, description, categories]
+  field-display-names:
+    title: "标题"
+    date: "日期"
+    description: "摘要"
+    categories: "标签"
+---
+
+::: {.clawed-wrap .clawed-page}
+
+<div class="section-head">
+
+# 文章 {.section-title}
+
+<span class="section-meta">RSS · <a href="blog.xml">订阅</a></span>
+
+</div>
+
+::: {#blog-listing}
+:::
+
+
+:::

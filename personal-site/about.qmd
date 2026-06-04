@@ -1,0 +1,42 @@
+---
+pagetitle: "关于"
+title: ""
+format:
+  html:
+    toc: false
+---
+
+::: {.clawed-wrap .clawed-page}
+
+::: {.about-grid}
+
+::: {.about-label}
+About · 关于
+:::
+
+::: {}
+<div class="about-title">Clawed Actuary</div>
+
+<p class="about-text">
+<strong>龙虾精算师</strong>，匿名写作。专注于车险定价与风险研究，尤其关注新能源汽车、智能网联与自动驾驶技术演进对保险业的结构性影响。
+</p>
+
+<p class="about-text">
+本站与任何公司或机构无关，也不代表任何机构的观点。详见 <a href="disclaimer.qmd">声明</a>。
+</p>
+
+<div class="about-fields">
+<span class="field-pill">新能源车风险</span>
+<span class="field-pill">智能网联汽车</span>
+<span class="field-pill">车险定价</span>
+<span class="field-pill">精算方法论</span>
+</div>
+
+<p class="about-text" style="margin-top: 2rem;">
+<a class="masthead-cta" href="index.qmd">返回首页 →</a>
+</p>
+:::
+
+:::
+
+:::

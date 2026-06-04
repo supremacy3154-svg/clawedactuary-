@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clawed Actuary · 龙虾精算师 (design draft)</title>
+<!-- 生产站点见 Quarto：index.qmd + theme/clawed.scss，运行 deploy.sh 构建 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-2: #4a4740;
+    --ink-3: #8a8680;
+    --ink-4: #bab6b0;
+    --paper: #f8f5f0;
+    --paper-2: #f0ece5;
+    --rule: rgba(26,24,20,0.15);
+    --rule-strong: rgba(26,24,20,0.7);
+    --accent: #8b2020;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'EB Garamond', Georgia, serif;
+    --font-mono: 'Space Mono', 'Courier New', monospace;
+    --max: 960px;
+    --pad: 2.5rem;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--ink); color: var(--paper); }
+
+  /* ── Layout ── */
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+  /* ── Nav ── */
+  .nav {
+    border-bottom: 1.5px solid var(--ink);
+    position: sticky; top: 0; z-index: 100;
+    background: var(--paper);
+  }
+  .nav-inner {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 1.25rem 0 1rem;
+  }
+  .nav-brand {
+    display: flex; flex-direction: column; gap: 0.1rem;
+  }
+  .nav-brand-en {
+    font-family: var(--font-display);
+    font-size: 17px; font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  .nav-brand-zh {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.25em;
+    color: var(--ink-3); text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--ink-3); text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── Masthead ── */
+  .masthead {
+    padding: 4rem 0 3rem;
+    border-bottom: 0.5px solid var(--rule-strong);
+  }
+  .masthead-inner {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: end;
+  }
+  .masthead-kicker {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.3em;
+    color: var(--ink-3); text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .masthead-kicker::after {
+    content: ''; flex: 0 0 40px;
+    height: 0.5px; background: var(--ink-3);
+  }
+  .masthead-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 400; line-height: 1.1;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.01em;
+  }
+  .masthead-title em { font-style: italic; color: var(--accent); }
+  .masthead-desc {
+    font-size: 16px; line-height: 1.85;
+    color: var(--ink-2); max-width: 520px;
+    margin-bottom: 2rem;
+  }
+  .masthead-cta {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .masthead-cta:hover { color: var(--accent); border-color: var(--accent); }
+  .masthead-sidebar { border-left: 0.5px solid var(--rule); padding-left: 2.5rem; }
+  .sidebar-label {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 1rem;
+  }
+  .sidebar-item {
+    display: grid; grid-template-columns: 22px 1fr auto;
+    gap: 0.75rem; align-items: baseline;
+    padding: 0.85rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .sidebar-item:first-of-type { border-top: 0.5px solid var(--rule); }
+  .sidebar-item:hover .si-title { color: var(--accent); }
+  .si-num {
+    font-family: var(--font-display);
+    font-style: italic; font-size: 13px;
+    color: var(--ink-4); line-height: 1;
+  }
+  .si-title { font-size: 13.5px; line-height: 1.4; color: var(--ink); }
+  .si-tag {
+    font-family: var(--font-mono);
+    font-size: 8.5px; color: var(--ink-3); white-space: nowrap;
+  }
+
+  /* ── Section Header ── */
+  .section {
+    padding: 3.5rem 0;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .section:last-of-type { border-bottom: none; }
+  .section-head {
+    display: flex; justify-content: space-between;
+    align-items: baseline; margin-bottom: 2.5rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 26px; font-weight: 400; font-style: italic;
+  }
+  .section-meta {
+    font-family: var(--font-mono);
+    font-size: 10px; color: var(--ink-3); letter-spacing: 0.1em;
+  }
+  .section-meta a:hover { color: var(--ink); }
+
+  /* ── Featured Paper ── */
+  .featured-paper {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: start;
+    padding-bottom: 2.5rem;
+    border-bottom: 0.5px solid var(--rule);
+    margin-bottom: 2.5rem;
+  }
+  .fp-roman {
+    font-family: var(--font-display);
+    font-style: italic; font-size: 72px;
+    font-weight: 400; line-height: 1;
+    color: var(--rule); margin-bottom: 1.25rem;
+  }
+  .fp-type {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-3);
+    margin-bottom: 0.6rem;
+  }
+  .fp-title {
+    font-family: var(--font-display);
+    font-size: 20px; font-weight: 400; line-height: 1.3;
+    margin-bottom: 0.85rem;
+  }
+  .fp-venue {
+    font-style: italic; font-size: 14px;
+    color: var(--ink-3); margin-bottom: 1rem;
+  }
+  .fp-abstract {
+    font-size: 14.5px; line-height: 1.8;
+    color: var(--ink-2); margin-bottom: 1.25rem;
+  }
+  .fp-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.12em;
+    border: 0.5px solid var(--rule-strong);
+    padding: 3px 9px; color: var(--ink-2);
+  }
+  .fp-right { border-left: 0.5px solid var(--rule); padding-left: 3rem; }
+
+  /* ── Paper List ── */
+  .papers { display: flex; flex-direction: column; }
+  .paper {
+    display: grid; grid-template-columns: 56px 1fr 80px;
+    gap: 1.5rem; padding: 1.5rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: start;
+  }
+  .paper:first-child { border-top: 0.5px solid var(--rule); }
+  .p-num {
+    font-family: var(--font-display);
+    font-style: italic; font-size: 32px;
+    font-weight: 400; color: var(--ink-4); line-height: 1;
+    padding-top: 3px;
+  }
+  .p-body {}
+  .p-type {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-3);
+    margin-bottom: 0.4rem;
+  }
+  .p-title {
+    font-family: var(--font-display);
+    font-size: 17px; font-weight: 400; line-height: 1.35;
+    margin-bottom: 0.45rem;
+    transition: color 0.15s; cursor: pointer;
+  }
+  .p-title:hover { color: var(--accent); }
+  .p-venue {
+    font-style: italic; font-size: 13.5px;
+    color: var(--ink-3); margin-bottom: 0.5rem;
+  }
+  .p-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+  .p-year {
+    font-family: var(--font-mono);
+    font-size: 11px; color: var(--ink-3);
+    text-align: right; padding-top: 5px;
+  }
+
+  /* ── Articles Grid ── */
+  .articles {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 3rem;
+  }
+  .article { border-top: 1.5px solid var(--ink); padding-top: 1.25rem; cursor: pointer; }
+  .article:hover .a-title { color: var(--accent); }
+  .a-kicker {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-3);
+    margin-bottom: 0.75rem;
+  }
+  .a-title {
+    font-family: var(--font-display);
+    font-size: 19px; font-weight: 400; line-height: 1.3;
+    margin-bottom: 0.85rem;
+    transition: color 0.2s;
+  }
+  .a-title em { font-style: italic; }
+  .a-excerpt {
+    font-size: 14px; line-height: 1.75;
+    color: var(--ink-2); margin-bottom: 1.1rem;
+  }
+  .a-foot {
+    display: flex; justify-content: space-between;
+    align-items: baseline;
+  }
+  .a-date {
+    font-family: var(--font-mono);
+    font-size: 10px; color: var(--ink-3);
+  }
+  .a-readtime {
+    font-family: var(--font-mono);
+    font-size: 10px; color: var(--ink-4);
+  }
+
+  /* ── About ── */
+  .about-grid {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 3rem;
+  }
+  .about-label {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--ink-3);
+    padding-top: 4px;
+  }
+  .about-content {}
+  .about-title {
+    font-family: var(--font-display);
+    font-size: 22px; font-style: italic; font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .about-text {
+    font-size: 16px; line-height: 1.9;
+    color: var(--ink-2); max-width: 560px;
+    margin-bottom: 1.5rem;
+  }
+  .about-text strong { font-weight: 500; color: var(--ink); }
+  .about-fields {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 1.25rem;
+  }
+  .field-pill {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.1em;
+    border: 0.5px solid var(--rule-strong);
+    padding: 4px 12px; color: var(--ink-2);
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1.5px solid var(--ink);
+    padding: 1.5rem 0;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-family: var(--font-display);
+    font-style: italic; font-size: 15px;
+    color: var(--ink-3);
+  }
+  .footer-right {
+    display: flex; gap: 2rem; align-items: center;
+  }
+  .footer-right a, .footer-right span {
+    font-family: var(--font-mono);
+    font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--ink-4);
+  }
+  .footer-right a:hover { color: var(--ink); }
+
+  /* ── Divider ── */
+  .rule { height: 0.5px; background: var(--rule); margin: 0; }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .masthead-title { animation: fadeUp 0.7s ease both; }
+  .masthead-desc  { animation: fadeUp 0.7s 0.1s ease both; }
+  .masthead-cta   { animation: fadeUp 0.7s 0.2s ease both; }
+  .masthead-sidebar { animation: fadeUp 0.7s 0.15s ease both; }
+
+  /* ── Lobster mark ── */
+  .lobster-mark {
+    display: inline-block;
+    font-size: 18px; margin-right: 0.3rem;
+    vertical-align: -2px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 720px) {
+    :root { --pad: 1.25rem; }
+    .masthead-inner { grid-template-columns: 1fr; }
+    .masthead-sidebar { border-left: none; padding-left: 0; border-top: 0.5px solid var(--rule); padding-top: 2rem; }
+    .featured-paper { grid-template-columns: 1fr; }
+    .fp-right { border-left: none; padding-left: 0; border-top: 0.5px solid var(--rule); padding-top: 2rem; }
+    .articles { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .paper { grid-template-columns: 40px 1fr 60px; gap: 1rem; }
+    .nav-links { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-brand">
+      <span class="nav-brand-en"><span class="lobster-mark">🦞</span>Clawed Actuary</span>
+      <span class="nav-brand-zh">龙虾精算师</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#research">研究</a>
+      <a href="#articles">文章</a>
+      <a href="#about">关于</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MASTHEAD / HERO -->
+<section class="masthead">
+  <div class="wrap masthead-inner">
+    <div>
+      <div class="masthead-kicker">Featured Research · 近期研究</div>
+      <h1 class="masthead-title">
+        新能源车险的<br>
+        <em>定价范式转移</em>：<br>
+        从历史经验到<br>
+        实时风险感知
+      </h1>
+      <p class="masthead-desc">
+        传统精算模型依赖大量历史损失数据，而新能源车正以全新的物理损耗逻辑、驾驶行为模式与科技迭代速度重写风险图谱，倒逼定价体系完成一次根本性重构。
+      </p>
+      <a class="masthead-cta" href="#">阅读全文 →</a>
+    </div>
+    <div class="masthead-sidebar">
+      <div class="sidebar-label">本站索引 · Index</div>
+      <div class="sidebar-item">
+        <span class="si-num">i.</span>
+        <span class="si-title">L3自动驾驶责任归属的精算框架</span>
+        <span class="si-tag">研究</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="si-num">ii.</span>
+        <span class="si-title">极端气候对准备金充足性的长周期影响</span>
+        <span class="si-tag">研究</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="si-num">iii.</span>
+        <span class="si-title">UBI车险落地的制度性障碍</span>
+        <span class="si-tag">文章</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="si-num">iv.</span>
+        <span class="si-title">贸易摩擦与零配件成本的传导路径</span>
+        <span class="si-tag">文章</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="si-num">v.</span>
+        <span class="si-title">碳价机制能否纳入车险定价</span>
+        <span class="si-tag">评论</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section" id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">研究成果</h2>
+      <span class="section-meta">05 篇</span>
+    </div>
+
+    <!-- Featured -->
+    <div class="featured-paper">
+      <div>
+        <div class="fp-roman">I</div>
+        <div class="fp-type">Working Paper · 工作论文</div>
+        <div class="fp-title">新能源汽车电池损耗曲线与保险定价的动态耦合机制研究</div>
+        <div class="fp-venue">中国精算师协会年会论文集，2025</div>
+        <div class="fp-abstract">
+          本文构建了一个以电池健康度（SOH）为核心变量的动态定价模型，通过将实时电池衰退数据引入精算框架，探讨新能源车险在产品生命周期内的风险定价逻辑，并对现行政策提出若干制度建议。
+        </div>
+        <div class="fp-tags">
+          <span class="tag">新能源风险</span>
+          <span class="tag">定价模型</span>
+          <span class="tag">电池健康度</span>
+          <span class="tag">SOH</span>
+        </div>
+        <a class="masthead-cta" href="#">下载论文 →</a>
+      </div>
+      <div class="fp-right">
+        <div class="fp-roman">II</div>
+        <div class="fp-type">研究报告 · Research Report</div>
+        <div class="fp-title">智能网联汽车OTA升级引发的保险责任变迁：法律与精算的双重视角</div>
+        <div class="fp-venue">精算研究内部报告，2025</div>
+        <div class="fp-abstract">
+          OTA远程升级改变了汽车风险的静态性假设。本研究从法律责任认定与精算建模两条主线出发，讨论保险合同条款如何应对软件定义汽车时代的责任模糊性。
+        </div>
+        <div class="fp-tags">
+          <span class="tag">智能驾驶</span>
+          <span class="tag">OTA升级</span>
+          <span class="tag">责任认定</span>
+        </div>
+        <a class="masthead-cta" href="#">下载报告 →</a>
+      </div>
+    </div>
+
+    <!-- Paper list -->
+    <div class="papers">
+      <div class="paper">
+        <div class="p-num">III</div>
+        <div class="p-body">
+          <div class="p-type">会议论文 · Conference Paper</div>
+          <div class="p-title">华南极端降水事件的车险理赔空间集聚效应与区域差异化定价</div>
+          <div class="p-venue">中国保险学会学术年会，2024</div>
+          <div class="p-tags">
+            <span class="tag">气候风险</span>
+            <span class="tag">巨灾模型</span>
+            <span class="tag">区域定价</span>
+          </div>
+        </div>
+        <div class="p-year">2024</div>
+      </div>
+      <div class="paper">
+        <div class="p-num">IV</div>
+        <div class="p-body">
+          <div class="p-type">研究报告 · Research Report</div>
+          <div class="p-title">经济下行周期中的车险赔付行为变化及其对综合成本率的影响</div>
+          <div class="p-venue">精算研究内部报告，2024</div>
+          <div class="p-tags">
+            <span class="tag">宏观因素</span>
+            <span class="tag">赔付行为</span>
+            <span class="tag">综合成本率</span>
+          </div>
+        </div>
+        <div class="p-year">2024</div>
+      </div>
+      <div class="paper">
+        <div class="p-num">V</div>
+        <div class="p-body">
+          <div class="p-type">Working Paper · 工作论文</div>
+          <div class="p-title">UBI车险在中国市场落地的制度性障碍与破局路径：基于监管、数据与消费者行为的三维分析</div>
+          <div class="p-venue">中国精算师协会年会论文集，2023</div>
+          <div class="p-tags">
+            <span class="tag">UBI</span>
+            <span class="tag">行为定价</span>
+            <span class="tag">监管框架</span>
+          </div>
+        </div>
+        <div class="p-year">2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="section" id="articles">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">近期文章</h2>
+      <span class="section-meta"><a href="#">全部文章 →</a></span>
+    </div>
+    <div class="articles">
+
+      <div class="article">
+        <div class="a-kicker">深度 · 新能源风险</div>
+        <div class="a-title">增程式车型的碰撞修复<em>成本异常溢价</em>解析</div>
+        <div class="a-excerpt">为何增程车型的修复成本显著高于同级燃油车？从传感器密度、铝制车身占比到供应链垄断，溢价背后有一套完整的结构逻辑。</div>
+        <div class="a-foot">
+          <span class="a-date">2025.12.01</span>
+          <span class="a-readtime">8 min read</span>
+        </div>
+      </div>
+
+      <div class="article">
+        <div class="a-kicker">观点 · 宏观因素</div>
+        <div class="a-title">关税壁垒如何重写<em>进口车零配件</em>的风险地图</div>
+        <div class="a-excerpt">国际贸易摩擦的波动正在通过供应链传导至车险定价端。这不只是一个成本问题，更是关于风险不确定性的深层命题。</div>
+        <div class="a-foot">
+          <span class="a-date">2025.11.15</span>
+          <span class="a-readtime">6 min read</span>
+        </div>
+      </div>
+
+      <div class="article">
+        <div class="a-kicker">分析 · 智能驾驶</div>
+        <div class="a-title">自动驾驶越安全，<em>保险越难做</em>——悖论的精算解法</div>
+        <div class="a-excerpt">当事故率趋近于零，传统以损失频率为核心的定价模型将面临根本性失效。精算师需要重新定义「风险」的概念边界。</div>
+        <div class="a-foot">
+          <span class="a-date">2025.10.28</span>
+          <span class="a-readtime">10 min read</span>
+        </div>
+      </div>
+
+      <div class="article">
+        <div class="a-kicker">评论 · 气候风险</div>
+        <div class="a-title">碳价机制能否被纳入<em>车险定价</em>？一次思想实验</div>
+        <div class="a-excerpt">如果碳排放的外部成本被内化为保费，将对不同车型的竞争格局产生何种影响？这是一个关于政策、经济与精算的交叉问题。</div>
+        <div class="a-foot">
+          <span class="a-date">2025.09.10</span>
+          <span class="a-readtime">5 min read</span>
+        </div>
+      </div>
+
+      <div class="article">
+        <div class="a-kicker">笔记 · 方法论</div>
+        <div class="a-title">当<em>大语言模型</em>遇上精算建模：可能性与边界</div>
+        <div class="a-excerpt">AI工具正在进入精算工作流程。本文尝试梳理LLM在损失预测、条款解析与情景模拟中的应用潜力，以及它永远无法替代的部分。</div>
+        <div class="a-foot">
+          <span class="a-date">2025.08.22</span>
+          <span class="a-readtime">7 min read</span>
+        </div>
+      </div>
+
+      <div class="article">
+        <div class="a-kicker">深度 · 智能网联</div>
+        <div class="a-title">车路云一体化落地后，<em>交通事故责任</em>将归属于谁</div>
+        <div class="a-excerpt">当道路基础设施本身成为驾驶决策的参与者，现行的侵权责任框架将面临前所未有的归责困境，保险产品设计亦须随之重构。</div>
+        <div class="a-foot">
+          <span class="a-date">2025.07.05</span>
+          <span class="a-readtime">9 min read</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="about-label">About · 关于</div>
+    <div class="about-content">
+      <div class="about-title">Clawed Actuary</div>
+      <p class="about-text">
+        <strong>龙虾精算师</strong>，匿名写作。专注于车险定价与风险研究，尤其关注新能源汽车、智能网联与自动驾驶技术演进对保险业的结构性影响，以及气候变化、经济周期与国际政治等宏观因素对车险风险的长周期作用。
+      </p>
+      <p class="about-text">
+        本站记录独立研究与个人思考。所有观点均为作者个人立场，与任何机构无关。
+      </p>
+      <div class="about-fields">
+        <span class="field-pill">新能源车风险</span>
+        <span class="field-pill">智能网联汽车</span>
+        <span class="field-pill">智能驾驶技术</span>
+        <span class="field-pill">气候风险</span>
+        <span class="field-pill">宏观经济因素</span>
+        <span class="field-pill">车险定价</span>
+        <span class="field-pill">精算方法论</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <span class="footer-brand">🦞 Clawed Actuary · 龙虾精算师</span>
+    <div class="footer-right">
+      <a href="#">RSS</a>
+      <a href="#">邮件订阅</a>
+      <span>© 2025</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

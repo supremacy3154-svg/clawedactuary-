@@ -1,0 +1,142 @@
+<script>
+(function () {
+  if (!/\/posts\//.test(window.location.pathname)) return;
+
+  function ready(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  ready(function () {
+    var host = document.querySelector(".post-article");
+    if (!host) return;
+
+    var url = window.location.href.split("#")[0];
+    var title =
+      (document.querySelector(".post-title") &&
+        document.querySelector(".post-title").textContent.trim()) ||
+      document.title;
+
+    var bar = document.createElement("div");
+    bar.className = "post-share";
+    bar.setAttribute("aria-label", "分享");
+    bar.innerHTML =
+      '<div class="post-share-label">分享</div>' +
+      '<div class="post-share-actions">' +
+      '<button type="button" class="post-share-btn" data-action="wechat" title="微信扫码打开">微信</button>' +
+      '<button type="button" class="post-share-btn" data-action="moments" title="复制链接后到朋友圈粘贴">朋友圈</button>' +
+      '<button type="button" class="post-share-btn" data-action="copy" title="复制链接">复制链接</button>' +
+      "</div>" +
+      '<p class="post-share-hint">微信无网页直分享接口；扫码或复制链接后，在微信内打开再转发。</p>';
+
+    var modal = document.createElement("div");
+    modal.className = "post-share-modal";
+    modal.hidden = true;
+    modal.innerHTML =
+      '<div class="post-share-modal-backdrop" data-close="1"></div>' +
+      '<div class="post-share-modal-panel" role="dialog" aria-modal="true" aria-labelledby="post-share-modal-title">' +
+      '<button type="button" class="post-share-modal-close" data-close="1" aria-label="关闭">×</button>' +
+      '<div id="post-share-modal-title" class="post-share-modal-title">微信扫码阅读</div>' +
+      '<img class="post-share-qr" alt="页面二维码" width="200" height="200">' +
+      '<p class="post-share-modal-url"></p>' +
+      "</div>";
+
+    document.body.appendChild(modal);
+
+    var note = host.querySelector(".post-note");
+    if (note) {
+      host.insertBefore(bar, note);
+    } else {
+      host.appendChild(bar);
+    }
+
+    var toast = document.createElement("div");
+    toast.className = "post-share-toast";
+    toast.hidden = true;
+    document.body.appendChild(toast);
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.hidden = false;
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(function () {
+        toast.hidden = true;
+      }, 2600);
+    }
+
+    function copyLink() {
+      var text = url;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text).then(function () {
+          showToast("链接已复制");
+        });
+      }
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        showToast("链接已复制");
+      } catch (e) {
+        showToast("请手动复制地址栏链接");
+      }
+      document.body.removeChild(ta);
+      return Promise.resolve();
+    }
+
+    function openWechatQr() {
+      var qr = modal.querySelector(".post-share-qr");
+      var urlEl = modal.querySelector(".post-share-modal-url");
+      qr.src =
+        "https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=" +
+        encodeURIComponent(url);
+      urlEl.textContent = url;
+      modal.hidden = false;
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+    }
+
+    bar.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-action]");
+      if (!btn) return;
+      var action = btn.getAttribute("data-action");
+      if (action === "copy") copyLink();
+      if (action === "wechat") openWechatQr();
+      if (action === "moments") {
+        copyLink().then(function () {
+          showToast("已复制链接，请打开微信 → 朋友圈 → 粘贴分享");
+        });
+      }
+    });
+
+    modal.addEventListener("click", function (e) {
+      if (e.target.closest("[data-close]")) closeModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) closeModal();
+    });
+
+    if (navigator.share) {
+      var nativeBtn = document.createElement("button");
+      nativeBtn.type = "button";
+      nativeBtn.className = "post-share-btn";
+      nativeBtn.textContent = "更多";
+      nativeBtn.title = "系统分享菜单";
+      nativeBtn.addEventListener("click", function () {
+        navigator
+          .share({ title: title, url: url })
+          .catch(function () {});
+      });
+      bar.querySelector(".post-share-actions").appendChild(nativeBtn);
+    }
+  });
+})();
+</script>

@@ -1,0 +1,19 @@
+---
+pagetitle: "声明"
+title: ""
+format:
+  html:
+    toc: false
+---
+
+::: {.clawed-wrap .clawed-page}
+
+# 声明 {.section-title style="font-style: italic; margin-bottom: 1.5rem;"}
+
+本站文章为个人学习与记录，**不构成**保险购买、理赔、定价或职业决策建议。涉及规则与数据时，请以监管机构和官方渠道为准。
+
+本站与任何雇主或商业机构无关联；文责自负。
+
+<p style="margin-top: 2rem;"><a class="masthead-cta" href="index.qmd">返回首页 →</a></p>
+
+:::

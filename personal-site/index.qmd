@@ -1,0 +1,193 @@
+---
+pagetitle: "Clawed Actuary · 龙虾精算师"
+title: ""
+format:
+  html:
+    toc: false
+listing:
+  id: recent-articles
+  type: default
+  contents: posts
+  sort: "date desc"
+  max-items: 6
+  fields: [date, title, description, categories]
+  field-display-names:
+    title: "标题"
+    date: "日期"
+    description: "摘要"
+    categories: "标签"
+---
+
+```{=html}
+<section class="masthead">
+  <div class="clawed-wrap masthead-inner">
+    <div>
+      <div class="masthead-kicker">Featured · 精选</div>
+      <h1 class="masthead-title">
+        比亚迪智驾兜底：<br>
+        从发布会狂欢到<br>
+        <em>首例理赔后</em>的<br>
+        舆论反转
+      </h1>
+      <p class="masthead-desc">
+        两期 15,843 条抖音评论：正面占比 24.8% 跌至 9.8%。统筹式非保险兜底、约亿元量级的可控成本——对比亚迪是极其成功的营销，对消费者却不等于无条件利好。
+      </p>
+      <a class="masthead-cta" href="posts/2026-06-04-byd-zhijia-douyin-opinion.html">阅读全文 →</a>
+    </div>
+    <div class="masthead-sidebar">
+      <div class="sidebar-label">本站索引 · Index</div>
+      <a class="sidebar-item" href="posts/2026-06-04-byd-zhijia-douyin-opinion.html">
+        <span class="si-num">i.</span>
+        <span class="si-title">智驾兜底：发布会与理赔后舆论反转</span>
+        <span class="si-tag">文章</span>
+      </a>
+      <a class="sidebar-item" href="#research">
+        <span class="si-num">ii.</span>
+        <span class="si-title">研究成果索引（规划）</span>
+        <span class="si-tag">研究</span>
+      </a>
+      <a class="sidebar-item" href="#articles">
+        <span class="si-num">iii.</span>
+        <span class="si-title">近期文章列表</span>
+        <span class="si-tag">文章</span>
+      </a>
+      <a class="sidebar-item" href="#about">
+        <span class="si-num">iv.</span>
+        <span class="si-title">关于本站与作者</span>
+        <span class="si-tag">关于</span>
+      </a>
+      <a class="sidebar-item" href="disclaimer.html">
+        <span class="si-num">v.</span>
+        <span class="si-title">免责声明</span>
+        <span class="si-tag">声明</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="clawed-section" id="research">
+  <div class="clawed-wrap">
+    <div class="section-head">
+      <h2 class="section-title">研究成果</h2>
+      <span class="section-meta">规划索引</span>
+    </div>
+    <div class="featured-paper">
+      <div>
+        <div class="fp-roman">I</div>
+        <div class="fp-type">Working Paper · 工作论文</div>
+        <div class="fp-title">新能源汽车电池损耗曲线与保险定价的动态耦合机制研究</div>
+        <div class="fp-venue">撰写中 · 2026</div>
+        <div class="fp-abstract">
+          以电池健康度（SOH）为核心变量的动态定价框架：将实时衰退数据引入精算模型，探讨新能源车险在产品生命周期内的风险定价逻辑。
+        </div>
+        <div class="fp-tags">
+          <span class="tag">新能源风险</span>
+          <span class="tag">定价模型</span>
+          <span class="tag">SOH</span>
+        </div>
+      </div>
+      <div class="fp-right">
+        <div class="fp-roman">II</div>
+        <div class="fp-type">Research Report · 研究报告</div>
+        <div class="fp-title">智能网联汽车 OTA 升级引发的保险责任变迁</div>
+        <div class="fp-venue">撰写中 · 2026</div>
+        <div class="fp-abstract">
+          OTA 远程升级改变了汽车风险的静态性假设。从法律责任认定与精算建模两条主线，讨论软件定义汽车时代的责任模糊性。
+        </div>
+        <div class="fp-tags">
+          <span class="tag">智能驾驶</span>
+          <span class="tag">OTA</span>
+          <span class="tag">责任认定</span>
+        </div>
+      </div>
+    </div>
+    <div class="papers">
+      <div class="paper">
+        <div class="p-num">III</div>
+        <div class="p-body">
+          <div class="p-type">Conference Paper · 会议论文</div>
+          <div class="p-title">极端降水事件的车险理赔空间集聚与区域差异化定价</div>
+          <div class="p-venue">规划 · 气候风险</div>
+          <div class="p-tags">
+            <span class="tag">气候风险</span>
+            <span class="tag">区域定价</span>
+          </div>
+        </div>
+        <div class="p-year">—</div>
+      </div>
+      <div class="paper">
+        <div class="p-num">IV</div>
+        <div class="p-body">
+          <div class="p-type">Research Report · 研究报告</div>
+          <div class="p-title">经济周期中的车险赔付行为与综合成本率</div>
+          <div class="p-venue">规划 · 宏观因素</div>
+          <div class="p-tags">
+            <span class="tag">宏观因素</span>
+            <span class="tag">综合成本率</span>
+          </div>
+        </div>
+        <div class="p-year">—</div>
+      </div>
+      <div class="paper">
+        <div class="p-num">V</div>
+        <div class="p-body">
+          <div class="p-type">Working Paper · 工作论文</div>
+          <div class="p-title">UBI 车险在中国市场的制度性障碍与破局路径</div>
+          <div class="p-venue">规划 · 行为定价</div>
+          <div class="p-tags">
+            <span class="tag">UBI</span>
+            <span class="tag">监管框架</span>
+          </div>
+        </div>
+        <div class="p-year">—</div>
+      </div>
+    </div>
+    <p class="research-note">以上为研究主题规划索引，正式文稿将陆续发布至本站。</p>
+  </div>
+</section>
+```
+
+<section class="clawed-section" id="articles">
+
+::: {.clawed-wrap}
+
+<div class="section-head">
+
+## 近期文章 {.section-title}
+
+<span class="section-meta"><a href="blog.html">全部文章 →</a></span>
+
+</div>
+
+::: {#recent-articles}
+:::
+
+:::
+
+</section>
+
+```{=html}
+<section class="clawed-section" id="about">
+  <div class="clawed-wrap about-grid">
+    <div class="about-label">About · 关于</div>
+    <div>
+      <div class="about-title">Clawed Actuary</div>
+      <p class="about-text">
+        <strong>龙虾精算师</strong>，匿名写作。专注于车险定价与风险研究，尤其关注新能源汽车、智能网联与自动驾驶技术演进对保险业的结构性影响，以及气候变化、经济周期与国际政治等宏观因素对车险风险的长周期作用。
+      </p>
+      <p class="about-text">
+        本站记录独立研究与个人思考。所有观点均为作者个人立场，与任何机构无关。详见 <a href="disclaimer.html">声明</a>。
+      </p>
+      <div class="about-fields">
+        <span class="field-pill">新能源车风险</span>
+        <span class="field-pill">智能网联汽车</span>
+        <span class="field-pill">智能驾驶技术</span>
+        <span class="field-pill">气候风险</span>
+        <span class="field-pill">宏观经济因素</span>
+        <span class="field-pill">车险定价</span>
+        <span class="field-pill">精算方法论</span>
+      </div>
+    </div>
+  </div>
+</section>
+```
