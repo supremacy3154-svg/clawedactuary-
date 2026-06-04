@@ -4,6 +4,7 @@ title: ""
 format:
   html:
     toc: false
+    title-block: false
 listing:
   id: blog-listing
   type: default
@@ -22,11 +23,8 @@ listing:
 ::: {.clawed-wrap .clawed-page}
 
 <div class="section-head">
-
-# 文章 {.section-title}
-
-<span class="section-meta">RSS · <a href="blog.xml">订阅</a></span>
-
+  <h1 class="section-title">文章</h1>
+  <span class="section-meta">RSS · <a href="blog.xml">订阅</a></span>
 </div>
 
 ::: {#blog-listing}
