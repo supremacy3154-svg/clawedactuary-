@@ -46,9 +46,23 @@
 
     document.body.appendChild(modal);
 
+    function mountShareBar(target, before) {
+      if (before && before.parentNode) {
+        before.parentNode.insertBefore(bar, before);
+      } else if (target) {
+        target.appendChild(bar);
+      } else {
+        host.appendChild(bar);
+      }
+    }
+
+    var lead = host.querySelector(".post-lead");
     var note = host.querySelector(".post-note");
-    if (note) {
-      host.insertBefore(bar, note);
+    if (lead) {
+      var afterLead = lead.nextElementSibling;
+      mountShareBar(host, afterLead);
+    } else if (note) {
+      mountShareBar(host, note);
     } else {
       host.appendChild(bar);
     }
