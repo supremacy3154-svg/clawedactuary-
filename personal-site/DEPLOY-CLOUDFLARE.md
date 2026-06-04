@@ -116,6 +116,7 @@ npx wrangler pages deploy _site --project-name=clawed-actuary
 
 | 问题 | 处理 |
 |------|------|
+| Clone 失败：`error occurred while updating repository submodules` | 仓库里存在**子模块指针**（`git ls-files -s` 出现 `160000`）但没有有效 `.gitmodules`。在仓库根执行 `git rm --cached <path>` 去掉错误 gitlink，提交并 push；站点构建不需要 `skills/` 等子目录时可不要重新 `git add` 该路径 |
 | Build 找不到 quarto | 确认 Build command 为 `bash personal-site/scripts/cloudflare-build.sh`，且脚本有执行权限（Git 中 `chmod +x` 或 `git update-index --chmod=+x`） |
 | 构建成功但 404 | Build output directory 必须是 `personal-site/_site`（不是 `personal-site`） |
 | 域名不在 Cloudflare | 先把 NS 迁到 Cloudflare，或用 DNS 服务商 CNAME 到 `xxx.pages.dev`（见 Pages 自定义域名说明） |
