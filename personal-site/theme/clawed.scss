@@ -374,6 +374,16 @@ body {
   font-size: var(--text-lg);
 }
 
+a.fp-title {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.fp-title:hover {
+  color: var(--accent);
+}
+
 .fp-venue,
 .p-venue {
   font-style: italic;

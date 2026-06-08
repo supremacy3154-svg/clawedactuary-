@@ -69,21 +69,21 @@ listing:
   <div class="clawed-wrap">
     <div class="section-head">
       <h2 class="section-title">研究成果</h2>
-      <span class="section-meta">规划索引</span>
+      <span class="section-meta">研究索引</span>
     </div>
     <div class="featured-paper">
       <div>
         <div class="fp-roman">I</div>
-        <div class="fp-type">Working Paper · 工作论文</div>
-        <div class="fp-title">新能源汽车电池损耗曲线与保险定价的动态耦合机制研究</div>
-        <div class="fp-venue">撰写中 · 2026</div>
+        <div class="fp-type">Experiment · 实验报告</div>
+        <a class="fp-title" href="posts/2026-06-05-glm-fremtpl2-ai-exploration.html">AI 能替代定价精算师的建模工作吗？</a>
+        <div class="fp-venue">已发布 · 2026-06-05 · Clawed Actuary</div>
         <div class="fp-abstract">
-          以电池健康度（SOH）为核心变量的动态定价框架：将实时衰退数据引入精算模型，探讨新能源车险在产品生命周期内的风险定价逻辑。
+          Opus 4.8 依据 CAS GLM 教材，在 freMTPL2（678,013 保单）上独立完成洗数、Binding、入模、诊断与 holdout 验证全流程。测试集 Tweedie Gini=0.267、Q10/Q1=4.54×——传统 GLM 建模工作流已可由 AI 端到端完成。
         </div>
         <div class="fp-tags">
-          <span class="tag">新能源风险</span>
-          <span class="tag">定价模型</span>
-          <span class="tag">SOH</span>
+          <span class="tag">GLM</span>
+          <span class="tag">AI</span>
+          <span class="tag">精算定价</span>
         </div>
       </div>
       <div class="fp-right">
@@ -142,7 +142,7 @@ listing:
         <div class="p-year">—</div>
       </div>
     </div>
-    <p class="research-note">以上为研究主题规划索引，正式文稿将陆续发布至本站。</p>
+    <p class="research-note">以上含已发布研究与规划中的主题；正式文稿将陆续更新至本站。</p>
   </div>
 </section>
 ```
