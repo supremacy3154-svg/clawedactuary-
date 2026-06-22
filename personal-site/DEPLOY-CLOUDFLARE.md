@@ -32,7 +32,10 @@
 | Framework preset | **None** |
 | Build command | `bash personal-site/scripts/cloudflare-build.sh` |
 | Build output directory | `personal-site/_site` |
+| **Deploy command** | **留空**（不要填 `npx wrangler deploy`） |
 | Root directory (可选) | 留空（仓库根） |
+
+**重要：** Git 连线的 **Cloudflare Pages（静态站）** 会在构建结束后自动上传 **Build output directory** 里的文件。不需要、也不应再执行 Deploy command。`wrangler deploy` 是给 **Workers** 用的；本仓库 Quarto 产物应走 Pages 静态部署。
 
 5. **Environment variables**（可选）：`QUARTO_VERSION` = `1.6.40`
 
@@ -118,6 +121,7 @@ npx wrangler pages deploy _site --project-name=clawed-actuary
 |------|------|
 | Clone 失败：`error occurred while updating repository submodules` | 仓库里存在**子模块指针**（`git ls-files -s` 出现 `160000`）但没有有效 `.gitmodules`。在仓库根执行 `git rm --cached <path>` 去掉错误 gitlink，提交并 push；站点构建不需要 `skills/` 等子目录时可不要重新 `git add` 该路径 |
 | Build 找不到 quarto | 确认 Build command 为 `bash personal-site/scripts/cloudflare-build.sh`，且脚本有执行权限（Git 中 `chmod +x` 或 `git update-index --chmod=+x`） |
+| 构建成功但 deploy 失败：`Could not detect a directory containing static files` | 在 **Settings → Builds** 里**删掉 Deploy command**（例如误填的 `npx wrangler deploy`），只保留 Build output directory = `personal-site/_site`，然后 **Retry deployment**。本机直传才用 `wrangler pages deploy`（见第五节），不是 `wrangler deploy` |
 | 构建成功但 404 | Build output directory 必须是 `personal-site/_site`（不是 `personal-site`） |
 | 域名不在 Cloudflare | 先把 NS 迁到 Cloudflare，或用 DNS 服务商 CNAME 到 `xxx.pages.dev`（见 Pages 自定义域名说明） |
 | .com.cn 备案 | 大陆访问如需 ICP 备案，Cloudflare 海外节点不替代备案要求；仅个人学习站请自行评估合规 |
