@@ -1,0 +1,133 @@
+<script>
+(function () {
+  if (!/\/posts\//.test(window.location.pathname)) return;
+
+  function ready(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  function normalizePath(href) {
+    try {
+      var url = new URL(href, window.location.origin);
+      return url.pathname.replace(/^\//, "");
+    } catch (e) {
+      return href.replace(/^\//, "");
+    }
+  }
+
+  function buildNavLink(href, label, direction) {
+    var a = document.createElement("a");
+    a.className = "post-nav-link post-nav-" + direction;
+    a.href = href;
+    a.innerHTML =
+      '<span class="post-nav-dir">' +
+      (direction === "prev" ? "← 上一篇" : "下一篇 →") +
+      "</span>" +
+      '<span class="post-nav-title">' +
+      label +
+      "</span>";
+    return a;
+  }
+
+  ready(function () {
+    var host = document.querySelector(".post-article");
+    if (!host) return;
+
+    var current = normalizePath(window.location.pathname);
+    var listingsUrl = window.location.origin + "/listings.json";
+
+    fetch(listingsUrl)
+      .then(function (res) {
+        return res.ok ? res.json() : [];
+      })
+      .then(function (data) {
+        var blog = data.find(function (entry) {
+          return entry.listing === "/blog.html";
+        });
+        if (!blog || !blog.items || !blog.items.length) return;
+
+        var items = blog.items.map(function (item) {
+          return item.replace(/^\//, "");
+        });
+        var idx = items.indexOf(current);
+        if (idx === -1) {
+          idx = items.findIndex(function (item) {
+            return item.endsWith(current);
+          });
+        }
+        if (idx === -1) return;
+
+        var nav = document.createElement("nav");
+        nav.className = "post-nav";
+        nav.setAttribute("aria-label", "文章导航");
+
+        var inner = document.createElement("div");
+        inner.className = "post-nav-inner";
+
+        if (idx < items.length - 1) {
+          inner.appendChild(
+            buildNavLink("/" + items[idx + 1], "较早文章", "prev")
+          );
+        }
+
+        if (idx > 0) {
+          inner.appendChild(
+            buildNavLink("/" + items[idx - 1], "较新文章", "next")
+          );
+        }
+
+        if (!inner.children.length) return;
+
+        nav.appendChild(inner);
+
+        var prevTitle = nav.querySelector(".post-nav-prev .post-nav-title");
+        var nextTitle = nav.querySelector(".post-nav-next .post-nav-title");
+        var fetches = [];
+
+        if (idx < items.length - 1) {
+          fetches.push(
+            fetch("/" + items[idx + 1])
+              .then(function (r) {
+                return r.text();
+              })
+              .then(function (html) {
+                var doc = new DOMParser().parseFromString(html, "text/html");
+                var t = doc.querySelector(".post-title");
+                if (t && prevTitle) prevTitle.textContent = t.textContent.trim();
+              })
+              .catch(function () {})
+          );
+        }
+
+        if (idx > 0) {
+          fetches.push(
+            fetch("/" + items[idx - 1])
+              .then(function (r) {
+                return r.text();
+              })
+              .then(function (html) {
+                var doc = new DOMParser().parseFromString(html, "text/html");
+                var t = doc.querySelector(".post-title");
+                if (t && nextTitle) nextTitle.textContent = t.textContent.trim();
+              })
+              .catch(function () {})
+          );
+        }
+
+        Promise.all(fetches).finally(function () {
+          var note = host.querySelector(".post-note");
+          if (note && note.parentNode) {
+            note.parentNode.insertBefore(nav, note.nextSibling);
+          } else {
+            host.appendChild(nav);
+          }
+        });
+      })
+      .catch(function () {});
+  });
+})();
+</script>

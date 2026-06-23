@@ -12,6 +12,11 @@ website:
   title: "Clawed Actuary"
   description: "龙虾精算师 · 车险与出行风险 · 精算随笔"
   site-url: https://clawedactuary.com.cn
+  favicon: images/favicon-32.png
+  image: https://clawedactuary.com.cn/images/og-default.png
+  image-alt: "龙虾精算师 Clawed Actuary · 穿西装打领带的卡通龙虾精算师"
+  open-graph: true
+  twitter-card: true
   navbar:
     background: "#f8f5f0"
     foreground: "#1a1814"
@@ -45,6 +50,7 @@ format:
       - theme/clawed-header.html
     include-after-body:
       - theme/clawed-share.html
+      - theme/clawed-post-nav.html
     toc: false
     code-copy: true
     lang: zh

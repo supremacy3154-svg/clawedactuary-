@@ -7,28 +7,32 @@ format:
     title-block: false
 listing:
   id: blog-listing
-  type: default
+  type: grid
+  grid-columns: 2
   contents: posts
   sort: "date desc"
   categories: true
   feed: true
-  fields: [date, title, description, categories]
+  fields: [date, title, description, categories, reading-time]
   field-display-names:
     title: "标题"
     date: "日期"
     description: "摘要"
     categories: "标签"
+    reading-time: "阅读"
 ---
 
 ::: {.clawed-wrap .clawed-page}
 
 <div class="section-head">
-  <h1 class="section-title">文章</h1>
-  <span class="section-meta">RSS · <a href="blog.xml">订阅</a></span>
+
+<h1 class="section-title">文章</h1>
+
+<span class="section-meta">RSS · <a href="blog.xml">订阅</a></span>
+
 </div>
 
 ::: {#blog-listing}
 :::
-
 
 :::
