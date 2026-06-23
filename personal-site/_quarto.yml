@@ -14,7 +14,7 @@ website:
   site-url: https://clawedactuary.com.cn
   favicon: images/favicon-32.png
   image: https://clawedactuary.com.cn/images/og-default.png
-  image-alt: "Q版龙虾精算师 Clawed Actuary · 穿西装打领带的可爱卡通龙虾"
+  image-alt: "Q版龙虾精算师 · 尖头大眼、穿西装打领带的可爱卡通龙虾"
   open-graph: true
   twitter-card: true
   navbar:
