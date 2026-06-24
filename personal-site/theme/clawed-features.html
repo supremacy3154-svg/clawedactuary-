@@ -11,6 +11,9 @@
   }
 
   function loadFeatures() {
+    if (window.__CLAWED_SITE_FEATURES__) {
+      return Promise.resolve(window.__CLAWED_SITE_FEATURES__);
+    }
     return fetch(FEATURES_URL)
       .then(function (res) {
         return res.ok ? res.json() : {};
