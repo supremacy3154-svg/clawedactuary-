@@ -1,0 +1,57 @@
+name: Deploy personal site (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "personal-site/**"
+      - ".github/workflows/personal-site-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: personal-site-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.40
+
+      - name: Sync posts and features
+        working-directory: personal-site
+        run: python3 scripts/sync_posts.py
+
+      - name: Render site
+        working-directory: personal-site
+        run: quarto render
+
+      - name: Add .nojekyll
+        run: touch personal-site/_site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: personal-site/_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

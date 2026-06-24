@@ -147,7 +147,18 @@ format:
 
 <section class="clawed-section" id="subscribe">
   <div class="clawed-wrap">
-    <div id="site-subscribe" class="site-subscribe" data-mount="subscribe"></div>
+    <div class="site-subscribe">
+      <div class="subscribe-inner">
+        <div class="subscribe-label">Subscribe · 邮件订阅</div>
+        <p class="subscribe-desc">新文章发布时发送邮件通知（与 RSS 互补）。</p>
+        <form class="subscribe-form embeddable-buttondown-form" action="https://buttondown.com/api/emails/embed-subscribe/clawedactuary" method="post" target="_blank">
+          <label class="sr-only" for="bd-email">Email</label>
+          <input id="bd-email" class="subscribe-input" type="email" name="email" placeholder="your@email.com" required>
+          <button class="subscribe-btn" type="submit">订阅</button>
+        </form>
+        <p class="subscribe-note">仅发送本站更新，可随时退订。你的邮箱不会公开。</p>
+      </div>
+    </div>
   </div>
 </section>
 ```

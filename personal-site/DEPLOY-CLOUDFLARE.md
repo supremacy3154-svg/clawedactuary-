@@ -122,6 +122,7 @@ npx wrangler pages deploy _site --project-name=clawed-actuary
 | Clone 失败：`error occurred while updating repository submodules` | 仓库里存在**子模块指针**（`git ls-files -s` 出现 `160000`）但没有有效 `.gitmodules`。在仓库根执行 `git rm --cached <path>` 去掉错误 gitlink，提交并 push；站点构建不需要 `skills/` 等子目录时可不要重新 `git add` 该路径 |
 | Build 找不到 quarto | 确认 Build command 为 `bash personal-site/scripts/cloudflare-build.sh`，且脚本有执行权限（Git 中 `chmod +x` 或 `git update-index --chmod=+x`） |
 | 构建成功但 deploy 失败：`Could not detect a directory containing static files` | 在 **Settings → Builds** 里**删掉 Deploy command**（例如误填的 `npx wrangler deploy`），只保留 Build output directory = `personal-site/_site`，然后 **Retry deployment**。本机直传才用 `wrangler pages deploy`（见第五节），不是 `wrangler deploy` |
+| 推送代码后线上仍是旧页面（评论/订阅显示占位） | 打开 Pages 项目 → **Deployments**，确认最新 commit 已构建成功；失败则看日志是否缺 `sync_posts.py`；成功但仍旧内容则点 **Retry deployment** 或 **Purge cache**。可用 `curl -s https://clawedactuary.com.cn/ \| grep embed-subscribe` 检查是否已部署新订阅表单 |
 | 构建成功但 404 | Build output directory 必须是 `personal-site/_site`（不是 `personal-site`） |
 | 域名不在 Cloudflare | 先把 NS 迁到 Cloudflare，或用 DNS 服务商 CNAME 到 `xxx.pages.dev`（见 Pages 自定义域名说明） |
 | .com.cn 备案 | 大陆访问如需 ICP 备案，Cloudflare 海外节点不替代备案要求；仅个人学习站请自行评估合规 |

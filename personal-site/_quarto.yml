@@ -54,8 +54,7 @@ format:
     include-after-body:
       - theme/clawed-share.html
       - theme/clawed-post-nav.html
-      - _generated/site-features.js
-      - theme/clawed-features.html
+      - theme/giscus.html
     toc: false
     code-copy: true
     lang: zh

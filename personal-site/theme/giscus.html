@@ -1,0 +1,51 @@
+<script>
+(function () {
+  if (!/\/posts\//.test(window.location.pathname)) return;
+
+  function ready(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  ready(function () {
+    var host = document.querySelector(".post-article");
+    if (!host) return;
+
+    var section = document.createElement("section");
+    section.className = "post-comments";
+    section.setAttribute("aria-label", "评论");
+    section.innerHTML =
+      '<div class="post-comments-label">评论 · Comments</div>' +
+      '<div class="giscus"></div>';
+
+    var script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", "supremacy3154-svg/clawedactuary-");
+    script.setAttribute("data-repo-id", "R_kgDOSw4Rgw");
+    script.setAttribute("data-category", "General");
+    script.setAttribute("data-category-id", "DIC_kwDOSw4Rg84C_xrX");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "bottom");
+    script.setAttribute("data-theme", "preferred_color_scheme");
+    script.setAttribute("data-lang", "zh-CN");
+    script.setAttribute("data-loading", "lazy");
+    script.crossOrigin = "anonymous";
+    script.async = true;
+
+    section.querySelector(".giscus").appendChild(script);
+
+    var note = host.querySelector(".post-note");
+    if (note && note.parentNode) {
+      note.parentNode.insertBefore(section, note.nextSibling);
+    } else {
+      host.appendChild(section);
+    }
+  });
+})();
+</script>
