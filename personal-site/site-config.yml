@@ -1,0 +1,21 @@
+# 评论（Giscus · 基于 GitHub Discussions）
+# 首次启用：在 GitHub 仓库 Settings → General → Features 打开 Discussions
+# 然后访问 https://giscus.app/zh-CN 选择该仓库，把 repo_id / category_id 填到下面
+comments:
+  enabled: true
+  giscus:
+    repo: "supremacy3154-svg/clawedactuary-"
+    repo_id: ""
+    category: "General"
+    category_id: ""
+    mapping: "pathname"
+    lang: "zh-CN"
+    theme: "light"
+
+# 邮件订阅（任选一种 provider，填好对应字段即可）
+subscribe:
+  enabled: true
+  provider: "buttondown" # buttondown | formspree | none
+  buttondown_username: "" # 例如 clawedactuary → https://buttondown.com/clawedactuary
+  formspree_form_id: "" # 例如 xyzabc → action 为 https://formspree.io/f/xyzabc
+  privacy_note: "仅发送本站更新，可随时退订。你的邮箱不会公开。"

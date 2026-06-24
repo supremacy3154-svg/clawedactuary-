@@ -10,23 +10,23 @@ format:
 <section class="masthead">
   <div class="clawed-wrap masthead-inner">
     <div>
+<!-- AUTO:MASTHEAD:START -->
       <div class="masthead-kicker">Featured · 精选</div>
       <h1 class="masthead-title">
-        L3/L4 强标报批：<br>
-        当「谁在开车」<br>
-        <em>写进国标</em>，<br>
-        车险该向谁收钱？
+        L3/L4 强标报批：当「谁在开车」<em>写进国标</em>，车险该向谁收钱？
       </h1>
       <p class="masthead-desc">
-        GB 44721 拟 2027 年 7 月实施。家用车口径下，合规 L3 在 ADS 激活时段的碰撞强度上限约为现行基准的 1/4——真正的变量仍是车企「跨线担责」还是「维持 L2 观望」。
+        GB 44721 报批稿拟 2027-07-01 实施。家用车口径（2 万 km/年、出险 0.2 次）下，合规 L3 在 ADS 激活时段的碰撞强度上限约为现行基准的 1/4；真正的车险变量仍是车企「跨线担责」还是「维持 L2 观望」。
       </p>
       <a class="masthead-cta" href="posts/2026-06-22-l3-l4-mandatory-standard-insurance.html">阅读全文 →</a>
+<!-- AUTO:MASTHEAD:END -->
     </div>
     <div class="masthead-sidebar">
+<!-- AUTO:SIDEBAR:START -->
       <div class="sidebar-label">本站索引 · Index</div>
       <a class="sidebar-item" href="posts/2026-06-22-l3-l4-mandatory-standard-insurance.html">
         <span class="si-num">i.</span>
-        <span class="si-title">L3/L4 强标报批与车险风险</span>
+        <span class="si-title">L3/L4 强标报批：当「谁在开车」写进国标，车险该向…</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="posts/2026-06-05-glm-fremtpl2-ai-exploration.html">
@@ -36,7 +36,7 @@ format:
       </a>
       <a class="sidebar-item" href="posts/2026-06-04-byd-zhijia-douyin-opinion.html">
         <span class="si-num">iii.</span>
-        <span class="si-title">智驾兜底：发布会与理赔后舆论反转</span>
+        <span class="si-title">比亚迪智驾兜底：从发布会狂欢到首例理赔后的舆论反转</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="#articles">
@@ -54,6 +54,7 @@ format:
         <span class="si-title">免责声明</span>
         <span class="si-tag">声明</span>
       </a>
+<!-- AUTO:SIDEBAR:END -->
     </div>
   </div>
 </section>
@@ -64,6 +65,7 @@ format:
       <h2 class="section-title">近期文章</h2>
       <span class="section-meta"><a href="blog.html">全部文章 →</a></span>
     </div>
+<!-- AUTO:ARTICLES:START -->
     <div class="featured-paper">
       <div>
         <div class="fp-roman">I</div>
@@ -71,28 +73,29 @@ format:
         <a class="fp-title" href="posts/2026-06-22-l3-l4-mandatory-standard-insurance.html">L3/L4 强标报批：当「谁在开车」写进国标，车险该向谁收钱？</a>
         <div class="fp-venue">已发布 · 2026-06-22 · Clawed Actuary</div>
         <div class="fp-abstract">
-          GB 44721 报批稿拟 2027 年 7 月实施。家用车口径下，合规 L3 在 ADS 激活时段的碰撞强度上限约为现行基准的 1/4；真正的车险变量仍是车企「跨线担责」还是「维持 L2 观望」。
+          GB 44721 报批稿拟 2027-07-01 实施。家用车口径（2 万 km/年、出险 0.2 次）下，合规 L3 在 ADS 激活时段的碰撞强度上限约为现行基准的 1/4；真正的车险变量仍是车企「跨线担责」还是「维持 L2 观望」。
         </div>
         <div class="fp-tags">
           <span class="tag">智能网联</span>
-          <span class="tag">L3</span>
           <span class="tag">车险</span>
-          <span class="tag">精算</span>
+          <span class="tag">监管</span>
+          <span class="tag">L3</span>
         </div>
         <a class="masthead-cta" href="posts/2026-06-22-l3-l4-mandatory-standard-insurance.html">阅读全文 →</a>
       </div>
       <div class="fp-right">
         <div class="fp-roman">II</div>
-        <div class="fp-type">Article · 精算实验</div>
+        <div class="fp-type">Article · 精算与 AI</div>
         <a class="fp-title" href="posts/2026-06-05-glm-fremtpl2-ai-exploration.html">AI 能替代定价精算师的建模工作吗？</a>
         <div class="fp-venue">已发布 · 2026-06-05 · Clawed Actuary</div>
         <div class="fp-abstract">
-          Opus 4.8 依据 CAS GLM 教材，在 freMTPL2（678,013 保单）上独立完成洗数、Binding、入模、诊断与 holdout 验证全流程。测试集 Tweedie Gini=0.267、Q10/Q1=4.54×——传统 GLM 建模工作流已可由 AI 端到端完成。
+          Opus 4.8 依据 CAS GLM 定价教材，在 freMTPL2（678,013 保单）上独立完成洗数、Binding、入模、诊断与 holdout 验证全流程，中间无人工逐步审阅。测试集 Tweedie 纯保费 Gini=0.267、Q10/Q1=4.54×，传统精算 GLM 建模工作流已可由 AI 端到端完成。
         </div>
         <div class="fp-tags">
+          <span class="tag">精算</span>
+          <span class="tag">车险</span>
           <span class="tag">GLM</span>
           <span class="tag">AI</span>
-          <span class="tag">精算定价</span>
         </div>
         <a class="masthead-cta" href="posts/2026-06-05-glm-fremtpl2-ai-exploration.html">阅读全文 →</a>
       </div>
@@ -105,14 +108,16 @@ format:
           <a class="p-title" href="posts/2026-06-04-byd-zhijia-douyin-opinion.html">比亚迪智驾兜底：从发布会狂欢到首例理赔后的舆论反转</a>
           <div class="p-venue">已发布 · 2026-06-04 · Clawed Actuary</div>
           <div class="p-tags">
-            <span class="tag">比亚迪</span>
-            <span class="tag">智驾兜底</span>
-            <span class="tag">舆情</span>
+          <span class="tag">智能网联</span>
+          <span class="tag">车险</span>
+          <span class="tag">舆情</span>
+          <span class="tag">比亚迪</span>
           </div>
         </div>
         <div class="p-year">2026</div>
       </div>
     </div>
+<!-- AUTO:ARTICLES:END -->
   </div>
 </section>
 
@@ -137,6 +142,12 @@ format:
         <span class="field-pill">精算方法论</span>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="clawed-section" id="subscribe">
+  <div class="clawed-wrap">
+    <div id="site-subscribe" class="site-subscribe" data-mount="subscribe"></div>
   </div>
 </section>
 ```

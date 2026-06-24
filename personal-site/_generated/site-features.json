@@ -1,0 +1,21 @@
+{
+  "comments": {
+    "enabled": true,
+    "giscus": {
+      "repo": "supremacy3154-svg/clawedactuary-",
+      "repo_id": "",
+      "category": "General",
+      "category_id": "",
+      "mapping": "pathname",
+      "lang": "zh-CN",
+      "theme": "light"
+    }
+  },
+  "subscribe": {
+    "enabled": true,
+    "provider": "buttondown",
+    "buttondown_username": "",
+    "formspree_form_id": "",
+    "privacy_note": "仅发送本站更新，可随时退订。你的邮箱不会公开。"
+  }
+}

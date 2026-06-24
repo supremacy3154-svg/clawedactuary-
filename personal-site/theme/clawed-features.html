@@ -1,0 +1,129 @@
+<script>
+(function () {
+  var FEATURES_URL = "/_generated/site-features.json";
+
+  function ready(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  function loadFeatures() {
+    return fetch(FEATURES_URL)
+      .then(function (res) {
+        return res.ok ? res.json() : {};
+      })
+      .catch(function () {
+        return {};
+      });
+  }
+
+  function mountSubscribe(cfg, root) {
+    if (!cfg || !cfg.enabled) return;
+    var provider = cfg.provider || "none";
+    var html = "";
+
+    if (provider === "buttondown" && cfg.buttondown_username) {
+      html =
+        '<div class="subscribe-inner">' +
+        '<div class="subscribe-label">Subscribe · 邮件订阅</div>' +
+        '<p class="subscribe-desc">新文章发布时发送邮件通知（与 RSS 互补）。</p>' +
+        '<form class="subscribe-form" action="https://buttondown.email/api/emails/embed/subscribe/' +
+        encodeURIComponent(cfg.buttondown_username) +
+        '" method="post" target="_blank">' +
+        '<label class="sr-only" for="bd-email">Email</label>' +
+        '<input id="bd-email" class="subscribe-input" type="email" name="email" placeholder="your@email.com" required>' +
+        '<button class="subscribe-btn" type="submit">订阅</button>' +
+        "</form>" +
+        '<p class="subscribe-note">' +
+        (cfg.privacy_note || "") +
+        "</p>" +
+        "</div>";
+    } else if (provider === "formspree" && cfg.formspree_form_id) {
+      html =
+        '<div class="subscribe-inner">' +
+        '<div class="subscribe-label">Subscribe · 邮件订阅</div>' +
+        '<p class="subscribe-desc">留下邮箱，收到本站更新通知。</p>' +
+        '<form class="subscribe-form" action="https://formspree.io/f/' +
+        encodeURIComponent(cfg.formspree_form_id) +
+        '" method="POST">' +
+        '<label class="sr-only" for="fs-email">Email</label>' +
+        '<input id="fs-email" class="subscribe-input" type="email" name="email" placeholder="your@email.com" required>' +
+        '<input type="hidden" name="_subject" value="Clawed Actuary 订阅">' +
+        '<button class="subscribe-btn" type="submit">订阅</button>' +
+        "</form>" +
+        '<p class="subscribe-note">' +
+        (cfg.privacy_note || "") +
+        "</p>" +
+        "</div>";
+    } else {
+      html =
+        '<div class="subscribe-inner subscribe-fallback">' +
+        '<div class="subscribe-label">Subscribe · 订阅</div>' +
+        '<p class="subscribe-desc">邮件列表尚未配置。可先使用 <a href="blog.xml">RSS 订阅</a> 获取更新。</p>' +
+        '<p class="subscribe-note">站长：在 <code>site-config.yml</code> 填写 Buttondown 用户名或 Formspree ID。</p>' +
+        "</div>";
+    }
+
+    root.innerHTML = html;
+  }
+
+  function mountComments(cfg) {
+    if (!/\/posts\//.test(window.location.pathname)) return;
+    if (!cfg || !cfg.enabled) return;
+
+    var g = cfg.giscus || {};
+    if (!g.repo || !g.repo_id || !g.category_id) {
+      var host = document.querySelector(".post-article");
+      if (!host) return;
+      var note = document.createElement("div");
+      note.className = "post-comments post-comments-placeholder";
+      note.innerHTML =
+        '<div class="post-comments-label">评论</div>' +
+        '<p class="post-comments-desc">评论功能待配置。请在 GitHub 仓库开启 Discussions，并在 <code>site-config.yml</code> 填写 Giscus 参数。</p>';
+      host.appendChild(note);
+      return;
+    }
+
+    var host = document.querySelector(".post-article");
+    if (!host) return;
+
+    var wrap = document.createElement("section");
+    wrap.className = "post-comments";
+    wrap.setAttribute("aria-label", "评论");
+    wrap.innerHTML =
+      '<div class="post-comments-label">评论 · Comments</div>' +
+      '<div class="giscus"></div>';
+    host.appendChild(wrap);
+
+    var script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", g.repo);
+    script.setAttribute("data-repo-id", g.repo_id);
+    script.setAttribute("data-category", g.category || "General");
+    script.setAttribute("data-category-id", g.category_id);
+    script.setAttribute("data-mapping", g.mapping || "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", g.theme || "light");
+    script.setAttribute("data-lang", g.lang || "zh-CN");
+    script.setAttribute("data-loading", "lazy");
+    script.crossOrigin = "anonymous";
+    script.async = true;
+    wrap.querySelector(".giscus").appendChild(script);
+  }
+
+  ready(function () {
+    loadFeatures().then(function (features) {
+      document.querySelectorAll('[data-mount="subscribe"]').forEach(function (el) {
+        mountSubscribe(features.subscribe, el);
+      });
+      mountComments(features.comments);
+    });
+  });
+})();
+</script>

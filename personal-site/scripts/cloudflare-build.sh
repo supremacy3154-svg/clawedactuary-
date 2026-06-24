@@ -16,6 +16,9 @@ tar -xzf "${TMP}/quarto.tar.gz" -C "${TMP}/quarto" --strip-components=1
 export PATH="${TMP}/quarto/bin:${PATH}"
 quarto --version
 
+echo "→ 同步文章列表 / 首页"
+python3 "${SITE_DIR}/scripts/sync_posts.py"
+
 echo "→ 渲染站点 ${SITE_DIR}"
 cd "${SITE_DIR}"
 quarto render

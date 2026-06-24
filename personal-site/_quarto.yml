@@ -3,6 +3,7 @@ project:
   output-dir: _site
   resources:
     - "images/**"
+    - "_generated/**"
   render:
     - "*.qmd"
     - "posts/*.qmd"
@@ -53,6 +54,7 @@ format:
     include-after-body:
       - theme/clawed-share.html
       - theme/clawed-post-nav.html
+      - theme/clawed-features.html
     toc: false
     code-copy: true
     lang: zh
