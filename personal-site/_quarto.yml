@@ -55,6 +55,7 @@ format:
     include-after-body:
       - theme/clawed-share.html
       - theme/clawed-post-nav.html
+      - theme/clawed-post-views.html
       - theme/clawed-subscribe.html
       - theme/clawed-blog-filter.html
       - theme/giscus.html

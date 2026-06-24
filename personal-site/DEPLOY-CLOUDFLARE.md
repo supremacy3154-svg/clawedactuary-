@@ -43,11 +43,23 @@
 |------|------|------|
 | `QUARTO_VERSION` | 否 | 默认 `1.6.40` |
 | `BUTTONDOWN_API_KEY` | 否* | Buttondown API Key；配置后新文章 push 可自动创建通知邮件（见 SITE-FEATURES.md） |
-| `BUTTONDOWN_NOTIFY_MODE` | 否 | `draft`（默认）或 `send`，覆盖 `site-config.yml` |
+| `BUTTONDOWN_NOTIFY_MODE` | 否 | `send`（默认）或 `draft`，覆盖 `site-config.yml` |
 
 \* 未配置时构建照常，仅跳过邮件通知。
 
-访问统计：在 `site-config.yml` 填 Cloudflare Web Analytics 的 `cloudflare_beacon_token` 后提交即可，无需环境变量。
+### 文章阅读量（KV，一次性配置）
+
+文章页 meta 行会显示「阅读 N 次」，由 `functions/api/pageview.js` + KV 计数：
+
+1. Dashboard → **Workers & Pages** → **KV** → **Create a namespace**（例如 `clawed-pageviews`）
+2. 进入 **Pages** 项目 → **Settings** → **Functions** → **KV namespace bindings** → **Add**
+   - Variable name：`PAGE_VIEWS`（必须与此一致）
+   - KV namespace：选上一步创建的
+3. 保存后 **Retry deployment**
+
+`site-config.yml` 里 `pageviews.enabled: true` 已默认开启。未绑定 KV 时阅读量不显示，其余功能不受影响。
+
+全站访问趋势仍看你已有的 **Web Analytics** 面板；阅读量是每篇文章独立的访客计数（同一会话只计 1 次）。
 
 6. **Save and Deploy**，等待首次构建变绿。
 

@@ -23,6 +23,7 @@ format:
 <span>作者：龙虾精算师</span>
 <span>YYYY-MM-DD</span>
 <span>阅读约 X 分钟</span>
+<span class="post-views" hidden>阅读 … 次</span>
 </div>
 
 ::: {.post-lead}

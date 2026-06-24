@@ -396,6 +396,7 @@ def write_features_json(cfg: dict) -> None:
             for k, v in cfg.get("subscribe", {}).items()
             if k != "notify"
         },
+        "pageviews": cfg.get("pageviews", {}),
         "analytics": cfg.get("analytics", {}),
     }
     payload = json.dumps(public_cfg, ensure_ascii=False, indent=2)

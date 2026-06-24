@@ -37,19 +37,29 @@ Cloudflare 构建脚本已自动执行 `sync_posts.py`。
 1. 在 [Buttondown → Settings → API](https://buttondown.com/settings/api) 创建 API Key
 2. 在 **Cloudflare Pages → Settings → Environment variables** 添加：
    - `BUTTONDOWN_API_KEY` = 你的 API Key（**Encrypt**）
-   - 可选 `BUTTONDOWN_NOTIFY_MODE` = `send`（覆盖 `site-config.yml` 里的 `draft`）
+   - 可选 `BUTTONDOWN_NOTIFY_MODE` = `draft`（覆盖 `site-config.yml` 里的自动发送）
 3. `site-config.yml` → `subscribe.notify`：
-   - `mode: draft` — 在 Buttondown 生成草稿，你确认后再发（默认，推荐）
-   - `mode: send` — 构建时直接发给全部订阅者
+   - `mode: send` — 构建时**直接发给全部订阅者**（当前默认）
+   - `mode: draft` — 仅在 Buttondown 生成草稿，你确认后再发
 4. 仅当 **本次 git commit 新增/修改了** `posts/*.qmd` 且该文不在 `notify-state.json` 时才会触发
 
 已发过的文章 slug 记录在 `personal-site/_generated/notify-state.json`（需随仓库提交）。
 
 ---
 
-## 访问统计
+## 文章阅读量
 
-编辑 `site-config.yml` → `analytics`：
+每篇文章标题下方 meta 行显示 **「阅读 N 次」**（`pageviews` 配置 + Cloudflare KV）。
+
+1. `site-config.yml` → `pageviews.enabled: true`（已默认开启）
+2. Cloudflare Pages 绑定 KV 命名空间 `PAGE_VIEWS`（步骤见 [DEPLOY-CLOUDFLARE.md](./DEPLOY-CLOUDFLARE.md)）
+3. 访客打开文章页时自动 +1（同浏览器会话只计一次）
+
+---
+
+## 全站访问统计（可选信标）
+
+编辑 `site-config.yml` → `analytics`（与文章阅读量无关；你已在 CF Web Analytics 看板有数据时可不开）：
 
 ### Cloudflare Web Analytics（推荐，站点已在 Cloudflare）
 

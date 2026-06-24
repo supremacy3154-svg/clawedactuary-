@@ -24,10 +24,15 @@ subscribe:
   # API Key 仅放在环境变量 BUTTONDOWN_API_KEY，不要写进此文件
   notify:
     enabled: true
-    mode: "draft" # draft = 在 Buttondown 生成草稿待你确认；send = 立即发送
+    mode: "send" # send = 新文章 push 后自动发给订阅者；draft = 仅生成草稿
     subject_prefix: "" # 可选，如 "[龙虾精算师] "
 
-# 访问统计（token / website_id 会写入公开的前端脚本，勿放密钥）
+# 文章页阅读量（Cloudflare Pages Functions + KV，见 DEPLOY-CLOUDFLARE.md）
+pageviews:
+  enabled: true
+  api_path: "/api/pageview"
+
+# 全站访问信标（可选；你已在 CF Web Analytics 看板有数据时可不开）
 analytics:
   enabled: false
   provider: "cloudflare" # cloudflare | umami | none

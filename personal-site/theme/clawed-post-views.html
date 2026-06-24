@@ -1,0 +1,84 @@
+<script>
+(function () {
+  if (!/\/posts\//.test(window.location.pathname)) return;
+
+  function ready(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  function formatViews(n) {
+    if (n >= 10000) return (n / 10000).toFixed(1).replace(/\.0$/, "") + " 万";
+    return String(n);
+  }
+
+  ready(function () {
+    var cfg = window.__CLAWED_SITE_FEATURES__;
+    var pv = cfg && cfg.pageviews;
+    if (!pv || !pv.enabled) return;
+
+    var meta = document.querySelector(".post-article .post-meta");
+    if (!meta) return;
+
+    var apiPath = pv.api_path || "/api/pageview";
+    var pagePath = window.location.pathname.replace(/^\//, "");
+    var span = meta.querySelector(".post-views");
+    if (!span) {
+      span = document.createElement("span");
+      span.className = "post-views";
+      meta.appendChild(span);
+    }
+    span.removeAttribute("hidden");
+    span.textContent = "阅读 … 次";
+
+    function showViews(views) {
+      if (typeof views !== "number" || views < 0) {
+        span.remove();
+        return;
+      }
+      span.textContent = "阅读 " + formatViews(views) + " 次";
+    }
+
+    function fetchViews(method) {
+      var url =
+        apiPath +
+        "?path=" +
+        encodeURIComponent(pagePath) +
+        (method === "POST" ? "&_=" + Date.now() : "");
+      return fetch(url, { method: method || "GET", credentials: "same-origin" })
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          if (data && typeof data.views === "number") return data.views;
+          return null;
+        })
+        .catch(function () {
+          return null;
+        });
+    }
+
+    var sessionKey = "clawed-viewed:" + pagePath;
+    var seen = false;
+    try {
+      seen = sessionStorage.getItem(sessionKey) === "1";
+    } catch (_) {
+      seen = false;
+    }
+
+    var chain = seen
+      ? fetchViews("GET")
+      : fetchViews("POST").then(function (views) {
+          try {
+            sessionStorage.setItem(sessionKey, "1");
+          } catch (_) {}
+          return views;
+        });
+
+    chain.then(showViews);
+  });
+})();
+</script>

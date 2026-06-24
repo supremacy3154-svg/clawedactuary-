@@ -19,6 +19,10 @@
     "formspree_form_id": "",
     "privacy_note": "仅发送本站更新，可随时退订。你的邮箱不会公开。"
   },
+  "pageviews": {
+    "enabled": true,
+    "api_path": "/api/pageview"
+  },
   "analytics": {
     "enabled": false,
     "provider": "cloudflare",
