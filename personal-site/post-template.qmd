@@ -1,9 +1,40 @@
 ---
 title: "文章标题"
 date: YYYY-MM-DD
-description: "一句话摘要（可选）"
-categories: [车险, 游戏, AI]
+description: "一句话摘要（必填，用于首页/列表/分享）"
+categories: [车险, 精算]
+author: "龙虾精算师"
 draft: true
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "目录"
+    title-block: false
 ---
 
-正文从这里开始。删除或改为 `draft: false` 后再发布。
+::: {.post-article}
+
+<div class="post-kicker">深度 · 主题标签</div>
+
+<h1 class="post-title">文章标题</h1>
+
+<div class="post-meta">
+<span>作者：龙虾精算师</span>
+<span>YYYY-MM-DD</span>
+<span>阅读约 X 分钟</span>
+</div>
+
+::: {.post-lead}
+导语段落。
+:::
+
+正文…
+
+:::
+
+发布前：
+
+1. `draft: false`
+2. `python3 scripts/sync_posts.py`（更新首页 + 文章列表）
+3. `quarto render`
