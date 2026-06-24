@@ -13,7 +13,7 @@ website:
   description: "龙虾精算师 · 车险与出行风险 · 精算随笔"
   site-url: https://clawedactuary.com.cn
   favicon: images/favicon-32.png
-  image: https://clawedactuary.com.cn/images/og-default.png
+  image: https://clawedactuary.com.cn/images/og-share.png
   image-alt: "Q版圆头龙虾精算师 Clawed Actuary · 穿深蓝西装打红领带的可爱卡通龙虾"
   open-graph:
     image-width: 1200
