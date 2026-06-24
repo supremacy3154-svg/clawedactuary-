@@ -14,6 +14,11 @@
     var host = document.querySelector(".post-article");
     if (!host) return;
 
+    var cfg = window.__CLAWED_SITE_FEATURES__;
+    var comments = cfg && cfg.comments;
+    if (!comments || !comments.enabled) return;
+
+    var giscus = comments.giscus || {};
     var section = document.createElement("section");
     section.className = "post-comments";
     section.setAttribute("aria-label", "评论");
@@ -21,24 +26,34 @@
       '<div class="post-comments-label">评论 · Comments</div>' +
       '<div class="giscus"></div>';
 
-    var script = document.createElement("script");
-    script.src = "https://giscus.app/client.js";
-    script.setAttribute("data-repo", "supremacy3154-svg/clawedactuary-");
-    script.setAttribute("data-repo-id", "R_kgDOSw4Rgw");
-    script.setAttribute("data-category", "General");
-    script.setAttribute("data-category-id", "DIC_kwDOSw4Rg84C_xrX");
-    script.setAttribute("data-mapping", "pathname");
-    script.setAttribute("data-strict", "0");
-    script.setAttribute("data-reactions-enabled", "1");
-    script.setAttribute("data-emit-metadata", "0");
-    script.setAttribute("data-input-position", "bottom");
-    script.setAttribute("data-theme", "preferred_color_scheme");
-    script.setAttribute("data-lang", "zh-CN");
-    script.setAttribute("data-loading", "lazy");
-    script.crossOrigin = "anonymous";
-    script.async = true;
-
-    section.querySelector(".giscus").appendChild(script);
+    if (!giscus.repo || !giscus.repo_id || !giscus.category_id) {
+      section.querySelector(".giscus").innerHTML =
+        '<p class="post-comments-desc">评论尚未配置完成。请在 <code>site-config.yml</code> 中填写 Giscus 仓库信息。</p>';
+    } else {
+      var script = document.createElement("script");
+      script.src = "https://giscus.app/client.js";
+      script.setAttribute("data-repo", giscus.repo);
+      script.setAttribute("data-repo-id", giscus.repo_id);
+      script.setAttribute("data-category", giscus.category || "General");
+      script.setAttribute("data-category-id", giscus.category_id);
+      script.setAttribute("data-mapping", giscus.mapping || "pathname");
+      script.setAttribute("data-strict", "0");
+      script.setAttribute("data-reactions-enabled", "1");
+      script.setAttribute("data-emit-metadata", "0");
+      script.setAttribute(
+        "data-input-position",
+        giscus.input_position || "bottom"
+      );
+      script.setAttribute(
+        "data-theme",
+        giscus.theme || "preferred_color_scheme"
+      );
+      script.setAttribute("data-lang", giscus.lang || "zh-CN");
+      script.setAttribute("data-loading", "lazy");
+      script.crossOrigin = "anonymous";
+      script.async = true;
+      section.querySelector(".giscus").appendChild(script);
+    }
 
     var note = host.querySelector(".post-note");
     if (note && note.parentNode) {

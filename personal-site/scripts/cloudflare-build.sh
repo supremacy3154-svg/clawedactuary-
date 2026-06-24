@@ -24,4 +24,7 @@ cd "${SITE_DIR}"
 quarto render
 touch _site/.nojekyll
 
+echo "→ 新文章邮件通知（需 BUTTONDOWN_API_KEY）"
+python3 "${SITE_DIR}/scripts/notify_subscribers.py"
+
 echo "✓ 产物: ${SITE_DIR}/_site"

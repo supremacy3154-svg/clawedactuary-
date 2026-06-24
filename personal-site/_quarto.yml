@@ -51,9 +51,12 @@ format:
       - theme/clawed.scss
     include-in-header:
       - theme/clawed-header.html
+      - theme/clawed-analytics.html
     include-after-body:
       - theme/clawed-share.html
       - theme/clawed-post-nav.html
+      - theme/clawed-subscribe.html
+      - theme/clawed-blog-filter.html
       - theme/giscus.html
     toc: false
     code-copy: true

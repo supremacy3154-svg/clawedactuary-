@@ -1,0 +1,30 @@
+<script>
+(function () {
+  var cfg = window.__CLAWED_SITE_FEATURES__;
+  var analytics = cfg && cfg.analytics;
+  if (!analytics || !analytics.enabled) return;
+
+  var provider = analytics.provider || "none";
+
+  if (provider === "cloudflare" && analytics.cloudflare_beacon_token) {
+    var beacon = document.createElement("script");
+    beacon.defer = true;
+    beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    beacon.setAttribute(
+      "data-cf-beacon",
+      JSON.stringify({ token: analytics.cloudflare_beacon_token })
+    );
+    document.head.appendChild(beacon);
+    return;
+  }
+
+  if (provider === "umami" && analytics.umami_website_id) {
+    var umami = document.createElement("script");
+    umami.defer = true;
+    umami.src =
+      analytics.umami_script_src || "https://cloud.umami.is/script.js";
+    umami.setAttribute("data-website-id", analytics.umami_website_id);
+    document.head.appendChild(umami);
+  }
+})();
+</script>

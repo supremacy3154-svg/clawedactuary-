@@ -565,6 +565,88 @@ a.p-title:hover {
   border: 0 !important;
 }
 
+body:has(.blog-category-bar) #quarto-margin-sidebar {
+  display: none !important;
+}
+
+body:has(.blog-category-bar) #quarto-content.page-layout-article.page-columns {
+  grid-template-columns: [screen-start] minmax(0, 1fr) [screen-end] !important;
+}
+
+body:has(.blog-category-bar) #quarto-content.page-layout-article.page-columns > main.content {
+  grid-column: screen-start / screen-end !important;
+}
+
+.blog-category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid var(--rule);
+}
+
+.blog-category-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding-top: 0.45rem;
+  flex: 0 0 auto;
+}
+
+.blog-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1 1 auto;
+}
+
+.blog-category {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-2);
+  background: transparent;
+  border: 0.5px solid var(--rule-strong);
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.blog-category:hover,
+.blog-category:focus-visible {
+  color: var(--ink);
+  border-color: var(--ink-3);
+  outline: none;
+}
+
+.blog-category.active {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.blog-category-count {
+  color: var(--ink-4);
+}
+
+.blog-category.active .blog-category-count {
+  color: rgba(248, 245, 240, 0.72);
+}
+
+.blog-filter-empty {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  margin-top: 1.5rem;
+}
+
+.article-card[hidden] {
+  display: none !important;
+}
+
 .site-subscribe-block {
   margin-top: 3.5rem;
   padding-top: 2.5rem;
@@ -1072,6 +1154,17 @@ a.p-title:hover {
 
 .clawed-page {
   border-bottom: 0.5px solid var(--rule);
+}
+
+/* 文章列表页：订阅区与首页同款全宽区块，避免 clawed-page 底边双线 */
+body:has(.clawed-page) .clawed-wrap.clawed-page {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+body:has(.clawed-page) #subscribe.clawed-section {
+  border-top: 0.5px solid var(--rule);
+  padding: 3rem 0;
 }
 
 body:has(.clawed-wrap) #title-block-header {

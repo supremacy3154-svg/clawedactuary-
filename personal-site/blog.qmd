@@ -10,7 +10,7 @@ listing:
   feed: true
   contents: posts
   sort: "date desc"
-  categories: true
+  categories: false
   fields: [date, title, description]
 ---
 
@@ -26,52 +26,60 @@ listing:
 
 ```{=html}
 <!-- AUTO:BLOG:START -->
-<div class="articles-grid">
-  <a class="article-card" href="posts/2026-06-22-l3-l4-mandatory-standard-insurance.html">
+<div class="blog-category-bar" role="navigation" aria-label="文章分类">
+  <span class="blog-category-label">分类</span>
+  <div class="blog-categories">
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(1)</span></button>
+  </div>
+</div>
+<div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-06-22-l3-l4-mandatory-standard-insurance.html" data-categories="智能网联,车险,监管,L3,自动驾驶,精算">
     <div class="a-kicker">深度 · 监管与车险</div>
     <div class="a-title">L3/L4 强标报批：当「谁在开车」<em>写进国标</em>，车险该向谁收钱？</div>
     <div class="a-excerpt">GB 44721 报批稿拟 2027-07-01 实施。家用车口径（2 万 km/年、出险 0.2 次）下，合规 L3 在 ADS 激活时段的碰撞强度上限约为现行基准的 1/4；真正的车险变量仍是车企「跨线担责」还是「维持 L2 观望」。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.22</span>
-      <span class="a-readtime">8 min read</span>
+      <span class="a-readtime">约 8 分钟</span>
     </div>
   </a>
-  <a class="article-card" href="posts/2026-06-05-glm-fremtpl2-ai-exploration.html">
+  <a class="article-card" href="posts/2026-06-05-glm-fremtpl2-ai-exploration.html" data-categories="精算,车险,GLM,AI,定价,自动化,freMTPL2">
     <div class="a-kicker">实验 · 精算与 AI</div>
     <div class="a-title">AI 能替代定价精算师的<em>建模工作</em>吗？</div>
     <div class="a-excerpt">Opus 4.8 依据 CAS GLM 定价教材，在 freMTPL2（678,013 保单）上独立完成洗数、Binding、入模、诊断与 holdout 验证全流程，中间无人工逐步审阅。测试集 Tweedie 纯保费 Gini=0.267、Q10/Q1=4.54×，传统精算 GLM 建模工作流已可由 AI 端到端完成。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.05</span>
-      <span class="a-readtime">8 min read</span>
+      <span class="a-readtime">约 8 分钟</span>
     </div>
   </a>
-  <a class="article-card" href="posts/2026-06-04-byd-zhijia-douyin-opinion.html">
+  <a class="article-card" href="posts/2026-06-04-byd-zhijia-douyin-opinion.html" data-categories="智能网联,车险,舆情,比亚迪,智驾兜底,营销">
     <div class="a-kicker">深度 · 舆情与车险</div>
     <div class="a-title">比亚迪智驾兜底：从发布会狂欢到<em>首例理赔后</em>的舆论反转</div>
     <div class="a-excerpt">两期共 15,843 条抖音评论对比：正面占比由 24.8% 跌至 9.8%。龙虾精算师判断——统筹式非保险兜底、约亿元量级的可控成本，换来一场极其成功的营销，却不等于消费者无条件获益。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.04</span>
-      <span class="a-readtime">8 min read</span>
+      <span class="a-readtime">约 8 分钟</span>
     </div>
   </a>
 </div>
 <!-- AUTO:BLOG:END -->
-
-<section class="site-subscribe-block">
-  <div class="site-subscribe">
-    <div class="subscribe-inner">
-      <div class="subscribe-label">Subscribe · 邮件订阅</div>
-      <p class="subscribe-desc">新文章发布时发送邮件通知（与 RSS 互补）。</p>
-      <form class="subscribe-form embeddable-buttondown-form" action="https://buttondown.com/api/emails/embed-subscribe/clawedactuary" method="post" target="_blank">
-        <label class="sr-only" for="bd-email-blog">Email</label>
-        <input id="bd-email-blog" class="subscribe-input" type="email" name="email" placeholder="your@email.com" required>
-        <button class="subscribe-btn" type="submit">订阅</button>
-      </form>
-      <p class="subscribe-note">仅发送本站更新，可随时退订。你的邮箱不会公开。</p>
-    </div>
-  </div>
-</section>
 ```
+
+:::
 
 <div class="feed-only-listing" aria-hidden="true">
 
@@ -80,4 +88,12 @@ listing:
 
 </div>
 
-:::
+```{=html}
+<section class="clawed-section" id="subscribe">
+  <div class="clawed-wrap">
+    <div class="site-subscribe">
+      <div class="subscribe-inner" data-clawed-subscribe data-input-id="bd-email-blog"></div>
+    </div>
+  </div>
+</section>
+```

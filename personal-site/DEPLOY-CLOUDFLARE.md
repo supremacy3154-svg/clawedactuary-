@@ -37,7 +37,17 @@
 
 **重要：** Git 连线的 **Cloudflare Pages（静态站）** 会在构建结束后自动上传 **Build output directory** 里的文件。不需要、也不应再执行 Deploy command。`wrangler deploy` 是给 **Workers** 用的；本仓库 Quarto 产物应走 Pages 静态部署。
 
-5. **Environment variables**（可选）：`QUARTO_VERSION` = `1.6.40`
+5. **Environment variables**：
+
+| 变量 | 必填 | 说明 |
+|------|------|------|
+| `QUARTO_VERSION` | 否 | 默认 `1.6.40` |
+| `BUTTONDOWN_API_KEY` | 否* | Buttondown API Key；配置后新文章 push 可自动创建通知邮件（见 SITE-FEATURES.md） |
+| `BUTTONDOWN_NOTIFY_MODE` | 否 | `draft`（默认）或 `send`，覆盖 `site-config.yml` |
+
+\* 未配置时构建照常，仅跳过邮件通知。
+
+访问统计：在 `site-config.yml` 填 Cloudflare Web Analytics 的 `cloudflare_beacon_token` 后提交即可，无需环境变量。
 
 6. **Save and Deploy**，等待首次构建变绿。
 

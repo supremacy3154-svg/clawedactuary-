@@ -18,5 +18,12 @@
     "buttondown_username": "clawedactuary",
     "formspree_form_id": "",
     "privacy_note": "仅发送本站更新，可随时退订。你的邮箱不会公开。"
+  },
+  "analytics": {
+    "enabled": false,
+    "provider": "cloudflare",
+    "cloudflare_beacon_token": "",
+    "umami_website_id": "",
+    "umami_script_src": "https://cloud.umami.is/script.js"
   }
 }

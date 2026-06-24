@@ -1,0 +1,86 @@
+<script>
+(function () {
+  function ready(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  function escapeHtml(text) {
+    return String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function renderSubscribe(host) {
+    var cfg = window.__CLAWED_SITE_FEATURES__;
+    var sub = cfg && cfg.subscribe;
+    var inputId =
+      host.getAttribute("data-input-id") ||
+      "bd-email-" + Math.random().toString(36).slice(2, 8);
+    var showDesc = host.getAttribute("data-show-desc") === "true";
+
+    if (!sub || !sub.enabled) {
+      host.innerHTML =
+        '<div class="subscribe-label">Subscribe · 邮件订阅</div>' +
+        '<p class="subscribe-fallback">邮件订阅未启用。可通过 <a href="/blog.xml">RSS</a> 订阅更新。</p>';
+      return;
+    }
+
+    var note = escapeHtml(
+      sub.privacy_note || "仅发送本站更新，可随时退订。你的邮箱不会公开。"
+    );
+    var html =
+      '<div class="subscribe-label">Subscribe · 邮件订阅</div>';
+
+    if (showDesc) {
+      html +=
+        '<p class="subscribe-desc">新文章发布时发送邮件通知（与 RSS 互补）。</p>';
+    }
+
+    if (sub.provider === "buttondown" && sub.buttondown_username) {
+      html +=
+        '<form class="subscribe-form embeddable-buttondown-form" action="https://buttondown.com/api/emails/embed-subscribe/' +
+        encodeURIComponent(sub.buttondown_username) +
+        '" method="post" target="_blank">' +
+        '<label class="sr-only" for="' +
+        inputId +
+        '">邮箱</label>' +
+        '<input id="' +
+        inputId +
+        '" class="subscribe-input" type="email" name="email" placeholder="输入邮箱" required>' +
+        '<button class="subscribe-btn" type="submit">订阅</button>' +
+        "</form>";
+    } else if (sub.provider === "formspree" && sub.formspree_form_id) {
+      html +=
+        '<form class="subscribe-form" action="https://formspree.io/f/' +
+        encodeURIComponent(sub.formspree_form_id) +
+        '" method="post">' +
+        '<label class="sr-only" for="' +
+        inputId +
+        '">邮箱</label>' +
+        '<input id="' +
+        inputId +
+        '" class="subscribe-input" type="email" name="email" placeholder="输入邮箱" required>' +
+        '<button class="subscribe-btn" type="submit">订阅</button>' +
+        "</form>";
+    } else {
+      host.innerHTML =
+        '<div class="subscribe-label">Subscribe · 邮件订阅</div>' +
+        '<p class="subscribe-fallback">邮件订阅尚未配置完整。可通过 <a href="/blog.xml">RSS</a> 订阅更新。</p>';
+      return;
+    }
+
+    html += '<p class="subscribe-note">' + note + "</p>";
+    host.innerHTML = html;
+  }
+
+  ready(function () {
+    document.querySelectorAll("[data-clawed-subscribe]").forEach(renderSubscribe);
+  });
+})();
+</script>

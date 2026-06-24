@@ -1,0 +1,95 @@
+<script>
+(function () {
+  if (!/\/blog\.html$/.test(window.location.pathname)) return;
+
+  function ready(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  function cardCategories(card) {
+    var raw = card.getAttribute("data-categories") || "";
+    if (!raw) return [];
+    return raw.split(",").map(function (item) {
+      return item.trim();
+    });
+  }
+
+  function setActiveCategory(buttons, category) {
+    buttons.forEach(function (btn) {
+      var match = (btn.getAttribute("data-category") || "") === category;
+      btn.classList.toggle("active", match);
+      btn.setAttribute("aria-pressed", match ? "true" : "false");
+    });
+  }
+
+  function applyFilter(cards, category) {
+    var visible = 0;
+    cards.forEach(function (card) {
+      var show = !category || cardCategories(card).indexOf(category) !== -1;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+
+    var empty = document.getElementById("blog-filter-empty");
+    if (empty) {
+      empty.hidden = visible > 0;
+    }
+  }
+
+  function updateUrl(category) {
+    var url = new URL(window.location.href);
+    if (category) {
+      url.searchParams.set("cat", category);
+    } else {
+      url.searchParams.delete("cat");
+    }
+    window.history.replaceState({}, "", url);
+  }
+
+  ready(function () {
+    var bar = document.querySelector(".blog-category-bar");
+    var grid = document.getElementById("articles-grid");
+    if (!bar || !grid) return;
+
+    var buttons = Array.prototype.slice.call(
+      bar.querySelectorAll(".blog-category")
+    );
+    var cards = Array.prototype.slice.call(
+      grid.querySelectorAll(".article-card")
+    );
+    if (!buttons.length || !cards.length) return;
+
+    var empty = document.createElement("p");
+    empty.id = "blog-filter-empty";
+    empty.className = "blog-filter-empty";
+    empty.hidden = true;
+    empty.textContent = "该分类下暂无文章。";
+    grid.insertAdjacentElement("afterend", empty);
+
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.classList.contains("active") ? "true" : "false");
+      btn.addEventListener("click", function () {
+        var category = btn.getAttribute("data-category") || "";
+        setActiveCategory(buttons, category);
+        applyFilter(cards, category);
+        updateUrl(category);
+      });
+    });
+
+    var initial = new URL(window.location.href).searchParams.get("cat") || "";
+    if (initial) {
+      var matched = buttons.some(function (btn) {
+        return (btn.getAttribute("data-category") || "") === initial;
+      });
+      if (matched) {
+        setActiveCategory(buttons, initial);
+        applyFilter(cards, initial);
+      }
+    }
+  });
+})();
+</script>
