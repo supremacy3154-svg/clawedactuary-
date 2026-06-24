@@ -126,9 +126,11 @@ def parse_post(path: Path) -> Post | None:
     title_html = title_m.group(1).strip() if title_m else html.escape(title)
 
     text_only = re.sub(r"<[^>]+>", " ", body)
+    text_only = re.sub(r"\s+", " ", text_only).strip()
     cjk = len(re.findall(r"[\u4e00-\u9fff]", text_only))
-    latin = len(re.findall(r"[A-Za-z0-9]+", text_only))
-    reading = max(1, round((cjk + latin) / 350))
+    latin_words = len(re.findall(r"[A-Za-z0-9]+", text_only))
+    # 中文技术文偏慢读；与文章页、列表卡片共用同一估算
+    reading = max(1, round(cjk / 280 + latin_words / 200))
 
     return Post(
         slug=slug,
@@ -429,6 +431,23 @@ def sync_blog(posts: list[Post]) -> None:
     BLOG_PATH.write_text(text, encoding="utf-8")
 
 
+READING_SPAN_RE = re.compile(r"<span>阅读约\s*\d+\s*分钟</span>")
+
+
+def sync_post_reading_times(posts: list[Post]) -> None:
+    for post in posts:
+        path = POSTS_DIR / f"{post.slug}.qmd"
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        replacement = f"<span>阅读约 {post.reading_minutes} 分钟</span>"
+        if not READING_SPAN_RE.search(text):
+            print(f"⚠ No reading span in {path.name}", file=sys.stderr)
+            continue
+        text = READING_SPAN_RE.sub(replacement, text, count=1)
+        path.write_text(text, encoding="utf-8")
+
+
 def main() -> int:
     posts = load_posts()
     if not posts:
@@ -437,9 +456,10 @@ def main() -> int:
 
     cfg = enrich_giscus_config(load_site_config())
     write_features_json(cfg)
+    sync_post_reading_times(posts)
     sync_index(posts)
     sync_blog(posts)
-    print(f"✓ Synced {len(posts)} posts → index.qmd, blog.qmd, _generated/site-features.json|.js")
+    print(f"✓ Synced {len(posts)} posts → index.qmd, blog.qmd, reading times, _generated/site-features.json|.js")
     return 0
 
 

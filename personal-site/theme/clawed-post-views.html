@@ -15,6 +15,10 @@
     return String(n);
   }
 
+  function metaHost(meta) {
+    return meta.querySelector("p") || meta;
+  }
+
   ready(function () {
     var cfg = window.__CLAWED_SITE_FEATURES__;
     var pv = cfg && cfg.pageviews;
@@ -23,20 +27,22 @@
     var meta = document.querySelector(".post-article .post-meta");
     if (!meta) return;
 
+    var host = metaHost(meta);
     var apiPath = pv.api_path || "/api/pageview";
     var pagePath = window.location.pathname.replace(/^\//, "");
-    var span = meta.querySelector(".post-views");
+
+    var span = host.querySelector(".post-views");
     if (!span) {
       span = document.createElement("span");
       span.className = "post-views";
-      meta.appendChild(span);
+      host.appendChild(span);
     }
     span.removeAttribute("hidden");
     span.textContent = "阅读 … 次";
 
     function showViews(views) {
       if (typeof views !== "number" || views < 0) {
-        span.remove();
+        span.textContent = "阅读 — 次";
         return;
       }
       span.textContent = "阅读 " + formatViews(views) + " 次";
@@ -50,11 +56,11 @@
         (method === "POST" ? "&_=" + Date.now() : "");
       return fetch(url, { method: method || "GET", credentials: "same-origin" })
         .then(function (res) {
-          return res.json();
-        })
-        .then(function (data) {
-          if (data && typeof data.views === "number") return data.views;
-          return null;
+          return res.json().then(function (data) {
+            if (!res.ok) return null;
+            if (data && typeof data.views === "number") return data.views;
+            return null;
+          });
         })
         .catch(function () {
           return null;
@@ -72,9 +78,11 @@
     var chain = seen
       ? fetchViews("GET")
       : fetchViews("POST").then(function (views) {
-          try {
-            sessionStorage.setItem(sessionKey, "1");
-          } catch (_) {}
+          if (views !== null) {
+            try {
+              sessionStorage.setItem(sessionKey, "1");
+            } catch (_) {}
+          }
           return views;
         });
 

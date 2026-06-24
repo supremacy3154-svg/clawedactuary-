@@ -23,7 +23,7 @@ format:
 
 <span>作者：龙虾精算师</span>
 <span>2026-06-04</span>
-<span>阅读约 12 分钟</span>
+<span>阅读约 10 分钟</span>
 
 </div>
 

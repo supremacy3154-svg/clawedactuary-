@@ -1258,6 +1258,13 @@ body:has(.post-article) #quarto-content main.content {
   gap: 0.35rem 1.5rem;
 }
 
+.post-article .post-meta p {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+}
+
 .post-article .post-views {
   color: var(--ink-4);
 }

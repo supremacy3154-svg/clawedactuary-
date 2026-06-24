@@ -54,7 +54,7 @@ listing:
     <div class="a-excerpt">GB 44721 报批稿拟 2027-07-01 实施。家用车口径（2 万 km/年、出险 0.2 次）下，合规 L3 在 ADS 激活时段的碰撞强度上限约为现行基准的 1/4；真正的车险变量仍是车企「跨线担责」还是「维持 L2 观望」。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.22</span>
-      <span class="a-readtime">约 8 分钟</span>
+      <span class="a-readtime">约 11 分钟</span>
     </div>
   </a>
   <a class="article-card" href="posts/2026-06-05-glm-fremtpl2-ai-exploration.html" data-categories="精算,车险,GLM,AI,定价,自动化,freMTPL2">
@@ -63,7 +63,7 @@ listing:
     <div class="a-excerpt">Opus 4.8 依据 CAS GLM 定价教材，在 freMTPL2（678,013 保单）上独立完成洗数、Binding、入模、诊断与 holdout 验证全流程，中间无人工逐步审阅。测试集 Tweedie 纯保费 Gini=0.267、Q10/Q1=4.54×，传统精算 GLM 建模工作流已可由 AI 端到端完成。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.05</span>
-      <span class="a-readtime">约 8 分钟</span>
+      <span class="a-readtime">约 11 分钟</span>
     </div>
   </a>
   <a class="article-card" href="posts/2026-06-04-byd-zhijia-douyin-opinion.html" data-categories="智能网联,车险,舆情,比亚迪,智驾兜底,营销">
@@ -72,7 +72,7 @@ listing:
     <div class="a-excerpt">两期共 15,843 条抖音评论对比：正面占比由 24.8% 跌至 9.8%。龙虾精算师判断——统筹式非保险兜底、约亿元量级的可控成本，换来一场极其成功的营销，却不等于消费者无条件获益。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.04</span>
-      <span class="a-readtime">约 8 分钟</span>
+      <span class="a-readtime">约 10 分钟</span>
     </div>
   </a>
 </div>
