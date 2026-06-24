@@ -5,12 +5,13 @@ comments:
   enabled: true
   giscus:
     repo: "supremacy3154-svg/clawedactuary-"
-    repo_id: ""
+    repo_id: "R_kgDOSw4Rgw"
     category: "General"
-    category_id: ""
+    category_id: "DIC_kwDOSw4Rg84C_xrX"
     mapping: "pathname"
     lang: "zh-CN"
-    theme: "light"
+    theme: "preferred_color_scheme"
+    input_position: "bottom"
 
 # 邮件订阅（任选一种 provider，填好对应字段即可）
 subscribe:
