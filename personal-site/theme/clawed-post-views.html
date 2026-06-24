@@ -19,6 +19,14 @@
     return meta.querySelector("p") || meta;
   }
 
+  function normalizePagePath(pathname) {
+    var path = pathname.replace(/^\//, "");
+    if (path.startsWith("posts/") && !path.endsWith(".html")) {
+      path += ".html";
+    }
+    return path;
+  }
+
   ready(function () {
     var cfg = window.__CLAWED_SITE_FEATURES__;
     var pv = cfg && cfg.pageviews;
@@ -29,7 +37,7 @@
 
     var host = metaHost(meta);
     var apiPath = pv.api_path || "/api/pageview";
-    var pagePath = window.location.pathname.replace(/^\//, "");
+    var pagePath = normalizePagePath(window.location.pathname);
 
     var span = host.querySelector(".post-views");
     if (!span) {

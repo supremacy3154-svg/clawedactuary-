@@ -16,6 +16,9 @@ function normalizePath(raw) {
   } catch (_) {
     /* keep raw */
   }
+  if (path.startsWith("posts/") && !path.endsWith(".html")) {
+    path += ".html";
+  }
   return path;
 }
 
