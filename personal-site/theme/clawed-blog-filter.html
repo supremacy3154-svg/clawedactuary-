@@ -1,6 +1,7 @@
 <script>
 (function () {
-  if (!/\/blog\.html$/.test(window.location.pathname)) return;
+  var path = window.location.pathname.replace(/\/$/, "");
+  if (path !== "/blog" && path !== "/blog.html") return;
 
   function ready(fn) {
     if (document.readyState === "loading") {
