@@ -27,6 +27,7 @@ CONFIG_PATH = SITE_DIR / "site-config.yml"
 QUARTO_CONFIG = SITE_DIR / "_quarto.yml"
 STATE_PATH = SITE_DIR / "_generated" / "notify-state.json"
 BUTTONDOWN_API = "https://api.buttondown.com/v1/emails"
+SEND_STATUSES = frozenset({"about_to_send", "in_flight", "sent", "scheduled", "resending"})
 
 
 def load_yaml_block(text: str) -> dict[str, object]:
@@ -226,13 +227,30 @@ def create_buttondown_email(api_key: str, post: dict, mode: str) -> dict:
         "Authorization": f"Token {api_key}",
         "Content-Type": "application/json",
         "User-Agent": "clawedactuary-notify/1.0",
+        "X-API-Version": "2026-04-01",
     }
     if mode == "draft":
         payload["status"] = "draft"
     else:
+        # Buttondown API ≥2026-04-01 defaults to draft; must set about_to_send to publish
+        payload["status"] = "about_to_send"
         headers["X-Buttondown-Live-Dangerously"] = "true"
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(BUTTONDOWN_API, data=data, headers=headers, method="POST")
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.load(resp)
+
+
+def send_buttondown_draft(api_key: str, email_id: str) -> dict:
+    url = f"{BUTTONDOWN_API}/{email_id}"
+    payload = json.dumps({"status": "about_to_send"}).encode("utf-8")
+    headers = {
+        "Authorization": f"Token {api_key}",
+        "Content-Type": "application/json",
+        "User-Agent": "clawedactuary-notify/1.0",
+        "X-API-Version": "2026-04-01",
+    }
+    req = urllib.request.Request(url, data=payload, headers=headers, method="PATCH")
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.load(resp)
 
@@ -242,6 +260,20 @@ def main() -> int:
     if not api_key:
         print("⊘ BUTTONDOWN_API_KEY not set — skip subscriber notify", file=sys.stderr)
         return 0
+
+    if len(sys.argv) >= 3 and sys.argv[1] == "send-draft":
+        email_id = sys.argv[2]
+        try:
+            result = send_buttondown_draft(api_key, email_id)
+            print(
+                f"✓ Sent draft {email_id} → status={result.get('status', '?')}",
+                file=sys.stderr,
+            )
+            return 0
+        except urllib.error.HTTPError as exc:
+            body = exc.read().decode("utf-8", errors="replace")
+            print(f"✗ Buttondown API error: {exc.code} {body}", file=sys.stderr)
+            return 1
 
     posts = load_posts()
     to_notify = posts_to_notify(posts)
@@ -257,8 +289,17 @@ def main() -> int:
         try:
             result = create_buttondown_email(api_key, post, mode)
             email_id = result.get("id", "?")
+            status = str(result.get("status", ""))
+            if mode == "send" and status not in SEND_STATUSES:
+                print(
+                    f"✗ Buttondown returned status={status!r} (expected send) "
+                    f"for «{post['title']}» (id={email_id})",
+                    file=sys.stderr,
+                )
+                return 1
             print(
-                f"✓ Buttondown email {mode} for «{post['title']}» (id={email_id})",
+                f"✓ Buttondown email {mode} for «{post['title']}» "
+                f"(id={email_id}, status={status})",
                 file=sys.stderr,
             )
             if post["slug"] not in notified:

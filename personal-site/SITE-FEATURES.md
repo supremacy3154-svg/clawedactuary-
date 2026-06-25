@@ -41,9 +41,16 @@ Cloudflare 构建脚本已自动执行 `sync_posts.py`。
 3. `site-config.yml` → `subscribe.notify`：
    - `mode: send` — 构建时**直接发给全部订阅者**（当前默认）
    - `mode: draft` — 仅在 Buttondown 生成草稿，你确认后再发
-4. 仅当 **本次 git commit 新增/修改了** `posts/*.qmd` 且该文不在 `notify-state.json` 时才会触发
+4. 新文章触发逻辑见 `notify_subscribers.py`（浅克隆时用 `notify-state.json` 补判）
+5. `mode: send` 时 API 须传 `status: about_to_send`（Buttondown API ≥2026-04-01 默认 draft）
 
 已发过的文章 slug 记录在 `personal-site/_generated/notify-state.json`（需随仓库提交）。
+
+**补发卡在 draft 的邮件：**
+
+```bash
+BUTTONDOWN_API_KEY=xxx python3 scripts/notify_subscribers.py send-draft em_xxxxx
+```
 
 ---
 
