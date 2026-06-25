@@ -44,6 +44,7 @@
 | `QUARTO_VERSION` | 否 | 默认 `1.6.40` |
 | `BUTTONDOWN_API_KEY` | 否* | Buttondown API Key；配置后新文章 push 可自动创建通知邮件（见 SITE-FEATURES.md） |
 | `BUTTONDOWN_NOTIFY_MODE` | 否 | `send`（默认）或 `draft`，覆盖 `site-config.yml` |
+| `GIT_DEPTH` | 否 | 建议 `2`（Pages 默认 depth=1 时 `git diff HEAD~1` 会失败，通知脚本已做 fallback） |
 
 \* 未配置时构建照常，仅跳过邮件通知。
 

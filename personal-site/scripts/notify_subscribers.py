@@ -120,31 +120,32 @@ def load_posts() -> list[dict]:
 
 
 def git_changed_post_slugs() -> set[str]:
-    try:
-        out = subprocess.check_output(
-            [
-                "git",
-                "diff",
-                "--name-only",
-                "HEAD~1",
-                "HEAD",
-                "--",
-                "personal-site/posts/",
-                "posts/",
-            ],
-            cwd=SITE_DIR.parent,
-            stderr=subprocess.DEVNULL,
-            text=True,
-        )
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        return set()
+    repo_root = SITE_DIR.parent
+    path_args = ["--", "personal-site/posts/", "posts/"]
+    for rev_range in ("HEAD~1..HEAD", "HEAD^..HEAD"):
+        try:
+            out = subprocess.check_output(
+                ["git", "diff", "--name-only", rev_range, *path_args],
+                cwd=repo_root,
+                stderr=subprocess.DEVNULL,
+                text=True,
+            )
+            slugs = _slugs_from_diff_lines(out.splitlines())
+            if slugs:
+                return slugs
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            continue
+    return set()
+
+
+def _slugs_from_diff_lines(lines: list[str]) -> set[str]:
     slugs: set[str] = set()
-    for line in out.splitlines():
+    for line in lines:
         line = line.strip()
         if not line.endswith(".qmd"):
             continue
         name = Path(line).name
-        if name == "post-template.qmd":
+        if name.startswith("_") or name == "post-template.qmd":
             continue
         slugs.add(Path(name).stem)
     return slugs
@@ -170,13 +171,17 @@ def posts_to_notify(posts: list[dict]) -> list[dict]:
     if notify_cfg.get("enabled") is False:
         return []
 
-    changed = git_changed_post_slugs()
-    if not changed:
-        print("⊘ No post changes in latest commit — skip notify", file=sys.stderr)
-        return []
-
     state = load_state()
     notified = set(state.get("notified_slugs", []))
+
+    changed = git_changed_post_slugs()
+    if not changed:
+        # Cloudflare Pages 等浅克隆（depth=1）拿不到 HEAD~1，改为对照 notify-state
+        print(
+            "⚠ git diff unavailable (shallow clone?) — using notify-state diff",
+            file=sys.stderr,
+        )
+        changed = {p["slug"] for p in posts if p["slug"] not in notified}
 
     candidates: list[dict] = []
     for post in posts:
