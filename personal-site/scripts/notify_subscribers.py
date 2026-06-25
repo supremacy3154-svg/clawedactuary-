@@ -11,6 +11,7 @@ Detection: compares posts/*.qmd added/changed in the latest git commit.
 
 from __future__ import annotations
 
+import html
 import json
 import os
 import re
@@ -208,13 +209,24 @@ def subject_prefix() -> str:
 
 
 def build_email_body(post: dict) -> str:
+    title = html.escape(post["title"])
+    desc = html.escape(post["description"])
+    url = html.escape(post["url"], quote=True)
     return (
-        f"# {post['title']}\n\n"
-        f"{post['description']}\n\n"
-        f"[阅读全文 →]({post['url']})\n\n"
-        "---\n\n"
-        "你收到这封邮件是因为订阅了 Clawed Actuary（龙虾精算师）。"
-        "若不想再收到更新，请使用邮件中的退订链接。"
+        "<!-- buttondown-editor-mode: fancy -->\n"
+        f'<h1 style="color:#1a1814;font-weight:400;margin:0 0 0.75em;line-height:1.35;">'
+        f"{title}</h1>\n"
+        f'<p style="color:#4a4740;line-height:1.75;font-size:18px;margin:0 0 1.25em;">'
+        f"{desc}</p>\n"
+        f'<p style="margin:0 0 2em;">'
+        f'<a href="{url}" style="display:inline-block;padding:12px 22px;'
+        f"background:#1a1814;color:#f8f5f0 !important;text-decoration:none;"
+        f'font-size:17px;font-weight:600;letter-spacing:0.02em;">阅读全文 →</a>'
+        f"</p>\n"
+        f'<hr style="border:none;border-top:1px solid #e0dcd4;margin:2em 0;">\n'
+        f'<p style="color:#8a8680;font-size:14px;line-height:1.6;margin:0;">'
+        f"你收到这封邮件是因为订阅了 Clawed Actuary（龙虾精算师）。"
+        f"若不想再收到更新，请使用邮件中的退订链接。</p>"
     )
 
 
