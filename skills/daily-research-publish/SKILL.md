@@ -121,5 +121,6 @@ launchctl load ~/Library/LaunchAgents/com.clawedactuary.daily-research.plist
 
 - 不把 API Key 写进仓库
 - 文首/文末声明：个人研究、不代表机构
+- **主观段落勿反复点名国内险企，勿暴露作者机构隶属**（见 `CONTENT-GUIDE.md` →「机构与署名」）
 - 精算估算标注「作者假设，非官方披露」
 - 不自动 push 除非用户明确要求或 `auto_git_push: true`

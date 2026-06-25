@@ -9,7 +9,8 @@
     "车险定价与精算",
     "监管与强标",
     "舆情与公众认知",
-    "AI 与精算自动化"
+    "AI 与精算自动化",
+    "保险科技与海外观察"
   ],
   "news_queries": [
     "智能网联汽车 车险 政策",
@@ -18,6 +19,14 @@
     "GB 44721 自动驾驶 标准"
   ],
   "topic_queue": [
+    {
+      "id": "corgi-ai-insurance-study",
+      "title": "Corgi 深度研究：AI 原生保险公司，国内能学什么",
+      "status": "published",
+      "pillar": "保险科技与海外观察",
+      "related_posts": ["posts/2026-06-05-glm-fremtpl2-ai-exploration.qmd"],
+      "notes": "全栈持牌 + AI 承保；AI 责任险定价难题；对照国内网络安全险渗透率 <0.1%"
+    },
     {
       "id": "huawei-qiankun-wuyou",
       "title": "华为乾崑无忧权益：跟进比亚迪后的「保险化」回应",

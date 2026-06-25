@@ -29,27 +29,40 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(4)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(1)</span></button>
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-06-25-corgi-ai-insurance-study.html" data-categories="AI,财险,保险科技,网络安全,海外观察,精算">
+    <div class="a-kicker">深度 · 海外观察与保险科技</div>
+    <div class="a-title">Corgi 深度研究：两个人 + AI <em>手搓了一家保险公司</em>，国内能复制吗？</div>
+    <div class="a-excerpt">2024 年两个创始人用 AI 从零搭出持牌全栈保险公司，18 个月融资 3.78 亿美元、估值 26 亿、首年 ARR 4,000 万美元。龙虾精算师拆解「两人 + AI 手搓保司」到底省了什么、赌了什么，以及在中国持牌门槛下，哪些能借鉴、哪些不能照搬。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.06.25</span>
+      <span class="a-readtime">约 18 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-06-24-huawei-qiankun-wuyou-opinion.html" data-categories="智能网联,车险,舆情,华为,智驾兜底,营销,引望">
     <div class="a-kicker">深度 · 舆情与车险</div>
     <div class="a-title">华为乾崑无忧权益：跟进比亚迪后的<em>「保险化」回应</em>，舆论为何更冷？</div>
