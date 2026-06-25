@@ -44,7 +44,10 @@
 | `QUARTO_VERSION` | 否 | 默认 `1.6.40` |
 | `BUTTONDOWN_API_KEY` | 否* | Buttondown API Key；配置后新文章 push 可自动创建通知邮件（见 SITE-FEATURES.md） |
 | `BUTTONDOWN_NOTIFY_MODE` | 否 | `send`（默认）或 `draft`，覆盖 `site-config.yml` |
+| `GITHUB_TOKEN` | 否* | 发信成功后自动 `git push` 更新 `notify-state.json`（见下） |
 | `GIT_DEPTH` | 否 | 建议 `2`（Pages 默认 depth=1 时 `git diff HEAD~1` 会失败，通知脚本已做 fallback） |
+
+\* `GITHUB_TOKEN`：GitHub → Settings → Developer settings → Fine-grained token，权限 **Contents: Read and write**，仅限本仓库。未配置时发信仍正常，但 state 不会自动回写。
 
 \* 未配置时构建照常，仅跳过邮件通知。
 

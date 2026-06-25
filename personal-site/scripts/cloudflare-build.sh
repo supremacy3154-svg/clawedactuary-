@@ -27,4 +27,7 @@ touch _site/.nojekyll
 echo "→ 新文章邮件通知（需 BUTTONDOWN_API_KEY）"
 python3 "${SITE_DIR}/scripts/notify_subscribers.py"
 
+echo "→ 回写 notify-state（需 GITHUB_TOKEN）"
+bash "${SITE_DIR}/scripts/push_notify_state.sh"
+
 echo "✓ 产物: ${SITE_DIR}/_site"
