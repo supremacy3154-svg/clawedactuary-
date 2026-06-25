@@ -121,7 +121,8 @@ def load_posts() -> list[dict]:
     return posts
 
 
-def git_changed_post_slugs() -> set[str]:
+def git_changed_post_slugs() -> set[str] | None:
+    """Return slugs changed in the latest commit, or None if git history unavailable."""
     repo_root = SITE_DIR.parent
     path_args = ["--", "personal-site/posts/", "posts/"]
     for rev_range in ("HEAD~1..HEAD", "HEAD^..HEAD"):
@@ -132,12 +133,10 @@ def git_changed_post_slugs() -> set[str]:
                 stderr=subprocess.DEVNULL,
                 text=True,
             )
-            slugs = _slugs_from_diff_lines(out.splitlines())
-            if slugs:
-                return slugs
+            return _slugs_from_diff_lines(out.splitlines())
         except (subprocess.CalledProcessError, FileNotFoundError):
             continue
-    return set()
+    return None
 
 
 def _slugs_from_diff_lines(lines: list[str]) -> set[str]:
@@ -177,13 +176,16 @@ def posts_to_notify(posts: list[dict]) -> list[dict]:
     notified = set(state.get("notified_slugs", []))
 
     changed = git_changed_post_slugs()
-    if not changed:
-        # Cloudflare Pages 等浅克隆（depth=1）拿不到 HEAD~1，改为对照 notify-state
+    if changed is None:
+        # Cloudflare Pages depth=1：无法 diff 上一 commit，对照 notify-state
         print(
             "⚠ git diff unavailable (shallow clone?) — using notify-state diff",
             file=sys.stderr,
         )
         changed = {p["slug"] for p in posts if p["slug"] not in notified}
+    elif not changed:
+        print("⊘ No post changes in latest commit — skip notify", file=sys.stderr)
+        return []
 
     candidates: list[dict] = []
     for post in posts:

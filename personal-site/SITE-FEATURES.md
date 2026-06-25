@@ -44,7 +44,7 @@ Cloudflare 构建脚本已自动执行 `sync_posts.py`。
 4. 新文章触发逻辑见 `notify_subscribers.py`（浅克隆时用 `notify-state.json` 补判）
 5. `mode: send` 时 API 须传 `status: about_to_send`（Buttondown API ≥2026-04-01 默认 draft）
 
-已发过的文章 slug 记录在 `personal-site/_generated/notify-state.json`（需随仓库提交）。
+已发过的文章 slug 记录在 `personal-site/_generated/notify-state.json`（**成功发送后须提交进仓库**，否则浅克隆构建会重复发信）。
 
 **补发卡在 draft 的邮件：**
 
