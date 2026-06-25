@@ -746,6 +746,16 @@ body:has(.blog-category-bar) #quarto-content.page-layout-article.page-columns > 
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 0.5px solid var(--rule-strong);
+  background: var(--paper);
+}
+
+.post-comments .giscus {
+  max-width: 42rem;
+  background: var(--paper);
+}
+
+.post-comments .giscus iframe {
+  color-scheme: light;
 }
 
 .post-comments-label {

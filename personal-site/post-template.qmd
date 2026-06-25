@@ -34,6 +34,8 @@ format:
 
 :::
 
+**写文与图表规范见 [`CONTENT-GUIDE.md`](CONTENT-GUIDE.md)**（文风、图表命令、禁止项）。
+
 发布前：
 
 1. `draft: false`

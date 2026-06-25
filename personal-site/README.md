@@ -2,6 +2,8 @@
 
 纸感编辑风个人站（基于 `clawed-actuary.html` 设计，由 [Quarto](https://quarto.org/) 构建）。文章写在 `posts/*.qmd`。
 
+**写文 / 图表规范：** [`CONTENT-GUIDE.md`](CONTENT-GUIDE.md)
+
 ## 本机预览
 
 ```bash

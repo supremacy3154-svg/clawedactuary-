@@ -4,6 +4,7 @@ project:
   resources:
     - "images/**"
     - "_generated/**"
+    - "theme/giscus-clawed.css"
   render:
     - "*.qmd"
     - "posts/*.qmd"

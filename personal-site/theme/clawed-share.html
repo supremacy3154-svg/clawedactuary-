@@ -29,6 +29,7 @@
       '<button type="button" class="post-share-btn" data-action="wechat" title="微信扫码打开">微信</button>' +
       '<button type="button" class="post-share-btn" data-action="moments" title="复制链接后到朋友圈粘贴">朋友圈</button>' +
       '<button type="button" class="post-share-btn" data-action="copy" title="复制链接">复制链接</button>' +
+      '<button type="button" class="post-share-btn" data-action="more" title="更多分享方式">更多</button>' +
       "</div>";
 
     var modal = document.createElement("div");
@@ -117,12 +118,25 @@
       modal.hidden = true;
     }
 
+    function openMoreShare() {
+      if (navigator.share) {
+        navigator
+          .share({ title: title, url: url, text: title })
+          .catch(function () {
+            openWechatQr();
+          });
+        return;
+      }
+      openWechatQr();
+    }
+
     bar.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-action]");
       if (!btn) return;
       var action = btn.getAttribute("data-action");
       if (action === "copy") copyLink();
       if (action === "wechat") openWechatQr();
+      if (action === "more") openMoreShare();
       if (action === "moments") {
         copyLink().then(function () {
           showToast("已复制链接，请打开微信 → 朋友圈 → 粘贴分享");
@@ -136,20 +150,6 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !modal.hidden) closeModal();
     });
-
-    if (navigator.share) {
-      var nativeBtn = document.createElement("button");
-      nativeBtn.type = "button";
-      nativeBtn.className = "post-share-btn";
-      nativeBtn.textContent = "更多";
-      nativeBtn.title = "系统分享菜单";
-      nativeBtn.addEventListener("click", function () {
-        navigator
-          .share({ title: title, url: url })
-          .catch(function () {});
-      });
-      bar.querySelector(".post-share-actions").appendChild(nativeBtn);
-    }
   });
 })();
 </script>

@@ -1,0 +1,90 @@
+/* Clawed Actuary · Giscus theme (paper #f8f5f0, ink #1a1814, accent #8b2020) */
+main {
+  --color-canvas-default: #f8f5f0;
+  --color-canvas-overlay: #f0ece5;
+  --color-canvas-inset: #f0ece5;
+  --color-canvas-subtle: #f0ece5;
+  --color-border-default: rgba(26, 24, 20, 0.18);
+  --color-border-muted: rgba(26, 24, 20, 0.1);
+  --color-border-subtle: rgba(26, 24, 20, 0.08);
+  --color-fg-default: #1a1814;
+  --color-fg-muted: #4a4740;
+  --color-fg-subtle: #8a8680;
+  --color-fg-on-emphasis: #f8f5f0;
+  --color-accent-fg: #8b2020;
+  --color-accent-emphasis: #8b2020;
+  --color-accent-muted: rgba(139, 32, 32, 0.12);
+  --color-accent-subtle: rgba(139, 32, 32, 0.08);
+  --color-success-fg: #2d6a4f;
+  --color-attention-fg: #8b2020;
+  --color-danger-fg: #8b2020;
+  --color-btn-text: #1a1814;
+  --color-btn-bg: #f0ece5;
+  --color-btn-border: rgba(26, 24, 20, 0.2);
+  --color-btn-hover-bg: #e8e4dc;
+  --color-btn-hover-border: rgba(26, 24, 20, 0.35);
+  --color-btn-primary-text: #f8f5f0;
+  --color-btn-primary-bg: #1a1814;
+  --color-btn-primary-border: #1a1814;
+  --color-btn-primary-hover-bg: #4a4740;
+  --color-btn-primary-hover-border: #4a4740;
+  --color-neutral-muted: rgba(26, 24, 20, 0.06);
+  --color-neutral-subtle: rgba(26, 24, 20, 0.04);
+  --color-shadow-small: 0 1px 0 rgba(26, 24, 20, 0.04);
+  --color-shadow-medium: 0 3px 6px rgba(26, 24, 20, 0.06);
+  --color-shadow-large: 0 8px 24px rgba(26, 24, 20, 0.08);
+}
+
+.gsc-comment-box-textarea,
+.gsc-header,
+.gsc-comment,
+.gsc-reactions-menu,
+.gsc-modal-dialog {
+  background-color: #f8f5f0 !important;
+}
+
+.gsc-comment-box {
+  border-color: rgba(26, 24, 20, 0.18) !important;
+}
+
+.gsc-comment-box-tabs {
+  border-bottom-color: rgba(26, 24, 20, 0.12) !important;
+}
+
+.gsc-comment-box-textarea {
+  color: #1a1814 !important;
+}
+
+.gsc-comment-box-textarea:focus {
+  border-color: #8b2020 !important;
+  box-shadow: 0 0 0 3px rgba(139, 32, 32, 0.12) !important;
+}
+
+.gsc-comment-box-btn {
+  background-color: #1a1814 !important;
+  border-color: #1a1814 !important;
+  color: #f8f5f0 !important;
+}
+
+.gsc-comment-box-btn:hover {
+  background-color: #4a4740 !important;
+}
+
+.gsc-reactions-count,
+.gsc-comment-author-avatar,
+.gsc-comment-author-name {
+  color: #1a1814 !important;
+}
+
+.gsc-comment-content {
+  color: #4a4740 !important;
+}
+
+.gsc-comment-author-name {
+  font-weight: 600;
+}
+
+.gsc-loading-image,
+.gsc-loading-dot {
+  opacity: 0.35;
+}

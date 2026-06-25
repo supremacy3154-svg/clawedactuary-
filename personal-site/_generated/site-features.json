@@ -8,7 +8,7 @@
       "category_id": "DIC_kwDOSw4Rg84C_xrX",
       "mapping": "pathname",
       "lang": "zh-CN",
-      "theme": "preferred_color_scheme",
+      "theme": "https://clawedactuary.com.cn/theme/giscus-clawed.css",
       "input_position": "bottom"
     }
   },

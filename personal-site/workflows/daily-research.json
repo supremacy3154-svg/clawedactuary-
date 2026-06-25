@@ -1,0 +1,51 @@
+{
+  "schedule": {
+    "morning_brief": "08:00",
+    "publish_windows": ["09:30", "18:00"],
+    "max_posts_per_day": 2
+  },
+  "pillars": [
+    "智能网联与智驾责任",
+    "车险定价与精算",
+    "监管与强标",
+    "舆情与公众认知",
+    "AI 与精算自动化"
+  ],
+  "news_queries": [
+    "智能网联汽车 车险 政策",
+    "智驾兜底 L3 自动驾驶 保险",
+    "新能源车 车险 监管",
+    "GB 44721 自动驾驶 标准"
+  ],
+  "topic_queue": [
+    {
+      "id": "huawei-qiankun-wuyou",
+      "title": "华为乾崑无忧权益：跟进比亚迪后的「保险化」回应",
+      "status": "published",
+      "pillar": "智能网联与智驾责任",
+      "data_sources": ["data/douyin_huawei_qiankun/"],
+      "related_posts": ["posts/2026-06-04-byd-zhijia-douyin-opinion.qmd"],
+      "notes": "基于 6/23 抖音 1,335 条评论；对比比亚迪双期样本"
+    },
+    {
+      "id": "oem-insurance-race",
+      "title": "智驾兜底竞赛：主机厂统筹 vs 商业车险的边界图谱",
+      "status": "pending",
+      "pillar": "车险定价与精算",
+      "notes": "综合比亚迪、华为样本 + 平安承保口径"
+    },
+    {
+      "id": "gb44721-pricing-implications",
+      "title": "GB 44721 实施后：L2 观望 vs L3 跨线的保费分叉情景",
+      "status": "pending",
+      "pillar": "监管与强标",
+      "related_posts": ["posts/2026-06-22-l3-l4-mandatory-standard-insurance.qmd"]
+    }
+  ],
+  "publish": {
+    "author": "龙虾精算师",
+    "draft_by_default": false,
+    "auto_git_push": false,
+    "notify_subscribers": true
+  }
+}
