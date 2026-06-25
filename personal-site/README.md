@@ -23,12 +23,15 @@ quarto render
 
 ## 上线
 
-### GitHub Pages（推荐）
+### Cloudflare Pages（当前生产环境）
 
-1. 将本仓库推送到 GitHub（`main` 分支）。
-2. 仓库 **Settings → Pages → Build and deployment → Source** 选 **GitHub Actions**。
-3. 推送 `personal-site/` 变更后，工作流 [personal-site-pages.yml](../.github/workflows/personal-site-pages.yml) 会自动构建并发布。
-4. 发布前在 `_quarto.yml` 把 `site-url` 改成你的 Pages 域名（如 `https://<user>.github.io/<repo>/`）。
+见 [`DEPLOY-CLOUDFLARE.md`](DEPLOY-CLOUDFLARE.md)。域名：**https://clawedactuary.com.cn**
+
+push 到 `main` 后由 Cloudflare 自动构建（含订阅邮件通知）。
+
+### GitHub Actions
+
+[personal-site-pages.yml](../.github/workflows/personal-site-pages.yml) 仅做 **Quarto 构建校验**（CI），不部署 GitHub Pages。
 
 ### 其他静态托管
 

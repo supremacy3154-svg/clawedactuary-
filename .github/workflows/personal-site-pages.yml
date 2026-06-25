@@ -1,4 +1,7 @@
-name: Deploy personal site (GitHub Pages)
+# 生产部署在 Cloudflare Pages（见 personal-site/DEPLOY-CLOUDFLARE.md）。
+# 本 workflow 仅做 push 后的 Quarto 构建校验，不部署 GitHub Pages。
+
+name: Build personal site (CI)
 
 on:
   push:
@@ -6,16 +9,14 @@ on:
     paths:
       - "personal-site/**"
       - ".github/workflows/personal-site-pages.yml"
+  pull_request:
+    paths:
+      - "personal-site/**"
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: personal-site-pages
-  cancel-in-progress: false
+  group: personal-site-ci
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -37,21 +38,5 @@ jobs:
         working-directory: personal-site
         run: quarto render
 
-      - name: Add .nojekyll
-        run: touch personal-site/_site/.nojekyll
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: personal-site/_site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Verify output
+        run: test -f personal-site/_site/index.html
