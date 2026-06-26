@@ -1,0 +1,31 @@
+{
+  "charts": [
+    {
+      "id": "funding-by-round",
+      "type": "bar",
+      "title": "Corgi 四轮融资规模（18 个月）",
+      "labels": ["Seed+A", "Series B", "Series B1"],
+      "values": [1.08, 1.60, 1.06],
+      "ylabel": "融资金额（亿美元）",
+      "source": "TechCrunch / SiliconANGLE 公开报道, 2026-01–05"
+    },
+    {
+      "id": "valuation-timeline",
+      "type": "line",
+      "title": "Corgi 投后估值走势（2026）",
+      "labels": ["2026-01", "2026-05-06", "2026-05-28"],
+      "values": [6.3, 13, 26],
+      "ylabel": "投后估值（亿美元）",
+      "source": "公开融资报道；ARR ~4,000 万美元（持牌首年）"
+    },
+    {
+      "id": "cyber-penetration-compare",
+      "type": "hbar",
+      "title": "网络安全险渗透率：中国 vs 成熟市场",
+      "labels": ["中国", "日本", "英国", "美国（参考）"],
+      "values": [0.1, 26, 60, 55],
+      "xlabel": "渗透率（%，公开口径；中国为「不足 0.1%」上界示意）",
+      "source": "工信部试点、信通院及行业公开报道, 2024–25"
+    }
+  ]
+}

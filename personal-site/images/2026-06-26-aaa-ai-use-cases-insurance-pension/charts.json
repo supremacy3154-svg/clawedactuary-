@@ -1,0 +1,29 @@
+{
+  "charts": [
+    {
+      "id": "pnc-use-cases-by-domain",
+      "type": "bar",
+      "title": "AAA 简报：财险（P&C）AI 用例按职能域分布",
+      "labels": ["理赔", "核保", "定价", "准备金", "备案文档", "其他职能"],
+      "values": [3, 3, 3, 1, 1, 4],
+      "ylabel": "用例条目数（作者据 Issue Brief 归纳）",
+      "source": "AAA, AI Use Cases in Insurance and Pension, 2026-06"
+    },
+    {
+      "id": "china-implementation-priority",
+      "type": "hbar",
+      "title": "国内财险 AI 落地紧迫度（作者框架，非 AAA 结论）",
+      "labels": [
+        "理赔分诊 + 巨灾调度",
+        "核保 LLM 副驾 + 影像",
+        "费率指示 + 续保分析",
+        "准备金摘要 + 备案草稿",
+        "全自动承保/理赔扩围",
+        "实时变更风险分类"
+      ],
+      "values": [5, 5, 4, 4, 2, 2],
+      "xlabel": "紧迫度评分（1–5，精算影响 × 监管可接受度）",
+      "source": "作者框架；AAA Issue Brief 2026-06"
+    }
+  ]
+}

@@ -60,7 +60,7 @@ listing:
     <div class="a-excerpt">美国精算师学会（AAA）2026 年 6 月 Issue Brief 系统梳理寿险、财险、养老金与健康险中的 AI 用例。龙虾精算师从财险精算视角拆解：哪些已是「老 AI」，哪些是 GenAI 新场景，以及国内持牌财险公司落地时最该守住的三条红线。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.26</span>
-      <span class="a-readtime">约 11 分钟</span>
+      <span class="a-readtime">约 12 分钟</span>
     </div>
   </a>
   <a class="article-card" href="posts/2026-06-25-corgi-ai-insurance-study.html" data-categories="AI,财险,保险科技,网络安全,海外观察,精算">
