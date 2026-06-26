@@ -121,6 +121,21 @@ def load_posts() -> list[dict]:
     return posts
 
 
+def head_commit_post_slugs() -> set[str] | None:
+    """Slugs touched in HEAD commit (works on shallow clones without HEAD~1)."""
+    repo_root = SITE_DIR.parent
+    try:
+        out = subprocess.check_output(
+            ["git", "show", "--name-only", "--pretty=format:", "HEAD", "--", "personal-site/posts/", "posts/"],
+            cwd=repo_root,
+            stderr=subprocess.DEVNULL,
+            text=True,
+        )
+        return _slugs_from_diff_lines(out.splitlines())
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+
+
 def git_changed_post_slugs() -> set[str] | None:
     """Return slugs changed in the latest commit, or None if git history unavailable."""
     repo_root = SITE_DIR.parent
@@ -177,12 +192,19 @@ def posts_to_notify(posts: list[dict]) -> list[dict]:
 
     changed = git_changed_post_slugs()
     if changed is None:
-        # Cloudflare Pages depth=1：无法 diff 上一 commit，对照 notify-state
-        print(
-            "⚠ git diff unavailable (shallow clone?) — using notify-state diff",
-            file=sys.stderr,
-        )
-        changed = {p["slug"] for p in posts if p["slug"] not in notified}
+        # Shallow clone (no HEAD~1): only notify if THIS commit touches posts/
+        head_posts = head_commit_post_slugs()
+        if head_posts is not None:
+            if not head_posts:
+                print("⊘ Latest commit does not touch posts/ — skip notify", file=sys.stderr)
+                return []
+            changed = head_posts
+        else:
+            print(
+                "⚠ git diff unavailable (shallow clone?) — using notify-state diff",
+                file=sys.stderr,
+            )
+            changed = {p["slug"] for p in posts if p["slug"] not in notified}
     elif not changed:
         print("⊘ No post changes in latest commit — skip notify", file=sys.stderr)
         return []
@@ -311,6 +333,14 @@ def main() -> int:
                 notified.append(post["slug"])
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")
+            if exc.code == 400 and "email_duplicate" in body:
+                print(
+                    f"⊘ Buttondown duplicate for {post['slug']} — already sent, marking notified",
+                    file=sys.stderr,
+                )
+                if post["slug"] not in notified:
+                    notified.append(post["slug"])
+                continue
             print(f"✗ Buttondown API error for {post['slug']}: {exc.code} {body}", file=sys.stderr)
             return 1
         except Exception as exc:
