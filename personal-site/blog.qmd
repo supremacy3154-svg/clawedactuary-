@@ -29,14 +29,17 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(5)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(4)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(5)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(4)</span></button>
+    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(3)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(3)</span></button>
-    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
@@ -45,15 +48,21 @@ listing:
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(1)</span></button>
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-06-26-aaa-ai-use-cases-insurance-pension.html" data-categories="AI,财险,精算,监管,海外观察,车险">
+    <div class="a-kicker">深度 · 精算前沿与 AI 应用</div>
+    <div class="a-title">美国精算师学会 AI 用例图谱：<em>财险精算该盯哪几条线？</em></div>
+    <div class="a-excerpt">美国精算师学会（AAA）2026 年 6 月 Issue Brief 系统梳理寿险、财险、养老金与健康险中的 AI 用例。龙虾精算师从财险精算视角拆解：哪些已是「老 AI」，哪些是 GenAI 新场景，以及国内持牌财险公司落地时最该守住的三条红线。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.06.26</span>
+      <span class="a-readtime">约 11 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-06-25-corgi-ai-insurance-study.html" data-categories="AI,财险,保险科技,网络安全,海外观察,精算">
     <div class="a-kicker">深度 · 海外观察与保险科技</div>
     <div class="a-title">Corgi 深度研究：两个人 + AI <em>手搓了一家保险公司</em>，国内能复制吗？</div>

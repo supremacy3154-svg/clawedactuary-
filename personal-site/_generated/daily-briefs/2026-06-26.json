@@ -1,0 +1,293 @@
+{
+  "date": "2026-06-26",
+  "generated_at": "2026-06-26T11:56:57.446865+08:00",
+  "max_posts_today": 2,
+  "pillars": [
+    "国际财险与再保",
+    "车险与财产险风险",
+    "巨灾气候与宏观风险",
+    "AI 核保理赔与精算自动化",
+    "保险科技与初创颠覆",
+    "监管偿付与会计准则",
+    "精算前沿与风险模型",
+    "智能网联与产品责任",
+    "舆情与公众认知"
+  ],
+  "topic_selection": {
+    "mode": "discover_first",
+    "queue_fallback_max_ratio": 0.3,
+    "avoid_sequel_to_recent_posts": true,
+    "recent_post_window_days": 14,
+    "rotate_pillars": true,
+    "instructions": "优先从当日 news / topic_suggestions 发现新题；勿机械续写已有文章；队列 pending 仅作备选"
+  },
+  "writer": {
+    "writer": "cursor",
+    "model": "composer-2.5",
+    "python_venv": ".venv-cursor-sdk",
+    "note": "写稿用 Cursor Composer；OpenClaw/Minimax 仅微信通知"
+  },
+  "news": [
+    {
+      "query": "auto insurance pricing actuarial 2026",
+      "title": "Average Car Insurance Rates as of June 2026 | Insurify",
+      "url": "https://www.insidenova.com/news/national/average-car-insurance-rates-as-of-june-2026-insurify/article_5344a7c1-cf4a-5e45-92c1-78f319d78b37.html",
+      "snippet": "The national average rate for full-coverage car insurance held steady at $186 per month through May, according to Insurify data. actuarial data shows."
+    },
+    {
+      "query": "auto insurance pricing actuarial 2026",
+      "title": "Actuarial Trainee - 2026 Graduate Development Program - Acturhire",
+      "url": "https://www.acturhire.com/jobs/actuarial-trainee-2026-graduate-development-program",
+      "snippet": "You'll build and maintain actuarial models, analyze large datasets to inform pricing, and collaborate with underwriting, finance, and product teams. building"
+    },
+    {
+      "query": "P&C insurance AI underwriting claims",
+      "title": "[PDF] Issue Brief - American Academy of Actuaries",
+      "url": "https://actuary.org/wp-content/uploads/2026/06/AIuseCases.pdf",
+      "snippet": "• Health insurance sees the broadest AI impact—members, providers, and payers all benefit, with AI improving care navigation, claims processing, fraud detection, and population health management across the ecosystem. The use cases involve the following operational areas of the in"
+    },
+    {
+      "query": "P&C insurance AI underwriting claims",
+      "title": "AI Automation in P&C Underwriting: Next-Generation Property and Casualty Insurance - Data Pilot",
+      "url": "https://data-pilot.com/blog/pc-underwriting-ai-automation",
+      "snippet": "[Skip to content](https://data-pilot.com/blog/pc-underwriting-ai-automation#content). [Learn more..](https://data-pilot.com/ai/agentic/). *   [Guides](https://data-pilot.com/blog/pc-underwriting-ai-automation#). *   [Success Stories](https://data-pilot.com/blog/pc-underwriting-ai"
+    },
+    {
+      "query": "insurtech startup funding insurance",
+      "title": "InsurTech Adoption: Turning AI into Business Value | FF News",
+      "url": "https://www.linkedin.com/posts/fintech-finance_insurtech-venturecapital-insurtechny-activity-7470429688105107456-BIHA",
+      "snippet": "... insurance industry faster than ever. Insurtech startup Pace has secured $46M in Series B funding, co-led by Thrive Capital and Sequoia Capital, with support"
+    },
+    {
+      "query": "insurtech startup funding insurance",
+      "title": "Top insurtech funding rounds, May 2026 | Digital Insurance",
+      "url": "https://www.dig-in.com/news/top-insurtech-funding-rounds-may-2026",
+      "snippet": "There were about 50 funding events in the insurtech sector in May 2026, according to a review by *Digital Insurance*. \"Insurance is one of the largest industries in the world, but it's still built on infrastructure from centuries ago,\" said Emily Yuan, co-founder and COO of Corgi"
+    },
+    {
+      "query": "catastrophe bond reinsurance climate",
+      "title": "World Bank cat bond on the table in new $400m Morocco Climate & Risk Finance Program - Artemis.bm",
+      "url": "https://www.artemis.bm/news/world-bank-cat-bond-on-the-table-in-new-400m-morocco-climate-risk-finance-program",
+      "snippet": "Catastrophe bonds, insurance linked securities, reinsurance capital & investment, risk transfer intelligence. # World Bank cat bond on the table in new $400m Morocco Climate & Risk Finance Program. The Board of the World Bank has approved a new $400 million program that aims to b"
+    },
+    {
+      "query": "catastrophe bond reinsurance climate",
+      "title": "Cat bond market nears $66 billion: Morningstar - Facebook",
+      "url": "https://www.facebook.com/BusInsMagazine/posts/cat-bond-market-nears-66-billion-morningstarcatastrophebonds-insurancelinkedsecu/1589834076484999",
+      "snippet": "Catastrophe bond sales hit record as insurers offload climate risks ... Navigating catastrophe reinsurance in a changing climate. Weather It Is"
+    },
+    {
+      "query": "autonomous vehicle insurance liability",
+      "title": "Autonomous Vehicle Insurance: Evaluating Risk and Liability",
+      "url": "https://www.linkedin.com/posts/david-bell-a626667_electricvehicles-transportationindustry-autonomousvehicles-activity-7470617108083589120-0qV6",
+      "snippet": "Under emerging 2026 rules, liability in an autonomous vehicle crash can shift among 3 parties: the human driver/operator, the automaker, and the autonomous"
+    },
+    {
+      "query": "autonomous vehicle insurance liability",
+      "title": "Autonomous Trucking Insurance: Regulatory Changes & Liability Shifts",
+      "url": "https://www.somainsure.com/feeds/blog/regulatory-catalysts-liability-shifts-autonomous-trucking-insurance",
+      "snippet": "# Autonomous Trucking Insurance: Regulatory Changes & Liability Shifts. The insurance policy covering your commercial fleet was written for a world where a human driver is always responsible. The problem: standard commercial auto policies assume a licensed human driver sits behin"
+    },
+    {
+      "query": "中国 车险 监管 政策",
+      "title": "2026年主流车险品牌竞争力市场最新监测分析报告 - 财富号",
+      "url": "https://caifuhao.eastmoney.com/news/20260622215912666046450",
+      "snippet": "2026年车险相关监管细则围绕车险综合改革落地优化、新能源车险规范化发展两大核心方向持续细化落地，车险金融监督管理总局从费率管控、产品创新、服务规范、消费者权益保护"
+    },
+    {
+      "query": "中国 车险 监管 政策",
+      "title": "新华网财经观察丨蹚出亏损泥潭 新能源车险加速走向分化 - 新华网客户端",
+      "url": "https://app.xinhuanet.com/news/article.html?articleId=20260604941ef557fdd242b6a58715d1a3a26a94",
+      "snippet": "“我的蔚来ES8保费过万，省下的油钱都用来买保险了。”北京张女士在2025年续保时发现，尽管全年未出险、无交通违法，保费仍比上一年上涨了近2000元。. 不过，新华网调查发现，新能源汽车续保并非价格普涨。以北京的一位小米SU7车主为例：2025年出险后，今年续保时不仅没有涨价，反而接到多家保险公司的报价电话，价格比前一年要低。. 中国保险行业协会2026年第一次例行新闻发布会发布数据显示，2025年全行业新能源车险保费收入达1900亿元，同比增长近35%，占车险总保费的比重首次突破两成。而中国精算师协会数据显示，同期全行业新能源车险承保亏损56亿元，14"
+    },
+    {
+      "query": "新能源车险 精算",
+      "title": "新华网财经观察丨蹚出亏损泥潭 新能源车险加速走向分化 - 新华网客户端",
+      "url": "https://app.xinhuanet.com/news/article.html?articleId=20260604fc80cc2d36c145e3abd0f6e5b9923a44",
+      "snippet": "“我的蔚来ES8保费过万，省下的油钱都用来买保险了。”北京张女士在2025年续保时发现，尽管全年未出险、无交通违法，保费仍比上一年上涨了近2000元。. 不过，新华网调查发现，新能源汽车续保并非价格普涨。以北京的一位小米SU7车主为例：2025年出险后，今年续保时不仅没有涨价，反而接到多家保险公司的报价电话，价格比前一年要低。. 中国保险行业协会2026年第一次例行新闻发布会发布数据显示，2025年全行业新能源车险保费收入达1900亿元，同比增长近35%，占车险总保费的比重首次突破两成。而中国精算师协会数据显示，同期全行业新能源车险承保亏损56亿元，14"
+    },
+    {
+      "query": "新能源车险 精算",
+      "title": "[PDF] 油钱省了保费涨了",
+      "url": "http://jlrbszb.dajilin.com/pc/paper/att/202606/12/30f19790-22f9-4e85-ba5a-a66ecc94e731.pdf",
+      "snippet": "05 经济 2026年6月12日星期五 编辑吕冬雪 “买车的时候算盘打得噼啪响， 一年省下1 万多元油钱， 结果续保通知书一来， 直接傻眼了。 ” 2024 年底， 长春市民刘 先生购入一辆纯电动轿车。今年续保时， 未出险、 无违章的情 况下， 保费硬生生涨了近1800元。 这种遭遇并非个例。我省冬季漫长， 新能源车的保费焦 虑正呈现出比南方市场更为复杂的问题。 新能源车省下的油钱， 真的正被保费 “吃” 回去吗？作为 汽车工业大省， 如何蹚出一条破局之路？ 保费与风险的 “定价失灵” 困局 在我省， 新能源车保费高企被赋予了独特的地域 标签。 东北地区"
+    }
+  ],
+  "topic_suggestions": [
+    {
+      "source": "news",
+      "title": "Average Car Insurance Rates as of June 2026 | Insurify",
+      "url": "https://www.insidenova.com/news/national/average-car-insurance-rates-as-of-june-2026-insurify/article_5344a7c1-cf4a-5e45-92c1-78f319d78b37.html",
+      "query": "auto insurance pricing actuarial 2026",
+      "priority": "high",
+      "rationale": "当日检索热点，非队列续篇"
+    },
+    {
+      "source": "news",
+      "title": "Actuarial Trainee - 2026 Graduate Development Program - Acturhire",
+      "url": "https://www.acturhire.com/jobs/actuarial-trainee-2026-graduate-development-program",
+      "query": "auto insurance pricing actuarial 2026",
+      "priority": "high",
+      "rationale": "当日检索热点，非队列续篇"
+    },
+    {
+      "source": "news",
+      "title": "[PDF] Issue Brief - American Academy of Actuaries",
+      "url": "https://actuary.org/wp-content/uploads/2026/06/AIuseCases.pdf",
+      "query": "P&C insurance AI underwriting claims",
+      "priority": "high",
+      "rationale": "当日检索热点，非队列续篇"
+    },
+    {
+      "source": "news",
+      "title": "AI Automation in P&C Underwriting: Next-Generation Property and Casualty Insurance - Data Pilot",
+      "url": "https://data-pilot.com/blog/pc-underwriting-ai-automation",
+      "query": "P&C insurance AI underwriting claims",
+      "priority": "high",
+      "rationale": "当日检索热点，非队列续篇"
+    },
+    {
+      "source": "news",
+      "title": "InsurTech Adoption: Turning AI into Business Value | FF News",
+      "url": "https://www.linkedin.com/posts/fintech-finance_insurtech-venturecapital-insurtechny-activity-7470429688105107456-BIHA",
+      "query": "insurtech startup funding insurance",
+      "priority": "high",
+      "rationale": "当日检索热点，非队列续篇"
+    },
+    {
+      "source": "news",
+      "title": "Top insurtech funding rounds, May 2026 | Digital Insurance",
+      "url": "https://www.dig-in.com/news/top-insurtech-funding-rounds-may-2026",
+      "query": "insurtech startup funding insurance",
+      "priority": "medium",
+      "rationale": "当日检索热点，非队列续篇"
+    },
+    {
+      "source": "news",
+      "title": "World Bank cat bond on the table in new $400m Morocco Climate & Risk Finance Program - Artemis.bm",
+      "url": "https://www.artemis.bm/news/world-bank-cat-bond-on-the-table-in-new-400m-morocco-climate-risk-finance-program",
+      "query": "catastrophe bond reinsurance climate",
+      "priority": "medium",
+      "rationale": "当日检索热点，非队列续篇"
+    },
+    {
+      "source": "news",
+      "title": "Cat bond market nears $66 billion: Morningstar - Facebook",
+      "url": "https://www.facebook.com/BusInsMagazine/posts/cat-bond-market-nears-66-billion-morningstarcatastrophebonds-insurancelinkedsecu/1589834076484999",
+      "query": "catastrophe bond reinsurance climate",
+      "priority": "medium",
+      "rationale": "当日检索热点，非队列续篇"
+    }
+  ],
+  "recommendation": {
+    "strategy": "discover_from_news",
+    "recommended": {
+      "source": "news",
+      "title": "Average Car Insurance Rates as of June 2026 | Insurify",
+      "url": "https://www.insidenova.com/news/national/average-car-insurance-rates-as-of-june-2026-insurify/article_5344a7c1-cf4a-5e45-92c1-78f319d78b37.html",
+      "query": "auto insurance pricing actuarial 2026",
+      "priority": "high",
+      "rationale": "当日检索热点，非队列续篇"
+    },
+    "queue_fallback": {
+      "id": "oem-insurance-race",
+      "title": "智驾兜底竞赛：主机厂统筹 vs 商业车险的边界图谱",
+      "status": "backlog",
+      "pillar": "车险与财产险风险",
+      "notes": "队列备选；优先写当日热点新题，不必急于续写国内 OEM 样本"
+    },
+    "topic_suggestions": [
+      {
+        "source": "news",
+        "title": "Average Car Insurance Rates as of June 2026 | Insurify",
+        "url": "https://www.insidenova.com/news/national/average-car-insurance-rates-as-of-june-2026-insurify/article_5344a7c1-cf4a-5e45-92c1-78f319d78b37.html",
+        "query": "auto insurance pricing actuarial 2026",
+        "priority": "high",
+        "rationale": "当日检索热点，非队列续篇"
+      },
+      {
+        "source": "news",
+        "title": "Actuarial Trainee - 2026 Graduate Development Program - Acturhire",
+        "url": "https://www.acturhire.com/jobs/actuarial-trainee-2026-graduate-development-program",
+        "query": "auto insurance pricing actuarial 2026",
+        "priority": "high",
+        "rationale": "当日检索热点，非队列续篇"
+      },
+      {
+        "source": "news",
+        "title": "[PDF] Issue Brief - American Academy of Actuaries",
+        "url": "https://actuary.org/wp-content/uploads/2026/06/AIuseCases.pdf",
+        "query": "P&C insurance AI underwriting claims",
+        "priority": "high",
+        "rationale": "当日检索热点，非队列续篇"
+      },
+      {
+        "source": "news",
+        "title": "AI Automation in P&C Underwriting: Next-Generation Property and Casualty Insurance - Data Pilot",
+        "url": "https://data-pilot.com/blog/pc-underwriting-ai-automation",
+        "query": "P&C insurance AI underwriting claims",
+        "priority": "high",
+        "rationale": "当日检索热点，非队列续篇"
+      },
+      {
+        "source": "news",
+        "title": "InsurTech Adoption: Turning AI into Business Value | FF News",
+        "url": "https://www.linkedin.com/posts/fintech-finance_insurtech-venturecapital-insurtechny-activity-7470429688105107456-BIHA",
+        "query": "insurtech startup funding insurance",
+        "priority": "high",
+        "rationale": "当日检索热点，非队列续篇"
+      },
+      {
+        "source": "news",
+        "title": "Top insurtech funding rounds, May 2026 | Digital Insurance",
+        "url": "https://www.dig-in.com/news/top-insurtech-funding-rounds-may-2026",
+        "query": "insurtech startup funding insurance",
+        "priority": "medium",
+        "rationale": "当日检索热点，非队列续篇"
+      },
+      {
+        "source": "news",
+        "title": "World Bank cat bond on the table in new $400m Morocco Climate & Risk Finance Program - Artemis.bm",
+        "url": "https://www.artemis.bm/news/world-bank-cat-bond-on-the-table-in-new-400m-morocco-climate-risk-finance-program",
+        "query": "catastrophe bond reinsurance climate",
+        "priority": "medium",
+        "rationale": "当日检索热点，非队列续篇"
+      },
+      {
+        "source": "news",
+        "title": "Cat bond market nears $66 billion: Morningstar - Facebook",
+        "url": "https://www.facebook.com/BusInsMagazine/posts/cat-bond-market-nears-66-billion-morningstarcatastrophebonds-insurancelinkedsecu/1589834076484999",
+        "query": "catastrophe bond reinsurance climate",
+        "priority": "medium",
+        "rationale": "当日检索热点，非队列续篇"
+      }
+    ]
+  },
+  "topic_queue_pending": [],
+  "topic_queue_backlog": [
+    {
+      "id": "oem-insurance-race",
+      "title": "智驾兜底竞赛：主机厂统筹 vs 商业车险的边界图谱",
+      "status": "backlog",
+      "pillar": "车险与财产险风险",
+      "notes": "队列备选；优先写当日热点新题，不必急于续写国内 OEM 样本"
+    },
+    {
+      "id": "gb44721-pricing-implications",
+      "title": "GB 44721 实施后：L2 观望 vs L3 跨线的保费分叉情景",
+      "status": "backlog",
+      "pillar": "监管偿付与会计准则",
+      "notes": "队列备选"
+    }
+  ],
+  "topic_queue_in_progress": [],
+  "published_today": [
+    "2026-06-24-huawei-qiankun-wuyou-opinion",
+    "2026-06-25-corgi-ai-insurance-study"
+  ],
+  "recent_posts": [
+    "2026-06-25-corgi-ai-insurance-study",
+    "2026-06-24-huawei-qiankun-wuyou-opinion"
+  ],
+  "agent_prompt": "读取本简报与 skills/daily-research-publish/SKILL.md。选题：优先 recommendation / topic_suggestions 中的新热点，勿机械续写 recent_posts 或队列 backlog；国际财险、车险风险、AI 应用、精算前沿均可；写完后 sync + render + publish-check + mark-ready；禁止 push。"
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "2026-06-26-aaa-ai-use-cases-insurance-pension",
+  "topic_id": "aaa-ai-use-cases-pnc",
+  "title": "美国精算师学会 AI 用例图谱：财险精算该盯哪几条线？",
+  "status": "awaiting_approval",
+  "ready_at": "2026-06-26T12:00:17.261440+08:00",
+  "preview_local": "file:///Users/mac/.openclaw/workspace-yanghailin/personal-site/_site/posts/2026-06-26-aaa-ai-use-cases-insurance-pension.html",
+  "preview_site": "https://clawedactuary.com.cn/posts/2026-06-26-aaa-ai-use-cases-insurance-pension.html",
+  "approve_command": "bash scripts/approve_daily_publish.sh"
+}

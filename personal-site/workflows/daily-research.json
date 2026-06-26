@@ -1,60 +1,102 @@
 {
   "schedule": {
     "morning_brief": "08:00",
-    "publish_windows": ["09:30", "18:00"],
+    "publish_windows": [
+      "09:30",
+      "18:00"
+    ],
     "max_posts_per_day": 2
   },
+  "agent": {
+    "writer": "cursor",
+    "model": "composer-2.5",
+    "python_venv": ".venv-cursor-sdk",
+    "note": "写稿用 Cursor Composer；OpenClaw/Minimax 仅微信通知"
+  },
+  "topic_selection": {
+    "mode": "discover_first",
+    "queue_fallback_max_ratio": 0.3,
+    "avoid_sequel_to_recent_posts": true,
+    "recent_post_window_days": 14,
+    "rotate_pillars": true,
+    "instructions": "优先从当日 news / topic_suggestions 发现新题；勿机械续写已有文章；队列 pending 仅作备选"
+  },
   "pillars": [
-    "智能网联与智驾责任",
-    "车险定价与精算",
-    "监管与强标",
-    "舆情与公众认知",
-    "AI 与精算自动化",
-    "保险科技与海外观察"
+    "国际财险与再保",
+    "车险与财产险风险",
+    "巨灾气候与宏观风险",
+    "AI 核保理赔与精算自动化",
+    "保险科技与初创颠覆",
+    "监管偿付与会计准则",
+    "精算前沿与风险模型",
+    "智能网联与产品责任",
+    "舆情与公众认知"
   ],
   "news_queries": [
-    "智能网联汽车 车险 政策",
-    "智驾兜底 L3 自动驾驶 保险",
-    "新能源车 车险 监管",
-    "GB 44721 自动驾驶 标准"
+    "auto insurance pricing actuarial 2026",
+    "P&C insurance AI underwriting claims",
+    "insurtech startup funding insurance",
+    "catastrophe bond reinsurance climate",
+    "IFRS 17 insurance actuarial",
+    "cyber insurance market trends",
+    "autonomous vehicle insurance liability",
+    "中国 车险 监管 政策",
+    "新能源车险 精算",
+    "保险科技 人工智能 应用"
+  ],
+  "exploration_queries": [
+    "Lemonade Root Hippo insurtech news",
+    "Munich Re Swiss Re catastrophe outlook",
+    "US auto insurance loss ratio 2026",
+    "generative AI actuarial reserving",
+    "parametric insurance climate",
+    "usage based insurance telematics",
+    "embedded insurance distribution",
+    "solvency II IFRS17 insurance capital",
+    "commercial auto fleet risk model",
+    "insurance fraud detection machine learning"
   ],
   "topic_queue": [
     {
+      "id": "aaa-ai-use-cases-pnc",
+      "title": "美国精算师学会 AI 用例图谱：财险精算该盯哪几条线？",
+      "status": "awaiting_approval",
+      "pillar": "AI 核保理赔与精算自动化",
+      "notes": "基于 AAA 2026-06 Issue Brief"
+    },
+    {
       "id": "corgi-ai-insurance-study",
-      "title": "Corgi 深度研究：AI 原生保险公司，国内能学什么",
+      "title": "Corgi 深度研究：两个人 + AI 手搓了一家保险公司，国内能复制吗？",
       "status": "published",
-      "pillar": "保险科技与海外观察",
-      "related_posts": ["posts/2026-06-05-glm-fremtpl2-ai-exploration.qmd"],
-      "notes": "全栈持牌 + AI 承保；AI 责任险定价难题；对照国内网络安全险渗透率 <0.1%"
+      "pillar": "保险科技与初创颠覆"
     },
     {
       "id": "huawei-qiankun-wuyou",
       "title": "华为乾崑无忧权益：跟进比亚迪后的「保险化」回应",
       "status": "published",
-      "pillar": "智能网联与智驾责任",
-      "data_sources": ["data/douyin_huawei_qiankun/"],
-      "related_posts": ["posts/2026-06-04-byd-zhijia-douyin-opinion.qmd"],
-      "notes": "基于 6/23 抖音 1,335 条评论；对比比亚迪双期样本"
+      "pillar": "智能网联与产品责任"
     },
     {
       "id": "oem-insurance-race",
       "title": "智驾兜底竞赛：主机厂统筹 vs 商业车险的边界图谱",
-      "status": "pending",
-      "pillar": "车险定价与精算",
-      "notes": "综合比亚迪、华为样本 + 平安承保口径"
+      "status": "backlog",
+      "pillar": "车险与财产险风险",
+      "notes": "队列备选；优先写当日热点新题，不必急于续写国内 OEM 样本"
     },
     {
       "id": "gb44721-pricing-implications",
       "title": "GB 44721 实施后：L2 观望 vs L3 跨线的保费分叉情景",
-      "status": "pending",
-      "pillar": "监管与强标",
-      "related_posts": ["posts/2026-06-22-l3-l4-mandatory-standard-insurance.qmd"]
+      "status": "backlog",
+      "pillar": "监管偿付与会计准则",
+      "notes": "队列备选"
     }
   ],
   "publish": {
     "author": "龙虾精算师",
     "draft_by_default": false,
     "auto_git_push": false,
+    "require_approval": true,
+    "approval_command": "bash scripts/approve_daily_publish.sh",
     "notify_subscribers": true
   }
 }
