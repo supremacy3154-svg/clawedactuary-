@@ -1,0 +1,54 @@
+{
+  "charts": [
+    {
+      "id": "industry-cor-trajectory",
+      "type": "line",
+      "title": "美国产险行业综合成本率轨迹（股息前）",
+      "labels": ["2013", "2023", "2024", "2025全年", "Q1 2025", "Q1 2026"],
+      "series": [
+        {
+          "name": "综合成本率 %",
+          "values": [96.2, 101.6, 96.5, 92.9, 99.0, 89.5]
+        }
+      ],
+      "ylabel": "综合成本率（%）",
+      "source": "2013/23/24 S&P GMI；2025全年 Verisk；Q1'25 Swiss Re；Q1'26 S&P GMI"
+    },
+    {
+      "id": "line-loss-ratio-yoy",
+      "type": "bar",
+      "title": "Q1 2026 主要险种直接赔付率同比变动（S&P GMI）",
+      "labels": ["房屋\n多险种", "火灾险", "商财\n非责任", "私车", "商车\n责任"],
+      "values": [-58.1, -40.3, -11.2, -0.6, 3.2],
+      "ylabel": "直接赔付率同比变动（百分点）",
+      "source": "S&P GMI, Risk & Insurance 2026-05"
+    },
+    {
+      "id": "private-auto-market-share",
+      "type": "line",
+      "title": "美国私车直接保费市场份额：State Farm 与 Progressive",
+      "labels": ["2023", "2024", "2025", "TTM\n3/2026"],
+      "series": [
+        {
+          "name": "State Farm",
+          "values": [18.87, 18.87, 18.64, 18.0]
+        },
+        {
+          "name": "Progressive",
+          "values": [15.24, 16.73, 18.60, 19.3]
+        }
+      ],
+      "ylabel": "市场份额（%）",
+      "source": "2023–25 NAIC；TTM 3/2026 据 S&P 领先幅度推算"
+    },
+    {
+      "id": "direct-loss-ratio-2025",
+      "type": "bar",
+      "title": "2025 年私车直接赔付率（Direct Loss / Earned Premium）",
+      "labels": ["Progressive", "Allstate", "State Farm", "GEICO"],
+      "values": [59.07, 55.64, 65.44, 67.14],
+      "ylabel": "直接赔付率（%）",
+      "source": "NAIC 2025 Market Share Report，转引 Repairer Driven News 2026-03"
+    }
+  ]
+}

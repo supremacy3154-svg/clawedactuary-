@@ -1,8 +1,5 @@
 {
-  "published_today": [
-    "2026-06-24-huawei-qiankun-wuyou-opinion",
-    "2026-06-25-corgi-ai-insurance-study"
-  ],
+  "published_today": [],
   "history": [
     {
       "slug": "2026-06-24-huawei-qiankun-wuyou-opinion",
@@ -13,7 +10,12 @@
       "slug": "2026-06-25-corgi-ai-insurance-study",
       "topic_id": "corgi-ai-insurance-study",
       "at": "2026-06-25T14:57:51.177445+08:00"
+    },
+    {
+      "slug": "2026-06-26-aaa-ai-use-cases-insurance-pension",
+      "topic_id": "aaa-ai-use-cases-pnc",
+      "at": "2026-06-26T13:42:27.349908+08:00"
     }
   ],
-  "last_brief_date": "2026-06-25"
+  "last_brief_date": "2026-06-29"
 }

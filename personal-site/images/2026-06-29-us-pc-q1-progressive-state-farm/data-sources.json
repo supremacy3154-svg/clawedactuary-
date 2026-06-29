@@ -1,0 +1,193 @@
+{
+  "slug": "2026-06-29-us-pc-q1-progressive-state-farm",
+  "checked_at": "2026-06-29",
+  "checker_note": "行业 COR 以 S&P GMI 股息前 89.5% 为主；Verisk 92.4% 作对照。市场份额分 NAIC 日历年与 S&P TTM 口径。",
+  "metrics": [
+    {
+      "id": "combined_ratio_q1_2026_sp",
+      "label": "Q1 2026 行业综合成本率（S&P GMI，投保人股息前）",
+      "value": "89.5",
+      "unit": "%",
+      "primary_source": {
+        "name": "S&P Global Market Intelligence / Carrier Management",
+        "url": "https://www.carriermanagement.com/news/2026/05/21/288251.htm",
+        "as_of": "2026-05-21"
+      },
+      "cross_checks": [
+        {
+          "name": "Risk & Insurance",
+          "value": "89.5%（股息后 91.9%）",
+          "url": "https://riskandinsurance.com/pc-industry-posts-record-first-quarter-underwriting-profit-extending-profitable-streak",
+          "note": "与 primary 一致"
+        },
+        {
+          "name": "Verisk/APCIA",
+          "value": "92.4%",
+          "url": "https://www.captive.com/news/us-pandc-insurers-rebound-in-q1-as-combined-ratio-improves",
+          "note": "口径含分红差异，高于 S&P"
+        }
+      ],
+      "status": "verified_with_note"
+    },
+    {
+      "id": "combined_ratio_q1_2025",
+      "label": "Q1 2025 行业综合成本率",
+      "value": "99.0",
+      "unit": "%",
+      "primary_source": {
+        "name": "Swiss Re / Verisk",
+        "url": "https://www.captive.com/news/us-pandc-insurers-rebound-in-q1-as-combined-ratio-improves",
+        "as_of": "2026"
+      },
+      "cross_checks": [
+        {
+          "name": "Verisk/APCIA",
+          "value": "99.2%",
+          "url": "https://www.captive.com/news/us-pandc-insurers-rebound-in-q1-as-combined-ratio-improves",
+          "note": "一致量级"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "cat_cr_contribution",
+      "label": "巨灾对行业 COR 贡献（同比）",
+      "value": "14.5 → 4.2",
+      "unit": "百分点",
+      "primary_source": {
+        "name": "AM Best first-look",
+        "url": "https://riskandinsurance.com/us-pc-industry-posts-16-3-billion-underwriting-gain-in-q1-2026-reversing-year-ago-loss",
+        "as_of": "2026"
+      },
+      "cross_checks": [
+        {
+          "name": "S&P GMI narrative",
+          "value": "2025 hurricane losses <$1B vs ~$30B avg",
+          "url": "https://insurancenewsnet.com/innarticle/sp-global-analysis-why-pc-insurer-profitability-surged-in-q1-2026",
+          "note": "年度飓风口径；方向一致"
+        }
+      ],
+      "status": "verified_with_note"
+    },
+    {
+      "id": "homeowners_lr_yoy",
+      "label": "房屋险多险种 Q1 直接赔付率同比",
+      "value": "-58.1",
+      "unit": "百分点",
+      "primary_source": {
+        "name": "S&P GMI",
+        "url": "https://riskandinsurance.com/pc-industry-posts-record-first-quarter-underwriting-profit-extending-profitable-streak",
+        "as_of": "2026-05"
+      },
+      "cross_checks": [
+        {
+          "name": "Risk & Insurance",
+          "value": "102.3% → 44.3%",
+          "url": "https://riskandinsurance.com/pc-industry-posts-record-first-quarter-underwriting-profit-extending-profitable-streak",
+          "note": "水平值一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "private_auto_lr_yoy",
+      "label": "私车 Q1 直接赔付率同比",
+      "value": "-0.6",
+      "unit": "百分点",
+      "primary_source": {
+        "name": "S&P GMI",
+        "url": "https://riskandinsurance.com/pc-industry-posts-record-first-quarter-underwriting-profit-extending-profitable-streak",
+        "as_of": "2026-05"
+      },
+      "cross_checks": [
+        {
+          "name": "Risk & Insurance（S&P 转述）",
+          "value": "~61.0% → 60.4%",
+          "url": "https://riskandinsurance.com/pc-industry-posts-record-first-quarter-underwriting-profit-extending-profitable-streak",
+          "note": "水平值与同比方向一致"
+        }
+      ],
+      "status": "verified_with_note"
+    },
+    {
+      "id": "progressive_ttm_lead",
+      "label": "Progressive TTM 私车直接保费领先 State Farm",
+      "value": ">1.57",
+      "unit": "十亿美元",
+      "primary_source": {
+        "name": "S&P GMI / Repairer Driven News",
+        "url": "https://www.repairerdrivennews.com/2026/05/28/sp-progressive-passes-state-farm-in-annual-market-share",
+        "as_of": "2026-05-28"
+      },
+      "cross_checks": [
+        {
+          "name": "Carrier Management",
+          "value": ">$1.57B",
+          "url": "https://www.carriermanagement.com/news/2026/05/18/288098.htm",
+          "note": "一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "progressive_q1_2026_cr",
+      "label": "Progressive Q1 2026 综合成本率",
+      "value": "86.4",
+      "unit": "%",
+      "primary_source": {
+        "name": "Progressive 10-Q",
+        "url": "https://s202.q4cdn.com/605347829/files/doc_financials/2026/q1/PGR-Q1-2026-10Q.pdf",
+        "as_of": "2026-05"
+      },
+      "cross_checks": [
+        {
+          "name": "Insurance Business",
+          "value": "86.4",
+          "url": "https://www.insurancebusinessmag.com/us/news/auto-motor/progressive-reports-solid-premium-and-earnings-growth-for-q1-571925.aspx",
+          "note": "一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "state_farm_q1_swing",
+      "label": "State Farm Q1 P&C 承保同比变动",
+      "value": "+71",
+      "unit": "亿美元",
+      "primary_source": {
+        "name": "Coverager / S&P",
+        "url": "https://coverager.com/an-84-year-reign-came-to-an-end-and-more",
+        "as_of": "2026-05"
+      },
+      "cross_checks": [
+        {
+          "name": "Carrier Management",
+          "value": "~$7B swing from wildfire Q1 2025",
+          "url": "https://www.carriermanagement.com/news/2026/05/21/288251.htm",
+          "note": "叙事一致"
+        }
+      ],
+      "status": "verified_with_note"
+    },
+    {
+      "id": "direct_loss_ratio_2025",
+      "label": "2025 直接赔付率 Progressive vs State Farm",
+      "value": "59.07 vs 65.44",
+      "unit": "%",
+      "primary_source": {
+        "name": "NAIC 2025",
+        "url": "https://www.repairerdrivennews.com/2026/03/31/state-farm-progressive-hold-37-of-auto-insurance-market-share-naic-data-shows",
+        "as_of": "2026-03-31"
+      },
+      "cross_checks": [
+        {
+          "name": "III Facts",
+          "value": "龙头排名一致",
+          "url": "https://www.iii.org/fact-statistic/facts-statistics-auto-insurance",
+          "note": "2024 DPW 份额一致"
+        }
+      ],
+      "status": "verified"
+    }
+  ]
+}

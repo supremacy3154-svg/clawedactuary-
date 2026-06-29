@@ -29,24 +29,25 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(5)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(4)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
@@ -54,6 +55,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html" data-categories="财险,精算,海外观察,车险,定价,承保盈利">
+    <div class="a-kicker">深度 · 美国产险 Q1 与车险龙头</div>
+    <div class="a-title">美国产险 Q1 2026：行业综合成本率回落至 <em>89.5%</em>，私车龙头排序变化</div>
+    <div class="a-excerpt">S&amp;P 汇总 Q1 行业综合成本率 89.5%（股息前），改善主因是加州野火同比基数与巨灾偏低；私车条线赔付率同比仅改善 0.6 个百分点。同期 Progressive 滚动十二个月私车保费首次超过 State Farm。本文先分解行业承保盈利，再对照两家龙头份额与承保质量。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.06.29</span>
+      <span class="a-readtime">约 13 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-06-26-aaa-ai-use-cases-insurance-pension.html" data-categories="AI,财险,精算,监管,海外观察,车险">
     <div class="a-kicker">深度 · 精算前沿与 AI 应用</div>
     <div class="a-title">美国精算师学会 AI 用例图谱：<em>财险精算该盯哪几条线？</em></div>
