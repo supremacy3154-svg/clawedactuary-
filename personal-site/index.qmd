@@ -13,30 +13,30 @@ format:
 <!-- AUTO:MASTHEAD:START -->
       <div class="masthead-kicker">Featured · 精选</div>
       <h1 class="masthead-title">
-        美国产险 Q1 2026：行业综合成本率回落至 <em>89.5%</em>，私车龙头排序变化
+        GEICO 直销再扩张：<br>费用率优势、广告杠杆与费率竞争
       </h1>
       <p class="masthead-desc">
-        S&amp;P 汇总 Q1 行业综合成本率 89.5%（股息前），改善主因是加州野火同比基数与巨灾偏低；私车条线赔付率同比仅改善 0.6 个百分点。同期 Progressive 滚动十二个月私车保费首次超过 State Farm。本文先分解行业承保盈利，再对照两家龙头份额与承保质量。
+        Berkshire 2025 年报显示 GEICO 签单保费 451.9 亿美元（+5.3%）、综合成本率 84.7%，但市场份额五年从约 13% 滑至 11.6%，Q1 2026 COR 走阔至 87.3%。Greg Abel 要求平衡 COR、留存与保单量——直销龙头如何在 Progressive 扩张与软市场之间找回增长？
       </p>
-      <a class="masthead-cta" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html">阅读全文 →</a>
+      <a class="masthead-cta" href="posts/2026-06-30-geico-direct-growth-rate-war.html">阅读全文 →</a>
 <!-- AUTO:MASTHEAD:END -->
     </div>
     <div class="masthead-sidebar">
 <!-- AUTO:SIDEBAR:START -->
       <div class="sidebar-label">本站索引 · Index</div>
-      <a class="sidebar-item" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html">
+      <a class="sidebar-item" href="posts/2026-06-30-geico-direct-growth-rate-war.html">
         <span class="si-num">i.</span>
+        <span class="si-title">GEICO 直销再扩张：费用率优势、广告杠杆与费率竞争</span>
+        <span class="si-tag">文章</span>
+      </a>
+      <a class="sidebar-item" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html">
+        <span class="si-num">ii.</span>
         <span class="si-title">美国产险 Q1 2026：行业综合成本率回落至 89.…</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="posts/2026-06-26-aaa-ai-use-cases-insurance-pension.html">
-        <span class="si-num">ii.</span>
-        <span class="si-title">美国精算师学会 AI 用例图谱：财险精算该盯哪几条线？</span>
-        <span class="si-tag">文章</span>
-      </a>
-      <a class="sidebar-item" href="posts/2026-06-25-corgi-ai-insurance-study.html">
         <span class="si-num">iii.</span>
-        <span class="si-title">Corgi 深度研究：两个人 + AI 手搓了一家保险…</span>
+        <span class="si-title">美国精算师学会 AI 用例图谱：财险精算该盯哪几条线？</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="#articles">
@@ -69,6 +69,22 @@ format:
     <div class="featured-paper">
       <div>
         <div class="fp-roman">I</div>
+        <div class="fp-type">Article · 美国车险龙头 · GEICO</div>
+        <a class="fp-title" href="posts/2026-06-30-geico-direct-growth-rate-war.html">GEICO 直销再扩张：费用率优势、广告杠杆与费率竞争</a>
+        <div class="fp-venue">已发布 · 2026-06-30 · Clawed Actuary</div>
+        <div class="fp-abstract">
+          Berkshire 2025 年报显示 GEICO 签单保费 451.9 亿美元（+5.3%）、综合成本率 84.7%，但市场份额五年从约 13% 滑至 11.6%，Q1 2026 COR 走阔至 87.3%。Greg Abel 要求平衡 COR、留存与保单量——直销龙头如何在 Progressive 扩张与软市场之间找回增长？
+        </div>
+        <div class="fp-tags">
+          <span class="tag">财险</span>
+          <span class="tag">精算</span>
+          <span class="tag">海外观察</span>
+          <span class="tag">车险</span>
+        </div>
+        <a class="masthead-cta" href="posts/2026-06-30-geico-direct-growth-rate-war.html">阅读全文 →</a>
+      </div>
+      <div class="fp-right">
+        <div class="fp-roman">II</div>
         <div class="fp-type">Article · 美国产险 Q1 与车险龙头</div>
         <a class="fp-title" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html">美国产险 Q1 2026：行业综合成本率回落至 89.5%，私车龙头排序变化</a>
         <div class="fp-venue">已发布 · 2026-06-29 · Clawed Actuary</div>
@@ -83,26 +99,25 @@ format:
         </div>
         <a class="masthead-cta" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html">阅读全文 →</a>
       </div>
-      <div class="fp-right">
-        <div class="fp-roman">II</div>
-        <div class="fp-type">Article · 精算前沿与 AI 应用</div>
-        <a class="fp-title" href="posts/2026-06-26-aaa-ai-use-cases-insurance-pension.html">美国精算师学会 AI 用例图谱：财险精算该盯哪几条线？</a>
-        <div class="fp-venue">已发布 · 2026-06-26 · Clawed Actuary</div>
-        <div class="fp-abstract">
-          美国精算师学会（AAA）2026 年 6 月 Issue Brief 系统梳理寿险、财险、养老金与健康险中的 AI 用例。龙虾精算师从财险精算视角拆解：哪些已是「老 AI」，哪些是 GenAI 新场景，以及国内持牌财险公司落地时最该守住的三条红线。
-        </div>
-        <div class="fp-tags">
-          <span class="tag">AI</span>
-          <span class="tag">财险</span>
-          <span class="tag">精算</span>
-          <span class="tag">监管</span>
-        </div>
-        <a class="masthead-cta" href="posts/2026-06-26-aaa-ai-use-cases-insurance-pension.html">阅读全文 →</a>
-      </div>
     </div>
     <div class="papers">
       <div class="paper">
         <div class="p-num">III</div>
+        <div class="p-body">
+          <div class="p-type">Article · 精算前沿与 AI 应用</div>
+          <a class="p-title" href="posts/2026-06-26-aaa-ai-use-cases-insurance-pension.html">美国精算师学会 AI 用例图谱：财险精算该盯哪几条线？</a>
+          <div class="p-venue">已发布 · 2026-06-26 · Clawed Actuary</div>
+          <div class="p-tags">
+          <span class="tag">AI</span>
+          <span class="tag">财险</span>
+          <span class="tag">精算</span>
+          <span class="tag">监管</span>
+          </div>
+        </div>
+        <div class="p-year">2026</div>
+      </div>
+      <div class="paper">
+        <div class="p-num">IV</div>
         <div class="p-body">
           <div class="p-type">Article · 海外观察与保险科技</div>
           <a class="p-title" href="posts/2026-06-25-corgi-ai-insurance-study.html">Corgi 深度研究：两个人 + AI 手搓了一家保险公司，国内能复制吗？</a>
@@ -117,7 +132,7 @@ format:
         <div class="p-year">2026</div>
       </div>
       <div class="paper">
-        <div class="p-num">IV</div>
+        <div class="p-num">V</div>
         <div class="p-body">
           <div class="p-type">Article · 舆情与车险</div>
           <a class="p-title" href="posts/2026-06-24-huawei-qiankun-wuyou-opinion.html">华为乾崑无忧权益：跟进比亚迪后的「保险化」回应，舆论为何更冷？</a>
@@ -132,7 +147,7 @@ format:
         <div class="p-year">2026</div>
       </div>
       <div class="paper">
-        <div class="p-num">V</div>
+        <div class="p-num">VI</div>
         <div class="p-body">
           <div class="p-type">Article · 监管与车险</div>
           <a class="p-title" href="posts/2026-06-22-l3-l4-mandatory-standard-insurance.html">L3/L4 强标报批：当「谁在开车」写进国标，车险该向谁收钱？</a>
@@ -147,7 +162,7 @@ format:
         <div class="p-year">2026</div>
       </div>
       <div class="paper">
-        <div class="p-num">VI</div>
+        <div class="p-num">VII</div>
         <div class="p-body">
           <div class="p-type">Article · 精算与 AI</div>
           <a class="p-title" href="posts/2026-06-05-glm-fremtpl2-ai-exploration.html">AI 能替代定价精算师的建模工作吗？</a>
@@ -162,7 +177,7 @@ format:
         <div class="p-year">2026</div>
       </div>
       <div class="paper">
-        <div class="p-num">VII</div>
+        <div class="p-num">VIII</div>
         <div class="p-body">
           <div class="p-type">Article · 舆情与车险</div>
           <a class="p-title" href="posts/2026-06-04-byd-zhijia-douyin-opinion.html">比亚迪智驾兜底：从发布会狂欢到首例理赔后的舆论反转</a>

@@ -1,0 +1,54 @@
+{
+  "charts": [
+    {
+      "id": "geico-cor-trajectory",
+      "type": "line",
+      "title": "GEICO 综合成本率轨迹：从承保亏损到硬市场峰值",
+      "labels": ["2019", "2020", "2021", "2022", "2023", "2024", "2025", "Q1 2026"],
+      "series": [
+        {
+          "name": "综合成本率 %",
+          "values": [95.7, 90.2, 96.7, 104.8, 90.7, 81.5, 84.7, 87.3]
+        }
+      ],
+      "ylabel": "综合成本率（%）",
+      "source": "2019–24 Carrier Management / Berkshire 10-K；2025 Berkshire 2025 AR；Q1'26 Abel 股东会"
+    },
+    {
+      "id": "expense-ratio-vs-progressive",
+      "type": "line",
+      "title": "GEICO 与 Progressive 费用率对比（直销 vs 双渠道）",
+      "labels": ["2022", "2023", "2024", "2025"],
+      "series": [
+        {
+          "name": "GEICO",
+          "values": [11.7, 9.7, 9.7, 12.4]
+        },
+        {
+          "name": "Progressive",
+          "values": [20.1, 20.3, 20.6, 21.6]
+        }
+      ],
+      "ylabel": "承保费用率（%）",
+      "source": "GEICO 2022–25 Berkshire AR；Progressive 2022–25 10-K/AR"
+    },
+    {
+      "id": "market-share-geico-progressive",
+      "type": "line",
+      "title": "美国私车市场份额：GEICO 停滞 vs Progressive 扩张",
+      "labels": ["2021", "2022", "2023", "2024", "2025"],
+      "series": [
+        {
+          "name": "GEICO（Berkshire 集团）",
+          "values": [13.0, 12.5, 12.2, 11.63, 11.56]
+        },
+        {
+          "name": "Progressive",
+          "values": [14.5, 15.0, 15.24, 16.73, 18.60]
+        }
+      ],
+      "ylabel": "市场份额（%）",
+      "source": "2023–25 NAIC Market Share；2021–22 AM Best 排名推算"
+    }
+  ]
+}

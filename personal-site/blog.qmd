@@ -29,14 +29,15 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(7)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(5)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(8)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(4)</span></button>
+    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(3)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(3)</span></button>
-    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(2)</span></button>
@@ -47,14 +48,23 @@ listing:
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="渠道">渠道 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(1)</span></button>
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-06-30-geico-direct-growth-rate-war.html" data-categories="财险,精算,海外观察,车险,渠道,承保盈利">
+    <div class="a-kicker">深度 · 美国车险龙头 · GEICO</div>
+    <div class="a-title">GEICO 直销再扩张：费用率优势、广告杠杆与费率竞争</div>
+    <div class="a-excerpt">Berkshire 2025 年报显示 GEICO 签单保费 451.9 亿美元（+5.3%）、综合成本率 84.7%，但市场份额五年从约 13% 滑至 11.6%，Q1 2026 COR 走阔至 87.3%。Greg Abel 要求平衡 COR、留存与保单量——直销龙头如何在 Progressive 扩张与软市场之间找回增长？</div>
+    <div class="a-foot">
+      <span class="a-date">2026.06.30</span>
+      <span class="a-readtime">约 8 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html" data-categories="财险,精算,海外观察,车险,定价,承保盈利">
     <div class="a-kicker">深度 · 美国产险 Q1 与车险龙头</div>
     <div class="a-title">美国产险 Q1 2026：行业综合成本率回落至 <em>89.5%</em>，私车龙头排序变化</div>

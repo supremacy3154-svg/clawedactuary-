@@ -1,11 +1,33 @@
 {
   "schedule": {
     "morning_brief": "08:00",
+    "timezone": "Asia/Shanghai",
+    "weekdays_only": true,
+    "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
     "publish_windows": [
       "09:30",
       "18:00"
     ],
-    "max_posts_per_day": 2
+    "max_posts_per_day": 1
+  },
+  "content": {
+    "min_figures": 2,
+    "min_data_tables": 2,
+    "min_sourced_numbers": 5,
+    "require_chart_source_line": true,
+    "chart_spec_path": "images/<slug>/charts.json",
+    "chart_render_cmd": "python3 scripts/gen_research_charts.py <slug>",
+    "opinion_chart_cmd": "python3 scripts/export_opinion_charts.py <dataset>",
+    "reference_post_with_charts": "posts/2026-06-04-byd-zhijia-douyin-opinion.qmd",
+    "require_data_cross_check": true,
+    "data_sources_path": "images/<slug>/data-sources.json",
+    "cross_check_cmd": "python3 scripts/cross_check_research.py <slug>"
   },
   "agent": {
     "writer": "cursor",
@@ -19,9 +41,123 @@
     "avoid_sequel_to_recent_posts": true,
     "recent_post_window_days": 14,
     "rotate_pillars": true,
-    "instructions": "优先从当日 news / topic_suggestions 发现新题；勿机械续写已有文章；队列 pending 仅作备选"
+    "ai_not_default": true,
+    "instructions": "优先当日 news / topic_suggestions。覆盖美国财险新定价方法、产品创新、经营模式、承保盈利与巨灾资本等；AI 仅为 pillar 之一，勿连续扎堆 AI/InsurTech 题。勿机械续写已有文章；队列 pending 仅作备选。"
+  },
+  "topic_scope": {
+    "summary": "美国/国际财险行业的定价创新、费率备案、产品形态、渠道与经营突破、承保盈利与资本——持续跟踪分析；不限于 AI。",
+    "track": [
+      "州级费率公报、费率指示与损失率走势",
+      "新产品/新渠道（嵌入式、MGA、参数化、UBI 等）",
+      "承保盈利、综合成本率、再保与 cat bond 资本安排",
+      "监管与偿付对定价的影响",
+      "主机厂经营车险与大型产险创新（见 carrier_watch，列举非穷尽）",
+      "AI / 精算自动化（单列 pillar，非默认选题）"
+    ]
+  },
+  "carrier_watch": {
+    "policy": "examples_not_exhaustive",
+    "summary": "关注美国车险大型产险与主机厂经营车险的创新实践；下列公司为举例，报道 Allstate、USAA、Liberty Mutual 等同样欢迎。",
+    "segments": [
+      {
+        "id": "us-auto-majors",
+        "label": "美国车险大型产险",
+        "hint": "State Farm、Progressive、GEICO、Allstate 等龙头——定价、UBI、直销、综合成本率"
+      },
+      {
+        "id": "oem-auto-insurance",
+        "label": "主机厂经营车险",
+        "hint": "Tesla Insurance、OnStar（GM）等——车机数据、UBI、直营与统筹式兜底"
+      }
+    ],
+    "examples": [
+      {
+        "id": "state-farm",
+        "segment": "us-auto-majors",
+        "name": "State Farm",
+        "aliases": [
+          "州立农业保险"
+        ],
+        "track": [
+          "全美最大私车份额、代理渠道与费率竞争",
+          "巨灾敞口、房屋险联动与资本"
+        ],
+        "search_queries": [
+          "State Farm auto insurance rate filing loss ratio 2026",
+          "State Farm underwriting profit catastrophe exposure"
+        ]
+      },
+      {
+        "id": "progressive",
+        "segment": "us-auto-majors",
+        "name": "Progressive",
+        "aliases": [
+          "前进保险"
+        ],
+        "track": [
+          "Snapshot UBI、定价细分与广告获客",
+          "商业车险与综合成本率节奏"
+        ],
+        "search_queries": [
+          "Progressive Snapshot usage based insurance 2026",
+          "Progressive combined ratio earnings pricing strategy"
+        ]
+      },
+      {
+        "id": "geico",
+        "segment": "us-auto-majors",
+        "name": "GEICO",
+        "aliases": [
+          "盖克",
+          "Geico"
+        ],
+        "track": [
+          "直销规模化、费率竞争",
+          "Berkshire 体系费用率与盈利修复"
+        ],
+        "search_queries": [
+          "GEICO auto insurance rate increase profit 2026",
+          "GEICO Berkshire Hathaway underwriting results"
+        ]
+      },
+      {
+        "id": "tesla-insurance",
+        "segment": "oem-auto-insurance",
+        "name": "Tesla Insurance",
+        "aliases": [
+          "特斯拉保险"
+        ],
+        "track": [
+          "Safety Score / UBI、OEM 直营与跨州扩张",
+          "车机数据、维修生态与理赔"
+        ],
+        "search_queries": [
+          "Tesla Insurance telematics Safety Score pricing 2026",
+          "Tesla Insurance loss ratio states expansion"
+        ]
+      },
+      {
+        "id": "onstar-insurance",
+        "segment": "oem-auto-insurance",
+        "name": "OnStar Insurance",
+        "aliases": [
+          "OnStar",
+          "GM insurance telematics"
+        ],
+        "track": [
+          "GM 主机厂车险、车联网数据定价",
+          "与经销商/传统产险合作或直营模式"
+        ],
+        "search_queries": [
+          "OnStar Insurance GM telematics auto insurance 2026",
+          "General Motors OnStar insurance embedded pricing"
+        ]
+      }
+    ]
   },
   "pillars": [
+    "美国财险定价与费率创新",
+    "财险经营创新与渠道模式",
     "国际财险与再保",
     "车险与财产险风险",
     "巨灾气候与宏观风险",
@@ -33,30 +169,51 @@
     "舆情与公众认知"
   ],
   "news_queries": [
-    "auto insurance pricing actuarial 2026",
+    "US P&C insurance rate filing approved 2026",
+    "auto insurance loss ratio combined ratio 2026",
+    "homeowners insurance rate increase state filing",
+    "P&C insurer underwriting profit outlook 2026",
+    "innovative insurance product embedded parametric MGA",
+    "reinsurance renewal rate catastrophe bond 2026",
+    "State Farm Progressive GEICO Allstate auto insurance innovation",
+    "OEM automaker insurance Tesla OnStar telematics UBI",
+    "commercial property insurance hard market rates",
+    "IFRS 17 solvency insurance capital actuarial",
+    "catastrophe bond reinsurance climate outlook",
     "P&C insurance AI underwriting claims",
     "insurtech startup funding insurance",
-    "catastrophe bond reinsurance climate",
-    "IFRS 17 insurance actuarial",
-    "cyber insurance market trends",
     "autonomous vehicle insurance liability",
     "中国 车险 监管 政策",
-    "新能源车险 精算",
-    "保险科技 人工智能 应用"
+    "新能源车险 精算"
   ],
   "exploration_queries": [
-    "Lemonade Root Hippo insurtech news",
-    "Munich Re Swiss Re catastrophe outlook",
-    "US auto insurance loss ratio 2026",
+    "US private passenger auto rate indication trend",
+    "Florida California insurance market reform withdrawal",
+    "usage based insurance telematics pricing",
+    "embedded insurance distribution bancassurance",
+    "Munich Re Swiss Re catastrophe outlook earnings",
+    "Lemonade Root Hippo insurtech underwriting model",
+    "parametric insurance climate wildfire hurricane",
+    "commercial auto fleet telematics pricing",
+    "personal lines inflation repair cost severity",
+    "insurance MGA program administrator innovation",
     "generative AI actuarial reserving",
-    "parametric insurance climate",
-    "usage based insurance telematics",
-    "embedded insurance distribution",
-    "solvency II IFRS17 insurance capital",
-    "commercial auto fleet risk model",
-    "insurance fraud detection machine learning"
+    "insurance fraud detection analytics"
   ],
   "topic_queue": [
+    {
+      "id": "geico-direct-growth-rate-war",
+      "title": "GEICO 直销再扩张：费用率优势、广告杠杆与费率竞争",
+      "status": "in_progress",
+      "pillar": "财险经营创新与渠道模式"
+    },
+    {
+      "id": "us-pc-q1-2026-profit",
+      "title": "美国产险 Q1 2026 承保盈利与准备金",
+      "status": "awaiting_approval",
+      "pillar": "美国财险定价与费率创新",
+      "notes": "Q1 underwriting profit cross-check"
+    },
     {
       "id": "aaa-ai-use-cases-pnc",
       "title": "美国精算师学会 AI 用例图谱：财险精算该盯哪几条线？",
@@ -89,6 +246,34 @@
       "status": "backlog",
       "pillar": "监管偿付与会计准则",
       "notes": "队列备选"
+    },
+    {
+      "id": "tesla-insurance-ubi-deep-dive",
+      "title": "Tesla Insurance：Safety Score 定价与 OEM 直营保险能跑通吗？",
+      "status": "backlog",
+      "pillar": "财险经营创新与渠道模式",
+      "notes": "carrier_watch 举例 · Tesla"
+    },
+    {
+      "id": "progressive-snapshot-pricing",
+      "title": "Progressive Snapshot 二十年：UBI 如何重塑美国车险定价曲线",
+      "status": "backlog",
+      "pillar": "美国财险定价与费率创新",
+      "notes": "carrier_watch 举例 · 大型产险"
+    },
+    {
+      "id": "state-farm-auto-majors",
+      "title": "State Farm 与美国车险龙头：份额、费率与巨灾敞口",
+      "status": "backlog",
+      "pillar": "车险与财产险风险",
+      "notes": "carrier_watch 举例 · 大型产险"
+    },
+    {
+      "id": "onstar-oem-insurance",
+      "title": "OnStar 与主机厂车险：GM 如何用车联网数据做定价？",
+      "status": "backlog",
+      "pillar": "财险经营创新与渠道模式",
+      "notes": "carrier_watch 举例 · 主机厂车险"
     }
   ],
   "publish": {
