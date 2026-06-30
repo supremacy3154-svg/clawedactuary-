@@ -10,7 +10,7 @@ description: >-
 
 站点：`personal-site/` → https://clawedactuary.com.cn
 
-**写文、图表、评论区规范 → 必读 [`personal-site/CONTENT-GUIDE.md`](../personal-site/CONTENT-GUIDE.md)**
+**写文、图表、评论区规范 → 必读 [`personal-site/CONTENT-GUIDE.md`](../../personal-site/CONTENT-GUIDE.md)**
 
 ## 配置与状态
 
@@ -32,17 +32,24 @@ bash scripts/run_daily_research.sh
 cd personal-site && python3 scripts/daily_research.py brief && python3 scripts/daily_research.py next
 ```
 
-阅读 `_generated/daily-briefs/<today>.json` 与 `workflows/daily-research.json` 中的 `topic_queue`。
+阅读 `_generated/daily-briefs/<today>.json`：
+- `discovery.search_plan` — 今日执行的宽网/事件类型/探索/carrier 查询
+- `topic_suggestions` / `recommendation` — 按事件类型+pillar 打分后的选题推荐
+- `workflows/daily-research.json` 中的 `topic_queue`（仅作备选）
 
-### 2. 选题（1–2 篇/天）
+### 2. 选题（1 篇/天，须用户确认）
 
 优先级：
 
-1. `status: in_progress` 的话题
-2. `status: pending` 且与当日新闻热点重合的话题
-3. 若无队列项，从 `news_queries` + `pillars` 自拟选题并 `queue-add`（手动改 JSON）
+1. 当日 `daily-briefs/<today>.json` 的 `topic_suggestions` / `recommendation`
+2. `status: in_progress` → `pending` 队列项
+3. 与用户讨论后自拟题并 `queue-add`
+
+**写稿前必须经用户确认选题**（`topic_selection.require_user_approval_before_write`）。早间 cron **只生成 brief**，不自动写 `.qmd` 全文。
 
 ### 3. 研究与写稿
+
+**写稿纪律 → 必读 [CONTENT-GUIDE.md §二](../../personal-site/CONTENT-GUIDE.md)**（商用车险用语、结构、图表、禁止元叙述、AI/引用边界、邮件声明）。
 
 **风格锚点**（必读 `CONTENT-GUIDE.md` 与现有文章）：
 
@@ -73,13 +80,20 @@ cd personal-site
 python3 scripts/sync_posts.py    # 同步首页 + blog 列表 + 阅读时间
 quarto render
 python3 scripts/daily_research.py publish-check
+python3 scripts/cross_check_research.py <slug>   # 研究稿
 ```
 
-### 5. 发布
+### 5. 发布与个人邮件
 
-默认 **不自动 push**（`workflows/daily-research.json` → `publish.auto_git_push: false`）。
+默认 **不自动 push**（`publish.require_approval: true`）。用户说「发布」后再 push。
 
-用户确认后：
+个人邮件（**不含**「文责个人…」句）：
+
+```bash
+python3 tools/send_site_article_email.py <slug>
+```
+
+### 6. Git 发布（用户确认后）
 
 ```bash
 cd /path/to/repo

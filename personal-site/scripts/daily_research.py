@@ -2,7 +2,7 @@
 """Daily research publishing workflow for clawedactuary.com.cn.
 
 Usage:
-  python3 scripts/daily_research.py brief          # 今日研究简报（新闻 + 队列）
+  python3 scripts/daily_research.py brief          # 今日研究简报（发现式新闻 + 选题推荐）
   python3 scripts/daily_research.py queue         # 列出话题队列
   python3 scripts/daily_research.py next          # 下一个待写话题
   python3 scripts/daily_research.py publish-check # 发布前检查
@@ -15,12 +15,12 @@ import json
 import re
 import subprocess
 import sys
-from datetime import date, datetime
+from datetime import datetime, timedelta
 from pathlib import Path
+from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 SITE_DIR = Path(__file__).resolve().parent.parent
-WORKSPACE = SITE_DIR.parent
 CONFIG_PATH = SITE_DIR / "workflows" / "daily-research.json"
 STATE_PATH = SITE_DIR / "_generated" / "daily-research-state.json"
 POSTS_DIR = SITE_DIR / "posts"
@@ -50,48 +50,434 @@ def today_str() -> str:
     return datetime.now(TZ).strftime("%Y-%m-%d")
 
 
-def fetch_news(queries: list[str], max_each: int = 3) -> list[dict]:
-    results: list[dict] = []
-    tvly = subprocess.run(["which", "tvly"], capture_output=True, text=True)
-    if tvly.returncode != 0:
-        return results
-    for q in queries[:6]:
-        try:
-            proc = subprocess.run(
-                ["tvly", "search", q, "--time-range", "week", "--max-results", str(max_each), "--json"],
-                capture_output=True,
-                text=True,
-                timeout=45,
-            )
-            if proc.returncode != 0:
-                continue
-            data = json.loads(proc.stdout)
-            items = data.get("results", data) if isinstance(data, dict) else data
-            for item in items[:max_each]:
-                if isinstance(item, dict):
-                    results.append({
-                        "query": q,
-                        "title": item.get("title", ""),
-                        "url": item.get("url", ""),
-                        "snippet": (item.get("content") or item.get("snippet") or "")[:280],
-                    })
-        except (json.JSONDecodeError, subprocess.TimeoutExpired, OSError):
+def day_index() -> int:
+    return datetime.now(TZ).toordinal()
+
+
+def pick_rotated(items: list, count: int, offset: int = 0) -> list:
+    if not items or count <= 0:
+        return []
+    n = len(items)
+    start = (day_index() + offset) % n
+    return [items[(start + i) % n] for i in range(min(count, n))]
+
+
+def tvly_available() -> bool:
+    return subprocess.run(["which", "tvly"], capture_output=True).returncode == 0
+
+
+def tvly_search(query: str, time_range: str, max_results: int) -> list[dict]:
+    try:
+        proc = subprocess.run(
+            ["tvly", "search", query, "--time-range", time_range, "--max-results", str(max_results), "--json"],
+            capture_output=True,
+            text=True,
+            timeout=45,
+        )
+        if proc.returncode != 0:
+            return []
+        data = json.loads(proc.stdout)
+        items = data.get("results", data) if isinstance(data, dict) else data
+        if not isinstance(items, list):
+            return []
+        return [item for item in items if isinstance(item, dict)]
+    except (json.JSONDecodeError, subprocess.TimeoutExpired, OSError):
+        return []
+
+
+def normalize_url(url: str) -> str:
+    parsed = urlparse(url.strip().lower())
+    host = parsed.netloc.removeprefix("www.")
+    path = parsed.path.rstrip("/")
+    return f"{host}{path}"
+
+
+def domain_of(url: str) -> str:
+    return urlparse(url).netloc.lower().removeprefix("www.")
+
+
+def title_tokens(text: str) -> set[str]:
+    text = text.lower()
+    words = re.findall(r"[\w\u4e00-\u9fff]+", text)
+    stop = {"the", "a", "an", "and", "or", "for", "to", "of", "in", "on", "with", "as", "by", "at", "is"}
+    return {w for w in words if len(w) > 2 and w not in stop}
+
+
+def is_noise_title(title: str, patterns: list[str]) -> bool:
+    lower = title.lower()
+    return any(p.lower() in lower for p in patterns)
+
+
+def is_excluded_domain(url: str, exclude_domains: list[str]) -> bool:
+    host = domain_of(url)
+    return any(host == d or host.endswith("." + d) for d in exclude_domains)
+
+
+def is_quality_domain(url: str, quality_domains: list[str]) -> bool:
+    host = domain_of(url)
+    return any(host == d or host.endswith("." + d) for d in quality_domains)
+
+
+def build_search_plan(cfg: dict) -> list[dict]:
+    disc = cfg.get("discovery", {})
+    if not disc:
+        return [{"source": "legacy", "query": q} for q in cfg.get("news_queries", [])[:6]]
+
+    plan: list[dict] = []
+    for q in disc.get("wide_queries", []):
+        plan.append({"source": "wide", "query": q})
+
+    event_types = disc.get("event_types", [])
+    selected_types = pick_rotated(event_types, disc.get("event_types_per_day", 4))
+    q_per_type = disc.get("queries_per_event_type", 2)
+    for i, et in enumerate(selected_types):
+        for q in pick_rotated(et.get("queries", []), q_per_type, offset=i * 3):
+            plan.append({
+                "source": "event_type",
+                "event_type": et.get("id"),
+                "event_label": et.get("label"),
+                "pillar": et.get("pillar"),
+                "query": q,
+            })
+
+    for q in pick_rotated(cfg.get("exploration_queries", []), disc.get("exploration_queries_per_day", 2), offset=7):
+        plan.append({"source": "exploration", "query": q})
+
+    carriers = cfg.get("carrier_watch", {}).get("examples", [])
+    carrier = pick_rotated(carriers, 1, offset=11)
+    if carrier:
+        c = carrier[0]
+        for q in pick_rotated(c.get("search_queries", []), disc.get("carrier_watch_queries_per_day", 1), offset=13):
+            plan.append({
+                "source": "carrier_watch",
+                "carrier_id": c.get("id"),
+                "carrier_name": c.get("name"),
+                "query": q,
+            })
+
+    return plan
+
+
+def discover_news(cfg: dict) -> tuple[list[dict], dict]:
+    disc = cfg.get("discovery", {})
+    time_range = disc.get("time_range", "week")
+    max_each = disc.get("max_results_per_query", 3)
+    plan = build_search_plan(cfg)
+
+    raw: list[dict] = []
+    for entry in plan:
+        query = entry["query"]
+        for item in tvly_search(query, time_range, max_each):
+            raw.append({
+                "query": query,
+                "search_source": entry.get("source"),
+                "event_type": entry.get("event_type"),
+                "event_label": entry.get("event_label"),
+                "pillar_hint": entry.get("pillar"),
+                "carrier_name": entry.get("carrier_name"),
+                "title": item.get("title", ""),
+                "url": item.get("url", ""),
+                "snippet": (item.get("content") or item.get("snippet") or "")[:320],
+                "tavily_score": item.get("score"),
+            })
+
+    news = dedup_news(raw)
+    meta = {
+        "mode": "discovery" if disc else "legacy",
+        "queries_run": len(plan),
+        "raw_hits": len(raw),
+        "after_dedup": len(news),
+        "search_plan": plan,
+    }
+    return news, meta
+
+
+def dedup_news(items: list[dict]) -> list[dict]:
+    seen_urls: set[str] = set()
+    seen_titles: list[set[str]] = []
+    out: list[dict] = []
+
+    for item in items:
+        url_key = normalize_url(item.get("url", ""))
+        if not url_key or url_key in seen_urls:
             continue
-    return results
+        tokens = title_tokens(item.get("title", ""))
+        if len(tokens) >= 4:
+            for prev in seen_titles:
+                overlap = len(tokens & prev) / max(len(tokens), len(prev))
+                if overlap >= 0.75:
+                    break
+            else:
+                seen_titles.append(tokens)
+                seen_urls.add(url_key)
+                out.append(item)
+                continue
+            continue
+        seen_urls.add(url_key)
+        out.append(item)
+    return out
+
+
+def parse_post_meta(path: Path) -> dict:
+    raw = path.read_text(encoding="utf-8")
+    if not raw.startswith("---"):
+        return {}
+    meta_block = raw.split("---", 2)[1]
+    meta: dict[str, str] = {}
+    for line in meta_block.splitlines():
+        if ":" in line:
+            key, val = line.split(":", 1)
+            meta[key.strip()] = val.strip().strip('"')
+    return meta
+
+
+def recent_posts(cfg: dict) -> list[dict]:
+    sel = cfg.get("topic_selection", {})
+    window = sel.get("recent_post_window_days", 14)
+    cutoff = datetime.now(TZ).date() - timedelta(days=window)
+    posts: list[dict] = []
+
+    for path in sorted(POSTS_DIR.glob("*.qmd")):
+        if path.name.startswith("_"):
+            continue
+        meta = parse_post_meta(path)
+        date_s = meta.get("date", path.stem[:10])
+        try:
+            post_date = datetime.strptime(date_s[:10], "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if post_date >= cutoff:
+            posts.append({
+                "slug": path.stem,
+                "title": meta.get("title", path.stem),
+                "date": date_s[:10],
+                "categories": meta.get("categories", ""),
+            })
+    posts.sort(key=lambda p: p["date"], reverse=True)
+    return posts
+
+
+def overlaps_recent(item: dict, recent: list[dict]) -> bool:
+    item_tokens = title_tokens(item.get("title", "") + " " + item.get("snippet", ""))
+    for post in recent:
+        post_tokens = title_tokens(post.get("title", "") + " " + post.get("slug", ""))
+        if len(item_tokens & post_tokens) >= 3:
+            return True
+    return False
+
+
+def infer_event_type(text: str, event_types: list[dict]) -> dict | None:
+    lower = text.lower()
+    signals = {
+        "rate_filing": ["rate filing", "pure premium", "reference rate", "料率", "纯率", "费率", "备案", "reference pure"],
+        "legislation_regulation": ["legislation", "regulation passed", "regulatory reform", "立法", "监管", "新规", "gesetz", "aufsicht"],
+        "underwriting_results": ["combined ratio", "underwriting profit", "loss ratio", "earnings", "承保", "综合成本率"],
+        "product_channel": ["embedded insurance", "mga", "parametric", "telematics", "ubi", "usage based"],
+        "catastrophe_capital": ["catastrophe bond", "cat bond", "reinsurance renewal", "巨灾", "再保"],
+        "av_mobility_liability": ["autonomous", "self-driving", "智驾", "自动驾驶", "l3", "autonomes fahren"],
+        "china_auto_insurance": ["新能源车险", "中国 车险", "车险 新能源", "电池 分开投保"],
+    }
+    best_id, best_hits = None, 0
+    for et_id, keys in signals.items():
+        hits = sum(1 for k in keys if k in lower)
+        if hits > best_hits:
+            best_id, best_hits = et_id, hits
+    if not best_id or best_hits == 0:
+        return None
+    for et in event_types:
+        if et.get("id") == best_id:
+            return et
+    return None
+
+
+def match_pillar(text: str, pillars: list[str]) -> str | None:
+    lower = text.lower()
+    keywords = {
+        "美国财险定价与费率创新": ["rate", "filing", "pricing", "premium", "combined ratio", "费率", "定价", "纯率", "料率"],
+        "财险经营创新与渠道模式": ["embedded", "mga", "distribution", "channel", "ubi", "telematics", "渠道"],
+        "国际财险与再保": ["reinsurance", "international", "global", "再保", "国际"],
+        "车险与财产险风险": ["auto insurance", "motor", "car insurance", "车险", "新能源"],
+        "巨灾气候与宏观风险": ["catastrophe", "cat bond", "hurricane", "wildfire", "巨灾", "气候"],
+        "AI 核保理赔与精算自动化": [" ai ", "artificial intelligence", "machine learning", "精算自动化"],
+        "保险科技与初创颠覆": ["insurtech", "startup", "funding", "venture"],
+        "监管偿付与会计准则": ["regulation", "legislation", "solvency", "ifrs", "监管", "立法", "偿付"],
+        "精算前沿与风险模型": ["actuarial", "reserving", "精算"],
+        "智能网联与产品责任": ["autonomous", "self-driving", "智驾", "自动驾驶", "av "],
+        "舆情与公众认知": ["opinion", "sentiment", "舆情"],
+    }
+    for pillar in pillars:
+        for kw in keywords.get(pillar, [pillar[:4]]):
+            if kw in lower:
+                return pillar
+    return None
+
+
+def score_item(item: dict, cfg: dict, recent: list[dict]) -> float | None:
+    disc = cfg.get("discovery", {})
+    exclude = disc.get("exclude_domains", [])
+    quality = disc.get("quality_domains", [])
+    noise = disc.get("noise_title_patterns", [])
+    pillars = cfg.get("pillars", [])
+    title = item.get("title", "")
+    url = item.get("url", "")
+
+    if not title or not url:
+        return None
+    if is_excluded_domain(url, exclude):
+        return None
+    if is_noise_title(title, noise):
+        return None
+
+    score = 0.0
+    tavily = item.get("tavily_score")
+    if isinstance(tavily, (int, float)):
+        score += float(tavily) * 5.0
+
+    if item.get("search_source") == "wide":
+        score += 1.0
+    if item.get("event_type"):
+        score += 2.5
+    if item.get("search_source") == "carrier_watch":
+        score += 1.5
+    if is_quality_domain(url, quality):
+        score += 2.0
+
+    text = f"{title} {item.get('snippet', '')}"
+    if not item.get("event_type"):
+        inferred = infer_event_type(text, disc.get("event_types", []))
+        if inferred:
+            item["event_type"] = inferred.get("id")
+            item["event_label"] = inferred.get("label")
+            item["pillar_hint"] = inferred.get("pillar")
+
+    pillar = item.get("pillar_hint") or match_pillar(text, pillars)
+    if pillar:
+        score += 1.5
+        item["pillar"] = pillar
+
+    if overlaps_recent(item, recent):
+        score -= 2.5
+        item["recent_overlap"] = True
+
+    sel = cfg.get("topic_selection", {})
+    if sel.get("ai_not_default") and item.get("event_type") not in {"av_mobility_liability"}:
+        ai_noise = [" ai ", "insurtech", "generative ai", "chatgpt"]
+        if any(k in text.lower() for k in ai_noise):
+            score -= 1.0
+
+    return score
+
+
+def priority_label(score: float) -> str:
+    if score >= 7:
+        return "high"
+    if score >= 5:
+        return "medium"
+    return "low"
+
+
+def build_rationale(item: dict) -> str:
+    parts: list[str] = []
+    if item.get("event_label"):
+        parts.append(f"事件：{item['event_label']}")
+    elif item.get("search_source") == "wide":
+        parts.append("宽网发现")
+    if item.get("pillar"):
+        parts.append(f"pillar：{item['pillar']}")
+    if item.get("carrier_name"):
+        parts.append(f"关注主体：{item['carrier_name']}")
+    if item.get("recent_overlap"):
+        parts.append("与近稿主题相近，降权")
+    else:
+        parts.append("非队列续篇")
+    return "；".join(parts)
+
+
+def build_topic_suggestions(news: list[dict], cfg: dict, recent: list[dict]) -> list[dict]:
+    disc = cfg.get("discovery", {})
+    min_score = disc.get("min_score_for_suggestion", 4.0)
+    max_suggestions = disc.get("max_topic_suggestions", 5)
+
+    scored: list[tuple[float, dict]] = []
+    for item in news:
+        s = score_item(item, cfg, recent)
+        if s is None:
+            continue
+        scored.append((s, {**item, "score": round(s, 2)}))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+    suggestions: list[dict] = []
+    used_event_types: set[str] = set()
+
+    for score, item in scored:
+        if score < min_score:
+            continue
+        et = item.get("event_type") or item.get("search_source") or "wide"
+        if et in used_event_types:
+            continue
+        suggestions.append({
+            "source": "discovery",
+            "event_type": item.get("event_type"),
+            "event_label": item.get("event_label"),
+            "pillar": item.get("pillar"),
+            "title": item.get("title"),
+            "url": item.get("url"),
+            "query": item.get("query"),
+            "score": item.get("score"),
+            "priority": priority_label(score),
+            "rationale": build_rationale(item),
+        })
+        used_event_types.add(et)
+        if len(suggestions) >= max_suggestions:
+            break
+    return suggestions
+
+
+def queue_fallback(cfg: dict) -> dict | None:
+    for status in ("pending", "backlog"):
+        for t in cfg.get("topic_queue", []):
+            if isinstance(t, dict) and t.get("status") == status:
+                return t
+    return None
+
+
+def build_recommendation(suggestions: list[dict], cfg: dict) -> dict:
+    rec: dict = {"strategy": "discover_from_news"}
+    if suggestions:
+        rec["recommended"] = suggestions[0]
+    else:
+        rec["recommended"] = None
+        rec["note"] = "当日宽网+事件扫描未达阈值，建议查看队列备选或手动补充"
+    fb = queue_fallback(cfg)
+    if fb:
+        rec["queue_fallback"] = fb
+    rec["topic_suggestions"] = suggestions
+    return rec
 
 
 def cmd_brief() -> int:
     cfg = load_config()
     state = load_state()
     today = today_str()
-    queries = cfg.get("news_queries", [])
-    if isinstance(queries, dict):
-        queries = []
-    news = fetch_news(queries if isinstance(queries, list) else [])
+    recent = recent_posts(cfg)
+    news, discovery_meta = discover_news(cfg)
+
+    disc = cfg.get("discovery", {})
+    max_news = disc.get("max_news_in_brief", 30) if disc else 20
+    scored_news: list[dict] = []
+    for item in news:
+        s = score_item(item, cfg, recent)
+        if s is not None:
+            scored_news.append({**item, "score": round(s, 2)})
+    scored_news.sort(key=lambda x: x.get("score", 0), reverse=True)
+
+    suggestions = build_topic_suggestions(news, cfg, recent)
+    recommendation = build_recommendation(suggestions, cfg)
 
     queue = cfg.get("topic_queue", [])
     pending = [t for t in queue if isinstance(t, dict) and t.get("status") == "pending"]
     in_prog = [t for t in queue if isinstance(t, dict) and t.get("status") == "in_progress"]
+    backlog = [t for t in queue if isinstance(t, dict) and t.get("status") == "backlog"]
 
     brief = {
         "date": today,
@@ -100,15 +486,24 @@ def cmd_brief() -> int:
         if isinstance(cfg.get("schedule"), dict)
         else 2,
         "pillars": cfg.get("pillars", []),
-        "news": news,
+        "topic_selection": cfg.get("topic_selection", {}),
+        "discovery": discovery_meta,
+        "news": scored_news[:max_news],
+        "topic_suggestions": suggestions,
+        "recommendation": recommendation,
         "topic_queue_pending": pending,
         "topic_queue_in_progress": in_prog,
+        "topic_queue_backlog": backlog,
+        "recent_posts": [p["slug"] for p in recent[:8]],
         "published_today": state.get("published_today", []),
         "agent_prompt": (
-            "读取本简报与 skills/daily-research-publish/SKILL.md。"
-            "今日写 1–2 篇深度稿：优先 in_progress，再取 pending；"
-            "结合 news 热点与 data_sources；风格对齐现有 posts/*.qmd；"
-            "完成后 sync_posts.py + quarto render + publish-check。"
+            "读取本简报与 skills/daily-research-publish/SKILL.md、CONTENT-GUIDE.md §二。"
+            "选题：优先 recommendation / topic_suggestions 中的新热点（已按事件类型+pillar 打分）；"
+            "勿机械续写 recent_posts 或队列 backlog。"
+            "仅产出选题建议与资料摘要，等待用户确认选题后再写稿；"
+            "禁止未经确认创建 posts/*.qmd。"
+            "用户确认后：写 1 篇深度稿，sync + render + publish-check + cross_check；"
+            "draft: false 以便预览；禁止 push。"
         ),
     }
 
@@ -117,14 +512,17 @@ def cmd_brief() -> int:
     out.write_text(json.dumps(brief, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"简报已写入: {out.relative_to(SITE_DIR)}")
+    print(f"发现模式: {discovery_meta.get('mode')} | 执行 {discovery_meta.get('queries_run')} 条查询")
+    print(f"新闻: {discovery_meta.get('raw_hits')} 命中 → {discovery_meta.get('after_dedup')} 去重 → {len(suggestions)} 条选题推荐")
     print(f"待写话题: {len(pending)} pending, {len(in_prog)} in_progress")
-    print(f"新闻条数: {len(news)}")
-    if in_prog:
+    if suggestions:
+        print("推荐选题:")
+        for s in suggestions[:3]:
+            print(f"  [{s['priority']}] {s.get('event_label') or '宽网'}: {s['title'][:70]}")
+    elif in_prog:
         print("进行中:", ", ".join(t.get("title", t.get("id", "?")) for t in in_prog))
-    elif pending:
-        print("建议下一篇:", pending[0].get("title", pending[0].get("id")))
-    if not news:
-        print("提示: tvly 未返回新闻，可运行 tvly login 或手动补充热点")
+    if not news and not tvly_available():
+        print("提示: tvly 未安装或未登录，可运行 tvly login")
     return 0
 
 

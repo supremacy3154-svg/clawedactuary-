@@ -27,7 +27,18 @@
     "reference_post_with_charts": "posts/2026-06-04-byd-zhijia-douyin-opinion.qmd",
     "require_data_cross_check": true,
     "data_sources_path": "images/<slug>/data-sources.json",
-    "cross_check_cmd": "python3 scripts/cross_check_research.py <slug>"
+    "cross_check_cmd": "python3 scripts/cross_check_research.py <slug>",
+    "writing_rules_ref": "CONTENT-GUIDE.md §二",
+    "writing_rules": [
+      "选题须用户确认后再写稿；brief 不触发自动写全文",
+      "美国 Commercial Auto 称「商用车险」，勿写「商业车险」",
+      "行业背景宜短，案例主体宜长；国内借鉴放后",
+      "禁止正文元叙述（本篇不展开、本文统称、不宜外推等）",
+      "口径说明仅写美国特有/非显然概念；基础精算术语不解释",
+      "无证据不挂 AI 标签、不硬引 AAA 等他文；证据链须本题闭环",
+      "禁止 trivial A-vs-B 双柱图；优先时间序列与多主体截面",
+      "个人邮件去掉「文责个人」句；公网保留"
+    ]
   },
   "agent": {
     "writer": "cursor",
@@ -37,12 +48,13 @@
   },
   "topic_selection": {
     "mode": "discover_first",
+    "require_user_approval_before_write": true,
     "queue_fallback_max_ratio": 0.3,
     "avoid_sequel_to_recent_posts": true,
     "recent_post_window_days": 14,
     "rotate_pillars": true,
     "ai_not_default": true,
-    "instructions": "优先当日 news / topic_suggestions。覆盖美国财险新定价方法、产品创新、经营模式、承保盈利与巨灾资本等；AI 仅为 pillar 之一，勿连续扎堆 AI/InsurTech 题。勿机械续写已有文章；队列 pending 仅作备选。"
+    "instructions": "优先当日 news / topic_suggestions。覆盖美国财险新定价方法、产品创新、经营模式、承保盈利与巨灾资本等；AI 仅为 pillar 之一，勿连续扎堆 AI/InsurTech 题。勿机械续写已有文章；队列 pending 仅作备选。**用户确认选题后再写稿**；写稿纪律见 CONTENT-GUIDE.md §二。"
   },
   "topic_scope": {
     "summary": "美国/国际财险行业的定价创新、费率备案、产品形态、渠道与经营突破、承保盈利与资本——持续跟踪分析；不限于 AI。",
@@ -168,6 +180,135 @@
     "智能网联与产品责任",
     "舆情与公众认知"
   ],
+  "discovery": {
+    "time_range": "week",
+    "max_results_per_query": 3,
+    "event_types_per_day": 7,
+    "queries_per_event_type": 1,
+    "exploration_queries_per_day": 2,
+    "carrier_watch_queries_per_day": 1,
+    "max_topic_suggestions": 5,
+    "min_score_for_suggestion": 4.0,
+    "max_news_in_brief": 30,
+    "exclude_domains": [
+      "facebook.com",
+      "linkedin.com",
+      "twitter.com",
+      "x.com",
+      "perplexity.ai",
+      "acturhire.com",
+      "instagram.com",
+      "tiktok.com",
+      "reddit.com",
+      "smzdm.com"
+    ],
+    "quality_domains": [
+      "artemis.bm",
+      "verisk.com",
+      "actuary.org",
+      "reuters.com",
+      "insurancejournal.com",
+      "dig-in.com",
+      "xinhuanet.com",
+      "gov.cn",
+      "sonpo.or.jp",
+      "jpc-net.jp",
+      "japaninsurance.jp",
+      "bundestag.de",
+      "bmvi.de",
+      "naic.org",
+      "iii.org"
+    ],
+    "noise_title_patterns": [
+      "graduate",
+      "trainee",
+      "job",
+      "hiring",
+      "career",
+      "recruitment",
+      "招聘",
+      "校招",
+      "实习"
+    ],
+    "wide_queries": [
+      "insurance regulation legislation filing news 2026",
+      "P&C insurance industry pricing underwriting news",
+      "车险 保险 监管 立法 费率 新闻",
+      "自動車保険 保険料 規制 法律"
+    ],
+    "event_types": [
+      {
+        "id": "rate_filing",
+        "label": "费率公报与纯保费调整",
+        "pillar": "美国财险定价与费率创新",
+        "queries": [
+          "insurance rate filing pure premium increase approved 2026",
+          "auto insurance reference rate adjustment regulation",
+          "日本 自賠責 料率 改定 参考纯率",
+          "车险 费率 备案 批复 调整"
+        ]
+      },
+      {
+        "id": "legislation_regulation",
+        "label": "立法与监管新规",
+        "pillar": "监管偿付与会计准则",
+        "queries": [
+          "insurance legislation regulation passed 2026",
+          "insurance regulatory reform solvency capital rule",
+          "保险 监管 新规 立法 暂行办法",
+          "Versicherungsaufsicht Gesetz Regulierung Versicherung"
+        ]
+      },
+      {
+        "id": "underwriting_results",
+        "label": "承保盈利与经营结果",
+        "pillar": "美国财险定价与费率创新",
+        "queries": [
+          "P&C insurer combined ratio underwriting profit 2026",
+          "property casualty insurance earnings loss ratio"
+        ]
+      },
+      {
+        "id": "product_channel",
+        "label": "产品创新与渠道模式",
+        "pillar": "财险经营创新与渠道模式",
+        "queries": [
+          "embedded insurance MGA parametric product launch",
+          "usage based insurance telematics pricing program",
+          "insurance distribution innovation bancassurance"
+        ]
+      },
+      {
+        "id": "catastrophe_capital",
+        "label": "巨灾与再保资本",
+        "pillar": "巨灾气候与宏观风险",
+        "queries": [
+          "catastrophe bond issuance reinsurance renewal 2026",
+          "cat bond market reinsurance capital outlook"
+        ]
+      },
+      {
+        "id": "av_mobility_liability",
+        "label": "智驾与上路监管",
+        "pillar": "智能网联与产品责任",
+        "queries": [
+          "autonomous driving legislation road approval regulation 2026",
+          "self-driving vehicle insurance liability law Germany EU",
+          "智能驾驶 上路 立法 监管 L3",
+          "autonomes Fahren Gesetz Versicherung Haftung"
+        ]
+      },
+      {
+        "id": "china_auto_insurance",
+        "label": "中国车险与新能源",
+        "pillar": "车险与财产险风险",
+        "queries": [
+          "中国 车险 新能源 监管 政策",
+          "新能源车险 承保亏损 精算 费率"
+        ]
+      }
+    ]
+  },
   "news_queries": [
     "US P&C insurance rate filing approved 2026",
     "auto insurance loss ratio combined ratio 2026",
@@ -235,7 +376,7 @@
     },
     {
       "id": "oem-insurance-race",
-      "title": "智驾兜底竞赛：主机厂统筹 vs 商业车险的边界图谱",
+      "title": "智驾兜底竞赛：主机厂统筹 vs 商用车险的边界图谱",
       "status": "backlog",
       "pillar": "车险与财产险风险",
       "notes": "队列备选；优先写当日热点新题，不必急于续写国内 OEM 样本"
