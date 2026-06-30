@@ -1,10 +1,12 @@
 {
-  "slug": "2026-06-29-us-pc-q1-progressive-state-farm",
-  "topic_id": "us-pc-q1-progressive-state-farm",
-  "title": "美国产险 Q1 2026：行业 COR 回落至 89.5%，私车龙头排序变化",
+  "slug": "2026-06-30-commercial-auto-ai-telematics-pricing",
+  "topic_id": "commercial-ai-telematics",
+  "title": "美国商用车险十三年亏损：Progressive 车联网 UBI 样本与国内参照",
   "status": "awaiting_approval",
-  "ready_at": "2026-06-29T14:16:15.990412+08:00",
-  "preview_local": "file:///Users/mac/.openclaw/workspace-yanghailin/personal-site/_site/posts/2026-06-29-us-pc-q1-progressive-state-farm.html",
-  "preview_site": "https://clawedactuary.com.cn/posts/2026-06-29-us-pc-q1-progressive-state-farm.html",
+  "note": "用户确认选题 commercial-ai-telematics；GEICO 稿已作废",
+  "cancelled_slug": "2026-06-30-geico-direct-growth-rate-war",
+  "ready_at": "2026-06-30",
+  "preview_local": "_site/posts/2026-06-30-commercial-auto-ai-telematics-pricing.html",
+  "preview_site": null,
   "approve_command": "bash scripts/approve_daily_publish.sh"
 }

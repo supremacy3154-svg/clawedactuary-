@@ -1,0 +1,147 @@
+{
+  "slug": "2026-06-30-commercial-auto-ai-telematics-pricing",
+  "checked_at": "2026-06-30",
+  "checker_note": "商用车险=Commercial Auto；删 A vs B 柱状图。Progressive 保费 2023–24 为转述、2025 为 NAIC 官方。",
+  "metrics": [
+    {
+      "id": "commercial_auto_cor_2024",
+      "label": "2024 年美国商业车险综合成本率",
+      "value": "107",
+      "unit": "%",
+      "primary_source": {
+        "name": "Conning 2025 Commercial Auto Study",
+        "url": "https://www.conning.com/about-us/news/ir-pr---2025-commercial-auto",
+        "as_of": "2025-09-23"
+      },
+      "cross_checks": [
+        {
+          "name": "Insurance Business",
+          "value": "107%，净承保亏损约 50 亿美元",
+          "url": "https://www.insurancebusinessmag.com/us/news/auto-motor/commercial-auto-insurance-faces-13th-year-of-losses-534567.aspx",
+          "note": "亏损金额四舍五入差异"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "commercial_auto_underwriting_loss_2024",
+      "label": "2024 年商业车险净承保亏损",
+      "value": "5",
+      "unit": "十亿美元",
+      "primary_source": {
+        "name": "Conning",
+        "url": "https://www.conning.com/about-us/news/ir-pr---2025-commercial-auto",
+        "as_of": "2025-09"
+      },
+      "cross_checks": [
+        {
+          "name": "Insurance Business",
+          "value": "~$5B",
+          "url": "https://www.insurancebusinessmag.com/us/news/auto-motor/commercial-auto-insurance-faces-13th-year-of-losses-534567.aspx",
+          "note": "一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "liability_severity_since_2015",
+      "label": "商业车险责任赔案 severity 较 2015 年累计升幅",
+      "value": "64",
+      "unit": "%",
+      "primary_source": {
+        "name": "Conning 2025 Study",
+        "url": "https://www.conning.com/about-us/news/ir-pr---2025-commercial-auto",
+        "as_of": "2025-09"
+      },
+      "cross_checks": [
+        {
+          "name": "Insurance Business 转述",
+          "value": "+64%",
+          "url": "https://www.insurancebusinessmag.com/us/news/auto-motor/commercial-auto-insurance-faces-13th-year-of-losses-534567.aspx",
+          "note": "一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "commercial_auto_liability_lr_2024",
+      "label": "其他商业车险责任直接赔付率（2024）",
+      "value": "77.63",
+      "unit": "%",
+      "primary_source": {
+        "name": "NAIC P/C Market Share Report",
+        "url": "https://content.naic.org/sites/default/files/publication-msr-pb-property-casualty.pdf",
+        "as_of": "2025-03"
+      },
+      "cross_checks": [
+        {
+          "name": "NAIC 2025 报告历史列",
+          "value": "2019–2024 序列一致",
+          "url": "https://content.naic.org/sites/default/files/publication-msr-pb-property-casualty.pdf",
+          "note": "与 charts 序列交叉"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "progressive_commercial_auto_lr_2025",
+      "label": "Progressive 集团商业车险直接赔付率（2025 NAIC）",
+      "value": "61.46",
+      "unit": "%",
+      "primary_source": {
+        "name": "NAIC 2025 / Agency Checklists",
+        "url": "https://agencychecklists.com/2025/03/18/naic-2025-market-share-report-top-25-commercial-auto-insurers-74922",
+        "as_of": "2026-03-18"
+      },
+      "cross_checks": [
+        {
+          "name": "NAIC 份额表",
+          "value": "DPW 份额 15.01%，排名第一",
+          "url": "https://agencychecklists.com/2025/03/18/naic-2025-market-share-report-top-25-commercial-auto-insurers-74922",
+          "note": "同一表格"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "q1_2026_commercial_auto_lr_yoy",
+      "label": "Q1 2026 商业车险责任直接赔付率同比",
+      "value": "+3.2",
+      "unit": "百分点",
+      "primary_source": {
+        "name": "S&P GMI",
+        "url": "https://riskandinsurance.com/pc-industry-posts-record-first-quarter-underwriting-profit-extending-profitable-streak",
+        "as_of": "2026-05"
+      },
+      "cross_checks": [
+        {
+          "name": "本站 2026-06-29 稿交叉",
+          "value": "+3.2 ppt",
+          "url": "https://clawedactuary.com.cn/posts/2026-06-29-us-pc-q1-progressive-state-farm.html",
+          "note": "同一 S&P 转述"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "industry_ncr_2025_commercial_auto",
+      "label": "2025 年商业车险净综合成本率是否高于 100%",
+      "value": ">100",
+      "unit": "%",
+      "primary_source": {
+        "name": "III / Milliman",
+        "url": "https://insuranceindustryblog.iii.org/u-s-p-c-market-records-hard-earned-decade-low-combined-ratio",
+        "as_of": "2026"
+      },
+      "cross_checks": [
+        {
+          "name": "Conning 13 年连续承保亏损叙事",
+          "value": "COR 持续 >100%",
+          "url": "https://www.conning.com/about-us/news/ir-pr---2025-commercial-auto",
+          "note": "年度点值 vs 多年趋势，方向一致"
+        }
+      ],
+      "status": "verified_with_note"
+    }
+  ]
+}

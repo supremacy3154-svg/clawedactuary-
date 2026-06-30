@@ -13,20 +13,20 @@ format:
 <!-- AUTO:MASTHEAD:START -->
       <div class="masthead-kicker">Featured · 精选</div>
       <h1 class="masthead-title">
-        GEICO 直销再扩张：<br>费用率优势、广告杠杆与费率竞争
+        美国商用车险十三年亏损：<br>Progressive 车联网 UBI 样本与国内参照
       </h1>
       <p class="masthead-desc">
-        Berkshire 2025 年报显示 GEICO 签单保费 451.9 亿美元（+5.3%）、综合成本率 84.7%，但市场份额五年从约 13% 滑至 11.6%，Q1 2026 COR 走阔至 87.3%。Greg Abel 要求平衡 COR、留存与保单量——直销龙头如何在 Progressive 扩张与软市场之间找回增长？
+        美国商用车险（Commercial Auto）连续十三年承保亏损，2024 年综合成本率 107%，行业仍在涨价却追不上赔付。Progressive 以 Snapshot ProView / Smart Haul 把车队数据写进定价，份额 15%、直接赔付率 61% 左右，与行业责任线 78% 拉开差距。本文用行业亏损作引子，拆解其可复制的承保逻辑及国内车队业务的借鉴边界。
       </p>
-      <a class="masthead-cta" href="posts/2026-06-30-geico-direct-growth-rate-war.html">阅读全文 →</a>
+      <a class="masthead-cta" href="posts/2026-06-30-commercial-auto-ai-telematics-pricing.html">阅读全文 →</a>
 <!-- AUTO:MASTHEAD:END -->
     </div>
     <div class="masthead-sidebar">
 <!-- AUTO:SIDEBAR:START -->
       <div class="sidebar-label">本站索引 · Index</div>
-      <a class="sidebar-item" href="posts/2026-06-30-geico-direct-growth-rate-war.html">
+      <a class="sidebar-item" href="posts/2026-06-30-commercial-auto-ai-telematics-pricing.html">
         <span class="si-num">i.</span>
-        <span class="si-title">GEICO 直销再扩张：费用率优势、广告杠杆与费率竞争</span>
+        <span class="si-title">美国商用车险十三年亏损：Progressive 车联网…</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html">
@@ -69,19 +69,19 @@ format:
     <div class="featured-paper">
       <div>
         <div class="fp-roman">I</div>
-        <div class="fp-type">Article · 美国车险龙头 · GEICO</div>
-        <a class="fp-title" href="posts/2026-06-30-geico-direct-growth-rate-war.html">GEICO 直销再扩张：费用率优势、广告杠杆与费率竞争</a>
+        <div class="fp-type">Article · 商用车险 UBI × AI 核保</div>
+        <a class="fp-title" href="posts/2026-06-30-commercial-auto-ai-telematics-pricing.html">美国商用车险十三年亏损：Progressive 车联网 UBI 样本与国内参照</a>
         <div class="fp-venue">已发布 · 2026-06-30 · Clawed Actuary</div>
         <div class="fp-abstract">
-          Berkshire 2025 年报显示 GEICO 签单保费 451.9 亿美元（+5.3%）、综合成本率 84.7%，但市场份额五年从约 13% 滑至 11.6%，Q1 2026 COR 走阔至 87.3%。Greg Abel 要求平衡 COR、留存与保单量——直销龙头如何在 Progressive 扩张与软市场之间找回增长？
+          美国商用车险（Commercial Auto）连续十三年承保亏损，2024 年综合成本率 107%，行业仍在涨价却追不上赔付。Progressive 以 Snapshot ProView / Smart Haul 把车队数据写进定价，份额 15%、直接赔付率 61% 左右，与行业责任线 78% 拉开差距。本文用行业亏损作引子，拆解其可复制的承保逻辑及国内车队业务的借鉴边界。
         </div>
         <div class="fp-tags">
-          <span class="tag">财险</span>
+          <span class="tag">车险</span>
           <span class="tag">精算</span>
           <span class="tag">海外观察</span>
-          <span class="tag">车险</span>
+          <span class="tag">AI</span>
         </div>
-        <a class="masthead-cta" href="posts/2026-06-30-geico-direct-growth-rate-war.html">阅读全文 →</a>
+        <a class="masthead-cta" href="posts/2026-06-30-commercial-auto-ai-telematics-pricing.html">阅读全文 →</a>
       </div>
       <div class="fp-right">
         <div class="fp-roman">II</div>

@@ -1,0 +1,47 @@
+{
+  "charts": [
+    {
+      "id": "commercial-auto-liability-lr",
+      "type": "line",
+      "title": "美国商用车险责任线：行业直接赔付率走势",
+      "labels": ["2020", "2021", "2022", "2023", "2024"],
+      "series": [
+        {
+          "name": "NAIC 其他商用车险责任",
+          "values": [68.55, 66.55, 72.29, 76.84, 77.63]
+        }
+      ],
+      "ylabel": "直接赔付率（%）",
+      "source": "NAIC Market Share Report；Progressive 为 2025 报告期（2024 业务年）"
+    },
+    {
+      "id": "carrier-loss-ratio-spread",
+      "type": "hbar",
+      "title": "2025 年商用车险龙头直接赔付率分散（Progressive vs 同业）",
+      "labels": [
+        "Old Republic",
+        "Liberty Mutual",
+        "Berkshire Hathaway",
+        "Travelers",
+        "Progressive"
+      ],
+      "values": [95.16, 73.65, 69.01, 64.65, 61.46],
+      "xlabel": "直接赔付率（%）",
+      "source": "NAIC 2025 Market Share Report；行业责任线 2024 约 77.6% 见左图"
+    },
+    {
+      "id": "progressive-commercial-dpw",
+      "type": "line",
+      "title": "Progressive 商用车险直接保费规模（集团口径）",
+      "labels": ["2023", "2024", "2025"],
+      "series": [
+        {
+          "name": "直接签单保费（十亿美元）",
+          "values": [9.7, 10.8, 10.79]
+        }
+      ],
+      "ylabel": "十亿美元",
+      "source": "2023–24 Insurance Business / NAIC 转述；2025 NAIC 官方表"
+    }
+  ]
+}
