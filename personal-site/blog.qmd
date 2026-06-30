@@ -61,7 +61,7 @@ listing:
     <div class="a-excerpt">美国商用车险（Commercial Auto）连续十三年承保亏损，2024 年综合成本率 107%，行业仍在涨价却追不上赔付。Progressive 以 Snapshot ProView / Smart Haul 把车队数据写进定价，份额 15%、直接赔付率 61% 左右，与行业责任线 78% 拉开差距。本文用行业亏损作引子，拆解其可复制的承保逻辑及国内车队业务的借鉴边界。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.30</span>
-      <span class="a-readtime">约 11 分钟</span>
+      <span class="a-readtime">约 14 分钟</span>
     </div>
   </a>
   <a class="article-card" href="posts/2026-06-29-us-pc-q1-progressive-state-farm.html" data-categories="财险,精算,海外观察,车险,定价,承保盈利">
