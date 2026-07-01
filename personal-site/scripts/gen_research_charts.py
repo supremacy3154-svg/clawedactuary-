@@ -36,8 +36,8 @@ import matplotlib.pyplot as plt
 SITE_DIR = Path(__file__).resolve().parent.parent
 PAPER = "#f8f5f0"
 INK = "#1a1814"
-ACCENT = "#2171b5"
-ACCENT2 = "#8b2020"
+ACCENT = "#8b2020"  # site emphasis (clawed.scss)
+ACCENT2 = "#2171b5"  # secondary series only
 WEB = dict(fig_w=7.2, fig_h=4.0, dpi=160)
 
 
@@ -65,8 +65,8 @@ def render_bar(chart: dict, out: Path) -> None:
     values = chart["values"]
     fig, ax = plt.subplots(figsize=(WEB["fig_w"], WEB["fig_h"]), dpi=WEB["dpi"])
     style_ax(ax, fig)
-    colors = [ACCENT if i % 2 == 0 else "#4a7ab8" for i in range(len(values))]
-    ax.bar(labels, values, color=colors, edgecolor=INK, linewidth=0.3)
+    colors = [ACCENT if i % 2 == 0 else "#a84848" for i in range(len(values))]
+    ax.bar(labels, values, color=colors, edgecolor=INK, linewidth=0.3, width=0.55)
     ax.set_title(chart.get("title", ""), fontsize=14, pad=12, loc="left", fontweight="600")
     if chart.get("ylabel"):
         ax.set_ylabel(chart["ylabel"], fontsize=11)
@@ -86,7 +86,7 @@ def render_hbar(chart: dict, out: Path) -> None:
     fig, ax = plt.subplots(figsize=(WEB["fig_w"], WEB["fig_h"]), dpi=WEB["dpi"])
     style_ax(ax, fig)
     y = range(len(labels))
-    ax.barh(list(y), values, color=ACCENT, edgecolor=INK, linewidth=0.3)
+    ax.barh(list(y), values, color=ACCENT, edgecolor=INK, linewidth=0.3, height=0.55)
     ax.set_yticks(list(y))
     ax.set_yticklabels(labels, fontsize=10)
     ax.set_title(chart.get("title", ""), fontsize=14, pad=12, loc="left", fontweight="600")
@@ -106,14 +106,17 @@ def render_line(chart: dict, out: Path) -> None:
     series = chart.get("series") or [{"name": chart.get("title", "序列"), "values": chart["values"]}]
     fig, ax = plt.subplots(figsize=(WEB["fig_w"], WEB["fig_h"]), dpi=WEB["dpi"])
     style_ax(ax, fig)
+    ref = chart.get("reference_line")
+    if ref is not None:
+        ax.axhline(ref, color="#999", linestyle="--", linewidth=1, label=f"100% 参考线")
     for i, s in enumerate(series):
         color = ACCENT if i == 0 else ACCENT2
-        ax.plot(labels, s["values"], marker="o", linewidth=2, color=color, label=s.get("name", f"S{i+1}"))
+        ax.plot(labels, s["values"], marker="o", linewidth=2, markersize=6, color=color, label=s.get("name", f"S{i+1}"))
     ax.set_title(chart.get("title", ""), fontsize=14, pad=12, loc="left", fontweight="600")
     if chart.get("ylabel"):
         ax.set_ylabel(chart["ylabel"], fontsize=11)
-    if len(series) > 1:
-        ax.legend(frameon=False, fontsize=9)
+    if len(series) > 1 or ref is not None:
+        ax.legend(frameon=False, fontsize=9, loc="upper right")
     plt.xticks(rotation=20, ha="right", fontsize=10)
     src = chart.get("source")
     if src:

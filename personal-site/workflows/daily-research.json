@@ -28,6 +28,8 @@
     "require_data_cross_check": true,
     "data_sources_path": "images/<slug>/data-sources.json",
     "cross_check_cmd": "python3 scripts/cross_check_research.py <slug>",
+    "article_review_cmd": "python3 scripts/review_article.py <slug>",
+    "article_review_model": "MiniMax-M3",
     "writing_rules_ref": "CONTENT-GUIDE.md §二",
     "writing_rules": [
       "选题须用户确认后再写稿；brief 不触发自动写全文",
@@ -37,6 +39,8 @@
       "口径说明仅写美国特有/非显然概念；基础精算术语不解释",
       "无证据不挂 AI 标签、不硬引 AAA 等他文；证据链须本题闭环",
       "禁止 trivial A-vs-B 双柱图；优先时间序列与多主体截面",
+      "海外稿全文中文；禁止答申/改定/半税等日式术语直写",
+      "禁止为 2–3 个百分比拆分单独作图；改稿后运行 review_article.py",
       "个人邮件去掉「文责个人」句；公网保留"
     ]
   },
