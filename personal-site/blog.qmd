@@ -29,21 +29,22 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(8)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(9)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(8)</span></button>
     <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(4)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
@@ -55,10 +56,19 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-01-japan-jibaiseki-rate-reform.html" data-categories="海外观察,车险,监管,舆情,交强险">
+    <div class="a-kicker">深度 · 海外监管与舆情</div>
+    <div class="a-title">日本强制交强险涨 6.2%：<em>监管怎么讲</em>、民众信不信？</div>
+    <div class="a-excerpt">2026 年 11 月起日本强制交强险全车型平均涨 6.2%。官方强调 2023 年下调动用的滞留资金接近耗尽；舆论则追问：事故在减少为何还涨、政府划走的约 6,000 亿日元何时归还？</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.01</span>
+      <span class="a-readtime">约 13 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-06-30-commercial-auto-ai-telematics-pricing.html" data-categories="车险,精算,海外观察,定价,智能网联">
     <div class="a-kicker">深度 · 商用车险 UBI 与车队定价</div>
     <div class="a-title">美国商用车险十三年亏损：Progressive 车联网 UBI 样本与国内参照</div>
-    <div class="a-excerpt">美国商用车险（Commercial Auto）连续十三年承保亏损，2024 年综合成本率 107%，行业仍在涨价却追不上赔付。Progressive 以 Snapshot ProView / Smart Haul 把车队数据写进定价，份额 15%、直接赔付率 61% 左右，与行业责任线 78% 拉开差距。本文用行业亏损作引子，拆解其可复制的承保逻辑及国内车队业务的借鉴边界。</div>
+    <div class="a-excerpt">美国商用车险连续十三年承保亏损，2024 年综合成本率 107%。Progressive 以 Snapshot ProView / Smart Haul 与网约车里程定价把车队数据写进保费，份额 15%、直接赔付率 61% 左右，与行业责任线 78% 拉开差距。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.30</span>
       <span class="a-readtime">约 14 分钟</span>

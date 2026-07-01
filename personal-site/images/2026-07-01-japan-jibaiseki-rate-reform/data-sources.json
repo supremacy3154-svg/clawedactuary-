@@ -1,0 +1,147 @@
+{
+  "slug": "2026-07-01-japan-jibaiseki-rate-reform",
+  "checked_at": "2026-07-01",
+  "checker_note": "涨幅分解与私家乘用车保费以 GIROJ 2026-04-30 届出及 FSA 第153回答申为准；滞留资金 2023–24 为示意插值。",
+  "metrics": [
+    {
+      "id": "avg_rate_increase",
+      "label": "全车型平均基准料率涨幅",
+      "value": "6.2",
+      "unit": "%",
+      "primary_source": {
+        "name": "金融庁 第153回自賠責審議会",
+        "url": "https://www.fsa.go.jp/singi/singi_zidousya/kekka/20260430.html",
+        "as_of": "2026-04-30"
+      },
+      "cross_checks": [
+        {
+          "name": "GIROJ 届出说明",
+          "value": "6.2%",
+          "url": "https://www.giroj.or.jp/ratemaking/cali/202604_announcement.html",
+          "note": "一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "private_passenger_24m",
+      "label": "自家用乘用车24个月保费（本州等）",
+      "value": "17650 → 18560",
+      "unit": "日元",
+      "primary_source": {
+        "name": "金融庁 第153回答申",
+        "url": "https://www.fsa.go.jp/singi/singi_zidousya/kekka/20260430.html",
+        "as_of": "2026-04-30"
+      },
+      "cross_checks": [
+        {
+          "name": "GIROJ PDF",
+          "value": "+910円（+5.2%）",
+          "url": "https://www.giroj.or.jp/ratemaking/cali/pdf/202604_announcement.pdf",
+          "note": "一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "retained_funds",
+      "label": "滞留資金余额",
+      "value": "7240 → 5215",
+      "unit": "亿日元",
+      "primary_source": {
+        "name": "金融庁 第152回審議会",
+        "url": "https://www.fsa.go.jp/singi/singi_zidousya/kekka/20260430.html",
+        "as_of": "2026-04-17"
+      },
+      "cross_checks": [
+        {
+          "name": "GIROJ 届出说明",
+          "value": "约减少 2000 亿",
+          "url": "https://www.giroj.or.jp/ratemaking/cali/pdf/202604_announcement.pdf",
+          "note": "7240-5215≈2025，与「约2000亿」一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "pure_premium_uplift",
+      "label": "純保険料部分所需涨幅",
+      "value": "1.9",
+      "unit": "%",
+      "primary_source": {
+        "name": "GIROJ 届出说明",
+        "url": "https://www.giroj.or.jp/ratemaking/cali/pdf/202604_announcement.pdf",
+        "as_of": "2026-04-30"
+      },
+      "cross_checks": [
+        {
+          "name": "日经报道",
+          "value": "赔付侧需上调",
+          "url": "https://www.nikkei.com/article/DGXZQOUB281ZI0Y6A420C2000000/",
+          "note": "方向一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "loading_uplift",
+      "label": "付加保険料（社费+代理店）所需涨幅",
+      "value": "4.3",
+      "unit": "%",
+      "primary_source": {
+        "name": "GIROJ 届出说明",
+        "url": "https://www.giroj.or.jp/ratemaking/cali/pdf/202604_announcement.pdf",
+        "as_of": "2026-04-30"
+      },
+      "cross_checks": [
+        {
+          "name": "GIROJ（社费效率化 150 亿）",
+          "value": "3.8% 社费 + 代理店 77 円",
+          "url": "https://www.giroj.or.jp/ratemaking/cali/pdf/202604_announcement.pdf",
+          "note": "合计 4.3%"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "loss_ratio_2025",
+      "label": "2025契约年度料率検証損害率",
+      "value": "128.7",
+      "unit": "%",
+      "primary_source": {
+        "name": "金融庁 第152回",
+        "url": "https://www.fsa.go.jp/singi/singi_zidousya/kekka/20260430.html",
+        "as_of": "2026-04-17"
+      },
+      "cross_checks": [
+        {
+          "name": "損害率定义",
+          "value": "支払保険金/収入純保険料×100",
+          "url": "https://www.fsa.go.jp/singi/singi_zidousya/kekka/20260430.html",
+          "note": "官方口径"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "effective_date",
+      "label": "新基准料率适用始期",
+      "value": "2026-11-01",
+      "unit": "日期",
+      "primary_source": {
+        "name": "GIROJ",
+        "url": "https://www.giroj.or.jp/ratemaking/cali/202604_announcement.html",
+        "as_of": "2026-04-30"
+      },
+      "cross_checks": [
+        {
+          "name": "金融庁答申",
+          "value": "2026年11月",
+          "url": "https://www.fsa.go.jp/singi/singi_zidousya/kekka/20260430.html",
+          "note": "一致"
+        }
+      ],
+      "status": "verified"
+    }
+  ]
+}
