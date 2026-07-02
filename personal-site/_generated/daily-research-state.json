@@ -1,5 +1,7 @@
 {
-  "published_today": [],
+  "published_today": [
+    "2026-07-02-tesla-washington-safety-score-filing"
+  ],
   "history": [
     {
       "slug": "2026-06-24-huawei-qiankun-wuyou-opinion",
@@ -15,7 +17,12 @@
       "slug": "2026-06-26-aaa-ai-use-cases-insurance-pension",
       "topic_id": "aaa-ai-use-cases-pnc",
       "at": "2026-06-26T13:42:27.349908+08:00"
+    },
+    {
+      "slug": "2026-07-02-tesla-washington-safety-score-filing",
+      "topic_id": null,
+      "at": "2026-07-02T11:12:17.268176+08:00"
     }
   ],
-  "last_brief_date": "2026-06-29"
+  "last_brief_date": "2026-07-02"
 }
