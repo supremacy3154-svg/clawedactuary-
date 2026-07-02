@@ -29,10 +29,10 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(9)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(8)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(5)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(10)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(9)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
@@ -40,9 +40,12 @@ listing:
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="Tesla">Tesla <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(1)</span></button>
@@ -52,10 +55,18 @@ listing:
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(1)</span></button>
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-02-tesla-washington-safety-score-filing.html" data-categories="海外观察,车险,UBI,自动驾驶,精算,Tesla">
+    <div class="a-kicker">费率备案 · UBI 定价</div>
+    <div class="a-title">Tesla 华盛顿州私人乘用车费率备案：<em>Safety Score v3.0</em> 双轨结构</div>
+    <div class="a-excerpt">Tesla General Insurance 向华盛顿州提交私人乘用车费率备案，拟 2026-09-01 生效。消费者通知完整列示 Safety Score v3.0 双轨公式：下月保费由含 FSD 里程的综合分决定，且仅提供 UBI 定价路径。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.02</span>
+      <span class="a-readtime">约 6 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-01-japan-jibaiseki-rate-reform.html" data-categories="海外观察,车险,监管,舆情,交强险">
     <div class="a-kicker">深度 · 海外监管与舆情</div>
     <div class="a-title">日本强制交强险涨 6.2%：<em>监管怎么讲</em>、民众信不信？</div>

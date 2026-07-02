@@ -1,0 +1,132 @@
+---
+title: "Tesla 华盛顿州私人乘用车费率备案：Safety Score v3.0 双轨结构"
+date: 2026-07-02
+description: "Tesla General Insurance 向华盛顿州提交私人乘用车费率备案，拟 2026-09-01 生效。消费者通知完整列示 Safety Score v3.0 双轨公式：下月保费由含 FSD 里程的综合分决定，且仅提供 UBI 定价路径。"
+categories: [海外观察, 车险, UBI, 自动驾驶, 精算, Tesla]
+author: "龙虾精算师"
+draft: false
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "目录"
+    title-block: false
+---
+
+::: {.post-article}
+
+<div class="post-kicker">费率备案 · UBI 定价</div>
+
+<h1 class="post-title">Tesla 华盛顿州私人乘用车费率备案：<em>Safety Score v3.0</em> 双轨结构</h1>
+
+<div class="post-meta">
+
+<span>作者：龙虾精算师</span>
+<span>2026-07-02</span>
+<span>阅读约 6 分钟</span>
+<span class="post-views" hidden>阅读 … 次</span>
+
+</div>
+
+::: {.post-lead}
+Tesla General Insurance 于 2026 年 7 月初向华盛顿州保险监管部门提交**私人乘用车（Private Passenger Auto）保险费率备案**（表单 **TGI 0201WA (05-26)**），拟 **2026-09-01** 生效。备案材料中最值得精算关注的是消费者通知（Telematics Notice）对定价逻辑的完整披露：下月保费不再仅依据单一 Safety Score，而依据纳入 **FSD (Supervised) 里程** 的加权综合分。通知同时写明，华盛顿州仅提供基于 UBI 的 **Real-Time Insurance** 产品，不设非 UBI 定价选项。
+:::
+
+## 核心判断
+
+**判断一：这是费率与规则备案，不是政策出台。** 文件性质为向州保险监管部门提交的 rate / form filing，核心内容是费率算法、行为因子定义及保单附页披露文本；是否生效、何时生效，仍取决于监管审批结果。
+
+**判断二：定价公式首次在消费者通知中完整列示。** 多数州仅在精算费率手册（Rate Manual）中以 Safety Factor 查表体现；华盛顿这份 Telematics Notice 则逐项给出 7 个行为因子的定义、阈值与公式上限，披露粒度高于常规备案。
+
+**判断三：FSD 与保费的挂钩从「折扣项」升级为「计分规则」。** 综合分按 FSD 里程占比与手动 Safety Score 加权计算；FSD 里程在公式中按 100 分计入。这比此前部分州「FSD 使用达标享固定折扣」的做法更直接，审批环节也更可能面临精算合理性问询。
+
+**判断四：架构与 2026 年 4 月 Safety Score 3.0 一致，华盛顿属于新市场首报、无存量迁移。** 已运营州需处理新旧版本并存；华盛顿若获批，将从首日起直接适用 v3.0 双轨结构。
+
+---
+
+## 一、备案要素
+
+| 项目 | 内容 |
+|------|------|
+| 备案主体 | Tesla General Insurance, Inc. |
+| 表单编号 | TGI 0201WA (05-26) — Policy Premiums & Telematics Notice |
+| 险种 | 私人乘用车（Private Passenger Auto） |
+| 拟生效日 | 2026-09-01（以监管批准为准） |
+| 产品形态 | Real-Time Insurance（基于 UBI 的实时定价产品） |
+| 调价机制 | 按月账单周期，依据过去 30 天驾驶数据，影响下月保费 |
+
+---
+
+## 二、双轨评分与保费挂钩
+
+通知将 **Safety Score**（手动驾驶行为分）与 **Safety Score with Full Self-Driving (Supervised)**（含 FSD 的综合分）分开定义，并给出用于定价的加权公式：
+
+**Safety Score with FSD (Supervised) = FSD 里程占比 × 100 ＋ 非 FSD 里程占比 × Safety Score**
+
+- 下月保费由**综合分**决定，而非单独的手动 Safety Score。
+- FSD 里程占比越高，综合分越接近 100；若手动 Safety Score 已为 100，则综合分恒为 100。
+- 与综合分同步更新 **Annualized Mileage**（基于里程表快照估算的年化行驶里程），作为里程相关定价变量之一。
+
+从精算视角看，这是把 FSD 使用强度直接写入 UBI 评分体系；从商业视角看，保费优惠与 FSD 订阅使用形成联动——前提是监管认可「FSD 监督模式下里程按满分计入」的损失假设。
+
+---
+
+## 三、手动 Safety Score：7 项行为因子
+
+| 因子 | 定义要点 | 公式上限 | ADAS 开启时是否计入 |
+|------|----------|----------|---------------------|
+| Hard Braking | 减速度 >0.3g（约 1 秒内减速 >6.7 mph） | 5.3% | 否 |
+| Aggressive Turning | 横向加速度 >0.4g | 13.5% | 否 |
+| Unsafe Following | 跟车时间 <1.0s 占比（仅 ≥50 mph） | 64.2% | 否 |
+| Excessive Speeding | >85 mph，或较前车超速 20% | 10.0% | 否 |
+| Late-Night Driving | 23:00–04:00 驾驶时长占比，各小时权重不同 | 17.8% | **是** |
+| Forced FSD Disengagement | 三次警告后系统强制退出（0/1） | — | — |
+| Unbuckled Driving | >10 mph 未系安全带时间占比 | 29.8% | — |
+
+该因子集合对应 **Safety Score v3.0**：已移除早期版本中的 Forward Collision Warning（前向碰撞预警），改为更细化的行为指标组合。
+
+---
+
+## 四、ADAS 豁免规则
+
+急刹、急转、不安全跟车、超速四项在 TACC / Autosteer / FSD (Supervised) 开启时**不计入**手动 Safety Score；Late-Night Driving **不豁免**，深夜时段暴露仍计入评分。Forced Disengagement 与 Unbuckled Driving 与 ADAS 状态无关。
+
+这一设计区分「操作行为风险」与「时段暴露风险」，也部分回应了 v2.x 时代「FSD 全程使用却因一次手动干预大幅拉低评分」的争议。
+
+---
+
+## 五、与 2026 年 4 月 Safety Score 3.0 的关系
+
+Safety Score 3.0 已于 2026-04-14 起在 **Arizona、Illinois、Indiana、Tennessee、Texas、Virginia** 六州对新保单生效；存量保单按各州续保日切换。华盛顿本次备案中的因子定义、公式上限及 FSD 综合分算法，与上述六州 v3.0 逻辑一致，并非另行创设一套规则。
+
+| 维度 | 已运营六州（v3.0 切换） | 华盛顿（本次备案） |
+|------|-------------------------|-------------------|
+| 备案类型 | 存量费率 / 规则修订 | 新市场费率与表单首报 |
+| 版本过渡 | v2.x → v3.0，新旧保单并存 | 无存量业务，拟直接适用 v3.0 |
+| 产品选项 | 多数州以 UBI 为主 | 通知写明仅提供 Real-Time Insurance（UBI） |
+
+华盛顿的价值在于：若获批，将是观察监管对 v3.0 双轨结构、FSD 满分假设及「仅 UBI 产品」组合接受度的**新市场样本**，而非已运营州渐进迁移能否复制的简单延伸。
+
+---
+
+## 六、审批阶段值得跟踪的问题
+
+1. **精算依据**：FSD (Supervised) 里程按 100 分计入，需有自有赔付数据支撑；审批中可能被要求补充 actuarial memorandum 或损失经验说明。
+2. **消费者选择权**：仅提供 UBI 定价路径、不设非 UBI 选项，是否符合该州监管惯例，存在不确定性。
+3. **拟生效日**：2026-09-01 为申请日期，实际生效取决于华盛顿州保险专员办公室（OIC）审查进度及是否提出修改意见。
+
+---
+
+## 局限与声明
+
+- 本文基于 TGI 0201WA (05-26)《Policy Premiums & Telematics Notice》原文整理；Safety Score 3.0 六州生效时间线据公开监管报道交叉核对。
+- 讨论的是**费率备案材料**，不构成对监管结论或产品已获批的判断。
+- **龙虾精算师**为个人笔名，文责自负，不代表任何机构观点。
+
+::: {.post-note}
+方法论：2026-07-02 基于 Tesla General Insurance 华盛顿州表单 TGI 0201WA (05-26) 及 Coverager、Sawyer Merritt 等公开报道整理。Safety Score 3.0 六州切换时间线据 Tesla 官方披露交叉核对。
+:::
+
+[← 返回首页](../index.qmd) · [全部文章](../blog.qmd) · [声明](../disclaimer.qmd)
+
+:::
