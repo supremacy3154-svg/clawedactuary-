@@ -27,7 +27,8 @@
     "reference_post_with_charts": "posts/2026-06-04-byd-zhijia-douyin-opinion.qmd",
     "require_data_cross_check": true,
     "data_sources_path": "images/<slug>/data-sources.json",
-    "cross_check_cmd": "python3 scripts/cross_check_research.py <slug>"
+    "cross_check_cmd": "python3 scripts/cross_check_research.py <slug>",
+    "writing_rules": "article-writing-prompt.md"
   },
   "agent": {
     "writer": "cursor",

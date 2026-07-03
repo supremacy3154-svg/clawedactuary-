@@ -1,6 +1,6 @@
 {
   "published_today": [
-    "2026-07-02-tesla-washington-safety-score-filing"
+    "2026-07-03-soe-auto-trusted-data-space-pilot"
   ],
   "history": [
     {
@@ -22,7 +22,12 @@
       "slug": "2026-07-02-tesla-washington-safety-score-filing",
       "topic_id": null,
       "at": "2026-07-02T11:12:17.268176+08:00"
+    },
+    {
+      "slug": "2026-07-03-soe-auto-trusted-data-space-pilot",
+      "topic_id": null,
+      "at": "2026-07-03T16:04:11.906191+08:00"
     }
   ],
-  "last_brief_date": "2026-07-02"
+  "last_brief_date": "2026-07-03"
 }

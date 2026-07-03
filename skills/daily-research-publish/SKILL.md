@@ -10,7 +10,7 @@ description: >-
 
 站点：`personal-site/` → https://clawedactuary.com.cn
 
-**写文、图表、评论区规范 → 必读 [`personal-site/CONTENT-GUIDE.md`](../personal-site/CONTENT-GUIDE.md)**
+**写文、图表、评论区规范 → 必读 [`personal-site/CONTENT-GUIDE.md`](../personal-site/CONTENT-GUIDE.md) 与 [`personal-site/article-writing-prompt.md`](../personal-site/article-writing-prompt.md)**
 
 ## 配置与状态
 

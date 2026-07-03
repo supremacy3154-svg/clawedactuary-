@@ -20,6 +20,7 @@ from pathlib import Path
 
 SITE_DIR = Path(__file__).resolve().parent.parent
 GUIDE = SITE_DIR / "CONTENT-GUIDE.md"
+WRITING_PROMPT = SITE_DIR / "article-writing-prompt.md"
 OUT_DIR = SITE_DIR / "_generated" / "reviews"
 API_URL = "https://api.minimaxi.com/v1/text/chatcompletion_v2"
 DEFAULT_MODEL = os.environ.get("MINIMAX_REVIEW_MODEL", "MiniMax-M3")
@@ -30,7 +31,8 @@ REVIEW_PROMPT = """你是 clawedactuary.com.cn 的责编，审阅一篇待发布
 
 重点检查：
 1. 是否全文中文、读者能否读懂（禁止日式行政术语如答申/改定/见合う，禁止未解释的生造词）
-2. 精算/监管术语是否需换成中文常用说法（如用「累计赔付占保费比例」而非「损害率」）
+2. 是否遵守 article-writing-prompt.md：少用括号、避免「不是…而是…」、避免下定义式开头与编者视角
+3. 精算/监管术语是否需换成中文常用说法（如用「累计赔付占保费比例」而非「损害率」）
 3. 图表是否必要：禁止为 2–3 个百分比拆柱状图；保留有时间序列价值的研究图；图须回答读者关心的问题
 4. 表格是否过宽、列是否堆叠；应用 BYD 首篇舆情稿的简洁表格式样
 5. 是否官腔、AI 痕迹（「先说结论」、元叙述）
@@ -130,7 +132,9 @@ def main() -> int:
     slug = path.stem
     guide_excerpt = ""
     if GUIDE.exists():
-        guide_excerpt = GUIDE.read_text(encoding="utf-8")[:4000]
+        guide_excerpt = GUIDE.read_text(encoding="utf-8")[:3000]
+    if WRITING_PROMPT.exists():
+        guide_excerpt += "\n\n---\n\n" + WRITING_PROMPT.read_text(encoding="utf-8")
 
     try:
         api_key = load_api_key()

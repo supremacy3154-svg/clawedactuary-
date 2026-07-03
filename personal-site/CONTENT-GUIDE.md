@@ -12,6 +12,7 @@
 - **不要**官腔、套话、模板腔
 - **禁止**标题或小节名里写「（先说结论）」「综上所述」等 AI 痕迹——用 `## 核心判断` 即可（对标 `posts/2026-06-22-l3-l4-mandatory-standard-insurance.qmd`）
 - **禁止**在主观判断、启示、建议段落中反复点名或暗示作者任职机构；文责个人，不借机构背书，也不暴露隶属关系（见下文「机构与署名」）
+- **表述规范全文**见 [`article-writing-prompt.md`](article-writing-prompt.md)；写稿、改稿、审稿均须遵守
 
 ### 文章骨架
 
@@ -65,9 +66,6 @@
 
 ---
 
-<<<<<<< Updated upstream
-## 二、图表规范
-=======
 ## 二、深度研究稿纪律（美国财险 / 案例拆解）
 
 > 以下来自实际写稿与审稿反馈；**Agent 与 cron 写稿均须遵守**。配置镜像见 `workflows/daily-research.json` → `content.writing_rules`、`topic_selection`。
@@ -107,7 +105,7 @@
 
 ### 个人邮件
 
-- `tools/send_site_article_email.py` 发送的 HTML **去掉**「文责个人，不代表任何任职机构」；**公网正文**文末声明保留
+- `tools/send_site_article_email.py` 发送的 HTML：**不含**「龙虾精算师为个人笔名」及文责/不构成建议/延伸阅读等文末声明；**公网正文**保留完整声明
 - 公网 push 后：
   1. **`git push origin main`** — Production 分支；Cloudflare 构建会自动跑 `notify_subscribers.py`（`BUTTONDOWN_API_KEY` 在 CF 环境变量，**不在**本机 `.env`）
   2. `python3 tools/send_site_article_email.py <slug>` — 个人 HTML 邮件（本机 SMTP，与 Buttondown 独立）
@@ -115,7 +113,6 @@
 ---
 
 ## 三、图表规范（舆情 / 站点用图）
->>>>>>> Stashed changes
 
 ### 总原则
 
@@ -172,10 +169,7 @@ python3 scripts/export_opinion_charts.py huawei_qiankun   # 在脚本 DATASETS �
 cd personal-site
 python3 scripts/sync_posts.py
 quarto render
-<<<<<<< Updated upstream
-=======
 python3 scripts/review_article.py <slug>             # 可选
->>>>>>> Stashed changes
 python3 scripts/daily_research.py publish-check
 git push origin main                                  # CF 构建 → Buttondown 自动推送
 python3 tools/send_site_article_email.py <slug>       # 个人邮件（仓库根目录）
@@ -196,6 +190,7 @@ python3 scripts/daily_research.py mark-published <slug>
 | 文件 | 用途 |
 |------|------|
 | `CONTENT-GUIDE.md` | **本文** — 写文与图表规范 |
+| `article-writing-prompt.md` | **表述规范** — 格式、句式、禁用表达 |
 | `post-template.qmd` | 新文章骨架 |
 | `SITE-FEATURES.md` | 评论 / 订阅 / 阅读量配置 |
 | `scripts/export_opinion_charts.py` | 网站尺寸舆情图 |

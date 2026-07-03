@@ -105,7 +105,8 @@ def cmd_brief() -> int:
         "topic_queue_in_progress": in_prog,
         "published_today": state.get("published_today", []),
         "agent_prompt": (
-            "读取本简报与 skills/daily-research-publish/SKILL.md。"
+            "读取本简报、skills/daily-research-publish/SKILL.md、"
+            "personal-site/article-writing-prompt.md。"
             "今日写 1–2 篇深度稿：优先 in_progress，再取 pending；"
             "结合 news 热点与 data_sources；风格对齐现有 posts/*.qmd；"
             "完成后 sync_posts.py + quarto render + publish-check。"

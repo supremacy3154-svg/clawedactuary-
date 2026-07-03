@@ -29,35 +29,46 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(10)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(9)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(11)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(10)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(8)</span></button>
     <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="Tesla">Tesla <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="数据要素">数据要素 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-03-soe-auto-trusted-data-space-pilot.html" data-categories="国内观察,车险,UBI,自动驾驶,精算,数据要素">
+    <div class="a-kicker">数据要素 · 智驾保险</div>
+    <div class="a-title">四央企试点汽车可信数据空间：<em>智驾保险先从定责做起</em></div>
+    <div class="a-excerpt">国务院国资委信息中心 2026 年 6 月启动汽车后市场数智赋能一年期专项。中国中检、中国汽研、中国长安、国家电网、中国电信四家央企共同牵头，先从智驾保险责任判定和充电电池风险筛查两个场景切入，验证跨主体数据协同能否服务理赔、风控和后市场定价。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.03</span>
+      <span class="a-readtime">约 12 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-02-tesla-washington-safety-score-filing.html" data-categories="海外观察,车险,UBI,自动驾驶,精算,Tesla">
     <div class="a-kicker">费率备案 · UBI 定价</div>
     <div class="a-title">Tesla 华盛顿州私人乘用车费率备案：<em>Safety Score v3.0</em> 双轨结构</div>
