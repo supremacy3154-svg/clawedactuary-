@@ -1,6 +1,6 @@
 {
   "published_today": [
-    "2026-07-03-soe-auto-trusted-data-space-pilot"
+    "2026-07-06-reserv-ai-native-tpa-claims"
   ],
   "history": [
     {
@@ -27,7 +27,12 @@
       "slug": "2026-07-03-soe-auto-trusted-data-space-pilot",
       "topic_id": null,
       "at": "2026-07-03T16:04:11.906191+08:00"
+    },
+    {
+      "slug": "2026-07-06-reserv-ai-native-tpa-claims",
+      "topic_id": null,
+      "at": "2026-07-06T17:22:54.736181+08:00"
     }
   ],
-  "last_brief_date": "2026-07-03"
+  "last_brief_date": "2026-07-06"
 }

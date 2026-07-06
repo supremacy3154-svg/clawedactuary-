@@ -59,5 +59,6 @@
 ## 三、与站点规范的衔接
 
 - 结构、机构署名、图表、发布流程见 `CONTENT-GUIDE.md`。
+- `## 局限与声明` 末条保留「**龙虾精算师**为个人笔名…」（公网正文需要）；个人邮件由 `send_site_article_email.py` 从该行起截断，不含 post-note 与文末导航。
 - 锚点范文：`posts/2026-06-04-byd-zhijia-douyin-opinion.qmd`、`posts/2026-06-22-l3-l4-mandatory-standard-insurance.qmd`。
 - 核心判断用 `## 核心判断`，正文直接写事实与判断，不写编者视角。
