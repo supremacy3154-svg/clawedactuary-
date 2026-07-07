@@ -62,3 +62,39 @@
 - `## 局限与声明` 末条保留「**龙虾精算师**为个人笔名…」（公网正文需要）；个人邮件由 `send_site_article_email.py` 从该行起截断，不含 post-note 与文末导航。
 - 锚点范文：`posts/2026-06-04-byd-zhijia-douyin-opinion.qmd`、`posts/2026-06-22-l3-l4-mandatory-standard-insurance.qmd`。
 - 核心判断用 `## 核心判断`，正文直接写事实与判断，不写编者视角。
+
+## 四、配图与示意图
+
+写稿前先定每张图要回答的**一个问题**，再决定用新闻截图、数据图表还是结构示意图。禁止为凑 `min_figures` 堆可有可无的图。
+
+### 优先顺序
+
+1. **新闻/官方配图**：有版权或出处可注明时，用报道截图、监管信息图、企业披露示意图；`fig-alt` 写清内容与来源。
+2. **结构示意图**：责任链条、监管边界、园区布局、多方关系等文字难一眼看懂的内容，用 Cursor **GenerateImage** 或等价工具绘制；风格与站点一致（纸色 `#f8f5f0`、强调 `#8b2020`、墨 `#1a1814`），扁平信息图，无商标、无照片写实。
+3. **数据图表**：仅当存在时间序列、≥3 主体截面或同一口径可比的量级对照时，用 `images/<slug>/charts.json` + `gen_research_charts.py`；数字少、口径杂时改用**表格**。
+
+### 禁止
+
+- 为 2–3 个单点或百分比单独画柱状图（如「航空险 vs 数据中心保费」双柱、「两年项目体量」三柱）——表格已足够。
+- 无信息增量的装饰图、与段落无关的 stock 图。
+- 把 Word/报告大图直接拷进 `images/`（舆情类走 `export_opinion_charts.py`，见 `CONTENT-GUIDE.md`）。
+
+### 文件与引用
+
+- 路径：`personal-site/images/<slug>/`，与文章 slug 同名目录。
+- Markdown：`![说明文字](../images/<slug>/文件名.png){fig-alt="无障碍描述"}`；图下用一两句说明图与后文的关系，不单列图注堆砌。
+- 示意图在 `## 局限与声明` 注明「作者根据公开材料绘制的结构示意，非官方/现场图」；新闻图注明媒体与日期。
+
+### GenerateImage 提示词要点
+
+写提示词时显式包含：
+
+- **画布与配色**：cream/paper background `#f8f5f0`, accent `#8b2020`, dark text `#1a1814`
+- **类型**：editorial infographic / flat vector / newspaper explainer；`no photorealism`, `no logos`
+- **内容与语言**：图中标签用中文（若正文为中文）；列出要出现的实体、箭头关系、分区标题
+- **比例**：正文宽幅用 `16:9`，责任关系图可用 `4:3` 或 `1:1`
+- **禁止**：随机装饰、3D 渲染、未授权商标
+
+示例（结构示意）：「Insurance liability map infographic, paper cream #f8f5f0, accent #8b2020, center data center icon, six boxes in Chinese: 建设期工程险, 运营期财产险, 营业中断BI…, flat vector, no logos」
+
+示例（园区示意）：「Top-down hyperscale data center campus map, Chinese labels 数据机房楼/变电站/冷却系统/光纤入口, flat vector explainer, 16:9」

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send a clawedactuary.com.cn post as HTML email (same format as glm_article_email.html)."""
+"""Send a clawedactuary.com.cn post as HTML email (CID inline images, 企业邮内联浏览)."""
 from __future__ import annotations
 
 import argparse
@@ -12,15 +12,12 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 
+from smtp_config import FROM_ADDR, PASSWORD, SMTP_HOST, SMTP_PORT, USERNAME
+
 BASE = Path(__file__).resolve().parents[1]
 SITE_HTML = BASE / "personal-site" / "_site" / "posts"
+SITE_URL = "https://clawedactuary.com.cn"
 DEFAULT_TO = "yanghailin508@pingan.com.cn"
-
-SMTP_HOST = "smtp.sina.com"
-SMTP_PORT = 465
-USERNAME = "pajsxiaolongxia2@sina.com"
-PASSWORD = "60207bc4f5c572f7"
-FROM_ADDR = "pajsxiaolongxia2@sina.com"
 
 EMAIL_CSS = """
 body { font-family: "PingFang SC", "Microsoft YaHei", "STHeiti", sans-serif;
@@ -84,18 +81,65 @@ def fix_math_spans(html: str) -> str:
     return html
 
 
+def rewrite_absolute_links(html: str) -> str:
+    """Email clients cannot resolve site-relative Quarto links."""
+    html = re.sub(
+        r'href="\.\./posts/([^"]+)"',
+        rf'href="{SITE_URL}/posts/\1"',
+        html,
+    )
+    html = re.sub(
+        r'href="\.\./images/([^"]+)"',
+        rf'href="{SITE_URL}/images/\1"',
+        html,
+    )
+    return html
+
+
 def strip_internal_email_boilerplate(html: str) -> str:
-    """Personal email omits public-site liability disclaimer."""
-    html = re.sub(r"<li>\s*文责个人[^<]*</li>\s*", "", html, flags=re.I)
-    html = re.sub(r"<p>\s*文责个人[^<]*</p>\s*", "", html, flags=re.I)
+    """Personal email: 局限与声明中从「龙虾精算师」行起截断；去掉 post-note / 导航 / 延伸阅读（公网保留）。"""
+    # 仅匹配单个 <li>，避免 [\s\S]*? 跨条目吞掉整段局限与声明
+    html = re.sub(
+        r"<li>(?:(?!</li>)[\s\S])*?龙虾精算师(?:(?!</li>)[\s\S])*?</li>\s*",
+        "",
+        html,
+        count=1,
+        flags=re.I,
+    )
+    html = re.sub(r'<div class="post-note">[\s\S]*?</div>\s*', "", html, flags=re.I)
+    html = re.sub(
+        r"<p>(?:(?!</p>)[\s\S])*?返回首页(?:(?!</p>)[\s\S])*?</p>\s*",
+        "",
+        html,
+        flags=re.I,
+    )
+    html = re.sub(r"\s*<p>延伸阅读[\s\S]*?(?=</div>|</body>|$)", "", html, flags=re.I)
     return html
 
 
 def extract_post_article(html: str) -> str:
-    m = re.search(r'<div class="post-article">([\s\S]*?)</div>\s*\n\s*\n\s*\n</main>', html)
-    if not m:
-        m = re.search(r'<div class="post-article">([\s\S]*?)</div>', html)
-    return m.group(1).strip() if m else ""
+    """Extract full post-article block (handles nested divs)."""
+    marker = '<div class="post-article">'
+    start = html.find(marker)
+    if start == -1:
+        return ""
+    content_start = start + len(marker)
+    depth = 1
+    i = content_start
+    while i < len(html) and depth > 0:
+        next_open = html.find("<div", i)
+        next_close = html.find("</div>", i)
+        if next_close == -1:
+            break
+        if next_open != -1 and next_open < next_close:
+            depth += 1
+            i = next_open + 4
+            continue
+        depth -= 1
+        if depth == 0:
+            return html[content_start:next_close].strip()
+        i = next_close + len("</div>")
+    return ""
 
 
 def wrap_html(title: str, inner: str) -> str:
@@ -179,7 +223,9 @@ def send_html(to: str, subject: str, html: str, images: list[tuple[str, Path]]) 
     ctx = ssl.create_default_context()
     with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=ctx) as s:
         s.login(USERNAME, PASSWORD)
-        s.sendmail(FROM_ADDR, [to], msg.as_string())
+        refused = s.sendmail(FROM_ADDR, [to], msg.as_bytes())
+        if refused:
+            raise smtplib.SMTPRecipientsRefused(refused)
 
 
 def main() -> int:
@@ -187,6 +233,7 @@ def main() -> int:
     parser.add_argument("slug", help="post slug, e.g. 2026-06-25-corgi-ai-insurance-study")
     parser.add_argument("--to", default=DEFAULT_TO)
     parser.add_argument("--subject-prefix", default="")
+    parser.add_argument("--subject", default="", help="覆盖默认主题（文章标题）")
     args = parser.parse_args()
 
     html_path = SITE_HTML / f"{args.slug}.html"
@@ -199,11 +246,15 @@ def main() -> int:
     if not inner:
         print("✗ 无法提取 post-article", file=sys.stderr)
         return 1
+    if len(re.sub(r"<[^>]+>", "", inner).strip()) < 200:
+        print("✗ 提取正文过短，疑似解析失败，中止发送", file=sys.stderr)
+        return 1
 
     inner = strip_internal_email_boilerplate(inner)
+    inner = rewrite_absolute_links(inner)
     inner = fix_math_spans(inner)
     title = page_title(raw)
-    subject = f"{args.subject_prefix}{title}"
+    subject = args.subject or f"{args.subject_prefix}{title}"
     body = wrap_html(title, inner)
     body, images = attach_cid_images(body, html_path.parent)
 
@@ -213,6 +264,8 @@ def main() -> int:
 
     send_html(args.to, subject, body, images)
     print(f"✅ 已发送站点原文 HTML → {args.to}", file=sys.stderr)
+    print(f"   主题: {subject}", file=sys.stderr)
+    print(f"   内联图: {len(images)} 张", file=sys.stderr)
     print(f"   {out}", file=sys.stderr)
     return 0
 

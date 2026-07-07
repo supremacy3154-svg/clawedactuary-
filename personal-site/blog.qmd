@@ -29,13 +29,13 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(12)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(13)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(10)</span></button>
     <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(10)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(9)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(8)</span></button>
+    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(4)</span></button>
-    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(3)</span></button>
@@ -49,8 +49,10 @@ listing:
     <button type="button" class="blog-category" data-category="Tesla">Tesla <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="再保">再保 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="巨灾气候与宏观风险">巨灾气候与宏观风险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="数据要素">数据要素 <span class="blog-category-count">(1)</span></button>
@@ -58,9 +60,19 @@ listing:
     <button type="button" class="blog-category" data-category="理赔">理赔 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="财产险">财产险 <span class="blog-category-count">(1)</span></button>
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-07-hyperscale-data-center-reinsurance-capacity.html" data-categories="财险,精算,海外观察,再保,财产险,巨灾气候与宏观风险">
+    <div class="a-kicker">财产险 · 再保容量</div>
+    <div class="a-title">超大规模数据中心挤爆再保容量：<em>AI 基建</em>的可保价值与保障缺口</div>
+    <div class="a-excerpt">全球约 1.1 万座数据中心、可保资产超 2 万亿美元；单个超大规模园区可保价值可达 200–300 亿美元，远超桥梁隧道等传统基建。S&amp;P 预计 2026 年相关新增保费约 100 亿美元。本文从名词、险种与项目阶段讲起，梳理保障缺口、聚合风险与市场回应。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.07</span>
+      <span class="a-readtime">约 16 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-06-reserv-ai-native-tpa-claims.html" data-categories="AI,财险,保险科技,海外观察,精算,理赔">
     <div class="a-kicker">深度 · AI 理赔与 TPA</div>
     <div class="a-title">Reserv 深度研究：AI 原生 TPA 如何把<em>理赔做成数据工厂</em></div>
