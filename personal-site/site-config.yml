@@ -1,3 +1,7 @@
+# 主页「近期文章」展示条数（含精选双栏 I/II）；完整列表见 blog.html
+homepage:
+  recent_posts: 8
+
 # 评论（Giscus · 基于 GitHub Discussions）
 # 首次启用：在 GitHub 仓库 Settings → General → Features 打开 Discussions
 # 然后访问 https://giscus.app/zh-CN 选择该仓库，把 repo_id / category_id 填到下面

@@ -20,8 +20,37 @@ INDEX_PATH = SITE_DIR / "index.qmd"
 BLOG_PATH = SITE_DIR / "blog.qmd"
 CONFIG_PATH = SITE_DIR / "site-config.yml"
 
-ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 SIDEBAR_NUM = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"]
+# 主页「近期文章」默认条数（含精选双栏 I/II）；其余只在 blog.html
+DEFAULT_HOMEPAGE_RECENT = 8
+
+
+def to_roman(n: int) -> str:
+    """Convert 1-based index to uppercase Roman numerals (supports >10)."""
+    if n <= 0:
+        raise ValueError(f"Roman numeral requires positive integer, got {n}")
+    vals = (
+        (1000, "M"),
+        (900, "CM"),
+        (500, "D"),
+        (400, "CD"),
+        (100, "C"),
+        (90, "XC"),
+        (50, "L"),
+        (40, "XL"),
+        (10, "X"),
+        (9, "IX"),
+        (5, "V"),
+        (4, "IV"),
+        (1, "I"),
+    )
+    out: list[str] = []
+    x = n
+    for value, numeral in vals:
+        while x >= value:
+            out.append(numeral)
+            x -= value
+    return "".join(out)
 
 
 @dataclass
@@ -233,7 +262,7 @@ def render_featured_pair(posts: list[Post]) -> str:
     a, b = posts[0], posts[1]
     return f"""    <div class="featured-paper">
       <div>
-        <div class="fp-roman">{ROMAN[0]}</div>
+        <div class="fp-roman">{to_roman(1)}</div>
         <div class="fp-type">Article · {html.escape(a.type_label)}</div>
         <a class="fp-title" href="{a.url}">{html.escape(a.title)}</a>
         <div class="fp-venue">已发布 · {a.date_display} · Clawed Actuary</div>
@@ -246,7 +275,7 @@ def render_featured_pair(posts: list[Post]) -> str:
         <a class="masthead-cta" href="{a.url}">阅读全文 →</a>
       </div>
       <div class="fp-right">
-        <div class="fp-roman">{ROMAN[1]}</div>
+        <div class="fp-roman">{to_roman(2)}</div>
         <div class="fp-type">Article · {html.escape(b.type_label)}</div>
         <a class="fp-title" href="{b.url}">{html.escape(b.title)}</a>
         <div class="fp-venue">已发布 · {b.date_display} · Clawed Actuary</div>
@@ -261,13 +290,13 @@ def render_featured_pair(posts: list[Post]) -> str:
     </div>"""
 
 
-def render_papers_list(posts: list[Post]) -> str:
-    rest = posts[2:]
-    if not rest:
+def render_papers_list(posts: list[Post], start_index: int = 3) -> str:
+    """Render paper rows; start_index is 1-based Roman numeral for the first row."""
+    if not posts:
         return ""
     rows = ['    <div class="papers">']
-    for i, post in enumerate(rest):
-        num = ROMAN[i + 2] if i + 2 < len(ROMAN) else str(i + 3)
+    for i, post in enumerate(posts):
+        num = to_roman(start_index + i)
         rows.append(
             f"""      <div class="paper">
         <div class="p-num">{num}</div>
@@ -284,6 +313,16 @@ def render_papers_list(posts: list[Post]) -> str:
         )
     rows.append("    </div>")
     return "\n".join(rows)
+
+
+def homepage_recent_limit(cfg: dict) -> int:
+    homepage = cfg.get("homepage") or {}
+    raw = homepage.get("recent_posts", DEFAULT_HOMEPAGE_RECENT)
+    try:
+        n = int(raw)
+    except (TypeError, ValueError):
+        n = DEFAULT_HOMEPAGE_RECENT
+    return max(2, n)
 
 
 def render_blog_category_bar(posts: list[Post]) -> str:
@@ -412,15 +451,19 @@ def write_features_json(cfg: dict) -> None:
     (GENERATED_DIR / "site-features.js").write_text(js, encoding="utf-8")
 
 
-def sync_index(posts: list[Post]) -> None:
+def sync_index(posts: list[Post], recent_limit: int = DEFAULT_HOMEPAGE_RECENT) -> None:
     if not posts:
         return
+    recent = posts[:recent_limit]
     text = INDEX_PATH.read_text(encoding="utf-8")
     text = replace_block(text, "MASTHEAD", render_masthead(posts[0]))
     text = replace_block(text, "SIDEBAR", render_sidebar(posts))
-    articles = render_featured_pair(posts)
-    papers = render_papers_list(posts)
-    articles_block = articles + ("\n" + papers if papers else "")
+    if len(recent) == 1:
+        articles_block = render_papers_list(recent, start_index=1)
+    else:
+        articles = render_featured_pair(recent)
+        papers = render_papers_list(recent[2:], start_index=3)
+        articles_block = articles + ("\n" + papers if papers else "")
     text = replace_block(text, "ARTICLES", articles_block)
     INDEX_PATH.write_text(text, encoding="utf-8")
 
@@ -457,9 +500,13 @@ def main() -> int:
     cfg = enrich_giscus_config(load_site_config())
     write_features_json(cfg)
     sync_post_reading_times(posts)
-    sync_index(posts)
+    limit = homepage_recent_limit(cfg)
+    sync_index(posts, recent_limit=limit)
     sync_blog(posts)
-    print(f"✓ Synced {len(posts)} posts → index.qmd, blog.qmd, reading times, _generated/site-features.json|.js")
+    print(
+        f"✓ Synced {len(posts)} posts → index.qmd (homepage recent={limit}), "
+        f"blog.qmd, reading times, _generated/site-features.json|.js"
+    )
     return 0
 
 

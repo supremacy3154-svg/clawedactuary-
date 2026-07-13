@@ -4,7 +4,8 @@
 
 ```bash
 cd personal-site
-python3 scripts/sync_posts.py   # 更新首页 I/II/III + 文章列表
+python3 scripts/sync_posts.py   # 更新首页近期文章（罗马数字序号）+ blog 全文列表
+# 主页条数见 site-config.yml → homepage.recent_posts（默认 8）；XI 及以后继续用罗马数字
 quarto render
 ```
 
