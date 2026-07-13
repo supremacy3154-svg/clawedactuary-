@@ -29,13 +29,13 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(13)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(10)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(10)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(8)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(14)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(11)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(11)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(9)</span></button>
+    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(5)</span></button>
+    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(5)</span></button>
-    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(4)</span></button>
-    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(3)</span></button>
@@ -64,6 +64,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-13-momenta-hk-ipo-oem-choice.html" data-categories="AI,智能网联,海外观察,车险,精算">
+    <div class="a-kicker">深度 · 智驾供应链</div>
+    <div class="a-title">Momenta 港股上市：OEM 为何仍选<em>「非体验第一」</em>的智驾供应商</div>
+    <div class="a-excerpt">Momenta 2026 年 7 月 8 日登陆港交所，募资约 7.5 亿美元、估值约 90 亿美元。招股书显示定点超 180 款车型、装机逾 73 万套。文章从上市财务、飞轮两条腿与 OEM 选型逻辑出发，解释比亚迪等龙头为何在「体验榜」之外仍深度绑定 Momenta。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.13</span>
+      <span class="a-readtime">约 15 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-07-hyperscale-data-center-reinsurance-capacity.html" data-categories="财险,精算,海外观察,再保,财产险,巨灾气候与宏观风险">
     <div class="a-kicker">财产险 · 再保容量</div>
     <div class="a-title">超大规模数据中心挤爆再保容量：<em>AI 基建</em>的可保价值与保障缺口</div>
@@ -112,7 +121,7 @@ listing:
   <a class="article-card" href="posts/2026-06-30-commercial-auto-ai-telematics-pricing.html" data-categories="车险,精算,海外观察,定价,智能网联">
     <div class="a-kicker">深度 · 商用车险 UBI 与车队定价</div>
     <div class="a-title">美国商用车险十三年亏损：Progressive 车联网 UBI 样本与国内参照</div>
-    <div class="a-excerpt">美国商用车险连续十三年承保亏损，2024 年综合成本率 107%。Progressive 以 Snapshot ProView / Smart Haul 与网约车里程定价把车队数据写进保费，份额 15%、直接赔付率 61% 左右，与行业责任线 78% 拉开差距。</div>
+    <div class="a-excerpt">美国商用车险（Commercial Auto）连续十三年承保亏损，2024 年综合成本率 107%，行业仍在涨价却追不上赔付。Progressive 以 Snapshot ProView / Smart Haul 把车队数据写进定价，份额 15%、直接赔付率 61% 左右，与行业责任线 78% 拉开差距。本文用行业亏损作引子，拆解其可复制的承保逻辑及国内车队业务的借鉴边界。</div>
     <div class="a-foot">
       <span class="a-date">2026.06.30</span>
       <span class="a-readtime">约 14 分钟</span>
