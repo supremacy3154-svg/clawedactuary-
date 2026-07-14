@@ -29,12 +29,12 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(14)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(11)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(11)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(15)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(12)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(12)</span></button>
     <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(9)</span></button>
+    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(5)</span></button>
-    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(3)</span></button>
@@ -42,6 +42,7 @@ listing:
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
@@ -51,7 +52,6 @@ listing:
     <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="再保">再保 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="巨灾气候与宏观风险">巨灾气候与宏观风险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
@@ -64,6 +64,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-14-nev-avg-age-auto-insurance.html" data-categories="车险,精算,国内观察,智能网联">
+    <div class="a-kicker">车险 · 新能源存量结构</div>
+    <div class="a-title">新能源车平均车龄仅 <em>1.8 年</em>：短生命周期如何改写车险定价假设</div>
+    <div class="a-excerpt">中汽协与和君《2025 中国汽车后市场年度发展报告》给出新能源乘用车均龄 1.8 年、1–3 年占 90%，燃油车 8.2 年且 7 年以上近六成；新能源维保产值五年内由 91 亿升至 904 亿。文章按报告「两套维保逻辑」拆开均值与换车周期，并落到残值、授权维修、推定全损与续保池。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.14</span>
+      <span class="a-readtime">约 15 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-13-momenta-hk-ipo-oem-choice.html" data-categories="AI,智能网联,海外观察,车险,精算">
     <div class="a-kicker">深度 · 智驾供应链</div>
     <div class="a-title">Momenta 港股上市：OEM 为何仍选<em>「非体验第一」</em>的智驾供应商</div>
