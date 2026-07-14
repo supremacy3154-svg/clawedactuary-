@@ -1,6 +1,6 @@
 {
   "published_today": [
-    "2026-07-06-reserv-ai-native-tpa-claims"
+    "2026-07-14-nev-avg-age-auto-insurance"
   ],
   "history": [
     {
@@ -32,7 +32,17 @@
       "slug": "2026-07-06-reserv-ai-native-tpa-claims",
       "topic_id": null,
       "at": "2026-07-06T17:22:54.736181+08:00"
+    },
+    {
+      "slug": "2026-07-13-momenta-hk-ipo-oem-choice",
+      "topic_id": null,
+      "at": "2026-07-13T12:00:56.866558+08:00"
+    },
+    {
+      "slug": "2026-07-14-nev-avg-age-auto-insurance",
+      "topic_id": null,
+      "at": "2026-07-14T14:54:41.943020+08:00"
     }
   ],
-  "last_brief_date": "2026-07-06"
+  "last_brief_date": "2026-07-14"
 }
