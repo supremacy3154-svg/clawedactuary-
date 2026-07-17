@@ -29,20 +29,20 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(16)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(13)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(13)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(17)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(14)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(14)</span></button>
     <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(10)</span></button>
-    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(7)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
@@ -56,6 +56,7 @@ listing:
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="数据要素">数据要素 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="新能源">新能源 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="理赔">理赔 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
@@ -64,6 +65,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-17-global-battery-safety-whitepaper.html" data-categories="车险,新能源,精算,国内观察,智能网联">
+    <div class="a-kicker">白皮书研读 · 新能源车险</div>
+    <div class="a-title">动力电池安全白皮书：装车量跃升后，安全如何变成<em>可评分资产</em></div>
+    <div class="a-excerpt">奇瑞等联合发布的《全球动力电池安全白皮书2026》给出车用动力电池销量 1200.9 GWh、热失控三大诱因，以及机械/电气/热等维度的安全量化评级。文章据此梳理对车险承保、案均与全生命周期数据的含义。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.17</span>
+      <span class="a-readtime">约 12 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-15-ca-ab311-telematics-prop103.html" data-categories="海外观察,车险,UBI,精算,监管">
     <div class="a-kicker">立法研读 · 美国车险定价</div>
     <div class="a-title">加州 AB 311：拟在保险法中允许自愿 Telematics 建立<em>「驾驶安全记录」</em></div>
