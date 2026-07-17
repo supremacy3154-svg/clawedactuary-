@@ -1,6 +1,6 @@
 {
   "published_today": [
-    "2026-07-15-ca-ab311-telematics-prop103"
+    "2026-07-17-global-battery-safety-whitepaper"
   ],
   "history": [
     {
@@ -47,7 +47,12 @@
       "slug": "2026-07-15-ca-ab311-telematics-prop103",
       "topic_id": null,
       "at": "2026-07-15T15:08:49.791950+08:00"
+    },
+    {
+      "slug": "2026-07-17-global-battery-safety-whitepaper",
+      "topic_id": null,
+      "at": "2026-07-17T15:36:08.417098+08:00"
     }
   ],
-  "last_brief_date": "2026-07-15"
+  "last_brief_date": "2026-07-17"
 }
