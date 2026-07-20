@@ -1,0 +1,13 @@
+{
+  "charts": [
+    {
+      "id": "open-model-params",
+      "type": "bar",
+      "title": "开源大模型公开参数规模对照（报道口径）",
+      "labels": ["DeepSeek V4", "文心 5.0", "Kimi K3"],
+      "values": [1.6, 2.4, 2.8],
+      "ylabel": "参数规模（万亿）",
+      "source": "媒体对各方公开披露的转述，2026-07"
+    }
+  ]
+}
