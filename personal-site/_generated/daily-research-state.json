@@ -1,6 +1,7 @@
 {
   "published_today": [
-    "2026-07-17-global-battery-safety-whitepaper"
+    "--help",
+    "2026-07-20-kimi-k3-open-source"
   ],
   "history": [
     {
@@ -52,7 +53,17 @@
       "slug": "2026-07-17-global-battery-safety-whitepaper",
       "topic_id": null,
       "at": "2026-07-17T15:36:08.417098+08:00"
+    },
+    {
+      "slug": "--help",
+      "topic_id": null,
+      "at": "2026-07-20T17:05:45.088974+08:00"
+    },
+    {
+      "slug": "2026-07-20-kimi-k3-open-source",
+      "topic_id": null,
+      "at": "2026-07-20T17:07:57.048533+08:00"
     }
   ],
-  "last_brief_date": "2026-07-17"
+  "last_brief_date": "2026-07-20"
 }
