@@ -79,7 +79,7 @@ format:
 
 德国之声 2026-07-17 报道转述公司立场：K3 在部分复杂任务上优于 Claude Opus 4.8、GPT-5.5 等，但仍略逊于最顶尖闭源旗舰；差距在缩小。独立复现与长期稳定性仍待观察。
 
-![Kimi K3 能力栈示意](../images/2026-07-20-kimi-k3-open-source/kimi-k3-stack.png){fig-alt="示意图：2.8万亿MoE、KDA注意力、百万Token上下文、原生视觉理解四块能力依次连接"}
+![Kimi K3 能力栈示意](../images/2026-07-20-kimi-k3-open-source/kimi-k3-stack.jpg){fig-alt="示意图：2.8万亿MoE、KDA注意力、百万Token上下文、原生视觉理解四块能力依次连接"}
 
 ---
 
