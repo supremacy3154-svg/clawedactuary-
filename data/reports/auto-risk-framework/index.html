@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人−车−环境−智驾｜车险整体风险研究框架（讨论稿）</title>
+<style>
+  :root {
+    --ink: #14202b;
+    --muted: #5a6a78;
+    --line: #d5dde4;
+    --paper: #f4f7fa;
+    --card: #ffffff;
+    --accent: #0e7c7b;
+    --accent-soft: #d8f0ef;
+    --person: #1f4e79;
+    --vehicle: #c45c26;
+    --env: #3d6b4f;
+    --adas: #0e7c7b;
+    --warn: #9a3412;
+    --shadow: 0 12px 40px rgba(20, 32, 43, 0.08);
+    --font-display: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "STSong", serif;
+    --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 500px at 10% -10%, #d8f0ef 0%, transparent 55%),
+      radial-gradient(900px 420px at 100% 0%, #e8eef5 0%, transparent 50%),
+      linear-gradient(180deg, #eef3f7 0%, var(--paper) 28%, #eef2f6 100%);
+    line-height: 1.65;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .badge::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.25;
+    margin: 10px 0 12px;
+    letter-spacing: 0.02em;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .lead {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 0 18px;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .chip {
+    font-size: 12px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.7);
+    border-radius: 999px;
+    color: var(--muted);
+  }
+  .chip.strong {
+    border-color: #b8ddd9;
+    background: var(--accent-soft);
+    color: #0a5c5b;
+  }
+
+  section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    margin: 18px 0;
+    box-shadow: var(--shadow);
+  }
+
+  section h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    margin: 0 0 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  section h3 {
+    font-size: 16px;
+    margin: 18px 0 8px;
+  }
+  .sec-note { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+
+  .callout {
+    background: linear-gradient(90deg, #f7fbfb, #fff);
+    border-left: 4px solid var(--accent);
+    padding: 14px 16px;
+    border-radius: 0 12px 12px 0;
+    font-size: 14px;
+  }
+  .callout strong { color: var(--ink); }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 18px;
+  }
+  @media (max-width: 860px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .control-block label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .seg {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .seg button {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--ink);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.18s ease;
+  }
+  .seg button:hover { border-color: #9ec9c6; }
+  .seg button.active {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+
+  .year-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent);
+  }
+  .year-val {
+    min-width: 72px;
+    text-align: right;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stack {
+    display: flex;
+    height: 42px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    margin: 12px 0 8px;
+  }
+  .stack span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    transition: width 0.45s cubic-bezier(.2,.8,.2,1);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .c-person { background: var(--person); }
+  .c-vehicle { background: var(--vehicle); }
+  .c-env { background: var(--env); }
+  .c-adas { background: var(--adas); }
+
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fafcfd;
+    cursor: pointer;
+    transition: 0.15s ease;
+  }
+  .legend-item:hover, .legend-item.selected {
+    border-color: #9ec9c6;
+    background: var(--accent-soft);
+  }
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  }
+  .legend-item .name { font-weight: 600; font-size: 14px; }
+  .legend-item .pct {
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .judge-box {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #f7fafc;
+    border: 1px dashed #c5d0da;
+    font-size: 14px;
+    min-height: 88px;
+  }
+  .judge-box .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .factor-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0 14px;
+  }
+  .factor-tabs button {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .factor-tabs button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .factor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  @media (max-width: 700px) {
+    .factor-grid, .legend { grid-template-columns: 1fr; }
+  }
+
+  .factor-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    background: #fff;
+    cursor: pointer;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+  }
+  .factor-card:hover { transform: translateY(-2px); border-color: #9ec9c6; }
+  .factor-card h4 {
+    margin: 0 0 6px;
+    font-size: 15px;
+  }
+  .factor-card p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .bar-track {
+    height: 8px;
+    background: #edf2f6;
+    border-radius: 999px;
+    margin: 10px 0 6px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--person), var(--accent));
+    width: 0;
+    transition: width 0.5s ease;
+  }
+  .factor-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .factor-meta b { color: var(--ink); }
+
+  .detail-panel {
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #0f1a24;
+    color: #e8eef4;
+    font-size: 14px;
+    display: none;
+  }
+  .detail-panel.show { display: block; animation: fadeIn 0.25s ease; }
+  .detail-panel h4 { margin: 0 0 8px; color: #9fd7d4; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: none;} }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f0f5f8; font-weight: 600; }
+  td.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  tr.highlight td { background: #f3fbfa; }
+
+  .todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .todo-list li {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .todo-list li:last-child { border-bottom: none; }
+  .todo-num {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: #0a5c5b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .split-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .split-tags span {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #f0f5f8;
+    border: 1px solid var(--line);
+  }
+
+  .footer-note {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .nav-mini {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+    background: rgba(244,247,250,0.86);
+    border-bottom: 1px solid rgba(213,221,228,0.8);
+    margin: -28px -20px 22px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+  }
+  .nav-mini a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    white-space: nowrap;
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+  .nav-mini a:hover { color: var(--ink); background: #fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav-mini" aria-label="章节">
+    <a href="#s0">背景</a>
+    <a href="#s1">风险权重</a>
+    <a href="#s2">因子布局</a>
+    <a href="#s3">是否分层</a>
+    <a href="#s4">待拍板</a>
+  </nav>
+
+  <div class="badge">讨论稿 · Draft for Alignment</div>
+  <h1>车险整体风险研究框架<br><em>人 − 车 − 环境 − 智驾</em></h1>
+  <p class="lead">
+    回应陈总上半年反思会要求：先把风险框架说清楚，再系统布局因子研究，避免散点投入。
+    本稿用于内部讨论——权重为<strong>当下判断 + 30 年情景拍数</strong>，非正式定稿。
+  </p>
+  <div class="meta-row">
+    <span class="chip strong">车险定价室 · 框架讨论材料</span>
+    <span class="chip">2026-07-21</span>
+    <span class="chip">用途：汇报 / 宣导 / 指导因子研究</span>
+    <span class="chip">交互：切换车型分层 × 时间轴</span>
+  </div>
+
+  <!-- 背景 -->
+  <section id="s0">
+    <h2>〇、领导要求与问题意识</h2>
+    <div class="callout">
+      <strong>（1）明确整体风险研究框架：</strong>
+      当前车险风险中整体约 <b>80%–90%</b> 与人相关（驾驶行为）；乘用车中具备组合辅助驾驶功能的车辆，约 <b>20%</b> 风险与组合辅助驾驶功能相关（近 2 年研究重点）。
+      智驾相关因子占比虽小但持续扩大——需搭建「人−车−环境−智驾」框架，明确权重变化趋势，再系统化布局新因子。
+      <br><br>
+      <strong>（2）新因子积累不足：</strong>
+      传统因子挖掘仍在持续，但新数据源开拓有限。框架先立住，投入才有方向。
+    </div>
+    <h3>本稿要回答的三件事</h3>
+    <ol>
+      <li><b>风险权重</b>：四类风险当下各占多少？30 年后怎么变？是否按能源类型 / 是否 L2 分层？</li>
+      <li><b>因子布局</b>：每类风险当前模型已解释多少？传统因子与智驾因子分别往哪走？</li>
+      <li><b>投入逻辑</b>：为何要把增量研究资源压向智驾——不是因为它现在最大，而是因为它斜率最大。</li>
+    </ol>
+    <p class="sec-note" style="margin-top:12px;">
+      口径提醒：下文「人相关 80%–90%」是<strong>因果/损失归因口径</strong>（事故主因多在驾驶行为）；
+      筛查模型里「车龄、车价」贡献度可以很高——那是<strong>可观测代理变量</strong>，不等于「车本身造成了多数风险」。讨论时务必把两套口径拆开讲。
+    </p>
+  </section>
+
+  <!-- 风险权重 -->
+  <section id="s1">
+    <h2>一、风险权重：当下判断 × 30 年情景</h2>
+    <p class="sec-note">拖动时间轴，或切换车型分层，看四类风险权重如何迁移。数字为讨论用假设，建议会上拍板一版「对外口径」。</p>
+
+    <div class="grid-2">
+      <div class="controls">
+        <div class="control-block">
+          <label>车型 / 能力分层</label>
+          <div class="seg" id="segButtons"></div>
+        </div>
+        <div class="control-block">
+          <label>时间情景（2026 → 2056，约 30 年）</label>
+          <div class="year-row">
+            <input type="range" id="yearSlider" min="2026" max="2056" step="5" value="2026">
+            <div class="year-val" id="yearLabel">2026</div>
+          </div>
+        </div>
+        <div class="stack" id="stackBar" aria-hidden="true"></div>
+        <div class="legend" id="legend"></div>
+      </div>
+
+      <div>
+        <div class="judge-box" id="judgeBox">
+          <div class="tag">判断说明</div>
+          <div id="judgeText"></div>
+        </div>
+        <h3 style="margin-top:18px;">权重表（当前选中情景）</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>维度</th>
+              <th>含义</th>
+              <th class="num">占比</th>
+            </tr>
+          </thead>
+          <tbody id="weightTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3>为何必须分层看？</h3>
+    <p style="font-size:14px;color:var(--muted);margin:0;">
+      组合辅助驾驶渗透率在整体车队仍不高时，「全量约 2%–5% 智驾权重」和「L2+ 子集约 20% 智驾权重」可以同时成立。
+      若不分层，汇报时会被问「到底是 2% 还是 20%」——答案是：<b>分母不同</b>。
+    </p>
+  </section>
+
+  <!-- 因子布局 -->
+  <section id="s2">
+    <h2>二、因子布局：已解释多少 × 往哪探索</h2>
+    <p class="sec-note">点选风险维度，查看传统因子（已上线/可解释）与智驾因子（近 2 年重点 + 未来方向）。「已解释%」为相对该类风险的粗估，用于讨论优先级，非模型精确分解。</p>
+
+    <div class="factor-tabs" id="dimTabs"></div>
+    <div class="factor-grid" id="factorGrid"></div>
+    <div class="detail-panel" id="detailPanel"></div>
+
+    <h3>传统核保因子（核心，持续挖深）</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>大类</th>
+          <th>代表因子</th>
+          <th>对整体风险解释力（粗估）</th>
+          <th>状态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>驾驶习惯 / 行为</td>
+          <td>驾驶评分、违章、理赔史、UBI 行为标签</td>
+          <td class="num">30%–50%</td>
+          <td>持续精挖</td>
+        </tr>
+        <tr>
+          <td>车辆基础</td>
+          <td>车龄、车价、车型、使用性质</td>
+          <td class="num">20%–30%</td>
+          <td>筛查模型贡献高（代理变量）</td>
+        </tr>
+        <tr>
+          <td>交通 / 环境</td>
+          <td>地区、道路属性、使用环境</td>
+          <td class="num">10%–20%</td>
+          <td>有基础，云环境可加深</td>
+        </tr>
+        <tr>
+          <td>投保人人口属性</td>
+          <td>年龄、性别、婚姻、征信相关</td>
+          <td class="num">较低但稳定</td>
+          <td>广度因子，边际递减</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>智驾类因子（占比小、斜率大 —— 应系统投入）</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>方向</th>
+          <th>具体观测</th>
+          <th>对应风险</th>
+          <th>成熟度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>功能使用</td>
+          <td>组合辅助驾驶开启时长 / 里程占比</td>
+          <td>人机共驾下的暴露结构</td>
+          <td>近 2 年重点</td>
+        </tr>
+        <tr class="highlight">
+          <td>主动安全触发</td>
+          <td>AEB / LKA / FCW 等触发频次与情境</td>
+          <td>近事故与干预强度</td>
+          <td>近 2 年重点</td>
+        </tr>
+        <tr class="highlight">
+          <td>泊车行为</td>
+          <td>自动泊车使用率、泊车场景事故</td>
+          <td>低速碰撞与车损</td>
+          <td>可快速试点</td>
+        </tr>
+        <tr class="highlight">
+          <td>人机交互 HMI</td>
+          <td>接管请求、脱手/脱眼告警、响应时延</td>
+          <td>责任边界与操作风险</td>
+          <td>数据合作关键</td>
+        </tr>
+        <tr>
+          <td>远期探索</td>
+          <td>OTA/远程诊断、V2X 路况、疲劳/分心生物特征</td>
+          <td>系统可靠性 + 环境实时性 + 人因</td>
+          <td>中长期布局</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 是否分层 -->
+  <section id="s3">
+    <h2>三、是否按能源类型 / 是否 L2 分？建议：要分，但分两层口径</h2>
+    <div class="callout">
+      <strong>建议结论（供拍板）：</strong>
+      对外宣导用「整体框架 + 全量权重」；对内研究与因子立项用「分层权重」。
+      能源类型与 L2 能力高度相关但不等同——优先按<strong>智驾能力分层</strong>，能源作为交叉切片。
+    </div>
+
+    <div class="split-tags">
+      <span>口径 A · 全量车队（汇报主叙事）</span>
+      <span>口径 B · L2+/组合辅助子集（研究主战场）</span>
+      <span>交叉 · 燃油 / 新能源</span>
+      <span>远期 · L3 责任迁移情景</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>分层</th>
+          <th>人</th>
+          <th>车</th>
+          <th>环境</th>
+          <th>智驾</th>
+          <th>使用场景</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>全量乘用车 · 当下</td>
+          <td class="num">82%</td>
+          <td class="num">10%</td>
+          <td class="num">6%</td>
+          <td class="num">2%</td>
+          <td>领导口径「人相关 80%–90%」对齐</td>
+        </tr>
+        <tr class="highlight">
+          <td>L2+ 组合辅助 · 当下</td>
+          <td class="num">62%</td>
+          <td class="num">10%</td>
+          <td class="num">8%</td>
+          <td class="num">20%</td>
+          <td>对齐「约 20% 与智驾功能相关」</td>
+        </tr>
+        <tr>
+          <td>传统燃油无 L2 · 当下</td>
+          <td class="num">88%</td>
+          <td class="num">7%</td>
+          <td class="num">5%</td>
+          <td class="num">0%</td>
+          <td>对照组，传统因子主场</td>
+        </tr>
+        <tr>
+          <td>全量 · 约 30 年后</td>
+          <td class="num">40%</td>
+          <td class="num">15%</td>
+          <td class="num">15%</td>
+          <td class="num">30%</td>
+          <td>L2 普及 + 部分 L3，人仍重要但不独占</td>
+        </tr>
+        <tr>
+          <td>高阶智驾为主 · 约 30 年后</td>
+          <td class="num">25%</td>
+          <td class="num">20%</td>
+          <td class="num">15%</td>
+          <td class="num">40%</td>
+          <td>系统绩效、OTA、V2X 成为定价中枢</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="sec-note">差异够大 → <b>要分</b>。但不建议一上来切成「燃油×新能源×L0×L2×L3」五维矩阵汇报，会失焦。先立「全量 / L2+」两条主轴。</p>
+  </section>
+
+  <!-- 待拍板 -->
+  <section id="s4">
+    <h2>四、讨论待拍板清单</h2>
+    <ul class="todo-list">
+      <li>
+        <div class="todo-num">1</div>
+        <div>
+          <b>对外统一口径：</b>全量车队是否采用「人 82 / 车 10 / 环境 6 / 智驾 2」作为当下官方叙事？
+          L2+ 子集是否明确写「智驾相关约 20%」？
+        </div>
+      </li>
+      <li>
+        <div class="todo-num">2</div>
+        <div>
+          <b>30 年拍数：</b>全量情景智驾权重抬到 25% / 30% / 35% 哪一档更合适？
+          （用于说明「占比小但持续扩大」，指导资源倾斜，不必过度精确。）
+        </div>
+      </li>
+      <li>
+        <div class="todo-num">3</div>
+        <div>
+          <b>分层原则：</b>是否确认「对内按智驾能力分层、能源作交叉」？避免能源与 L2 混为一谈。
+        </div>
+      </li>
+      <li>
+        <div class="todo-num">4</div>
+        <div>
+          <b>因子研究立项顺序（建议）：</b>
+          ① 功能开启暴露 ② 主动安全触发 ③ 接管/HMI ④ 泊车
+          → 中长期再铺 OTA / V2X / 人因生物特征。传统因子继续挖，但不挤占智驾新数据源开拓。
+        </div>
+      </li>
+      <li>
+        <div class="todo-num">5</div>
+        <div>
+          <b>两套口径话术：</b>汇报时先讲清「行为归因 ≠ 模型贡献」。
+          否则会被因子贡献度表（车龄/车价很高）带偏，以为「人相关 80%–90%」不成立。
+        </div>
+      </li>
+      <li>
+        <div class="todo-num">6</div>
+        <div>
+          <b>成文路径：</b>本讨论稿对齐后 → 压缩为 2–3 页框架 PPT / 一文 →
+          用于室内科普、因子立项评审、向上汇报。
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <p class="footer-note">
+    🦞 龙虾精算师 · 讨论稿 · 非正式定稿 · 权重为情景假设，供对齐口径<br>
+    本地打开本 HTML 即可完整体验交互；邮件客户端通常无法运行脚本。
+  </p>
+</div>
+
+<script>
+(function () {
+  const DIMS = [
+    { key: "person", name: "人", full: "驾乘人员风险", color: "var(--person)", cls: "c-person" },
+    { key: "vehicle", name: "车", full: "车辆自身风险", color: "var(--vehicle)", cls: "c-vehicle" },
+    { key: "env", name: "环境", full: "运行环境风险", color: "var(--env)", cls: "c-env" },
+    { key: "adas", name: "智驾", full: "智能辅助驾驶相关风险", color: "var(--adas)", cls: "c-adas" }
+  ];
+
+  const SEGMENTS = [
+    {
+      id: "fleet",
+      label: "全量乘用车",
+      judge: {
+        2026: "对齐领导口径：整体约 80%–90% 与人相关。智驾在全量分母下仍小（约 2%），但已是增量主线。",
+        2036: "L2 渗透抬升，智驾权重进入双位数；人仍主导，但「行为暴露」开始被系统分担。",
+        2046: "人机共驾成为主流形态；环境（路网/V2X）与系统可靠性权重同步抬升。",
+        2056: "30 年情景：智驾约 30%，人约 40%。定价中枢从「人是谁」部分转向「系统怎么开、路怎么协同」。"
+      },
+      weights: {
+        2026: { person: 82, vehicle: 10, env: 6, adas: 2 },
+        2036: { person: 70, vehicle: 12, env: 8, adas: 10 },
+        2046: { person: 55, vehicle: 14, env: 12, adas: 19 },
+        2056: { person: 40, vehicle: 15, env: 15, adas: 30 }
+      }
+    },
+    {
+      id: "l2",
+      label: "L2+ 组合辅助",
+      judge: {
+        2026: "研究主战场：具备组合辅助驾驶的车辆，约 20% 风险与智驾功能相关——近 2 年重点。人仍最大，但已不是「人独占」。",
+        2036: "开启里程与功能复杂度上升，智驾权重继续扩大；HMI/接管成为关键可保风险点。",
+        2046: "高阶辅助接近常态，事故归因更多落到系统策略、ODD 边界与人机交接。",
+        2056: "高阶情景：智驾可至约 40%。人的残余风险集中在接管失败、误用与非 ODD 场景。"
+      },
+      weights: {
+        2026: { person: 62, vehicle: 10, env: 8, adas: 20 },
+        2036: { person: 50, vehicle: 12, env: 10, adas: 28 },
+        2046: { person: 38, vehicle: 15, env: 12, adas: 35 },
+        2056: { person: 25, vehicle: 20, env: 15, adas: 40 }
+      }
+    },
+    {
+      id: "ice",
+      label: "传统燃油（无 L2）",
+      judge: {
+        2026: "对照组：智驾权重≈0。传统「人−车−环境」框架足够；因子工作仍以行为与车辆基础为主。",
+        2036: "存量燃油车仍在，但新车几乎都带辅助驾驶——该分层在保单组合中逐渐萎缩。",
+        2046: "残余传统车队；风险结构变化慢，主要跟老龄化车队与使用环境走。",
+        2056: "若仍存在，权重结构接近今日，但在整体组合中占比很低。"
+      },
+      weights: {
+        2026: { person: 88, vehicle: 7, env: 5, adas: 0 },
+        2036: { person: 86, vehicle: 8, env: 5, adas: 1 },
+        2046: { person: 84, vehicle: 9, env: 6, adas: 1 },
+        2056: { person: 82, vehicle: 10, env: 6, adas: 2 }
+      }
+    },
+    {
+      id: "nev",
+      label: "新能源 × L2+",
+      judge: {
+        2026: "新能源与智驾常捆绑出现：车（电池/电控）与智驾权重都高于燃油对照组；环境中充电/城市工况也更敏感。",
+        2036: "NEV 成为乘用车主力，智驾标配化；「车」的风险更多来自软件定义与电子电气架构。",
+        2046: "OTA 与远程诊断成为常规因子来源；车与智驾边界开始模糊——需在框架上仍拆开记账。",
+        2056: "与 L2+ 高阶情景接近：系统绩效主导，人退居接管与误用。"
+      },
+      weights: {
+        2026: { person: 58, vehicle: 14, env: 8, adas: 20 },
+        2036: { person: 46, vehicle: 16, env: 10, adas: 28 },
+        2046: { person: 34, vehicle: 18, env: 13, adas: 35 },
+        2056: { person: 24, vehicle: 22, env: 14, adas: 40 }
+      }
+    }
+  ];
+
+  const FACTORS = {
+    person: [
+      {
+        title: "驾驶习惯 / UBI 行为",
+        explained: 42,
+        growth: 8,
+        type: "传统",
+        desc: "驾驶评分、急加减速、夜间行驶等——对人相关风险解释力最强的传统块。",
+        detail: "建议：继续精挖，但承认边际递减。增量应转向「智驾开启时的人机行为」而非重复堆人口统计代理变量。"
+      },
+      {
+        title: "人口属性与征信广度",
+        explained: 12,
+        growth: 3,
+        type: "传统",
+        desc: "年龄、性别、婚姻、征信与关系人标签——稳定但解释力有限。",
+        detail: "筛查模型里可能仍有贡献，但对「驾驶行为风险」本身多为弱代理。不宜作为智驾时代主攻方向。"
+      },
+      {
+        title: "接管 / 脱手脱眼响应",
+        explained: 6,
+        growth: 25,
+        type: "智驾",
+        desc: "HMI 告警响应时延、接管成功率——人在环风险的新形态。",
+        detail: "这是「人」维度在智驾时代的升级版：不是开得猛不猛，而是系统叫你时你在不在。数据依赖车企合作。"
+      },
+      {
+        title: "疲劳 / 分心监测（远期）",
+        explained: 2,
+        growth: 18,
+        type: "智驾·远期",
+        desc: "舱内视觉/生物特征——合规与隐私门槛高，但人因风险直击要害。",
+        detail: "列入中长期探索，不作为明年必达。先把功能开启与主动安全触发做扎实。"
+      }
+    ],
+    vehicle: [
+      {
+        title: "车龄 / 车价 / 车型",
+        explained: 55,
+        growth: 5,
+        type: "传统",
+        desc: "筛查模型贡献往往很高（例：车龄、车价条形突出）——强代理、弱因果。",
+        detail: "保留并优化，但汇报时讲清：高贡献 ≠ 风险主因在车。避免与「人相关 80%–90%」口径打架。"
+      },
+      {
+        title: "使用性质与运营属性",
+        explained: 15,
+        growth: 6,
+        type: "传统",
+        desc: "营运/非营运、网约等——改变暴露与损失强度。",
+        detail: "传统挖潜仍有空间，尤其与新能源营运交叉时。"
+      },
+      {
+        title: "OTA / 远程诊断健康度",
+        explained: 4,
+        growth: 22,
+        type: "智驾·远期",
+        desc: "软件版本、故障码、传感器校准状态——系统可靠性代理。",
+        detail: "随软件定义汽车深化，「车」的风险越来越像「可持续运行的系统」，而非铁皮与排量。"
+      },
+      {
+        title: "主动安全硬件配置",
+        explained: 8,
+        growth: 14,
+        type: "智驾",
+        desc: "AEB 等配置有无、世代差异——静态配置因子。",
+        detail: "配置是入门；真正有定价力的是「触发与生效」动态数据，避免只停在配置清单。"
+      }
+    ],
+    env: [
+      {
+        title: "地区 / 道路属性",
+        explained: 35,
+        growth: 8,
+        type: "传统",
+        desc: "承保地区、城乡、道路等级——经典环境因子。",
+        detail: "云环境/区域画像仍可加深，但要警惕与人、车因子共线。"
+      },
+      {
+        title: "交通拥堵与出行时段",
+        explained: 18,
+        growth: 10,
+        type: "传统",
+        desc: "运行环境强度的时间切片。",
+        detail: "可与智驾 ODD（运行设计域）对齐：城区 vs 高速的功能可用性不同，风险含义不同。"
+      },
+      {
+        title: "V2X / 实时路况（远期）",
+        explained: 3,
+        growth: 28,
+        type: "智驾·远期",
+        desc: "车路协同与实时事件——环境因子的「在线化」。",
+        detail: "基础设施成熟度决定天花板；现阶段适合跟踪试点，不宜承诺短期上线。"
+      },
+      {
+        title: "天气与灾害暴露",
+        explained: 12,
+        growth: 7,
+        type: "传统",
+        desc: "气候、灾害对车损与出险的影响。",
+        detail: "宏观风险研究可继续服务，与智驾主线并行不悖。"
+      }
+    ],
+    adas: [
+      {
+        title: "功能开启暴露",
+        explained: 25,
+        growth: 30,
+        type: "智驾",
+        desc: "组合辅助驾驶开启时长/里程占比——智驾风险的第一暴露定义。",
+        detail: "没有暴露，就没有「20%」口径的落地度量。建议作为智驾因子布局的 1 号工程。"
+      },
+      {
+        title: "AEB / LKA 等触发频次",
+        explained: 18,
+        growth: 26,
+        type: "智驾",
+        desc: "近事故与系统干预强度——兼具风险信号与安全红利两面。",
+        detail: "触发高可能是「险些出事」也可能是「系统勤快」。需结合场景与后果建模，避免单因子误伤。"
+      },
+      {
+        title: "自动泊车使用",
+        explained: 8,
+        growth: 16,
+        type: "智驾",
+        desc: "低速场景功能化——车损频率敏感、相对易取数。",
+        detail: "适合作为早期可验证试点，形成「智驾因子从研究到定价」的样板路径。"
+      },
+      {
+        title: "人机共驾交互质量",
+        explained: 10,
+        growth: 32,
+        type: "智驾",
+        desc: "接管请求、告警、误用模式——智驾相关风险的核心人因面。",
+        detail: "与「人」维度交叉记账：框架上归智驾，解释时必须拉通人机责任边界（尤其 L2 vs L3）。"
+      }
+    ]
+  };
+
+  let segId = "fleet";
+  let year = 2026;
+  let selectedDim = "person";
+  let selectedFactor = null;
+
+  const years = [2026, 2036, 2046, 2056];
+
+  function lerpWeights(seg, y) {
+    const wmap = seg.weights;
+    if (wmap[y]) return { ...wmap[y] };
+    let y0 = years[0], y1 = years[years.length - 1];
+    for (let i = 0; i < years.length - 1; i++) {
+      if (y >= years[i] && y <= years[i + 1]) {
+        y0 = years[i]; y1 = years[i + 1]; break;
+      }
+    }
+    const t = (y - y0) / (y1 - y0);
+    const a = wmap[y0], b = wmap[y1];
+    const out = {};
+    DIMS.forEach(d => {
+      out[d.key] = Math.round(a[d.key] + (b[d.key] - a[d.key]) * t);
+    });
+    // fix rounding to 100
+    const sum = DIMS.reduce((s, d) => s + out[d.key], 0);
+    out.person += (100 - sum);
+    return out;
+  }
+
+  function judgeFor(seg, y) {
+    const keys = Object.keys(seg.judge).map(Number).sort((a, b) => a - b);
+    let best = keys[0];
+    keys.forEach(k => { if (Math.abs(k - y) < Math.abs(best - y)) best = k; });
+    return seg.judge[best];
+  }
+
+  function renderSegButtons() {
+    const el = document.getElementById("segButtons");
+    el.innerHTML = SEGMENTS.map(s =>
+      `<button type="button" data-id="${s.id}" class="${s.id === segId ? "active" : ""}">${s.label}</button>`
+    ).join("");
+    el.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        segId = btn.dataset.id;
+        renderAll();
+      });
+    });
+  }
+
+  function renderWeights() {
+    const seg = SEGMENTS.find(s => s.id === segId);
+    const w = lerpWeights(seg, year);
+    const stack = document.getElementById("stackBar");
+    stack.innerHTML = DIMS.map(d => {
+      const pct = w[d.key];
+      const label = pct >= 8 ? `${d.name} ${pct}%` : (pct > 0 ? `${pct}%` : "");
+      return `<span class="${d.cls}" style="width:${pct}%" title="${d.full}">${label}</span>`;
+    }).join("");
+
+    const legend = document.getElementById("legend");
+    legend.innerHTML = DIMS.map(d => `
+      <div class="legend-item ${selectedDim === d.key ? "selected" : ""}" data-dim="${d.key}">
+        <span class="dot" style="background:${d.color}"></span>
+        <span class="name">${d.name}</span>
+        <span class="pct">${w[d.key]}%</span>
+      </div>`).join("");
+    legend.querySelectorAll(".legend-item").forEach(item => {
+      item.addEventListener("click", () => {
+        selectedDim = item.dataset.dim;
+        selectedFactor = null;
+        renderAll();
+        document.getElementById("s2").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    document.getElementById("judgeText").textContent = judgeFor(seg, year);
+
+    const tbody = document.getElementById("weightTable");
+    tbody.innerHTML = DIMS.map(d => `
+      <tr>
+        <td><b>${d.name}</b></td>
+        <td>${d.full}</td>
+        <td class="num">${w[d.key]}%</td>
+      </tr>`).join("");
+  }
+
+  function renderDimTabs() {
+    const el = document.getElementById("dimTabs");
+    el.innerHTML = DIMS.map(d =>
+      `<button type="button" data-dim="${d.key}" class="${selectedDim === d.key ? "active" : ""}">${d.name} · ${d.full}</button>`
+    ).join("");
+    el.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedDim = btn.dataset.dim;
+        selectedFactor = null;
+        renderFactors();
+        renderDimTabs();
+      });
+    });
+  }
+
+  function renderFactors() {
+    const list = FACTORS[selectedDim] || [];
+    const grid = document.getElementById("factorGrid");
+    grid.innerHTML = list.map((f, i) => `
+      <article class="factor-card" data-idx="${i}">
+        <h4>${f.title}</h4>
+        <p>${f.desc}</p>
+        <div class="bar-track"><div class="bar-fill" style="width:${f.explained}%"></div></div>
+        <div class="factor-meta">
+          <span>已解释该类 ≈ <b>${f.explained}%</b></span>
+          <span>潜在增长 <b>+${f.growth}</b> · ${f.type}</span>
+        </div>
+      </article>`).join("");
+
+    // animate bars
+    requestAnimationFrame(() => {
+      grid.querySelectorAll(".bar-fill").forEach((bar, i) => {
+        bar.style.width = list[i].explained + "%";
+      });
+    });
+
+    grid.querySelectorAll(".factor-card").forEach(card => {
+      card.addEventListener("click", () => {
+        selectedFactor = Number(card.dataset.idx);
+        showDetail();
+      });
+    });
+
+    showDetail();
+  }
+
+  function showDetail() {
+    const panel = document.getElementById("detailPanel");
+    const list = FACTORS[selectedDim] || [];
+    if (selectedFactor == null || !list[selectedFactor]) {
+      panel.className = "detail-panel";
+      panel.innerHTML = "";
+      return;
+    }
+    const f = list[selectedFactor];
+    const dim = DIMS.find(d => d.key === selectedDim);
+    panel.className = "detail-panel show";
+    panel.innerHTML = `<h4>${dim.name} · ${f.title}</h4><p style="margin:0;opacity:.92">${f.detail}</p>`;
+  }
+
+  function renderAll() {
+    document.getElementById("yearLabel").textContent = year;
+    renderSegButtons();
+    renderWeights();
+    renderDimTabs();
+    renderFactors();
+  }
+
+  document.getElementById("yearSlider").addEventListener("input", (e) => {
+    year = Number(e.target.value);
+    renderAll();
+  });
+
+  renderAll();
+})();
+</script>
+</body>
+</html>
