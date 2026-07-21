@@ -1,0 +1,21 @@
+{
+  "slug": "2026-07-21-ny-dfs-cl3-tort-reform-rates",
+  "sources": [
+    {
+      "id": "dfs-cl3",
+      "title": "Insurance Circular Letter No. 3 (2026): Motor Vehicle Insurance Reforms",
+      "url": "https://www.dfs.ny.gov/industry-guidance/circular-letters/c32026-01",
+      "date": "2026-07-01",
+      "facts_used": [
+        "Pending filings must reflect reforms and amend by August 31, 2026",
+        "Exhibit TR-1 requires percentage decrease in anticipated claims and LAE plus methodology",
+        "Part II flex rating change effective November 27, 2026; §2350 repealed May 27, 2030",
+        "Non-economic damages cap $100,000 in specified serious injury cases",
+        "Part F and Part EE expected to reduce fraud, moderate frequency/severity, lower LAE"
+      ]
+    }
+  ],
+  "author_assumptions": [
+    "Illustrative indication table (70%/66% loss ratio etc.) is author hypothetical only"
+  ]
+}
