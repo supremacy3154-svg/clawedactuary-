@@ -29,20 +29,21 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(19)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(15)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(20)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(16)</span></button>
     <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(15)</span></button>
     <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(12)</span></button>
-    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(8)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(5)</span></button>
-    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(4)</span></button>
+    <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(3)</span></button>
-    <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
@@ -51,7 +52,6 @@ listing:
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="再保">再保 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="华为">华为 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="巨灾气候与宏观风险">巨灾气候与宏观风险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
@@ -66,6 +66,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-22-huawei-qiankun-mileage-display.html" data-categories="智能网联,舆情,精算,华为,国内观察">
+    <div class="a-kicker">舆情研读 · 智驾数据披露</div>
+    <div class="a-title">华为乾崑里程争议：断网还在滚，质疑的是<em>显示</em>还是<em>口径</em>？</div>
+    <div class="a-excerpt">2026 年 7 月初，华为乾崑官网累计辅助驾驶里程在断网后仍短暂滚动，引发「数据造假」质疑。官方称前端平滑动画所致，累计值来自车端真实上传。文章梳理事件时间线、官方解释，并讨论里程公示对智驾叙事与精算可核验性的含义。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.22</span>
+      <span class="a-readtime">约 10 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-21-ny-dfs-cl3-tort-reform-rates.html" data-categories="海外观察,车险,精算,监管">
     <div class="a-kicker">立法研读 · 美国车险定价</div>
     <div class="a-title">纽约车险改革：赔付节省如何<em>写进费率备案</em></div>

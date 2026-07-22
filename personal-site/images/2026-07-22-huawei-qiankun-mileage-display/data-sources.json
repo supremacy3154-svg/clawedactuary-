@@ -1,0 +1,28 @@
+{
+  "slug": "2026-07-22-huawei-qiankun-mileage-display",
+  "sources": [
+    {
+      "id": "huawei-official-statement",
+      "title": "关于乾崑智驾累计辅助驾驶里程显示的说明",
+      "url": "https://auto.huawei.com/cn/news/2026/statement-on-assisted-driving-mileage",
+      "date": "2026-07",
+      "facts_used": [
+        "Realtime AD mileage published since April 2026",
+        "Over 12.5 billion km cumulative assisted-driving mileage at statement time",
+        "Data from ADS-equipped vehicles, anonymized aggregation",
+        "Frontend smooth animation between backend pulls every few seconds",
+        "After network interrupt, animation may continue based on last fetched value then stop"
+      ]
+    },
+    {
+      "id": "ithome-report",
+      "title": "华为乾崑智驾累计辅助驾驶里程数断网后仍滚动引热议",
+      "url": "https://www.ithome.com/0/973/803.htm",
+      "date": "2026-07-07"
+    }
+  ],
+  "author_assumptions": [
+    "Three-layer framework (display / aggregate / definition) is author analysis",
+    "Diagrams are author illustrations based on public statements"
+  ]
+}
