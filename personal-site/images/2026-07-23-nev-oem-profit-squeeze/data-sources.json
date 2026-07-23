@@ -1,0 +1,48 @@
+{
+  "slug": "2026-07-23-nev-oem-profit-squeeze",
+  "retrieved_at": "2026-07-23",
+  "sources": [
+    {
+      "id": "gwm-h1-forecast",
+      "title": "长城汽车 2026 半年度业绩预告",
+      "url": "https://www.cnfin.com/kx/detail/20260714/4440436_1.html",
+      "notes": "归母净利 23.5–26 亿元，同比约 -59% 至 -63%"
+    },
+    {
+      "id": "changan-h1-forecast",
+      "title": "长安汽车 2026 半年度业绩预告",
+      "url": "https://www.nbd.com.cn/articles/2026-07-14/4471788.html",
+      "notes": "归母净利 7.4–9.7 亿元，同比约 -58% 至 -68%"
+    },
+    {
+      "id": "time-weekly-10-oem",
+      "title": "10 家 A 股车企半年业绩预告综述",
+      "url": "https://www.time-weekly.com/post/331042",
+      "notes": "广汽、赛力斯、北汽蓝谷、江淮等区间；乘用车 vs 商用车分化"
+    },
+    {
+      "id": "21jingji-margin",
+      "title": "汽车利润向上游转移",
+      "url": "https://m.21jingji.com/article/20260720/herald/6e840c984d59fa0dab3b0e3070ab7acf.html",
+      "notes": "2026 年 1–5 月行业利润率 3.4%；整车制造约 1.5%"
+    },
+    {
+      "id": "ofweek-margin-tax",
+      "title": "新能源渗透率与利润率、购置税调整",
+      "url": "https://nev.ofweek.com/2026-05/ART-71011-8420-30687873.html",
+      "notes": "2026-01-01 购置税由免征改为减半；一季度行业利润率约 3.2%"
+    },
+    {
+      "id": "cnevpost-byd-q1",
+      "title": "比亚迪 2026Q1 净利同比下降",
+      "url": "https://cnevpost.com/2026/04/28/byd-reports-drop-in-q1-2026-net-profit/",
+      "notes": "归母净利约 40.85 亿元，同比 -55.38%"
+    },
+    {
+      "id": "moomoo-nio-xpeng-li",
+      "title": "蔚来、小鹏、理想 2026Q1 交叉复盘",
+      "url": "https://www.moomoo.com/news/post/70771891/cross-review-of-nio-xpeng-and-li-auto-s-q1",
+      "notes": "三家均报净亏损；理想由盈转亏，小鹏亏损扩大"
+    }
+  ]
+}
