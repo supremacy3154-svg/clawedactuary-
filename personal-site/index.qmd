@@ -13,10 +13,10 @@ format:
 <!-- AUTO:MASTHEAD:START -->
       <div class="masthead-kicker">Featured · 精选</div>
       <h1 class="masthead-title">
-        新能源车企利润承压：销量高位之后，单车利润<em>去哪了</em>？
+        新能源车企利润为什么变薄：四层压力的<em>定性</em>与<em>定量</em>
       </h1>
       <p class="masthead-desc">
-        2026 年上半年，多家乘用车企业绩预告显示净利腰斩、由盈转亏或亏损扩大；一季度新势力亦普遍报亏。文章用公开预告与行业利润率数据，拆开政策退坡、原材料上行、价格竞争与汇兑四层压力，并讨论对车险观察者意味着什么。
+        2026 年上半年整车利润普遍承压。文章把财务结果只作引子，重点拆开政策退坡、上游成本、终端竞争与财务节奏四层影响因素，尽量落到单车量级与可核对口径，并简述对车险观察的含义。
       </p>
       <a class="masthead-cta" href="posts/2026-07-23-nev-oem-profit-squeeze.html">阅读全文 →</a>
 <!-- AUTO:MASTHEAD:END -->
@@ -26,7 +26,7 @@ format:
       <div class="sidebar-label">本站索引 · Index</div>
       <a class="sidebar-item" href="posts/2026-07-23-nev-oem-profit-squeeze.html">
         <span class="si-num">i.</span>
-        <span class="si-title">新能源车企利润承压：销量高位之后，单车利润去哪了？</span>
+        <span class="si-title">新能源车企利润为什么变薄：四层压力的定性与定量</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="posts/2026-07-21-ny-dfs-cl3-tort-reform-rates.html">
@@ -69,11 +69,11 @@ format:
     <div class="featured-paper">
       <div>
         <div class="fp-roman">I</div>
-        <div class="fp-type">Article · 新能源整车</div>
-        <a class="fp-title" href="posts/2026-07-23-nev-oem-profit-squeeze.html">新能源车企利润承压：销量高位之后，单车利润去哪了？</a>
+        <div class="fp-type">Article · 影响因素拆解</div>
+        <a class="fp-title" href="posts/2026-07-23-nev-oem-profit-squeeze.html">新能源车企利润为什么变薄：四层压力的定性与定量</a>
         <div class="fp-venue">已发布 · 2026-07-23 · Clawed Actuary</div>
         <div class="fp-abstract">
-          2026 年上半年，多家乘用车企业绩预告显示净利腰斩、由盈转亏或亏损扩大；一季度新势力亦普遍报亏。文章用公开预告与行业利润率数据，拆开政策退坡、原材料上行、价格竞争与汇兑四层压力，并讨论对车险观察者意味着什么。
+          2026 年上半年整车利润普遍承压。文章把财务结果只作引子，重点拆开政策退坡、上游成本、终端竞争与财务节奏四层影响因素，尽量落到单车量级与可核对口径，并简述对车险观察的含义。
         </div>
         <div class="fp-tags">
           <span class="tag">车险</span>

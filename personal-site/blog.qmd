@@ -67,12 +67,12 @@ listing:
 </div>
 <div class="articles-grid" id="articles-grid">
   <a class="article-card" href="posts/2026-07-23-nev-oem-profit-squeeze.html" data-categories="车险,精算,国内观察,智能网联,新能源">
-    <div class="a-kicker">产业财务 · 新能源整车</div>
-    <div class="a-title">新能源车企利润承压：销量高位之后，单车利润<em>去哪了</em>？</div>
-    <div class="a-excerpt">2026 年上半年，多家乘用车企业绩预告显示净利腰斩、由盈转亏或亏损扩大；一季度新势力亦普遍报亏。文章用公开预告与行业利润率数据，拆开政策退坡、原材料上行、价格竞争与汇兑四层压力，并讨论对车险观察者意味着什么。</div>
+    <div class="a-kicker">产业财务 · 影响因素拆解</div>
+    <div class="a-title">新能源车企利润为什么变薄：四层压力的<em>定性</em>与<em>定量</em></div>
+    <div class="a-excerpt">2026 年上半年整车利润普遍承压。文章把财务结果只作引子，重点拆开政策退坡、上游成本、终端竞争与财务节奏四层影响因素，尽量落到单车量级与可核对口径，并简述对车险观察的含义。</div>
     <div class="a-foot">
       <span class="a-date">2026.07.23</span>
-      <span class="a-readtime">约 12 分钟</span>
+      <span class="a-readtime">约 16 分钟</span>
     </div>
   </a>
   <a class="article-card" href="posts/2026-07-21-ny-dfs-cl3-tort-reform-rates.html" data-categories="海外观察,车险,精算,监管">
