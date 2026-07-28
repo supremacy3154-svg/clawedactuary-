@@ -1,6 +1,6 @@
 {
   "published_today": [
-    "2026-07-21-ny-dfs-cl3-tort-reform-rates"
+    "2026-07-28-huawei-ads5-wewa2-arch"
   ],
   "history": [
     {
@@ -67,7 +67,12 @@
       "slug": "2026-07-21-ny-dfs-cl3-tort-reform-rates",
       "topic_id": null,
       "at": "2026-07-21T14:55:47.588113+08:00"
+    },
+    {
+      "slug": "2026-07-28-huawei-ads5-wewa2-arch",
+      "topic_id": "huawei-ads5-wewa2-arch",
+      "at": "2026-07-28T12:05:55.555240+08:00"
     }
   ],
-  "last_brief_date": "2026-07-21"
+  "last_brief_date": "2026-07-28"
 }
