@@ -1,0 +1,20 @@
+{
+  "slug": "huawei-ads5-wewa2-arch",
+  "title": "华为乾崑智驾 ADS 5 数据图",
+  "charts": [
+    {
+      "id": "cas5-speed-range",
+      "type": "hbar",
+      "title": "CAS 5.0 安全生效速度范围（km/h）",
+      "labels": [
+        "前向 AEB",
+        "eAES",
+        "侧向 LOCP",
+        "后向 AEB"
+      ],
+      "values": [150, 135, 130, 60],
+      "xlabel": "上限生效速度 (km/h)",
+      "source": "华为乾崑智驾 ADS 5 官方页面 auto.huawei.com/cn/ads；交叉验证：搜狐 IT、腾讯新闻"
+    }
+  ]
+}

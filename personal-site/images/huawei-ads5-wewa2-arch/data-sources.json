@@ -1,0 +1,146 @@
+{
+  "slug": "huawei-ads5-wewa2-arch",
+  "title": "华为乾崑智驾 ADS 5 深度拆解 · 证据清单",
+  "version": "draft-2026-07-28",
+  "sources": [
+    {
+      "id": "huawei-ads5-official",
+      "type": "official",
+      "publisher": "华为乾崑智能汽车解决方案",
+      "title": "乾崑智驾 · 华为乾崑智能汽车解决方案",
+      "url": "https://auto.huawei.com/cn/ads/",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "WEWA 2.0 架构、CAS 5.0 六维安全、生效速度区间"
+    },
+    {
+      "id": "qq-m8-launch",
+      "type": "media",
+      "publisher": "腾讯新闻",
+      "title": "奕派 M8 首批搭载华为乾崑智驾 ADS 5 Pro，配备 27 个传感器",
+      "url": "https://new.qq.com/rain/a/20260728A00NHN00",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "首批搭载、商务节奏"
+    },
+    {
+      "id": "qq-ads5-ota",
+      "type": "media",
+      "publisher": "腾讯新闻",
+      "title": "华为乾崑智驾 ADS 5 OTA / 商用年度计划公布，首个版本本月推送",
+      "url": "https://new.qq.com/rain/a/20260716A078EB00",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "WEWA 2.0 算法细节、Multi-Agent 博弈、Drive Agent"
+    },
+    {
+      "id": "sohu-ads5-fusion",
+      "type": "media",
+      "publisher": "搜狐 IT",
+      "title": "华为乾崑智驾 ADS 5：融合感知与 WEWA 2.0 筑牢安全底座",
+      "url": "https://www.sohu.com/a/1022311947_121956424",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "云端训练强度 +10×、效率 +10×、碰撞风险 −50%"
+    },
+    {
+      "id": "csdn-huawei-conference",
+      "type": "media",
+      "publisher": "CSDN",
+      "title": "2026 华为乾崑技术大会在京举行 乾崑智驾 ADS 5 等解决方案正式发布",
+      "url": "https://blog.csdn.net/GGAI_AI/article/details/160475914",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "灵衢总线车内信号时延 −30%、HUAWEI XMC 控车精准度 +30%、LCoS 双焦面 AR-HUD"
+    },
+    {
+      "id": "qq-cas5-detail",
+      "type": "media",
+      "publisher": "腾讯新闻",
+      "title": "华为乾崑详解全维防碰撞系统 CAS 5.0",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_2736a3a776711452",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "CAS 5.0 六维细节、AEB 最低触发 4→1 km/h、LOCP 30→10 km/h"
+    },
+    {
+      "id": "qq-ades5-final-l3",
+      "type": "media",
+      "publisher": "腾讯新闻",
+      "title": "华为 ADS 5 终于来了：鸿蒙旗舰车型优先推送，离自动驾驶又近了一步",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_9006a3908e848652",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "AI 智能体升级路径、L3 准备状态"
+    },
+    {
+      "id": "qq-abtura-07l",
+      "type": "media",
+      "publisher": "腾讯新闻",
+      "title": "全系标配华为乾崑 ADS 5：阿维塔 07L 重构 25 万级智驾基准",
+      "url": "https://new.qq.com/rain/a/20260717A0C9GG00",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "价格档（24.99–27.99 万）、896 线激光雷达、WEWA 2.0 全系标配"
+    },
+    {
+      "id": "qq-kimi-launch",
+      "type": "media",
+      "publisher": "腾讯新闻",
+      "title": "乾崑智驾 ADS 5 OTA / 商用年度计划公布（引望 7 月媒体日通稿）",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_6576a5dc12806452",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "引望宣布首批 OTA 推送"
+    },
+    {
+      "id": "sohu-huawei-cas",
+      "type": "media",
+      "publisher": "搜狐 IT",
+      "title": "华为乾崑智驾 ADS 5 的安全进化（CAS 5.0 详解）",
+      "url": "https://www.sohu.com/a/1022352064_122066678",
+      "fetched_at": "2026-07-28",
+      "use_in_article": "Limera 共光路、115 米识别、雨雾夜强光"
+    }
+  ],
+  "cross_check_summary": {
+    "key_numbers_verified": [
+      {
+        "name": "云端训练强度 +10×",
+        "passing_sources": ["huawei-ads5-official", "qq-ads5-ota", "sohu-ads5-fusion", "csdn-huawei-conference"]
+      },
+      {
+        "name": "云端训练效率 +10×（在线强化学习）",
+        "passing_sources": ["qq-ads5-ota", "sohu-ads5-fusion", "csdn-huawei-conference"]
+      },
+      {
+        "name": "碰撞风险 −50%（安全风险场）",
+        "passing_sources": ["huawei-ads5-official", "sohu-ads5-fusion", "csdn-huawei-conference", "qq-cas5-detail"]
+      },
+      {
+        "name": "前向 AEB 最低触发 4→1 km/h",
+        "passing_sources": ["huawei-ads5-official", "qq-cas5-detail"]
+      },
+      {
+        "name": "侧向 LOCP 最低生效 30→10 km/h",
+        "passing_sources": ["huawei-ads5-official", "qq-cas5-detail"]
+      },
+      {
+        "name": "前向 AEB 上限 1–150 km/h、刹停 130 km/h",
+        "passing_sources": ["huawei-ads5-official", "cas5-speed-range.png"]
+      },
+      {
+        "name": "灵衢总线车内信号时延 −30%",
+        "passing_sources": ["csdn-huawei-conference"]
+      },
+      {
+        "name": "HUAWEI XMC 控车精准度 +30%",
+        "passing_sources": ["csdn-huawei-conference"]
+      },
+      {
+        "name": "Limera 115 米 / 30 cm 障碍物识别",
+        "passing_sources": ["huawei-ads5-official", "sohu-huawei-cas", "qq-m8-launch"]
+      },
+      {
+        "name": "首发搭载：阿维塔 07L（24.99 万）、奕派 M8",
+        "passing_sources": ["qq-abtura-07l", "qq-m8-launch"]
+      }
+    ],
+    "open_warnings": [
+      "cross_check_research.py 脚本未实现（workflows/daily-research.json 引用了不存在的脚本）",
+      "vivo 国内版 OTA 装机量数据未披露（引望未发布月度数据）",
+      "GB 44721 强标尚未正式落地，仅有报批稿"
+    ]
+  }
+}

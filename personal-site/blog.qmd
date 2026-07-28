@@ -29,25 +29,25 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(20)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(16)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(16)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(21)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(17)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(17)</span></button>
     <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(12)</span></button>
-    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(8)</span></button>
+    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(9)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(5)</span></button>
+    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="新能源">新能源 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="Tesla">Tesla <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
@@ -66,6 +66,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-28-huawei-ads5-wewa2-arch.html" data-categories="智能网联,车险,精算,国内观察,L3">
+    <div class="a-kicker">深度 · 智驾系统</div>
+    <div class="a-title">华为乾崑智驾 ADS 5 深度拆解：从 <em>WEWA 2.0</em> 架构到六维 CAS 5.0，技术参数怎么读、车险边界怎么变</div>
+    <div class="a-excerpt">ADS 5 于 2026-04-23 发布、7-16 引望宣布首批 OTA 推送、7-17/19 阿维塔 07L 与奕派 M8 首批搭载。架构端：WEWA 2.0 云端 Multi-Agent 博弈 + 训练强度 / 效率提升 10 倍，车端安全风险场降低碰撞风险 50%；安全端：CAS 5.0 在原五维基础上新增「全时域」成六维，前向 AEB 最低触发速度从 4 km/h 降到 1 km/h、侧向 LOCP 从 30 km/h 降到 10 km/h。文末给出技术参数到车险定价假设的传导路径。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.07.28</span>
+      <span class="a-readtime">约 18 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-23-nev-oem-profit-squeeze.html" data-categories="车险,精算,国内观察,智能网联,新能源">
     <div class="a-kicker">产业财务 · 影响因素拆解</div>
     <div class="a-title">新能源车企利润为什么变薄：四层压力的<em>定性</em>与<em>定量</em></div>

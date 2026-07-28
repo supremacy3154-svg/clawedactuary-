@@ -203,9 +203,16 @@
   ],
   "topic_queue": [
     {
+      "id": "huawei-ads5-wewa2-arch",
+      "title": "华为乾崑智驾 ADS 5 深度拆解：从 WEWA 2.0 架构到六维 CAS 5.0，技术参数怎么读、车险边界怎么变",
+      "status": "in_progress",
+      "pillar": "智能网联与产品责任",
+      "notes": "2026-04-23 发布、7-16 OTA 推送、7-17/19/28 阿维塔 07L 与奕派 M8 首批搭载；证据覆盖官方页面 + 5+ 主流媒体"
+    },
+    {
       "id": "geico-direct-growth-rate-war",
       "title": "GEICO 直销再扩张：费用率优势、广告杠杆与费率竞争",
-      "status": "in_progress",
+      "status": "backlog",
       "pillar": "财险经营创新与渠道模式"
     },
     {
