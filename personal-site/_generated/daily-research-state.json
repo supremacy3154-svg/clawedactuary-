@@ -1,6 +1,6 @@
 {
   "published_today": [
-    "2026-07-28-huawei-ads5-wewa2-arch"
+    "2026-07-30-miit-blue-light-ban"
   ],
   "history": [
     {
@@ -72,7 +72,15 @@
       "slug": "2026-07-28-huawei-ads5-wewa2-arch",
       "topic_id": "huawei-ads5-wewa2-arch",
       "at": "2026-07-28T12:05:55.555240+08:00"
+    },
+    {
+      "slug": "2026-07-30-miit-blue-light-ban",
+      "topic_id": "miit-blue-light-ban-2026-07",
+      "at": "2026-08-03T18:42:30.218119+08:00"
     }
   ],
-  "last_brief_date": "2026-07-28"
+  "last_brief_date": "2026-08-03",
+  "revoked_slugs": [
+    "2026-07-23-nev-oem-profit-squeeze"
+  ]
 }

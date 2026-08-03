@@ -35,16 +35,15 @@ listing:
     <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(12)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(9)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(5)</span></button>
+    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(5)</span></button>
+    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
-    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="新能源">新能源 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
@@ -57,6 +56,7 @@ listing:
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="数据要素">数据要素 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="新能源">新能源 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="理赔">理赔 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="科技">科技 <span class="blog-category-count">(1)</span></button>
@@ -66,6 +66,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-07-30-miit-blue-light-ban.html" data-categories="智能网联,车险,监管,自动驾驶,精算">
+    <div class="a-kicker">深度 · 监管与车险</div>
+    <div class="a-title">工信部禁用智驾小蓝灯：车险<em>核保盲区</em>里的三层风险</div>
+    <div class="a-excerpt">第410批产品公告起新申报乘用车搭载外置智驾蓝灯将难以过审；GB4785色域本就不含蓝色，GB4785修订仍在起草。本文重写车险视角：车型代码与软件状态解耦、对外能力信号与L2责任不一致、第三方行为与眩光进入事故诱因却进不了费率因子。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.08.03</span>
+      <span class="a-readtime">约 14 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-28-huawei-ads5-wewa2-arch.html" data-categories="智能网联,车险,精算,国内观察,L3">
     <div class="a-kicker">深度 · 智驾系统</div>
     <div class="a-title">华为乾崑智驾 ADS 5 深度拆解：从 <em>WEWA 2.0</em> 架构到六维 CAS 5.0，技术参数怎么读、车险边界怎么变</div>
@@ -73,15 +82,6 @@ listing:
     <div class="a-foot">
       <span class="a-date">2026.07.28</span>
       <span class="a-readtime">约 18 分钟</span>
-    </div>
-  </a>
-  <a class="article-card" href="posts/2026-07-23-nev-oem-profit-squeeze.html" data-categories="车险,精算,国内观察,智能网联,新能源">
-    <div class="a-kicker">产业财务 · 影响因素拆解</div>
-    <div class="a-title">新能源车企利润为什么变薄：四层压力的<em>定性</em>与<em>定量</em></div>
-    <div class="a-excerpt">2026 年上半年整车利润普遍承压。文章把财务结果只作引子，重点拆开政策退坡、上游成本、终端竞争与财务节奏四层影响因素，尽量落到单车量级与可核对口径，并简述对车险观察的含义。</div>
-    <div class="a-foot">
-      <span class="a-date">2026.07.23</span>
-      <span class="a-readtime">约 16 分钟</span>
     </div>
   </a>
   <a class="article-card" href="posts/2026-07-21-ny-dfs-cl3-tort-reform-rates.html" data-categories="海外观察,车险,精算,监管">

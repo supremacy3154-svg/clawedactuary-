@@ -1,0 +1,90 @@
+{
+  "slug": "miit-blue-light-ban",
+  "title": "工信部禁用智驾小蓝灯：车险看不见的三层风险 · 证据清单",
+  "version": "rewrite-2026-08-03",
+  "sources": [
+    {
+      "id": "eastmoney-ifr-2026-07-31",
+      "type": "media",
+      "publisher": "国际金融报 / 东方财富转载",
+      "title": "新车型全面禁用！工信部出手叫停智驾「小蓝灯」",
+      "url": "https://wap.eastmoney.com/a/202607313828226952.html",
+      "fetched_at": "2026-08-03",
+      "use_in_article": "第410批不予公告、2026-07-27新认证禁用、存量另行研讨、GB4785色域、汽标院眩光与加塞回应、马麟亮度表态、理想2022落地"
+    },
+    {
+      "id": "sina-finance-2026-07-31",
+      "type": "media",
+      "publisher": "新浪财经",
+      "title": "新车型全面禁用！工信部出手叫停智驾「小蓝灯」",
+      "url": "https://finance.sina.com.cn/roll/2026-07-31/doc-inikstfm1237054.shtml",
+      "fetched_at": "2026-08-03",
+      "use_in_article": "工信部未见单独正式文件；网传三方面措施"
+    },
+    {
+      "id": "21jingji-2026-07-30",
+      "type": "media",
+      "publisher": "经济观察报 / 21财经",
+      "title": "智驾「小蓝灯」面临禁用？多车企回应",
+      "url": "https://m.21jingji.com/article/20260730/herald/7b78ce2cd2f5938cc5cf8cc0b954ff07.html",
+      "fetched_at": "2026-08-03",
+      "use_in_article": "供应商确认新车型变更已执行；吉利回应；2021征求意见稿与GB5920删除条款；GB4785复审修订"
+    },
+    {
+      "id": "guancha-2026-07-29",
+      "type": "media",
+      "publisher": "观察者网",
+      "title": "智驾「小蓝灯」要被禁？相关政策或调整",
+      "url": "https://www.guancha.cn/qiche/2026_07_29_825473.shtml",
+      "fetched_at": "2026-08-03",
+      "use_in_article": "工信部未见公开补充要求；修订草案已讨论ADS标志灯；存量不立即关闭"
+    },
+    {
+      "id": "redstar-2026-07-29",
+      "type": "media",
+      "publisher": "红星资本局",
+      "title": "智驾「小蓝灯」不合国标将被禁用",
+      "url": "https://wap.eastmoney.com/a/202607293825261030.html",
+      "fetched_at": "2026-08-03",
+      "use_in_article": "长安确认属实；吉利已知晓；GB4785复审周期约16个月；眩光与光污染舆情"
+    },
+    {
+      "id": "gb4785-2019",
+      "type": "standard",
+      "publisher": "国家标准",
+      "title": "GB 4785—2019 汽车及挂车外部照明和光信号装置的安装规定",
+      "url": "",
+      "fetched_at": "2026-08-03",
+      "use_in_article": "外部光色白/黄/红/琥珀；合法灯型清单不含ADS外部提示灯"
+    },
+    {
+      "id": "author-frequency-scenario",
+      "type": "author_assumption",
+      "publisher": "龙虾精算师",
+      "title": "第三方行为诱因频率敏感性示意",
+      "url": "",
+      "fetched_at": "2026-08-03",
+      "use_in_article": "基准0.20次/车·年；相关份额10%；相对升幅+20%/+50%；整单约+2%/+5%"
+    }
+  ],
+  "key_numbers": [
+    {
+      "claim": "2026-07-27起新申报型式认证乘用车不得配备外置智驾蓝灯",
+      "value": "2026-07-27",
+      "source_id": "eastmoney-ifr-2026-07-31",
+      "note": "媒体报道口径；工信部未见单独正式公告"
+    },
+    {
+      "claim": "GB4785复审修订项目周期",
+      "value": "约16个月",
+      "source_id": "redstar-2026-07-29",
+      "note": "2026-04-28复审，起草阶段"
+    },
+    {
+      "claim": "作者假设下整单出险频率升幅上界",
+      "value": "约+5%",
+      "source_id": "author-frequency-scenario",
+      "note": "示意敏感性，非实测"
+    }
+  ]
+}
