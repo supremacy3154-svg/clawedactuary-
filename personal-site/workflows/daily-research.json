@@ -204,10 +204,10 @@
   "topic_queue": [
     {
       "id": "klaimee-ai-agent-insurance",
-      "title": "Klaimee 深度研究：给 AI Agent 做责任险，比 Corgi 更小切口",
-      "status": "in_progress",
+      "title": "Klaimee 深度研究：AI Agent 责任险的认证、探针核保与采购证书",
+      "status": "published",
       "pillar": "保险科技与初创颠覆",
-      "notes": "2026-08-13 写稿中；种子轮 550 万美元；对照 Corgi/Mount"
+      "notes": "2026-08-13 正式发布"
     },
     {
       "id": "huawei-ads5-wewa2-arch",

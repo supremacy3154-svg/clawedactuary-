@@ -1,6 +1,6 @@
 {
   "published_today": [
-    "2026-07-30-miit-blue-light-ban"
+    "2026-08-13-klaimee-ai-agent-insurance"
   ],
   "history": [
     {
@@ -77,9 +77,14 @@
       "slug": "2026-07-30-miit-blue-light-ban",
       "topic_id": "miit-blue-light-ban-2026-07",
       "at": "2026-08-03T18:42:30.218119+08:00"
+    },
+    {
+      "slug": "2026-08-13-klaimee-ai-agent-insurance",
+      "topic_id": "klaimee-ai-agent-insurance",
+      "at": "2026-08-13T17:21:31.414237+08:00"
     }
   ],
-  "last_brief_date": "2026-08-03",
+  "last_brief_date": "2026-08-13",
   "revoked_slugs": [
     "2026-07-23-nev-oem-profit-squeeze"
   ]
