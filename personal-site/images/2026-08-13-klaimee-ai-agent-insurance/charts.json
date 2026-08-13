@@ -1,0 +1,21 @@
+{
+  "charts": [
+    {
+      "id": "seed-funding-compare",
+      "type": "bar",
+      "title": "AI 责任险早期公司种子轮融资量级对照",
+      "labels": [
+        "Klaimee",
+        "Mount",
+        "Hedge"
+      ],
+      "values": [
+        5.5,
+        0.5,
+        0.5
+      ],
+      "ylabel": "公开种子/加速器融资（百万美元）",
+      "source": "FinTech Global / Beinsure / Caplight / YC 公开信息, 2026"
+    }
+  ]
+}
