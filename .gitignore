@@ -1,0 +1,3 @@
+tools/smtp_config.py
+tools/__pycache__/
+data/article-emails/*_email_preview.html
