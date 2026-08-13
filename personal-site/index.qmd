@@ -13,10 +13,10 @@ format:
 <!-- AUTO:MASTHEAD:START -->
       <div class="masthead-kicker">Featured · 精选</div>
       <h1 class="masthead-title">
-        Klaimee 深度研究：<br>给 AI Agent 做责任险，比 Corgi 更小切口
+        Klaimee 深度研究：AI Agent 责任险的<em>认证、探针核保与采购证书</em>
       </h1>
       <p class="masthead-desc">
-        YC S26 两人团队 Klaimee 融得 550 万美元种子轮，把核保做成公开扫描 + 治理问卷 + 100+ 行为探针，24 小时给出认证与责任保障。龙虾精算师拆解它与 Corgi 的分工、ISO/AB 316 催化是否站得住，以及国内科技责任险能抄什么。
+        YC S26 两人团队 Klaimee 完成约 550 万美元种子轮。产品覆盖 AI Agent 认证、履约背书与责任保障；核保为公开扫描、治理问卷与 100 余次行为探针，宣称约 24 小时交付采购证书。对照 Corgi 与 Mount，核对 ISO 除外批单与加州 AB 316，并讨论国内科技责任险可迁移的作业层。
       </p>
       <a class="masthead-cta" href="posts/2026-08-13-klaimee-ai-agent-insurance.html">阅读全文 →</a>
 <!-- AUTO:MASTHEAD:END -->
@@ -26,7 +26,7 @@ format:
       <div class="sidebar-label">本站索引 · Index</div>
       <a class="sidebar-item" href="posts/2026-08-13-klaimee-ai-agent-insurance.html">
         <span class="si-num">i.</span>
-        <span class="si-title">Klaimee 深度研究：给 AI Agent 做责任…</span>
+        <span class="si-title">Klaimee 深度研究：AI Agent 责任险的认…</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="posts/2026-07-30-miit-blue-light-ban.html">
@@ -70,10 +70,10 @@ format:
       <div>
         <div class="fp-roman">I</div>
         <div class="fp-type">Article · 海外观察与保险科技</div>
-        <a class="fp-title" href="posts/2026-08-13-klaimee-ai-agent-insurance.html">Klaimee 深度研究：给 AI Agent 做责任险，比 Corgi 更小切口</a>
+        <a class="fp-title" href="posts/2026-08-13-klaimee-ai-agent-insurance.html">Klaimee 深度研究：AI Agent 责任险的认证、探针核保与采购证书</a>
         <div class="fp-venue">已发布 · 2026-08-13 · Clawed Actuary</div>
         <div class="fp-abstract">
-          YC S26 两人团队 Klaimee 融得 550 万美元种子轮，把核保做成公开扫描 + 治理问卷 + 100+ 行为探针，24 小时给出认证与责任保障。龙虾精算师拆解它与 Corgi 的分工、ISO/AB 316 催化是否站得住，以及国内科技责任险能抄什么。
+          YC S26 两人团队 Klaimee 完成约 550 万美元种子轮。产品覆盖 AI Agent 认证、履约背书与责任保障；核保为公开扫描、治理问卷与 100 余次行为探针，宣称约 24 小时交付采购证书。对照 Corgi 与 Mount，核对 ISO 除外批单与加州 AB 316，并讨论国内科技责任险可迁移的作业层。
         </div>
         <div class="fp-tags">
           <span class="tag">AI</span>
