@@ -29,21 +29,21 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(21)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(17)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(22)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(18)</span></button>
     <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(17)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(12)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(13)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(9)</span></button>
-    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(7)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(6)</span></button>
+    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(5)</span></button>
-    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(3)</span></button>
+    <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(2)</span></button>
-    <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
@@ -63,9 +63,19 @@ listing:
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="自动化">自动化 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="财产险">财产险 <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="责任险">责任险 <span class="blog-category-count">(1)</span></button>
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-08-13-klaimee-ai-agent-insurance.html" data-categories="AI,财险,保险科技,海外观察,精算,责任险">
+    <div class="a-kicker">深度 · 海外观察与保险科技</div>
+    <div class="a-title">Klaimee 深度研究：AI Agent 责任险的<em>认证、探针核保与采购证书</em></div>
+    <div class="a-excerpt">YC S26 两人团队 Klaimee 完成约 550 万美元种子轮。产品覆盖 AI Agent 认证、履约背书与责任保障；核保为公开扫描、治理问卷与 100 余次行为探针，宣称约 24 小时交付采购证书。对照 Corgi 与 Mount，核对 ISO 除外批单与加州 AB 316，并讨论国内科技责任险可迁移的作业层。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.08.13</span>
+      <span class="a-readtime">约 14 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-07-30-miit-blue-light-ban.html" data-categories="智能网联,车险,监管,自动驾驶,精算">
     <div class="a-kicker">深度 · 监管与车险</div>
     <div class="a-title">工信部禁用智驾小蓝灯：车险<em>核保盲区</em>里的三层风险</div>

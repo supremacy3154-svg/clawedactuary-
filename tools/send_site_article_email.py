@@ -114,6 +114,13 @@ def strip_internal_email_boilerplate(html: str) -> str:
         flags=re.I,
     )
     html = re.sub(r"\s*<p>延伸阅读[\s\S]*?(?=</div>|</body>|$)", "", html, flags=re.I)
+    # 文末相关文章导航（含「全部文章」）
+    html = re.sub(
+        r"<p>\s*<a[^>]*>[\s\S]*?全部文章</a>\s*</p>\s*",
+        "",
+        html,
+        flags=re.I,
+    )
     return html
 
 

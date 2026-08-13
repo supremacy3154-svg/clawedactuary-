@@ -1,0 +1,66 @@
+{
+  "slug": "2026-08-13-klaimee-ai-agent-insurance",
+  "title": "Klaimee 深度研究：给 AI Agent 做责任险，比 Corgi 更小切口",
+  "checked_at": "2026-08-13",
+  "sources": [
+    {
+      "id": "yc-klaimee",
+      "title": "Klaimee Y Combinator company page",
+      "url": "https://www.ycombinator.com/companies/klaimee",
+      "used_for": ["team size 2", "founders", "product description", "AB 316 / ISO / EU AI Act company claims"]
+    },
+    {
+      "id": "yc-launch",
+      "title": "Launch YC: Klaimee insures your AI Agents",
+      "url": "https://www.ycombinator.com/launches/QCC-klaimee-insures-your-ai-agents",
+      "used_for": ["three-block underwriting", "24h turnaround", "coverage examples", "Fortune 500 / lawsuit growth company claims"]
+    },
+    {
+      "id": "fintech-global",
+      "title": "Klaimee lands $5.5m to insure autonomous AI agents",
+      "url": "https://fintech.global/2026/07/22/klaimee-lands-5-5m-to-insure-autonomous-ai-agents/",
+      "used_for": ["seed $5.5m", "investors", "date ~2026-07-22"]
+    },
+    {
+      "id": "beinsure",
+      "title": "Insurtech Klaimee secures $5.5 mn to certify autonomous AI agents",
+      "url": "https://beinsure.com/news/insurtech-klaimee-secures-5-5mn/",
+      "used_for": ["procurement $5m COI anecdote", "founder bios", "warranty framing"]
+    },
+    {
+      "id": "klaimee-site",
+      "title": "klaimee.ai product site",
+      "url": "https://klaimee.ai/",
+      "used_for": ["third-party vs first-party coverage", "vendor vs enterprise buyers", "exclusions AV/robotics", "cyber/E&O gap framing"]
+    },
+    {
+      "id": "verisk-iso-ai",
+      "title": "Verisk ISO generative AI GL exclusions CG 40 47 / 40 48 / 35 08",
+      "url": "https://www.independentagent.com/vu_resource/verisk-to-roll-out-new-general-liability-exclusions-for-generative-ai-exposures/",
+      "used_for": ["optional endorsements effective 2026-01", "form scope"]
+    },
+    {
+      "id": "ab316",
+      "title": "California AB-316 Artificial intelligence: defenses",
+      "url": "https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260AB316",
+      "used_for": ["chaptered 2025-10-13", "effective 2026-01-01", "defense prohibition not strict liability"]
+    },
+    {
+      "id": "mount-yc",
+      "title": "Mount YC company page",
+      "url": "https://www.ycombinator.com/companies/mount",
+      "used_for": ["peer comparison AI agent carrier"]
+    },
+    {
+      "id": "corgi-prior",
+      "title": "Site prior post on Corgi",
+      "url": "https://clawedactuary.com.cn/posts/2026-06-25-corgi-ai-insurance-study.html",
+      "used_for": ["contrast own-paper / capital scale"]
+    }
+  ],
+  "notes": [
+    "Klaimee does not publicly disclose own-paper vs MGA/fronting; article treats structure as open question.",
+    "Company claims (80% Fortune 500 agents, lawsuits +137%) attributed to Klaimee/YC materials, not independently audited.",
+    "AB 316 removes autonomous-AI defense; Klaimee marketing overstates as deployer liability mandate — article corrects."
+  ]
+}
