@@ -1,0 +1,187 @@
+{
+  "slug": "2026-08-19-zelos-l4-mapless-robovan",
+  "checked_at": "2026-08-19",
+  "checker_note": "部署周期 28/15/1 与渗透率以 WAIC 及与非网访谈为主；车队规模 2026 起含菜鸟，不得与 2023–24 九识自有部署直接连成同口径 CAGR。",
+  "metrics": [
+    {
+      "id": "deploy_hd_days",
+      "label": "高精地图部署周期",
+      "value": "28",
+      "unit": "天",
+      "primary_source": {
+        "name": "与非网 引朱伟铖",
+        "url": "https://www.eefocus.com/article/2054047.html",
+        "as_of": "2026-07-21"
+      },
+      "cross_checks": [
+        {
+          "name": "新京报",
+          "value": "交付后等待约 1 个月",
+          "url": "https://www.bjnews.com.cn/detail/1784294847129540.html",
+          "note": "约 1 个月与 28 天相符"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "deploy_light_days",
+      "label": "轻地图部署周期",
+      "value": "15",
+      "unit": "天以内",
+      "primary_source": {
+        "name": "与非网 引朱伟铖",
+        "url": "https://www.eefocus.com/article/2054047.html",
+        "as_of": "2026-07-21"
+      },
+      "cross_checks": [
+        {
+          "name": "易车/BitAuto 转述",
+          "value": "15 天以内",
+          "url": "https://www.bitauto.com/article/1003111559430/",
+          "note": "同口径转述"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "deploy_mapless_days",
+      "label": "无图部署周期",
+      "value": "1",
+      "unit": "天以内",
+      "primary_source": {
+        "name": "新京报 引朱伟铖",
+        "url": "https://www.bjnews.com.cn/detail/1784294847129540.html",
+        "as_of": "2026-07-17"
+      },
+      "cross_checks": [
+        {
+          "name": "IT之家",
+          "value": "1 天以内",
+          "url": "https://www.ithome.com/0/978/233.htm",
+          "note": "一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "mapless_penetration_launch",
+      "label": "发布日新增路线无图渗透",
+      "value": "30",
+      "unit": "%",
+      "primary_source": {
+        "name": "IT之家",
+        "url": "https://www.ithome.com/0/978/233.htm",
+        "as_of": "2026-07-17"
+      },
+      "cross_checks": [
+        {
+          "name": "与非网",
+          "value": "30%；计划 8 月底 70%、9 月底 95%",
+          "url": "https://www.eefocus.com/article/2054047.html",
+          "note": "后续时点为计划，截稿未复核"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "fleet_2023",
+      "label": "2023 九识部署规模",
+      "value": "200",
+      "unit": "台",
+      "primary_source": {
+        "name": "36氪",
+        "url": "https://36kr.com/p/3697210914549632",
+        "as_of": "2026-02"
+      },
+      "cross_checks": [
+        {
+          "name": "36氪另一稿",
+          "value": "2023 年 200 辆",
+          "url": "https://www.36kr.com/p/3697934886760328",
+          "note": "同口径"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "fleet_2026q1_combined",
+      "label": "2026Q1 含菜鸟保有量",
+      "value": "25000",
+      "unit": "台",
+      "primary_source": {
+        "name": "与非网 引朱伟铖/报告",
+        "url": "https://www.eefocus.com/article/2054047.html",
+        "as_of": "2026-07-21"
+      },
+      "cross_checks": [
+        {
+          "name": "企业 2026-01-29 整合公告转述",
+          "value": "整合后超过 2 万台",
+          "url": "https://zelostech.com.cn/aboutus.html",
+          "note": "2.5 万为后续保有量，2 万为整合时点"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "mileage_q1_2026",
+      "label": "2026Q1 累计运营里程含菜鸟",
+      "value": "1.6",
+      "unit": "亿公里",
+      "primary_source": {
+        "name": "与非网 引朱伟铖",
+        "url": "https://www.eefocus.com/article/2054047.html",
+        "as_of": "2026-07-21"
+      },
+      "cross_checks": [
+        {
+          "name": "界面新闻 2025 年底九识侧",
+          "value": "7000 多万公里",
+          "url": "https://m.jiemian.com/article/13968144.html",
+          "note": "口径不同：整合前九识 vs 整合后合计"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "beijing_liability_floor",
+      "label": "北京无人配送车责任险最低保额",
+      "value": "300",
+      "unit": "万元",
+      "primary_source": {
+        "name": "新华网转述北京试行办法",
+        "url": "http://www.news.cn/law/20260106/18643438141c4171b4e20845e0e4bce8/c.html",
+        "as_of": "2026-01-06"
+      },
+      "cross_checks": [
+        {
+          "name": "法治日报评论",
+          "value": "建议专属第三者强制险，差异化保额",
+          "url": "http://epaper.legaldaily.com.cn/fzrb/content/20260807/Articel05005GN.htm",
+          "note": "评论主张全国强制险，未替代北京 300 万地板"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "china_post_order",
+      "label": "中国邮政集中采购订单",
+      "value": "7000",
+      "unit": "台",
+      "primary_source": {
+        "name": "九识官网里程碑",
+        "url": "https://zelostech.com.cn/aboutus.html",
+        "as_of": "2025-10"
+      },
+      "cross_checks": [
+        {
+          "name": "与非网 引朱伟铖",
+          "value": "已交付 3000 多台",
+          "url": "https://www.eefocus.com/article/2054047.html",
+          "note": "订单与交付进度分开引用"
+        }
+      ],
+      "status": "verified"
+    }
+  ]
+}

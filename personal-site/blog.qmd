@@ -29,15 +29,15 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(22)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(18)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(17)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(23)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(19)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(18)</span></button>
     <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(13)</span></button>
-    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(9)</span></button>
+    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(10)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(4)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(3)</span></button>
@@ -47,6 +47,7 @@ listing:
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
+    <button type="button" class="blog-category" data-category="L4">L4 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="Tesla">Tesla <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
@@ -67,6 +68,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-08-19-zelos-l4-mapless-robovan.html" data-categories="车险,精算,智能网联,国内观察,L4">
+    <div class="a-kicker">深度 · 无人物流与商用车险</div>
+    <div class="a-title">九识 L4 无图物流车量产：部署周期缩短后的<em>核保变量、责任限额与聚合风险</em></div>
+    <div class="a-excerpt">九识智能于 2026-07-17 宣布 L4 无图方案规模化量产，新线路部署周期由高精地图约 28 天、轻地图 15 天以内缩短至 1 天以内。与菜鸟整合后车队口径约 2.5 万台。本文据此讨论运营设计域变化后，无人配送车的责任主体、最低责任限额与同一软件栈下的损失聚合如何进入承保与定价。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.08.19</span>
+      <span class="a-readtime">约 16 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-08-13-klaimee-ai-agent-insurance.html" data-categories="AI,财险,保险科技,海外观察,精算,责任险">
     <div class="a-kicker">深度 · 海外观察与保险科技</div>
     <div class="a-title">Klaimee 深度研究：AI Agent 责任险的<em>认证、探针核保与采购证书</em></div>

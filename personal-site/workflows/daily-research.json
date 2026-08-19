@@ -296,6 +296,13 @@
       "status": "backlog",
       "pillar": "财险经营创新与渠道模式",
       "notes": "carrier_watch 举例 · 主机厂车险"
+    },
+    {
+      "id": "zelos-l4-mapless-robovan",
+      "title": "九识 L4 无图物流车量产：部署周期缩短后的核保变量、责任限额与聚合风险",
+      "status": "published",
+      "pillar": "智能网联与产品责任",
+      "notes": "2026-08-19 发布。slug=2026-08-19-zelos-l4-mapless-robovan"
     }
   ],
   "publish": {
