@@ -16,7 +16,7 @@ format:
         Tesla Cybercab 在美国是否属于机动车，相关监管要求<em>哪一类保险</em>
       </h1>
       <p class="masthead-desc">
-        两座、无方向盘的 Cybercab 按 49 U.S.C. §30102 仍属机动车。联邦安全法不设定自动驾驶保险限额。德州按自动化机动车责任险叠加运输网络公司分阶段限额；加州制造商测试与 CPUC 自动驾驶客运各要求 500 万美元财务责任。
+        2026年9月3日奥斯汀发布会把无方向盘的 Cybercab 推上 Robotaxi 前台。按 49 U.S.C. §30102 它仍属机动车。联邦不设自动驾驶险种；德州按自动化机动车责任险叠加网约分阶段限额，加州无人驾驶载客另须 500 万美元财务责任。
       </p>
       <a class="masthead-cta" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html">阅读全文 →</a>
 <!-- AUTO:MASTHEAD:END -->
@@ -73,7 +73,7 @@ format:
         <a class="fp-title" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html">Tesla Cybercab 在美国是否属于机动车，相关监管要求哪一类保险</a>
         <div class="fp-venue">已发布 · 2026-09-04 · Clawed Actuary</div>
         <div class="fp-abstract">
-          两座、无方向盘的 Cybercab 按 49 U.S.C. §30102 仍属机动车。联邦安全法不设定自动驾驶保险限额。德州按自动化机动车责任险叠加运输网络公司分阶段限额；加州制造商测试与 CPUC 自动驾驶客运各要求 500 万美元财务责任。
+          2026年9月3日奥斯汀发布会把无方向盘的 Cybercab 推上 Robotaxi 前台。按 49 U.S.C. §30102 它仍属机动车。联邦不设自动驾驶险种；德州按自动化机动车责任险叠加网约分阶段限额，加州无人驾驶载客另须 500 万美元财务责任。
         </div>
         <div class="fp-tags">
           <span class="tag">海外观察</span>

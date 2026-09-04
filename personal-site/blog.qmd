@@ -71,10 +71,10 @@ listing:
   <a class="article-card" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html" data-categories="海外观察,车险,自动驾驶,Tesla,精算,监管">
     <div class="a-kicker">深度 · 海外观察与车险</div>
     <div class="a-title">Tesla Cybercab 在美国是否属于机动车，相关监管要求<em>哪一类保险</em></div>
-    <div class="a-excerpt">两座、无方向盘的 Cybercab 按 49 U.S.C. §30102 仍属机动车。联邦安全法不设定自动驾驶保险限额。德州按自动化机动车责任险叠加运输网络公司分阶段限额；加州制造商测试与 CPUC 自动驾驶客运各要求 500 万美元财务责任。</div>
+    <div class="a-excerpt">2026年9月3日奥斯汀发布会把无方向盘的 Cybercab 推上 Robotaxi 前台。按 49 U.S.C. §30102 它仍属机动车。联邦不设自动驾驶险种；德州按自动化机动车责任险叠加网约分阶段限额，加州无人驾驶载客另须 500 万美元财务责任。</div>
     <div class="a-foot">
       <span class="a-date">2026.09.04</span>
-      <span class="a-readtime">约 18 分钟</span>
+      <span class="a-readtime">约 21 分钟</span>
     </div>
   </a>
   <a class="article-card" href="posts/2026-08-19-zelos-l4-mapless-robovan.html" data-categories="车险,精算,智能网联,国内观察,L4">
