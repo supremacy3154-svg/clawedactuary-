@@ -29,26 +29,26 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(23)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(19)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(18)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(13)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(24)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(20)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(19)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(14)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(10)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(7)</span></button>
     <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(4)</span></button>
+    <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="定价">定价 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="Tesla">Tesla <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="GLM">GLM <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="L4">L4 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="Tesla">Tesla <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="freMTPL2">freMTPL2 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="交强险">交强险 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="再保">再保 <span class="blog-category-count">(1)</span></button>
@@ -68,6 +68,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html" data-categories="海外观察,车险,自动驾驶,Tesla,精算,监管">
+    <div class="a-kicker">深度 · 海外观察与车险</div>
+    <div class="a-title">Tesla Cybercab 在美国是否属于机动车，相关监管要求<em>哪一类保险</em></div>
+    <div class="a-excerpt">两座、无方向盘的 Cybercab 按 49 U.S.C. §30102 仍属机动车。联邦安全法不设定自动驾驶保险限额。德州按自动化机动车责任险叠加运输网络公司分阶段限额；加州制造商测试与 CPUC 自动驾驶客运各要求 500 万美元财务责任。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.09.04</span>
+      <span class="a-readtime">约 18 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-08-19-zelos-l4-mapless-robovan.html" data-categories="车险,精算,智能网联,国内观察,L4">
     <div class="a-kicker">深度 · 无人物流与商用车险</div>
     <div class="a-title">九识 L4 无图物流车量产：部署周期缩短后的<em>核保变量、责任限额与聚合风险</em></div>

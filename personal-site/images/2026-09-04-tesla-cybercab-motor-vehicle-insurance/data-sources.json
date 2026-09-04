@@ -1,0 +1,207 @@
+{
+  "slug": "2026-09-04-tesla-cybercab-motor-vehicle-insurance",
+  "checked_at": "2026-09-04",
+  "checker_note": "分类看联邦安全法；保险看州财务责任与客运许可。德州 SB 2807 未写 500 万美元固定限额，与加州 VEH 38750 区分。",
+  "metrics": [
+    {
+      "id": "part555_annual_cap",
+      "label": "Part 555 临时豁免每 12 个月销售上限",
+      "value": "2500",
+      "unit": "辆",
+      "primary_source": {
+        "name": "49 CFR 555.6",
+        "url": "https://www.ecfr.gov/current/title-49/section-555.6",
+        "as_of": "2026-09-04"
+      },
+      "cross_checks": [
+        {
+          "name": "NHTSA interpretation GF005146",
+          "value": "2,500 in any 12-month period; no carry-forward",
+          "url": "https://www.nhtsa.gov/interpretations/gf005146",
+          "note": "非经济困难豁免适用该上限"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "fmvss_ads_fr",
+      "label": "ADS 乘员保护终规联邦公报页码",
+      "value": "18560",
+      "unit": "87 FR",
+      "primary_source": {
+        "name": "87 FR 18560, Occupant Protection for Vehicles With Automated Driving Systems",
+        "url": "https://www.govinfo.gov/content/pkg/FR-2022-03-30/html/2022-05426.htm",
+        "as_of": "2022-03-30"
+      },
+      "cross_checks": [
+        {
+          "name": "GAO major rule report B-334208",
+          "value": "effective 2022-09-26",
+          "url": "https://www.gao.gov/products/b-334208",
+          "note": "生效日与公报一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "ca_av_manufacturer_fr",
+      "label": "加州自动驾驶制造商测试财务责任",
+      "value": "5000000",
+      "unit": "USD",
+      "primary_source": {
+        "name": "California Vehicle Code §38750",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=VEH&sectionNum=38750",
+        "as_of": "2026-09-04"
+      },
+      "cross_checks": [
+        {
+          "name": "13 CCR §227.04",
+          "value": "$5,000,000 insurance, surety, or self-insurance",
+          "url": "https://www.law.cornell.edu/regulations/california/13-CCR-227.04",
+          "note": "与车辆法典金额一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "cpuc_av_plpd",
+      "label": "加州公用事业委员会自动驾驶客运 PL&PD",
+      "value": "5000000",
+      "unit": "USD",
+      "primary_source": {
+        "name": "CPUC AV Program Applications General Guidance, August 2024",
+        "url": "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/consumer-protection-and-enforcement-division/documents/tlab/av-programs/av-program-applications--general-guidance-august-2024.pdf",
+        "as_of": "2024-08"
+      },
+      "cross_checks": [
+        {
+          "name": "CPUC AV guidance 2021-10-26",
+          "value": "$5 million insurance policy for AV programs",
+          "url": "https://www.cpuc.ca.gov/-/media/cpuc-website/divisions/consumer-protection-and-enforcement-division/documents/tlab/av-programs/cpuc-av-program-applications-guidance-20211026.pdf",
+          "note": "高于 GO 115 普通包车限额"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "tx_tnc_prearranged_csl",
+      "label": "德州运输网络公司预约定程综合限额",
+      "value": "1000000",
+      "unit": "USD",
+      "primary_source": {
+        "name": "Texas Insurance Code §1954.053",
+        "url": "https://texas.public.law/statutes/tex._ins._code_section_1954.053",
+        "as_of": "2026-09-04"
+      },
+      "cross_checks": [
+        {
+          "name": "SB 2807 §1954.003",
+          "value": "automated motor vehicle treated as TNC driver for Subchapter B",
+          "url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB02807F.HTM",
+          "note": "自动化机动车适用同一分章"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "tx_tnc_waiting_bi_accident",
+      "label": "德州网约待单人身伤害每事故限额",
+      "value": "100000",
+      "unit": "USD",
+      "primary_source": {
+        "name": "Texas Insurance Code §1954.052",
+        "url": "https://texas.public.law/statutes/tex._ins._code_section_1954.052",
+        "as_of": "2026-09-04"
+      },
+      "cross_checks": [
+        {
+          "name": "Justia TX Ins Code §1954.052 (2025)",
+          "value": "$50,000 / $100,000 / $25,000",
+          "url": "https://law.justia.com/codes/texas/insurance-code/title-10/subtitle-c/chapter-1954/subchapter-b/section-1954-052/",
+          "note": "待单分项限额"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "tx_fr_bi_accident",
+      "label": "德州普通机动车财务责任人身伤害每事故下限",
+      "value": "60000",
+      "unit": "USD",
+      "primary_source": {
+        "name": "Texas Transportation Code §601.072",
+        "url": "https://law.justia.com/codes/texas/transportation-code/title-7/subtitle-d/chapter-601/subchapter-d/section-601-072/",
+        "as_of": "2025"
+      },
+      "cross_checks": [
+        {
+          "name": "Abraham Watkins 2026-01 explainer",
+          "value": "30/60/25 still in force",
+          "url": "https://abrahamwatkins.com/blog/2026/01/texas-car-insurance-liability-coverage-requirements/",
+          "note": "与法典 a-1 款一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "txmccs_cybercab_count",
+      "label": "TxMCCS 所列 Cybercab 台数",
+      "value": "45",
+      "unit": "辆",
+      "primary_source": {
+        "name": "TeslaNorth 2026-09-01",
+        "url": "https://teslanorth.com/2026/09/01/tesla-cybercab-texas-roster/",
+        "as_of": "2026-08-31"
+      },
+      "cross_checks": [
+        {
+          "name": "TeslaNorth 2026-09-02 / 09-03 pull",
+          "value": "45 Cybercab + 375 Model Y = 420",
+          "url": "https://teslanorth.com/2026/09/02/tesla-robotaxi-texas-420/",
+          "note": "授权清单，非实时派单"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "txmccs_total_authorized",
+      "label": "Tesla Robotaxi 德州授权合计",
+      "value": "420",
+      "unit": "辆",
+      "primary_source": {
+        "name": "TeslaNorth 2026-09-02",
+        "url": "https://teslanorth.com/2026/09/02/tesla-robotaxi-texas-420/",
+        "as_of": "2026-09-03"
+      },
+      "cross_checks": [
+        {
+          "name": "Teslarati earlier 7-unit snapshot",
+          "value": "7 Cybercab on first listing day",
+          "url": "https://www.teslarati.com/tesla-cybercab-fleet-grows-austin-ahead-launch-event/",
+          "note": "同日稍后升至 45，与 TeslaNorth 一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "ca_owner_fr_2025",
+      "label": "加州车主财务责任人身伤害每事故下限（2025 年起保单）",
+      "value": "60000",
+      "unit": "USD",
+      "primary_source": {
+        "name": "California Vehicle Code §16056",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=VEH&sectionNum=16056",
+        "as_of": "2025-01-01"
+      },
+      "cross_checks": [
+        {
+          "name": "Justia Cal. Veh. Code §16056 (2025)",
+          "value": "$30,000 / $60,000 / $15,000",
+          "url": "https://law.justia.com/codes/california/code-veh/division-7/chapter-1/article-3/section-16056/",
+          "note": "2025-01-01 起签发或续保保单"
+        }
+      ],
+      "status": "verified"
+    }
+  ]
+}

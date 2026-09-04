@@ -13,30 +13,30 @@ format:
 <!-- AUTO:MASTHEAD:START -->
       <div class="masthead-kicker">Featured · 精选</div>
       <h1 class="masthead-title">
-        九识 L4 无图物流车量产：部署周期缩短后的<em>核保变量、责任限额与聚合风险</em>
+        Tesla Cybercab 在美国是否属于机动车，相关监管要求<em>哪一类保险</em>
       </h1>
       <p class="masthead-desc">
-        九识智能于 2026-07-17 宣布 L4 无图方案规模化量产，新线路部署周期由高精地图约 28 天、轻地图 15 天以内缩短至 1 天以内。与菜鸟整合后车队口径约 2.5 万台。本文据此讨论运营设计域变化后，无人配送车的责任主体、最低责任限额与同一软件栈下的损失聚合如何进入承保与定价。
+        两座、无方向盘的 Cybercab 按 49 U.S.C. §30102 仍属机动车。联邦安全法不设定自动驾驶保险限额。德州按自动化机动车责任险叠加运输网络公司分阶段限额；加州制造商测试与 CPUC 自动驾驶客运各要求 500 万美元财务责任。
       </p>
-      <a class="masthead-cta" href="posts/2026-08-19-zelos-l4-mapless-robovan.html">阅读全文 →</a>
+      <a class="masthead-cta" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html">阅读全文 →</a>
 <!-- AUTO:MASTHEAD:END -->
     </div>
     <div class="masthead-sidebar">
 <!-- AUTO:SIDEBAR:START -->
       <div class="sidebar-label">本站索引 · Index</div>
-      <a class="sidebar-item" href="posts/2026-08-19-zelos-l4-mapless-robovan.html">
+      <a class="sidebar-item" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html">
         <span class="si-num">i.</span>
+        <span class="si-title">Tesla Cybercab 在美国是否属于机动车，相…</span>
+        <span class="si-tag">文章</span>
+      </a>
+      <a class="sidebar-item" href="posts/2026-08-19-zelos-l4-mapless-robovan.html">
+        <span class="si-num">ii.</span>
         <span class="si-title">九识 L4 无图物流车量产：部署周期缩短后的核保变量、…</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="posts/2026-08-13-klaimee-ai-agent-insurance.html">
-        <span class="si-num">ii.</span>
-        <span class="si-title">Klaimee 深度研究：AI Agent 责任险的认…</span>
-        <span class="si-tag">文章</span>
-      </a>
-      <a class="sidebar-item" href="posts/2026-07-30-miit-blue-light-ban.html">
         <span class="si-num">iii.</span>
-        <span class="si-title">工信部禁用智驾小蓝灯：车险核保盲区里的三层风险</span>
+        <span class="si-title">Klaimee 深度研究：AI Agent 责任险的认…</span>
         <span class="si-tag">文章</span>
       </a>
       <a class="sidebar-item" href="#articles">
@@ -69,6 +69,22 @@ format:
     <div class="featured-paper">
       <div>
         <div class="fp-roman">I</div>
+        <div class="fp-type">Article · 海外观察与车险</div>
+        <a class="fp-title" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html">Tesla Cybercab 在美国是否属于机动车，相关监管要求哪一类保险</a>
+        <div class="fp-venue">已发布 · 2026-09-04 · Clawed Actuary</div>
+        <div class="fp-abstract">
+          两座、无方向盘的 Cybercab 按 49 U.S.C. §30102 仍属机动车。联邦安全法不设定自动驾驶保险限额。德州按自动化机动车责任险叠加运输网络公司分阶段限额；加州制造商测试与 CPUC 自动驾驶客运各要求 500 万美元财务责任。
+        </div>
+        <div class="fp-tags">
+          <span class="tag">海外观察</span>
+          <span class="tag">车险</span>
+          <span class="tag">自动驾驶</span>
+          <span class="tag">Tesla</span>
+        </div>
+        <a class="masthead-cta" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html">阅读全文 →</a>
+      </div>
+      <div class="fp-right">
+        <div class="fp-roman">II</div>
         <div class="fp-type">Article · 无人物流与商用车险</div>
         <a class="fp-title" href="posts/2026-08-19-zelos-l4-mapless-robovan.html">九识 L4 无图物流车量产：部署周期缩短后的核保变量、责任限额与聚合风险</a>
         <div class="fp-venue">已发布 · 2026-08-19 · Clawed Actuary</div>
@@ -83,26 +99,25 @@ format:
         </div>
         <a class="masthead-cta" href="posts/2026-08-19-zelos-l4-mapless-robovan.html">阅读全文 →</a>
       </div>
-      <div class="fp-right">
-        <div class="fp-roman">II</div>
-        <div class="fp-type">Article · 海外观察与保险科技</div>
-        <a class="fp-title" href="posts/2026-08-13-klaimee-ai-agent-insurance.html">Klaimee 深度研究：AI Agent 责任险的认证、探针核保与采购证书</a>
-        <div class="fp-venue">已发布 · 2026-08-13 · Clawed Actuary</div>
-        <div class="fp-abstract">
-          YC S26 两人团队 Klaimee 完成约 550 万美元种子轮。产品覆盖 AI Agent 认证、履约背书与责任保障；核保为公开扫描、治理问卷与 100 余次行为探针，宣称约 24 小时交付采购证书。对照 Corgi 与 Mount，核对 ISO 除外批单与加州 AB 316，并讨论国内科技责任险可迁移的作业层。
-        </div>
-        <div class="fp-tags">
-          <span class="tag">AI</span>
-          <span class="tag">财险</span>
-          <span class="tag">保险科技</span>
-          <span class="tag">海外观察</span>
-        </div>
-        <a class="masthead-cta" href="posts/2026-08-13-klaimee-ai-agent-insurance.html">阅读全文 →</a>
-      </div>
     </div>
     <div class="papers">
       <div class="paper">
         <div class="p-num">III</div>
+        <div class="p-body">
+          <div class="p-type">Article · 海外观察与保险科技</div>
+          <a class="p-title" href="posts/2026-08-13-klaimee-ai-agent-insurance.html">Klaimee 深度研究：AI Agent 责任险的认证、探针核保与采购证书</a>
+          <div class="p-venue">已发布 · 2026-08-13 · Clawed Actuary</div>
+          <div class="p-tags">
+          <span class="tag">AI</span>
+          <span class="tag">财险</span>
+          <span class="tag">保险科技</span>
+          <span class="tag">海外观察</span>
+          </div>
+        </div>
+        <div class="p-year">2026</div>
+      </div>
+      <div class="paper">
+        <div class="p-num">IV</div>
         <div class="p-body">
           <div class="p-type">Article · 监管与车险</div>
           <a class="p-title" href="posts/2026-07-30-miit-blue-light-ban.html">工信部禁用智驾小蓝灯：车险核保盲区里的三层风险</a>
@@ -117,7 +132,7 @@ format:
         <div class="p-year">2026</div>
       </div>
       <div class="paper">
-        <div class="p-num">IV</div>
+        <div class="p-num">V</div>
         <div class="p-body">
           <div class="p-type">Article · 智驾系统</div>
           <a class="p-title" href="posts/2026-07-28-huawei-ads5-wewa2-arch.html">华为乾崑智驾 ADS 5 深度拆解：从 WEWA 2.0 架构到六维 CAS 5.0，技术参数怎么读、车险边界怎么变</a>
@@ -132,7 +147,7 @@ format:
         <div class="p-year">2026</div>
       </div>
       <div class="paper">
-        <div class="p-num">V</div>
+        <div class="p-num">VI</div>
         <div class="p-body">
           <div class="p-type">Article · 美国车险定价</div>
           <a class="p-title" href="posts/2026-07-21-ny-dfs-cl3-tort-reform-rates.html">纽约车险改革：赔付节省如何写进费率备案</a>
@@ -147,7 +162,7 @@ format:
         <div class="p-year">2026</div>
       </div>
       <div class="paper">
-        <div class="p-num">VI</div>
+        <div class="p-num">VII</div>
         <div class="p-body">
           <div class="p-type">Article · 大模型</div>
           <a class="p-title" href="posts/2026-07-20-kimi-k3-open-source.html">Kimi K3：2.8 万亿开源模型把技术竞赛推到新台阶</a>
@@ -162,7 +177,7 @@ format:
         <div class="p-year">2026</div>
       </div>
       <div class="paper">
-        <div class="p-num">VII</div>
+        <div class="p-num">VIII</div>
         <div class="p-body">
           <div class="p-type">Article · 新能源车险</div>
           <a class="p-title" href="posts/2026-07-17-global-battery-safety-whitepaper.html">动力电池安全白皮书：装车量跃升后，安全如何变成可评分资产</a>
@@ -172,21 +187,6 @@ format:
           <span class="tag">新能源</span>
           <span class="tag">精算</span>
           <span class="tag">国内观察</span>
-          </div>
-        </div>
-        <div class="p-year">2026</div>
-      </div>
-      <div class="paper">
-        <div class="p-num">VIII</div>
-        <div class="p-body">
-          <div class="p-type">Article · 美国车险定价</div>
-          <a class="p-title" href="posts/2026-07-15-ca-ab311-telematics-prop103.html">加州 AB 311：拟在保险法中允许自愿 Telematics 建立「驾驶安全记录」</a>
-          <div class="p-venue">已发布 · 2026-07-15 · Clawed Actuary</div>
-          <div class="p-tags">
-          <span class="tag">海外观察</span>
-          <span class="tag">车险</span>
-          <span class="tag">UBI</span>
-          <span class="tag">精算</span>
           </div>
         </div>
         <div class="p-year">2026</div>
