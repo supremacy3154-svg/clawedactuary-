@@ -159,6 +159,12 @@
           "value": "45 Cybercab + 375 Model Y = 420",
           "url": "https://teslanorth.com/2026/09/02/tesla-robotaxi-texas-420/",
           "note": "授权清单，非实时派单"
+        },
+        {
+          "name": "CNBC 2026-09-03",
+          "value": "45 Cybercab authorized; 420 Texas robotaxi total as of Wednesday night",
+          "url": "https://www.cnbc.com/2026/09/03/tesla-teases-no-steering-wheel-no-pedals-ahead-of-cybercab-update.html",
+          "note": "发布会当日英文报道，与 TxMCCS 转述一致"
         }
       ],
       "status": "verified"
