@@ -3,21 +3,44 @@
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import smtplib
 import ssl
+import subprocess
 import sys
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 
-from smtp_config import FROM_ADDR, PASSWORD, SMTP_HOST, SMTP_PORT, USERNAME
+
+def load_smtp() -> tuple[str, int, str, str, str]:
+    host = os.environ.get("SMTP_HOST", "").strip()
+    if host:
+        port = int(os.environ.get("SMTP_PORT", "465"))
+        user = os.environ.get("SMTP_USERNAME", "").strip()
+        password = os.environ.get("SMTP_PASSWORD", "")
+        from_addr = os.environ.get("SMTP_FROM", user).strip()
+        if not user or not password:
+            raise RuntimeError("SMTP_HOST 已设置，但缺少 SMTP_USERNAME / SMTP_PASSWORD")
+        return host, port, user, password, from_addr
+    try:
+        from smtp_config import FROM_ADDR, PASSWORD, SMTP_HOST, SMTP_PORT, USERNAME
+    except ImportError as exc:
+        raise RuntimeError(
+            "未找到 SMTP 配置。请设置环境变量 SMTP_HOST/SMTP_PORT/SMTP_USERNAME/"
+            "SMTP_PASSWORD/SMTP_FROM，或提供 gitignored 的 tools/smtp_config.py"
+        ) from exc
+    return SMTP_HOST, int(SMTP_PORT), USERNAME, PASSWORD, FROM_ADDR
+
+
+SMTP_HOST, SMTP_PORT, USERNAME, PASSWORD, FROM_ADDR = load_smtp()
 
 BASE = Path(__file__).resolve().parents[1]
 SITE_HTML = BASE / "personal-site" / "_site" / "posts"
 SITE_URL = "https://clawedactuary.com.cn"
-DEFAULT_TO = "yanghailin508@pingan.com.cn"
+DEFAULT_TO = os.environ.get("PERSONAL_EMAIL_TO", "yanghailin508@pingan.com.cn")
 
 EMAIL_CSS = """
 body { font-family: "PingFang SC", "Microsoft YaHei", "STHeiti", sans-serif;
@@ -245,8 +268,12 @@ def main() -> int:
 
     html_path = SITE_HTML / f"{args.slug}.html"
     if not html_path.exists():
-        print(f"✗ 未找到站点 HTML，请先 quarto render: {html_path}", file=sys.stderr)
-        return 1
+        render = BASE / "tools" / "render_post_html.py"
+        if render.exists():
+            subprocess.run([sys.executable, str(render), args.slug], check=False)
+        if not html_path.exists():
+            print(f"✗ 未找到站点 HTML，请先 quarto render 或 render_post_html.py: {html_path}", file=sys.stderr)
+            return 1
 
     raw = strip_scripts(html_path.read_text(encoding="utf-8"))
     inner = extract_post_article(raw)

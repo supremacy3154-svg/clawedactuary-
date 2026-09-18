@@ -42,8 +42,10 @@
     "avoid_sequel_to_recent_posts": true,
     "recent_post_window_days": 14,
     "rotate_pillars": true,
-    "ai_not_default": true,
-    "instructions": "优先当日 news / topic_suggestions。覆盖美国财险新定价方法、产品创新、经营模式、承保盈利与巨灾资本等；AI 仅为 pillar 之一，勿连续扎堆 AI/InsurTech 题。勿机械续写已有文章；队列 pending 仅作备选。"
+    "ai_not_default": false,
+    "prefer_heat": true,
+    "auto_write_top_pick": true,
+    "instructions": "全自动：每日只写优先级最高的一篇，写完核对后直接 push main，不必等用户确认选题或「发布」。优先级=当日热度×保险/精算可写性×一手英文或监管原文。前沿大模型发布（如 GPT-6 Astra）若正在热议且能落到保险作业、核保、理赔、责任或资本，视为高优先级，不得因为「AI 不是默认 pillar」而跳过。14 天内已写过的同一主体不续写。队列 backlog 仅在当日无更热新题时使用。"
   },
   "topic_scope": {
     "summary": "美国/国际财险行业的定价创新、费率备案、产品形态、渠道与经营突破、承保盈利与资本——持续跟踪分析；不限于 AI。",
@@ -298,6 +300,13 @@
       "notes": "carrier_watch 举例 · 主机厂车险"
     },
     {
+      "id": "gpt-6-astra-insurance",
+      "title": "GPT-6 Astra：计算机操作评测领先，保险作业先核对权限与成本",
+      "status": "published",
+      "pillar": "AI 核保理赔与精算自动化",
+      "notes": "2026-09-18 发布。slug=2026-09-18-gpt-6-astra-insurance"
+    },
+    {
       "id": "zelos-l4-mapless-robovan",
       "title": "九识 L4 无图物流车量产：部署周期缩短后的核保变量、责任限额与聚合风险",
       "status": "published",
@@ -308,9 +317,15 @@
   "publish": {
     "author": "龙虾精算师",
     "draft_by_default": false,
-    "auto_git_push": false,
-    "require_approval": true,
-    "approval_command": "bash scripts/approve_daily_publish.sh",
+    "auto_git_push": true,
+    "require_approval": false,
+    "push_branch": "main",
+    "personal_email": {
+      "enabled": true,
+      "to": "yanghailin508@pingan.com.cn",
+      "subject_prefix": "",
+      "command": "python3 tools/send_site_article_email.py <slug>"
+    },
     "notify_subscribers": true
   }
 }

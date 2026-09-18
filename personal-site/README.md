@@ -29,6 +29,8 @@ quarto render
 
 push 到 `main` 后由 Cloudflare 自动构建（含订阅邮件通知）。
 
+工作日 **09:30（上海时区）** GitHub Actions `daily-article.yml` 会拉起 Cloud Agent：自动选当日最热的一篇、写完核对后 push `main`，并发送平安邮箱。需在仓库 Secrets 配置 `CURSOR_API_KEY`；发信还需 `SMTP_HOST` / `SMTP_PORT` / `SMTP_USERNAME` / `SMTP_PASSWORD` / `SMTP_FROM`。提示词见 `personal-site/workflows/daily-auto-publish-prompt.md`。
+
 ### GitHub Actions
 
 [personal-site-pages.yml](../.github/workflows/personal-site-pages.yml) 仅做 **Quarto 构建校验**（CI），不部署 GitHub Pages。

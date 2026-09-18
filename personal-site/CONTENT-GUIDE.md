@@ -74,9 +74,10 @@
 
 | 环节 | 规则 |
 |------|------|
-| **写稿前** | **选题须用户确认后再动笔**；早间 `brief` 只产出候选题，Agent **不得**未经确认直接写全文 |
-| **push 前** | `publish.require_approval: true`；用户明确说「发布」后再 `git push` |
-| **本地预览** | Quarto 在 `draft: true` 时渲染**空 HTML**；待审稿预览须 `draft: false` + `quarto render` |
+| **写稿前** | 每日定时任务自动选出优先级最高的一篇并直接写全文；`python3 scripts/daily_research.py pick`。用户打断时再停。 |
+| **push 前** | `publish.auto_git_push: true`。`publish-check` 与 `quality-check <slug>` 通过后 **`git push origin main`**，不必等「发布」。 |
+| **个人邮件** | push 之后立刻 `python3 tools/send_site_article_email.py <slug>`，默认发到 `yanghailin508@pingan.com.cn`。 |
+| **本地预览** | Quarto 在 `draft: true` 时渲染**空 HTML**；待发稿须 `draft: false` + `quarto render` 或 `tools/render_post_html.py` |
 
 ### 用语
 
@@ -107,8 +108,10 @@
 
 - `tools/send_site_article_email.py` 发送的 HTML：**不含**「龙虾精算师为个人笔名」及文责/不构成建议/延伸阅读等文末声明；**公网正文**保留完整声明
 - 公网 push 后：
-  1. **`git push origin main`** — Production 分支；Cloudflare 构建会自动跑 `notify_subscribers.py`（`BUTTONDOWN_API_KEY` 在 CF 环境变量，**不在**本机 `.env`）
-  2. `python3 tools/send_site_article_email.py <slug>` — 个人 HTML 邮件（本机 SMTP，与 Buttondown 独立）
+  1. **`git push origin main`** — Production 分支；Cloudflare 构建会自动跑 `notify_subscribers.py`
+  2. `python3 tools/send_site_article_email.py <slug>` — 平安邮箱 HTML（SMTP 环境变量或 `tools/smtp_config.py`）
+
+全自动日更时这两步由 Agent 连续执行，不再等待口头「发布」。
 
 ---
 
@@ -167,12 +170,15 @@ python3 scripts/export_opinion_charts.py huawei_qiankun   # 在脚本 DATASETS �
 
 ```bash
 cd personal-site
+python3 scripts/daily_research.py pick
 python3 scripts/sync_posts.py
-quarto render
-python3 scripts/review_article.py <slug>             # 可选
+quarto render   # 或仓库根目录 python3 tools/render_post_html.py <slug>
+python3 scripts/daily_research.py quality-check <slug>
 python3 scripts/daily_research.py publish-check
+git add personal-site/posts personal-site/images personal-site/index.qmd personal-site/blog.qmd personal-site/workflows
+git commit -m "post: <标题摘要>"
 git push origin main                                  # CF 构建 → Buttondown 自动推送
-python3 tools/send_site_article_email.py <slug>       # 个人邮件（仓库根目录）
+python3 tools/send_site_article_email.py <slug>       # 平安邮箱 HTML
 python3 scripts/daily_research.py mark-published <slug>
 ```
 

@@ -5,6 +5,8 @@ Usage:
   python3 scripts/daily_research.py brief          # 今日研究简报（新闻 + 队列）
   python3 scripts/daily_research.py queue         # 列出话题队列
   python3 scripts/daily_research.py next          # 下一个待写话题
+  python3 scripts/daily_research.py pick           # 今日最高优先级选题（全自动）
+  python3 scripts/daily_research.py quality-check SLUG
   python3 scripts/daily_research.py publish-check # 发布前检查
   python3 scripts/daily_research.py mark-published SLUG [topic_id]
 """
@@ -107,9 +109,8 @@ def cmd_brief() -> int:
         "agent_prompt": (
             "读取本简报、skills/daily-research-publish/SKILL.md、"
             "personal-site/article-writing-prompt.md。"
-            "今日写 1–2 篇深度稿：优先 in_progress，再取 pending；"
-            "结合 news 热点与 data_sources；风格对齐现有 posts/*.qmd；"
-            "完成后 sync_posts.py + quarto render + publish-check。"
+            "运行 python3 scripts/daily_research.py pick，写优先级最高的一篇；"
+            "核对通过后 git push origin main，并发送平安邮箱。"
         ),
     }
 
@@ -212,6 +213,126 @@ def cmd_mark_published(slug: str, topic_id: str | None = None) -> int:
     return 0
 
 
+def _post_meta(path: Path) -> dict:
+    raw = path.read_text(encoding="utf-8")
+    meta: dict = {"path": str(path), "slug": path.stem, "title": path.stem, "date": None}
+    if raw.startswith("---"):
+        block = raw.split("---", 2)[1]
+        tm = re.search(r"^title:\s*[\"']?(.+?)[\"']?\s*$", block, re.M)
+        dm = re.search(r"^date:\s*([0-9-]+)", block, re.M)
+        if tm:
+            meta["title"] = tm.group(1).strip().strip('"').strip("'")
+        if dm:
+            try:
+                meta["date"] = date.fromisoformat(dm.group(1))
+            except ValueError:
+                pass
+    return meta
+
+
+def cmd_pick() -> int:
+    cfg = load_config()
+    today = date.fromisoformat(today_str())
+    window = int(cfg.get("topic_selection", {}).get("recent_post_window_days", 14))
+    posts = [_post_meta(p) for p in POSTS_DIR.glob("*.qmd") if not p.name.startswith("_")]
+    today_posts = [p for p in posts if p.get("date") == today]
+    if today_posts:
+        out = {
+            "skip": True,
+            "reason": f"今日已有正式稿 {today_posts[0]['slug']}，不再加写",
+            "pick": None,
+        }
+        print(json.dumps(out, ensure_ascii=False, indent=2))
+        return 0
+
+    recent_titles = [
+        p["title"]
+        for p in posts
+        if p.get("date") and (today - p["date"]).days <= window
+    ]
+    queries = cfg.get("news_queries", [])
+    news = fetch_news(queries if isinstance(queries, list) else [])
+    queue = [t for t in cfg.get("topic_queue", []) if isinstance(t, dict)]
+    live = [t for t in queue if t.get("status") in {"in_progress", "pending"}]
+    backlog = [t for t in queue if t.get("status") == "backlog"]
+
+    pick = None
+    source = "news"
+    if news:
+        pick = {
+            "title": news[0].get("title") or "当日热点",
+            "url": news[0].get("url", ""),
+            "snippet": news[0].get("snippet", ""),
+            "angle": "结合保险/精算作业层改写成站点中文稿；热度优先",
+        }
+    elif live:
+        source = "queue"
+        pick = {k: live[0].get(k) for k in ("id", "title", "pillar", "notes")}
+    elif backlog:
+        source = "backlog"
+        pick = {k: backlog[0].get(k) for k in ("id", "title", "pillar", "notes")}
+
+    out = {
+        "skip": pick is None,
+        "reason": "按热度优先选出一篇" if pick else "简报无新闻且队列为空，请用英文源自行检索后写一篇",
+        "source": source,
+        "recent_titles": recent_titles[:12],
+        "news_count": len(news),
+        "pick": pick,
+        "rules": cfg.get("topic_selection", {}).get("instructions", ""),
+    }
+    print(json.dumps(out, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_quality_check(slug: str) -> int:
+    cfg = load_config()
+    content = cfg.get("content", {})
+    min_fig = int(content.get("min_figures", 2))
+    min_tbl = int(content.get("min_data_tables", 2))
+    min_num = int(content.get("min_sourced_numbers", 5))
+    path = POSTS_DIR / f"{slug}.qmd"
+    if not path.exists():
+        path = POSTS_DIR / slug
+    if not path.exists():
+        print(f"✗ 找不到稿件: {slug}", file=sys.stderr)
+        return 1
+    raw = path.read_text(encoding="utf-8")
+    errors: list[str] = []
+    if re.search(r"不是.{0,12}而是", raw) or re.search(r"并非.{0,12}而是", raw):
+        errors.append("含禁用句式「不是/并非…而是…」")
+    body = raw.split("---", 2)[-1] if raw.startswith("---") else raw
+    if "平安" in body:
+        errors.append("正文出现「平安」，主观段落禁止点名国内险企")
+    n_img = len(re.findall(r"!\[[^\]]*\]\([^)]+\)", raw))
+    n_tables = len(re.findall(r"^\|[-: |]+\|$", raw, re.M))
+    n_num = len(re.findall(r"\*\*[0-9][0-9.,%万亿美美元]*\*\*", raw))
+    if n_img < min_fig:
+        errors.append(f"配图 {n_img} < min_figures {min_fig}")
+    if n_tables < min_tbl:
+        errors.append(f"表格 {n_tables} < min_data_tables {min_tbl}")
+    if n_num < min_num:
+        errors.append(f"加粗数字 {n_num} < min_sourced_numbers {min_num}")
+    img_dir = SITE_DIR / "images" / path.stem
+    pngs = list(img_dir.glob("*.png")) if img_dir.exists() else []
+    if len(pngs) < min_fig:
+        errors.append(f"images/{path.stem} 下 PNG {len(pngs)} < {min_fig}")
+    src = img_dir / "data-sources.json"
+    if content.get("require_data_cross_check") and not src.exists():
+        errors.append(f"缺少 {src.relative_to(SITE_DIR)}")
+    yaml_block = raw.split("---", 2)[1] if raw.startswith("---") else ""
+    if "draft: true" in yaml_block:
+        errors.append("仍为 draft: true")
+    if errors:
+        print("❌ quality-check 未通过:", file=sys.stderr)
+        for e in errors:
+            print(f"  - {e}", file=sys.stderr)
+        print(f"  (images={n_img}, tables={n_tables}, bold_nums={n_num})")
+        return 1
+    print(f"✓ quality-check 通过: {path.name} 图{n_img} 表{n_tables} 加粗数字{n_num}")
+    return 0
+
+
 def main() -> int:
     if len(sys.argv) < 2:
         print(__doc__)
@@ -223,6 +344,13 @@ def main() -> int:
         return cmd_queue()
     if cmd == "next":
         return cmd_next()
+    if cmd == "pick":
+        return cmd_pick()
+    if cmd == "quality-check":
+        if len(sys.argv) < 3:
+            print("用法: quality-check SLUG", file=sys.stderr)
+            return 1
+        return cmd_quality_check(sys.argv[2])
     if cmd == "publish-check":
         return cmd_publish_check()
     if cmd == "mark-published":
