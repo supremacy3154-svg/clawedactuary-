@@ -29,15 +29,15 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(24)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(20)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(25)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(21)</span></button>
     <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(19)</span></button>
-    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(14)</span></button>
+    <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(15)</span></button>
     <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(10)</span></button>
-    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(7)</span></button>
-    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(8)</span></button>
+    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(8)</span></button>
+    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(7)</span></button>
     <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(6)</span></button>
-    <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(5)</span></button>
     <button type="button" class="blog-category" data-category="UBI">UBI <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="保险科技">保险科技 <span class="blog-category-count">(3)</span></button>
@@ -68,6 +68,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-09-18-naic-ai-risk-evaluation-supplement.html" data-categories="AI,监管,海外观察,精算,财险">
+    <div class="a-kicker">深度 · 海外监管与 AI</div>
+    <div class="a-title">美国各州如何检查保险公司的 <em>AI</em>：四张附表、12 州试点与精算材料</div>
+    <div class="a-excerpt">全美保险监督官协会把检查问卷更名为 AI 风险评价补充件。第五版征求意见截止 2026 年 9 月 29 日；12 州试点做到 9 月；秋季年会拟议采纳。问卷附在现有检查程序上，先清点模型再决定是否深查。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.09.18</span>
+      <span class="a-readtime">约 15 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-09-04-tesla-cybercab-motor-vehicle-insurance.html" data-categories="海外观察,车险,自动驾驶,Tesla,精算,监管">
     <div class="a-kicker">深度 · 海外观察与车险</div>
     <div class="a-title">Tesla Cybercab 在美国是否属于机动车，相关监管要求<em>哪一类保险</em></div>
