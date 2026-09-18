@@ -44,7 +44,16 @@ WEB = dict(fig_w=7.2, fig_h=4.0, dpi=160)
 def setup_plt() -> None:
     os.environ.setdefault("MPLCONFIGDIR", str(SITE_DIR.parent / ".mplconfig"))
     plt.rcParams.update({
-        "font.sans-serif": ["PingFang SC", "Heiti SC", "STHeiti", "Arial Unicode MS"],
+        "font.sans-serif": [
+            "PingFang SC",
+            "Heiti SC",
+            "STHeiti",
+            "WenQuanYi Micro Hei",
+            "WenQuanYi Zen Hei",
+            "Noto Sans CJK SC",
+            "Droid Sans Fallback",
+            "Arial Unicode MS",
+        ],
         "axes.unicode_minus": False,
     })
 

@@ -1,0 +1,19 @@
+{
+  "charts": [
+    {
+      "id": "automation-bench",
+      "type": "bar",
+      "title": "AutomationBench 专业自动化得分对照",
+      "labels": [
+        "GPT-6 Astra",
+        "Fable 5.1",
+        "Opus 5",
+        "GPT-5.6 Sol",
+        "Fable 5"
+      ],
+      "values": [41.4, 31.4, 26.9, 18.1, 17.4],
+      "ylabel": "得分（%）",
+      "source": "OpenAI GPT-6 Astra 发布页，2026-09-03"
+    }
+  ]
+}

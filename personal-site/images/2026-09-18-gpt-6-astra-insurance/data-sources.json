@@ -1,0 +1,71 @@
+{
+  "slug": "2026-09-18-gpt-6-astra-insurance",
+  "title": "GPT-6 Astra：计算机操作评测领先，保险作业先核对权限与成本",
+  "checked_at": "2026-09-18",
+  "sources": [
+    {
+      "id": "openai-astra",
+      "title": "GPT-6 Astra: A new generation of intelligence",
+      "url": "https://openai.com/index/gpt-6-astra/",
+      "used_for": [
+        "launch 2026-09-03",
+        "computer use examples: forms, CRM, email, docs",
+        "Agents Last Exam 59.3 / Opus 5 55.5 / Sol 53.6 / Fable 5 48.7",
+        "OSWorld 2.0 72.6% ~40 min vs Sol 65.7% ~75 min",
+        "AutomationBench 41.4 / Fable 5.1 31.4 / Opus 5 26.9 / Sol 18.1 / Fable 5 17.4",
+        "Terminal-Bench 4.0 57.9 / Sol 37.3 / Fable 5.1 55.8",
+        "Terminal-Bench Science 64.6 / Fable 5.1 52.6 / Sol 22.4",
+        "AA Intelligence Index 61.2 vs Fable 5.1 65.7",
+        "unauthorized scope 0% vs Sol 48%",
+        "ExploitBench 100 vs Sol 78.5",
+        "internal computer-use safety 2.4% vs Sol 22.0%",
+        "API $10/$50, Fast 2x, Enterprise off by default",
+        "Preparedness Framework Critical cybersecurity",
+        "Harvey quote",
+        "monitorability decline vs Sol"
+      ]
+    },
+    {
+      "id": "openai-safety",
+      "title": "Safety overview: GPT-6 Astra",
+      "url": "https://openai.com/index/safety-overview-gpt-6-astra/",
+      "used_for": [
+        "first model at Critical cybersecurity under Preparedness Framework",
+        "date September 3, 2026",
+        "misalignment monitoring on tool-using inference",
+        "prompt injection robustness vs Sol"
+      ]
+    },
+    {
+      "id": "azure-foundry",
+      "title": "GPT-6 Astra generally available in Microsoft Foundry",
+      "url": "https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-generally-available-in-microsoft-foundry/",
+      "used_for": [
+        "Foundry GA 2026-09-03",
+        "Standard Global short $10 / $1 cache / $12.50 cache write / $50 out",
+        "long context $20 / $2 / $25 / $75",
+        "US Data Zone 10% premium",
+        "computer use across apps without dedicated APIs",
+        "prompts and outputs not used to train"
+      ]
+    },
+    {
+      "id": "openai-legora",
+      "title": "Legora reviews 41 documents in minutes with GPT-6 Astra",
+      "url": "https://openai.com/zh-Hans-CN/index/legora-financial-statement-review-with-astra/",
+      "used_for": [
+        "41 documents one run",
+        "4 of 4 planted errors including GBP 500,000 revenue note",
+        "~40% better on that workflow vs prior model",
+        "~3% average across BAR",
+        "~50 additional checks",
+        "final judgment remains with legal professionals"
+      ]
+    }
+  ],
+  "notes": [
+    "OpenAI did not publish insurance-book or policy-wording evaluations. Insurance mapping is the author's operational analogy from disclosed computer-use tasks.",
+    "Benchmark scores are OpenAI-reported maxima across effort settings; research/API harnesses may differ from ChatGPT production.",
+    "Long-context token cutoff is stated on Azure as short vs long context rates; OpenAI public launch page gives Standard $10/$50 without the cutoff token count."
+  ]
+}
