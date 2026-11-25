@@ -25,9 +25,14 @@ quarto render
 touch _site/.nojekyll
 
 echo "→ 新文章邮件通知（需 BUTTONDOWN_API_KEY）"
-python3 "${SITE_DIR}/scripts/notify_subscribers.py"
+# 发信失败不得阻断 Pages 静态部署，否则正式站会停在上一篇
+if ! python3 "${SITE_DIR}/scripts/notify_subscribers.py"; then
+  echo "⚠ notify_subscribers failed — continuing deploy" >&2
+fi
 
 echo "→ 回写 notify-state（需 GITHUB_TOKEN）"
-bash "${SITE_DIR}/scripts/push_notify_state.sh"
+if ! bash "${SITE_DIR}/scripts/push_notify_state.sh"; then
+  echo "⚠ push_notify_state failed — continuing deploy" >&2
+fi
 
 echo "✓ 产物: ${SITE_DIR}/_site"
