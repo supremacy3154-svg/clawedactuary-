@@ -1,0 +1,107 @@
+{
+  "slug": "2026-11-25-icv-nev-model-clause",
+  "checked_at": "2026-11-25",
+  "checker_note": "示范条款全文尚未在公开渠道全文发布；条款字段与保障预期以北京商报等公开报道中的行业解读为限，文中已分层标注。件数与保费为媒体引业内数据，非作者直接取自行业协会公开统计公报。",
+  "metrics": [
+    {
+      "id": "nev_policy_count_q1q3_2026",
+      "label": "2026年前三季度新能源商业车险签单件数",
+      "value": "3472.05",
+      "unit": "万件",
+      "primary_source": {
+        "name": "北京商报 / 首都之窗转载",
+        "url": "https://www.beijing.gov.cn/fuwu/lqfw/gggs/202611/t20261118_4950257.html",
+        "as_of": "2026-11-18"
+      },
+      "cross_checks": [
+        {
+          "name": "中国经济网转载中国金融新闻网中保协会议报道",
+          "value": "确认条款过审事实",
+          "url": "http://finance.ce.cn/insurance1/scrollnews/202611/t20261117_3297433.shtml",
+          "note": "未复述件数，仅交叉确认会议与条款名称"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "nev_premium_q1q3_2026",
+      "label": "2026年前三季度新能源商业车险签单保费",
+      "value": "1290.15",
+      "unit": "亿元",
+      "primary_source": {
+        "name": "北京商报 / 首都之窗转载",
+        "url": "https://www.beijing.gov.cn/fuwu/lqfw/gggs/202611/t20261118_4950257.html",
+        "as_of": "2026-11-18"
+      },
+      "cross_checks": [
+        {
+          "name": "件数同比 27.02% 与保费同比 18.6%",
+          "value": "同文并列披露",
+          "url": "https://www.beijing.gov.cn/fuwu/lqfw/gggs/202611/t20261118_4950257.html",
+          "note": "件数增速快于保费，增速差 8.42 个百分点为作者计算"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "nev_uw_loss_2025",
+      "label": "2025年新能源车险行业承保亏损",
+      "value": "56",
+      "unit": "亿元",
+      "primary_source": {
+        "name": "北京商报 / 首都之窗转载",
+        "url": "https://www.beijing.gov.cn/fuwu/lqfw/gggs/202611/t20261118_4950257.html",
+        "as_of": "2026-11-18"
+      },
+      "cross_checks": [
+        {
+          "name": "新华网财经观察 引中国精算师协会",
+          "value": "56亿元",
+          "url": "https://www.news.cn/20260604/941ef557fdd242b6a58715d1a3a26a94/c.html",
+          "note": "2026-06-04 报道口径一致"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "product_dev_rule_effective",
+      "label": "《财产保险公司保险产品开发管理规定》施行日",
+      "value": "2026-11-01",
+      "unit": "",
+      "primary_source": {
+        "name": "金规〔2026〕9号 第四十一条",
+        "url": "https://jrj.sh.gov.cn/YWTBZCCX166/20261010/4bcde71503ad48af83daeb9b8bd8be9c.html",
+        "as_of": "2026-09-30"
+      },
+      "cross_checks": [
+        {
+          "name": "金融监管总局答记者问 / 第三十条转述",
+          "value": "有示范条款原则上应当使用",
+          "url": "https://jrj.wuhan.gov.cn/ynzx_57/xwzx/202610/t20261010_2858596.shtml",
+          "note": "未使用须在可行性报告或精算报告说明差异及原因"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "iac_council_meeting",
+      "label": "中保协第六届常务理事会第六次会议日期",
+      "value": "2026-11-11至13",
+      "unit": "",
+      "primary_source": {
+        "name": "中国经济网转载中国金融新闻网",
+        "url": "http://finance.ce.cn/insurance1/scrollnews/202611/t20261117_3297433.shtml",
+        "as_of": "2026-11-17"
+      },
+      "cross_checks": [
+        {
+          "name": "北京商报",
+          "value": "审议通过智能网联新能源示范条款",
+          "url": "https://www.beijing.gov.cn/fuwu/lqfw/gggs/202611/t20261118_4950257.html",
+          "note": "条款全称含「试点地区」"
+        }
+      ],
+      "status": "verified"
+    }
+  ]
+}

@@ -29,13 +29,13 @@ listing:
 <div class="blog-category-bar" role="navigation" aria-label="文章分类">
   <span class="blog-category-label">分类</span>
   <div class="blog-categories">
-    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(25)</span></button>
-    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(21)</span></button>
-    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(19)</span></button>
+    <button type="button" class="blog-category active" data-category="">全部 <span class="blog-category-count">(26)</span></button>
+    <button type="button" class="blog-category" data-category="精算">精算 <span class="blog-category-count">(22)</span></button>
+    <button type="button" class="blog-category" data-category="车险">车险 <span class="blog-category-count">(20)</span></button>
     <button type="button" class="blog-category" data-category="海外观察">海外观察 <span class="blog-category-count">(15)</span></button>
-    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(10)</span></button>
+    <button type="button" class="blog-category" data-category="智能网联">智能网联 <span class="blog-category-count">(11)</span></button>
     <button type="button" class="blog-category" data-category="AI">AI <span class="blog-category-count">(8)</span></button>
-    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(7)</span></button>
+    <button type="button" class="blog-category" data-category="监管">监管 <span class="blog-category-count">(8)</span></button>
     <button type="button" class="blog-category" data-category="国内观察">国内观察 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="财险">财险 <span class="blog-category-count">(6)</span></button>
     <button type="button" class="blog-category" data-category="自动驾驶">自动驾驶 <span class="blog-category-count">(5)</span></button>
@@ -45,6 +45,7 @@ listing:
     <button type="button" class="blog-category" data-category="舆情">舆情 <span class="blog-category-count">(3)</span></button>
     <button type="button" class="blog-category" data-category="L3">L3 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="Tesla">Tesla <span class="blog-category-count">(2)</span></button>
+    <button type="button" class="blog-category" data-category="新能源">新能源 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="智驾兜底">智驾兜底 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="科技">科技 <span class="blog-category-count">(2)</span></button>
     <button type="button" class="blog-category" data-category="营销">营销 <span class="blog-category-count">(2)</span></button>
@@ -58,7 +59,6 @@ listing:
     <button type="button" class="blog-category" data-category="引望">引望 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="承保盈利">承保盈利 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="数据要素">数据要素 <span class="blog-category-count">(1)</span></button>
-    <button type="button" class="blog-category" data-category="新能源">新能源 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="比亚迪">比亚迪 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="理赔">理赔 <span class="blog-category-count">(1)</span></button>
     <button type="button" class="blog-category" data-category="网络安全">网络安全 <span class="blog-category-count">(1)</span></button>
@@ -68,6 +68,15 @@ listing:
   </div>
 </div>
 <div class="articles-grid" id="articles-grid">
+  <a class="article-card" href="posts/2026-11-25-icv-nev-model-clause.html" data-categories="智能网联,车险,新能源,监管,精算">
+    <div class="a-kicker">深度 · 智能网联与车险</div>
+    <div class="a-title">智能网联新能源车险示范条款过审：试点上线前先核对<em>责任、追偿与定价因子</em></div>
+    <div class="a-excerpt">中保协 2026-11-11 至 13 日审议通过《智能网联新能源汽车商业保险示范条款（试点地区）》。叠加 11 月 1 日起施行的产品开发管理规定，示范条款进入「原则上应当使用」轨道。文章核对件数与保费增速、条款落地链，以及责任、追偿、定价因子三处精算接口。</div>
+    <div class="a-foot">
+      <span class="a-date">2026.11.25</span>
+      <span class="a-readtime">约 14 分钟</span>
+    </div>
+  </a>
   <a class="article-card" href="posts/2026-09-18-gpt-6-astra-insurance.html" data-categories="AI,科技,海外观察,保险科技,精算">
     <div class="a-kicker">产业观察 · 大模型与保险作业</div>
     <div class="a-title">GPT-6 Astra：计算机操作评测领先，保险作业先核对<em>权限与成本</em></div>
