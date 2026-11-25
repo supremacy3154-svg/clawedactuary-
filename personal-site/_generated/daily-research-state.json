@@ -1,6 +1,6 @@
 {
   "published_today": [
-    "2026-08-13-klaimee-ai-agent-insurance"
+    "2026-11-25-icv-nev-model-clause"
   ],
   "history": [
     {
@@ -82,9 +82,14 @@
       "slug": "2026-08-13-klaimee-ai-agent-insurance",
       "topic_id": "klaimee-ai-agent-insurance",
       "at": "2026-08-13T17:21:31.414237+08:00"
+    },
+    {
+      "slug": "2026-11-25-icv-nev-model-clause",
+      "topic_id": null,
+      "at": "2026-11-25T11:58:13.812280+08:00"
     }
   ],
-  "last_brief_date": "2026-08-13",
+  "last_brief_date": "2026-11-25",
   "revoked_slugs": [
     "2026-07-23-nev-oem-profit-squeeze"
   ]
